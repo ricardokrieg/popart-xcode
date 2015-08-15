@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
+		8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26557B1B7ED08100648FC5 /* ViewController.swift */; };
+		8C26557F1B7ED08100648FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C26557D1B7ED08100648FC5 /* Main.storyboard */; };
+		8C2655811B7ED08100648FC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2655801B7ED08100648FC5 /* Images.xcassets */; };
+		8C2655841B7ED08100648FC5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2655821B7ED08100648FC5 /* LaunchScreen.xib */; };
+		8C2655901B7ED08100648FC5 /* PopArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26558F1B7ED08100648FC5 /* PopArtTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C26558A1B7ED08100648FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C26556C1B7ED08100648FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C2655731B7ED08100648FC5;
+			remoteInfo = PopArt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8C2655741B7ED08100648FC5 /* PopArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2655781B7ED08100648FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2655791B7ED08100648FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8C26557B1B7ED08100648FC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8C26557E1B7ED08100648FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C2655801B7ED08100648FC5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8C2655831B7ED08100648FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8C2655891B7ED08100648FC5 /* PopArtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopArtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C26558E1B7ED08100648FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C26558F1B7ED08100648FC5 /* PopArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopArtTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C2655711B7ED08100648FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C2655861B7ED08100648FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C26556B1B7ED08100648FC5 = {
+			isa = PBXGroup;
+			children = (
+				8C2655761B7ED08100648FC5 /* PopArt */,
+				8C26558C1B7ED08100648FC5 /* PopArtTests */,
+				8C2655751B7ED08100648FC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C2655751B7ED08100648FC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C2655741B7ED08100648FC5 /* PopArt.app */,
+				8C2655891B7ED08100648FC5 /* PopArtTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C2655761B7ED08100648FC5 /* PopArt */ = {
+			isa = PBXGroup;
+			children = (
+				8C2655791B7ED08100648FC5 /* AppDelegate.swift */,
+				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
+				8C26557D1B7ED08100648FC5 /* Main.storyboard */,
+				8C2655801B7ED08100648FC5 /* Images.xcassets */,
+				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
+				8C2655771B7ED08100648FC5 /* Supporting Files */,
+			);
+			path = PopArt;
+			sourceTree = "<group>";
+		};
+		8C2655771B7ED08100648FC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C2655781B7ED08100648FC5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C26558C1B7ED08100648FC5 /* PopArtTests */ = {
+			isa = PBXGroup;
+			children = (
+				8C26558F1B7ED08100648FC5 /* PopArtTests.swift */,
+				8C26558D1B7ED08100648FC5 /* Supporting Files */,
+			);
+			path = PopArtTests;
+			sourceTree = "<group>";
+		};
+		8C26558D1B7ED08100648FC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C26558E1B7ED08100648FC5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C2655731B7ED08100648FC5 /* PopArt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C2655931B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArt" */;
+			buildPhases = (
+				8C2655701B7ED08100648FC5 /* Sources */,
+				8C2655711B7ED08100648FC5 /* Frameworks */,
+				8C2655721B7ED08100648FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopArt;
+			productName = PopArt;
+			productReference = 8C2655741B7ED08100648FC5 /* PopArt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8C2655881B7ED08100648FC5 /* PopArtTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C2655961B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArtTests" */;
+			buildPhases = (
+				8C2655851B7ED08100648FC5 /* Sources */,
+				8C2655861B7ED08100648FC5 /* Frameworks */,
+				8C2655871B7ED08100648FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C26558B1B7ED08100648FC5 /* PBXTargetDependency */,
+			);
+			name = PopArtTests;
+			productName = PopArtTests;
+			productReference = 8C2655891B7ED08100648FC5 /* PopArtTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C26556C1B7ED08100648FC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Ricardo Franco";
+				TargetAttributes = {
+					8C2655731B7ED08100648FC5 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					8C2655881B7ED08100648FC5 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 8C2655731B7ED08100648FC5;
+					};
+				};
+			};
+			buildConfigurationList = 8C26556F1B7ED08100648FC5 /* Build configuration list for PBXProject "PopArt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C26556B1B7ED08100648FC5;
+			productRefGroup = 8C2655751B7ED08100648FC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C2655731B7ED08100648FC5 /* PopArt */,
+				8C2655881B7ED08100648FC5 /* PopArtTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C2655721B7ED08100648FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C26557F1B7ED08100648FC5 /* Main.storyboard in Resources */,
+				8C2655841B7ED08100648FC5 /* LaunchScreen.xib in Resources */,
+				8C2655811B7ED08100648FC5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C2655871B7ED08100648FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C2655701B7ED08100648FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
+				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C2655851B7ED08100648FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C2655901B7ED08100648FC5 /* PopArtTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C26558B1B7ED08100648FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C2655731B7ED08100648FC5 /* PopArt */;
+			targetProxy = 8C26558A1B7ED08100648FC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8C26557D1B7ED08100648FC5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C26557E1B7ED08100648FC5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8C2655821B7ED08100648FC5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C2655831B7ED08100648FC5 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C2655911B7ED08100648FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8C2655921B7ED08100648FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8C2655941B7ED08100648FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PopArt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8C2655951B7ED08100648FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PopArt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		8C2655971B7ED08100648FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PopArtTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopArt.app/PopArt";
+			};
+			name = Debug;
+		};
+		8C2655981B7ED08100648FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PopArtTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopArt.app/PopArt";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C26556F1B7ED08100648FC5 /* Build configuration list for PBXProject "PopArt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2655911B7ED08100648FC5 /* Debug */,
+				8C2655921B7ED08100648FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C2655931B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2655941B7ED08100648FC5 /* Debug */,
+				8C2655951B7ED08100648FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8C2655961B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArtTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C2655971B7ED08100648FC5 /* Debug */,
+				8C2655981B7ED08100648FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C26556C1B7ED08100648FC5 /* Project object */;
+}
