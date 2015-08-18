@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C22C6F91B820F1400627D69 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C22C6F81B820F1400627D69 /* Painting.swift */; };
+		8C22C6FB1B82109800627D69 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C22C6FA1B82109800627D69 /* Photo.swift */; };
 		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
 		8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26557B1B7ED08100648FC5 /* ViewController.swift */; };
 		8C26557F1B7ED08100648FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C26557D1B7ED08100648FC5 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C22C6F81B820F1400627D69 /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
+		8C22C6FA1B82109800627D69 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8C2655741B7ED08100648FC5 /* PopArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2655781B7ED08100648FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C2655791B7ED08100648FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			children = (
 				8C2655791B7ED08100648FC5 /* AppDelegate.swift */,
 				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
+				8C22C6F81B820F1400627D69 /* Painting.swift */,
+				8C22C6FA1B82109800627D69 /* Photo.swift */,
 				8C26557D1B7ED08100648FC5 /* Main.storyboard */,
 				8C2655801B7ED08100648FC5 /* Images.xcassets */,
 				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
@@ -212,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C22C6FB1B82109800627D69 /* Photo.swift in Sources */,
+				8C22C6F91B820F1400627D69 /* Painting.swift in Sources */,
 				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
 				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +419,7 @@
 				8C2655951B7ED08100648FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C2655961B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArtTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +428,7 @@
 				8C2655981B7ED08100648FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
