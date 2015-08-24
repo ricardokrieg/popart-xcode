@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C00DD211B890222009450BD /* SendingPictureViewController.swift */; };
 		8C22C6F91B820F1400627D69 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C22C6F81B820F1400627D69 /* Painting.swift */; };
 		8C22C6FB1B82109800627D69 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C22C6FA1B82109800627D69 /* Photo.swift */; };
 		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
@@ -15,6 +16,10 @@
 		8C2655811B7ED08100648FC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2655801B7ED08100648FC5 /* Images.xcassets */; };
 		8C2655841B7ED08100648FC5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2655821B7ED08100648FC5 /* LaunchScreen.xib */; };
 		8C2655901B7ED08100648FC5 /* PopArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26558F1B7ED08100648FC5 /* PopArtTests.swift */; };
+		8CF994F41B82D05600BC4E44 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F31B82D05600BC4E44 /* Server.swift */; };
+		8CF994F81B82E4E600BC4E44 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F51B82E4E600BC4E44 /* ysocket.swift */; };
+		8CF994F91B82E4E600BC4E44 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */; };
+		8CF994FA1B82E4E600BC4E44 /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F71B82E4E600BC4E44 /* ytcpsocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C00DD211B890222009450BD /* SendingPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingPictureViewController.swift; sourceTree = "<group>"; };
 		8C22C6F81B820F1400627D69 /* Painting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painting.swift; sourceTree = "<group>"; };
 		8C22C6FA1B82109800627D69 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8C2655741B7ED08100648FC5 /* PopArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +46,10 @@
 		8C2655891B7ED08100648FC5 /* PopArtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopArtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C26558E1B7ED08100648FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C26558F1B7ED08100648FC5 /* PopArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopArtTests.swift; sourceTree = "<group>"; };
+		8CF994F31B82D05600BC4E44 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		8CF994F51B82E4E600BC4E44 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
+		8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
+		8CF994F71B82E4E600BC4E44 /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +91,19 @@
 		8C2655761B7ED08100648FC5 /* PopArt */ = {
 			isa = PBXGroup;
 			children = (
+				8CF994F51B82E4E600BC4E44 /* ysocket.swift */,
+				8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */,
+				8CF994F71B82E4E600BC4E44 /* ytcpsocket.swift */,
 				8C2655791B7ED08100648FC5 /* AppDelegate.swift */,
 				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
 				8C22C6F81B820F1400627D69 /* Painting.swift */,
 				8C22C6FA1B82109800627D69 /* Photo.swift */,
 				8C26557D1B7ED08100648FC5 /* Main.storyboard */,
+				8C00DD211B890222009450BD /* SendingPictureViewController.swift */,
 				8C2655801B7ED08100648FC5 /* Images.xcassets */,
 				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
 				8C2655771B7ED08100648FC5 /* Supporting Files */,
+				8CF994F31B82D05600BC4E44 /* Server.swift */,
 			);
 			path = PopArt;
 			sourceTree = "<group>";
@@ -218,10 +233,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF994F81B82E4E600BC4E44 /* ysocket.swift in Sources */,
+				8CF994F41B82D05600BC4E44 /* Server.swift in Sources */,
 				8C22C6FB1B82109800627D69 /* Photo.swift in Sources */,
 				8C22C6F91B820F1400627D69 /* Painting.swift in Sources */,
+				8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */,
+				8CF994FA1B82E4E600BC4E44 /* ytcpsocket.swift in Sources */,
 				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
 				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,
+				8CF994F91B82E4E600BC4E44 /* ytcpsocket.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
