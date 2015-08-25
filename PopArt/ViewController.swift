@@ -9,20 +9,37 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     
-    @IBAction func cameraButtonClicked(sender: AnyObject) {
-        println("Click")
-    }
+    let imagePicker = UIImagePickerController()
+    var pickedImage: UIImage?
     
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
     var captureDevice: AVCaptureDevice?
+    
+    @IBAction func cameraButtonClicked(sender: UIButton) {
+        println("Camera")
+        
+        performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+    }
+    
+    @IBAction func selectImageButtonClicked(sender: UIBarButtonItem) {
+        pickedImage = nil
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        imagePicker.delegate = self
         
         captureSession.sessionPreset = AVCaptureSessionPresetLow
         
@@ -49,6 +66,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromMainToSendingPicture" {
+            if pickedImage != nil {
+                let destination = segue.destinationViewController as! SendingPictureViewController
+                destination.pickedImage = pickedImage
+                pickedImage = nil
+            }
+        }
+    }
+    
     func configureDevice() {
         if let device = captureDevice {
             device.lockForConfiguration(nil)
@@ -72,6 +99,20 @@ class ViewController: UIViewController {
         self.view.layer.addSublayer(previewLayer)
         previewLayer?.frame = self.view.layer.frame
         captureSession.startRunning()
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate Methods
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        pickedImage = image
+        
+        dismissViewControllerAnimated(true, completion: {
+            self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+        })
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
