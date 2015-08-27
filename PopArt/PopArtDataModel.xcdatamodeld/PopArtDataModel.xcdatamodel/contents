@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Painting" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result_description_l1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result_description_l2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result_description_l3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result_image_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result_title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Painting" positionX="-63" positionY="-18" width="128" height="150"/>
+    </elements>
+</model>

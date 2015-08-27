@@ -20,6 +20,11 @@
 		8CF994F81B82E4E600BC4E44 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F51B82E4E600BC4E44 /* ysocket.swift */; };
 		8CF994F91B82E4E600BC4E44 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */; };
 		8CF994FA1B82E4E600BC4E44 /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F71B82E4E600BC4E44 /* ytcpsocket.swift */; };
+		8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */; };
+		8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */; };
+		8CFEA68D1B8D3F9500826DB1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA68C1B8D3F9500826DB1 /* SwiftyJSON.swift */; };
+		8CFEA6931B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6911B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld */; };
+		8CFEA6951B8F582800826DB1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6941B8F582800826DB1 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,11 @@
 		8CF994F51B82E4E600BC4E44 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
 		8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
 		8CF994F71B82E4E600BC4E44 /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
+		8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8CFEA68C1B8D3F9500826DB1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		8CFEA6921B8F575F00826DB1 /* PopArtDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopArtDataModel.xcdatamodel; sourceTree = "<group>"; };
+		8CFEA6941B8F582800826DB1 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +84,7 @@
 		8C26556B1B7ED08100648FC5 = {
 			isa = PBXGroup;
 			children = (
+				8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */,
 				8C2655761B7ED08100648FC5 /* PopArt */,
 				8C26558C1B7ED08100648FC5 /* PopArtTests */,
 				8C2655751B7ED08100648FC5 /* Products */,
@@ -95,6 +107,8 @@
 				8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */,
 				8CF994F71B82E4E600BC4E44 /* ytcpsocket.swift */,
 				8C2655791B7ED08100648FC5 /* AppDelegate.swift */,
+				8CFEA6911B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld */,
+				8CFEA6941B8F582800826DB1 /* HistoryViewController.swift */,
 				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
 				8C22C6F81B820F1400627D69 /* Painting.swift */,
 				8C22C6FA1B82109800627D69 /* Photo.swift */,
@@ -104,6 +118,8 @@
 				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
 				8C2655771B7ED08100648FC5 /* Supporting Files */,
 				8CF994F31B82D05600BC4E44 /* Server.swift */,
+				8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */,
+				8CFEA68C1B8D3F9500826DB1 /* SwiftyJSON.swift */,
 			);
 			path = PopArt;
 			sourceTree = "<group>";
@@ -234,10 +250,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF994F81B82E4E600BC4E44 /* ysocket.swift in Sources */,
+				8CFEA6931B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld in Sources */,
 				8CF994F41B82D05600BC4E44 /* Server.swift in Sources */,
 				8C22C6FB1B82109800627D69 /* Photo.swift in Sources */,
+				8CFEA6951B8F582800826DB1 /* HistoryViewController.swift in Sources */,
+				8CFEA68D1B8D3F9500826DB1 /* SwiftyJSON.swift in Sources */,
 				8C22C6F91B820F1400627D69 /* Painting.swift in Sources */,
 				8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */,
+				8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */,
 				8CF994FA1B82E4E600BC4E44 /* ytcpsocket.swift in Sources */,
 				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
 				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,
@@ -451,6 +471,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8CFEA6911B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8CFEA6921B8F575F00826DB1 /* PopArtDataModel.xcdatamodel */,
+			);
+			currentVersion = 8CFEA6921B8F575F00826DB1 /* PopArtDataModel.xcdatamodel */;
+			path = PopArtDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8C26556C1B7ED08100648FC5 /* Project object */;
 }

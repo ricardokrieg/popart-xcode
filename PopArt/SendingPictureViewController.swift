@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SendingPictureViewController: UIViewController {
     @IBOutlet weak var imageContainer: UIImageView!
     
+    let locationManager = CLLocationManager()
+    
     var pickedImage: UIImage?
+    var result: NSData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +32,72 @@ class SendingPictureViewController: UIViewController {
                     imageContainer.image = UIImage(data: data)
                     let imageData = UIImageJPEGRepresentation(imageContainer.image, 0.5)
                     let imageDataBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
-                    //                let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
-                    //                println(imageDataBase64)
+                    // let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
+                    // println(imageDataBase64)
+                    // server.send("\(imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)):\(imageDataBase64)")
+                }
+            }
+        }
+        
+//        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
+        
+        var currentLocation: CLLocation?
+        
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways) {
+                currentLocation = locationManager.location
+        }
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            if self.imageContainer.image != nil {
+                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 0.5)
+                let imageDataBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
+            
+                server.send("identify")
+            
+                if let response = server.read() {
+                    if response == "ok" {
+                        if currentLocation != nil {
+                            server.send("geolocation")
+            
+                            if let response = server.read() {
+                                if response == "ok" {
+                                    server.send(JSON([currentLocation?.coordinate.latitude, currentLocation?.coordinate.longitude].description).stringValue)
+                                
+                                    server.read()
+                                }
+                            }
+                        }
                     
-                    server.send("identify")
-                    if let response = server.read() {
-                        if response == "ok" {
-                            server.send("\(imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)):\(imageDataBase64)")
+                        server.send("image-data")
+                    
+                        if let response = server.read() {
+                            if response == "ok" {
+                                server.send("\(imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)):\(imageDataBase64)")
+                            
+                                if let response = server.read() {
+                                    if response == "acknowledge" {
+                                        server.send("done")
+                                    
+                                        if let response = server.read() {
+//                                            self.result = JSON(response)
+//                                            let teste = JSON(response)
+//                                            println(teste[0].string)
+                                            self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
+                                            self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
+            
+            dispatch_async(dispatch_get_main_queue()) {}
         }
     }
 
@@ -47,6 +106,15 @@ class SendingPictureViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromSendingPictureToResult" {
+            if result != nil {
+                let destination = segue.destinationViewController as! ResultViewController
+                destination.result = result
+                result = nil
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -16,6 +16,7 @@
 
 import Foundation
 
+//let SERVER_ADDRESS = "popart-app.com"
 let SERVER_ADDRESS = "192.168.0.175"
 let SERVER_PORT = 5100
 
@@ -38,7 +39,7 @@ class Server {
     
     func read() -> NSString? {
         println("Read")
-        var data = client.read(1024*10)
+        let data = client.read(1024*10)
         if let d=data{
             if let str=NSString(bytes: d, length: d.count, encoding: NSUTF8StringEncoding){
                 println(str)
