@@ -21,6 +21,10 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         if result != nil {
             let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
             
@@ -71,8 +75,6 @@ class ResultViewController: UIViewController {
                 println("Could not save \(error), \(error?.userInfo)")
             }
         }
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

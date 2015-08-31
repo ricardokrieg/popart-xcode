@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate {
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var selectImageButton: UIBarButtonItem!
     
@@ -34,6 +34,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
+    @IBAction func moreButtonClicked(sender: UIButton) {
+        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Settings", "Profile", "About")
+        
+        actionSheet.showInView(self.view)
+    }
+    
+    @IBAction func backToMain(segue: UIStoryboardSegue) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,5 +122,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: - UIActionSheetDelegate Methods
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {}
     
 }

@@ -2,24 +2,43 @@
 //  HistoryViewController.swift
 //  PopArt
 //
-//  Created by Ricardo Franco on 27/08/15.
+//  Created by Ricardo Franco on 29/08/15.
 //  Copyright (c) 2015 Ricardo Franco. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class HistoryViewController: UIViewController, UITableViewDataSource {
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     var paintings = [NSManagedObject]()
 
+    @IBAction func clearButtonClicked(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        
+        let fetchRequest = NSFetchRequest(entityName: "Painting")
+        
+        var error: NSError?
+        
+        var fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        
+        fetchedResults!.removeAll(keepCapacity: false)
+        
+        self.tableView.reloadData()
+        
+        println("History cleared")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerClass(HistoryTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,31 +60,35 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         
         if let results = fetchedResults {
             paintings = results
+            
+            println("History: \(paintings.count) items")
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
     }
     
-    
-    // MARK: UITableViewDataSource
-    
-    func tableView(tableView: UITableView,
-        numberOfRowsInSection section: Int) -> Int {
-            return paintings.count
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return paintings.count
     }
     
-    func tableView(tableView: UITableView,
-        cellForRowAtIndexPath
-        indexPath: NSIndexPath) -> UITableViewCell {
-            
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-            
-            let painting = paintings[indexPath.row]
-            cell.textLabel!.text = painting.valueForKey("result_title") as? String
-            
-            return cell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! HistoryTableViewCell
+        
+        let painting = paintings[indexPath.row]
+        
+        cell.textLabel!.text = painting.valueForKey("result_title") as? String
+        
+        let image_url = painting.valueForKey("image_url") as? String
+
+        if let url = NSURL(string: image_url!) {
+            if let data = NSData(contentsOfURL: url){
+//                cell.imageContainer!.contentMode = .ScaleAspectFit
+//                cell.imageContainer!.image = UIImage(data: data)
+            }
+        }
+        
+        return cell
     }
-    
 
     /*
     // MARK: - Navigation

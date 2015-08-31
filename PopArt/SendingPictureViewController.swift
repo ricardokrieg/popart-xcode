@@ -11,6 +11,7 @@ import CoreLocation
 
 class SendingPictureViewController: UIViewController {
     @IBOutlet weak var imageContainer: UIImageView!
+    @IBOutlet weak var statusLabel: UILabel!
     
     let locationManager = CLLocationManager()
     
@@ -21,6 +22,10 @@ class SendingPictureViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.statusLabel.text = "Uploading"
         
         if pickedImage != nil {
             imageContainer.contentMode = .ScaleAspectFit
@@ -28,13 +33,8 @@ class SendingPictureViewController: UIViewController {
         } else {
             if let url = NSURL(string: "http://www.vangoghbikes.com/wp-content/uploads/2014/12/Johannes_Vermeer_1632-1675_-_The_Girl_With_The_Pearl_Earring_1665-2.jpg") {
                 if let data = NSData(contentsOfURL: url){
-                    //imageContainer.contentMode = UIViewContentMode.ScaleAspectFit
+                    imageContainer.contentMode = .ScaleAspectFit
                     imageContainer.image = UIImage(data: data)
-                    let imageData = UIImageJPEGRepresentation(imageContainer.image, 0.5)
-                    let imageDataBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
-                    // let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
-                    // println(imageDataBase64)
-                    // server.send("\(imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)):\(imageDataBase64)")
                 }
             }
         }
@@ -60,17 +60,17 @@ class SendingPictureViewController: UIViewController {
             
                 if let response = server.read() {
                     if response == "ok" {
-                        if currentLocation != nil {
-                            server.send("geolocation")
-            
-                            if let response = server.read() {
-                                if response == "ok" {
-                                    server.send(JSON([currentLocation?.coordinate.latitude, currentLocation?.coordinate.longitude].description).stringValue)
-                                
-                                    server.read()
-                                }
-                            }
-                        }
+//                        if currentLocation != nil {
+//                            server.send("geolocation")
+//            
+//                            if let response = server.read() {
+//                                if response == "ok" {
+//                                    server.send(JSON([currentLocation?.coordinate.latitude, currentLocation?.coordinate.longitude].description).stringValue)
+//                                
+//                                    server.read()
+//                                }
+//                            }
+//                        }
                     
                         server.send("image-data")
                     
@@ -81,11 +81,14 @@ class SendingPictureViewController: UIViewController {
                                 if let response = server.read() {
                                     if response == "acknowledge" {
                                         server.send("done")
+                                        
+                                        dispatch_async(dispatch_get_main_queue()) {
+                                            self.statusLabel.text = "Searching"
+                                        }
                                     
                                         if let response = server.read() {
-//                                            self.result = JSON(response)
-//                                            let teste = JSON(response)
-//                                            println(teste[0].string)
+                                            server.disconnect()
+                                            
                                             self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
                                             self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
                                         }
