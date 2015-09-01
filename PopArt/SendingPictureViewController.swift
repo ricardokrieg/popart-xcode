@@ -146,6 +146,7 @@ class SendingPictureViewController: UIViewController {
             if result != nil {
                 let destination = segue.destinationViewController as! ResultViewController
                 destination.result = result
+                destination.saveToHistory = true
                 result = nil
             }
         }

@@ -17,6 +17,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultDescriptionL3: UILabel!
     
     var result: NSData?
+    var saveToHistory = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +29,15 @@ class ResultViewController: UIViewController {
         if result != nil {
             let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
             
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let managedContext = appDelegate.managedObjectContext!
+            let result_image_url = json?["image_url"] as? String?
+            let result_query_image_url = json?["query_image_url"] as? String?
+            let result_title = json?["title"] as? String?
+            let result_description_l1 = json?["description_l1"] as? String?
+            let result_description_l2 = json?["description_l2"] as? String?
+            let result_description_l3 = json?["description_l3"] as? String?
             
-            let entity =  NSEntityDescription.entityForName("Painting", inManagedObjectContext: managedContext)
-            let painting = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-            
-            if let result_image_url = json?["image_url"] as? String? {
-                painting.setValue(result_image_url, forKey: "result_image_url")
-                
-                if let url = NSURL(string: result_image_url!) {
+            if result_image_url != nil {
+                if let url = NSURL(string: result_image_url!!) {
                     if let data = NSData(contentsOfURL: url){
                         resultImage.contentMode = .ScaleAspectFit
                         resultImage.image = UIImage(data: data)
@@ -45,36 +45,64 @@ class ResultViewController: UIViewController {
                 }
             }
             
-            if let result_query_image_url = json?["query_image_url"] as? String? {
-                painting.setValue(result_query_image_url, forKey: "image_url")
+            if result_title != nil {
+                resultTitle.text = result_title!
             }
             
-            if let result_title = json?["title"] as? String? {
-                painting.setValue(result_title, forKey: "result_title")
+            if result_description_l1 != nil {
+                resultDescriptionL1.text = result_description_l1!
             }
             
-            if let result_description_l1 = json?["description_l1"] as? String? {
-                painting.setValue(result_description_l1, forKey: "result_description_l1")
+            if result_description_l2 != nil {
+                resultDescriptionL2.text = result_description_l2!
             }
             
-            if let result_description_l2 = json?["description_l2"] as? String? {
-                painting.setValue(result_description_l2, forKey: "result_description_l2")
+            if result_description_l3 != nil {
+                resultDescriptionL3.text = result_description_l3!
             }
             
-            if let result_description_l3 = json?["description_l3"] as? String? {
-                painting.setValue(result_description_l3, forKey: "result_description_l3")
-            }
-            
-            resultTitle.text = painting.valueForKey("result_title") as? String
-            resultDescriptionL1.text = painting.valueForKey("result_description_l1") as? String
-            resultDescriptionL2.text = painting.valueForKey("result_description_l2") as? String
-            resultDescriptionL3.text = painting.valueForKey("result_description_l3") as? String
-            
-            if let result_success = json?["success"] as? Bool? {
-                if result_success == true {
-                    var error: NSError?
-                    if !managedContext.save(&error) {
-                        println("Could not save \(error), \(error?.userInfo)")
+            if saveToHistory {
+                saveToHistory = false
+                
+                if let result_success = json?["success"] as? Bool? {
+                    if result_success == true {
+                        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                        let managedContext = appDelegate.managedObjectContext!
+                        
+                        let entity =  NSEntityDescription.entityForName("Painting", inManagedObjectContext: managedContext)
+                        let painting = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+                        
+                        if result_query_image_url != nil {
+                            painting.setValue(result_query_image_url!, forKey: "image_url")
+                        }
+                        
+                        if result_image_url != nil {
+                            painting.setValue(result_image_url!, forKey: "result_image_url")
+                        }
+                        
+                        if result_title != nil {
+                            painting.setValue(result_title!, forKey: "result_title")
+                        }
+                        
+                        if result_description_l1 != nil {
+                            painting.setValue(result_description_l1!, forKey: "result_description_l1")
+                        }
+                        
+                        if result_description_l2 != nil {
+                            painting.setValue(result_description_l2!, forKey: "result_description_l2")
+                        }
+                        
+                        if result_description_l3 != nil {
+                            painting.setValue(result_description_l3!, forKey: "result_description_l3")
+                        }
+                        
+                        painting.setValue(NSDate(), forKey: "date")
+                        painting.setValue(result!, forKey: "json")
+                        
+                        var error: NSError?
+                        if !managedContext.save(&error) {
+                            println("Could not save \(error), \(error?.userInfo)")
+                        }
                     }
                 }
             }

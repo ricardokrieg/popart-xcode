@@ -12,33 +12,34 @@ import CoreData
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
+    var result: NSData?
     var paintings = [NSManagedObject]()
 
     @IBAction func clearButtonClicked(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
-        
+    
         let fetchRequest = NSFetchRequest(entityName: "Painting")
         
-        var error: NSError?
+        var fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: nil) as? [NSManagedObject]
         
-        var fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
-        
-        fetchedResults!.removeAll(keepCapacity: false)
-        
-        self.tableView.reloadData()
-        
-        println("History cleared")
+        if let results = fetchedResults {
+            for history in fetchedResults! {
+                managedContext.deleteObject(history)
+            }
+            
+            fetchedResults!.removeAll(keepCapacity: false)
+            
+            managedContext.save(nil)
+            
+            self.tableView.reloadData()
+            
+            println("History cleared")
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        tableView.registerClass(HistoryTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,30 +77,45 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let painting = paintings[indexPath.row]
         
-//        cell.textLabel!.text = painting.valueForKey("result_title") as? String
         cell.titleLabel!.text = painting.valueForKey("result_title") as? String
         cell.descriptionLabel!.text = painting.valueForKey("result_description_l1") as? String
+//        cell.dateLabel!.text = painting.valueForKey("date") as? NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        if let result_date = painting.valueForKey("date") as? NSDate {
+            cell.dateLabel!.text = dateFormatter.stringFromDate(result_date)
+        }
         
-        let image_url = painting.valueForKey("image_url") as? String
-
-        if let url = NSURL(string: image_url!) {
-            if let data = NSData(contentsOfURL: url){
-                cell.imageContainer!.contentMode = .ScaleAspectFit
-                cell.imageContainer!.image = UIImage(data: data)
+        if let image_url = painting.valueForKey("image_url") as? String {
+            if let url = NSURL(string: image_url) {
+                if let data = NSData(contentsOfURL: url){
+                    cell.imageContainer!.contentMode = .ScaleAspectFit
+                    cell.imageContainer!.image = UIImage(data: data)
+                }
             }
         }
         
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let painting = paintings[indexPath.row]
+        
+        result = painting.valueForKey("json") as? NSData
+        performSegueWithIdentifier("fromHistoryToResult", sender: nil)
     }
-    */
+
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromHistoryToResult" {
+            if result != nil {
+                let destination = segue.destinationViewController as! ResultViewController
+                destination.result = result
+                destination.saveToHistory = false
+                self.result = nil
+            }
+        }
+    }
 
 }

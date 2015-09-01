@@ -110,11 +110,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func configureDevice() {
-//        if let device = captureDevice {
-//            device.lockForConfiguration(nil)
-//            device.focusMode = .Locked
-//            device.unlockForConfiguration()
-//        }
+        if let device = captureDevice {
+            device.lockForConfiguration(nil)
+            device.focusMode = .Locked
+            device.unlockForConfiguration()
+        }
     }
     
     func beginSession() {
@@ -165,7 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - CLLocationManagerDelegate Methods
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
+//        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
         
         server.location = manager.location
     }
