@@ -13,8 +13,6 @@ class SendingPictureViewController: UIViewController {
     @IBOutlet weak var imageContainer: UIImageView!
     @IBOutlet weak var statusLabel: UILabel!
     
-    let locationManager = CLLocationManager()
-    
     var pickedImage: UIImage?
     var result: NSData?
 
@@ -25,37 +23,67 @@ class SendingPictureViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        if !server.shouldSend { return }
+        
         self.statusLabel.text = "Uploading"
+        
+        // Display capture/picked image
         
         if pickedImage != nil {
             imageContainer.contentMode = .ScaleAspectFit
-            imageContainer.image = pickedImage
+            imageContainer.image = compressImage(pickedImage!)
         } else {
             if let url = NSURL(string: "http://www.vangoghbikes.com/wp-content/uploads/2014/12/Johannes_Vermeer_1632-1675_-_The_Girl_With_The_Pearl_Earring_1665-2.jpg") {
                 if let data = NSData(contentsOfURL: url){
                     imageContainer.contentMode = .ScaleAspectFit
-                    imageContainer.image = UIImage(data: data)
+                    imageContainer.image = compressImage(UIImage(data: data)!)
                 }
             }
         }
         
-//        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
+        // Get location
         
-        var currentLocation: CLLocation?
-        
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways) {
-                currentLocation = locationManager.location
+        if server.location != nil {
+            println("User location: (\(server.location!.coordinate.latitude), \(server.location!.coordinate.longitude))")
+        } else {
+            println("User didnt allow location")
         }
+        
+        // Send to server
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if self.imageContainer.image != nil {
-                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 0.5)
+                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 1.0)
                 let imageDataBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
+//                let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
+                
+                let message_code = "IDENTIFY64"
+//                let message_code = "IDENTIFY"
+                let message_lat  = server.location?.coordinate.latitude
+                let message_lng  = server.location?.coordinate.longitude
+                let message_size = imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+                let message_data = imageDataBase64
+//                let message_size = imageDataString!.length
+//                let message_data = imageDataString
             
+                let message = "\(message_code):\(message_lat):\(message_lng):\(message_size):\(message_data)"
+                
+                server.connect()
+                server.send(message)
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.statusLabel.text = "Searching"
+                }
+                
+                if let response = server.read() {
+                    server.disconnect()
+                    
+                    self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
+                    self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
+                }
+                
+                /*
+                if false {
                 server.send("identify")
             
                 if let response = server.read() {
@@ -97,11 +125,15 @@ class SendingPictureViewController: UIViewController {
                             }
                         }
                     }
+                    }
                 }
+                */
             }
             
             dispatch_async(dispatch_get_main_queue()) {}
         }
+        
+        server.shouldSend = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,6 +149,44 @@ class SendingPictureViewController: UIViewController {
                 result = nil
             }
         }
+    }
+    
+    func compressImage(image: UIImage) -> UIImage {
+        var actualHeight = Double(image.size.height)
+        var actualWidth = Double(image.size.width)
+        let maxHeight = 600.0
+        let maxWidth = 800.0
+        var imgRatio = actualWidth/actualHeight
+        let maxRatio = maxWidth/maxHeight
+        let compressionQuality = 0.5
+        
+        if actualHeight > maxHeight || actualWidth > maxWidth {
+            if imgRatio < maxRatio {
+                //adjust width according to maxHeight
+                imgRatio = maxHeight / actualHeight
+                actualWidth = imgRatio * actualWidth
+                actualHeight = maxHeight
+            } else if imgRatio > maxRatio {
+                //adjust height according to maxWidth
+                imgRatio = maxWidth / actualWidth
+                actualHeight = imgRatio * actualHeight
+                actualWidth = maxWidth
+            } else {
+                actualHeight = maxHeight
+                actualWidth = maxWidth
+            }
+        }
+        
+        let rect = CGRectMake(CGFloat(0.0), CGFloat(0.0), CGFloat(actualWidth), CGFloat(actualHeight))
+        UIGraphicsBeginImageContext(rect.size)
+        
+        image.drawInRect(rect)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        let imageData = UIImageJPEGRepresentation(img, CGFloat(compressionQuality))
+        UIGraphicsEndImageContext()
+        
+        return UIImage(data: imageData)!
     }
 
     /*

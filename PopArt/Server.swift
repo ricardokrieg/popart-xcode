@@ -15,6 +15,7 @@
 //        var (success,errormsg)=client.close()
 
 import Foundation
+import CoreLocation
 
 let SERVER_ADDRESS = "popart-app.com"
 //let SERVER_ADDRESS = "192.168.0.175"
@@ -22,39 +23,29 @@ let SERVER_PORT = 5100
 
 class Server {
     let client: TCPClient = TCPClient(addr: SERVER_ADDRESS, port: SERVER_PORT)
-    var connected = false
+    var shouldSend = false
+    
+    var location: CLLocation?
     
     init() {}
     
     func connect() {
         client.connect(timeout: 10)
-        
-        connected = true
     }
     
     func disconnect() {
         client.close()
-        
-        connected = false
     }
     
     func send(message: NSData) {
-        if !connected { connect() }
-        
         println("Send \(message)")
         client.send(data: message)
     }
     
     func send(message: String) {
-        if !connected { connect() }
-        
-        var print_message = message
-        if String(Array(message)[0] as Character).toInt() != nil {
-            print_message = "Base64 Image"
-        }
-        
-        println("Send \(print_message)")
-        
+        let array_message = Array(message)[0..<100]
+        let print_message = String(array_message)
+        println("Send \(print_message) ...")
         
         client.send(str: message)
     }

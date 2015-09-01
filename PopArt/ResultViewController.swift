@@ -70,9 +70,13 @@ class ResultViewController: UIViewController {
             resultDescriptionL2.text = painting.valueForKey("result_description_l2") as? String
             resultDescriptionL3.text = painting.valueForKey("result_description_l3") as? String
             
-            var error: NSError?
-            if !managedContext.save(&error) {
-                println("Could not save \(error), \(error?.userInfo)")
+            if let result_success = json?["success"] as? Bool? {
+                if result_success == true {
+                    var error: NSError?
+                    if !managedContext.save(&error) {
+                        println("Could not save \(error), \(error?.userInfo)")
+                    }
+                }
             }
         }
     }

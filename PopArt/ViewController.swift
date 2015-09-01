@@ -8,13 +8,19 @@
 
 import UIKit
 import AVFoundation
+import CoreLocation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, CLLocationManagerDelegate {
+    
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var selectImageButton: UIBarButtonItem!
     
+    let locationManager = CLLocationManager()
+    
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
+    
+    var page_url: String?
     
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
@@ -46,6 +52,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        // Ask for Authorisation from the User.
+//        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+//        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+//        }
         
         imagePicker.delegate = self
         
@@ -81,6 +99,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 destination.pickedImage = pickedImage
                 pickedImage = nil
             }
+            
+            server.shouldSend = true
+        } else if segue.identifier == "fromMainToPage" {
+            let destination = segue.destinationViewController as! PageViewController
+            destination.url = page_url
         }
     }
     
@@ -125,6 +148,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - UIActionSheetDelegate Methods
     
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {}
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex {
+        case 1:
+            performSegueWithIdentifier("fromMainToSettings", sender: nil)
+        case 3:
+            page_url = "http://popart-app.com/static/about-us.html"
+            performSegueWithIdentifier("fromMainToPage", sender: nil)
+        default:
+            println("actionSheet without action \(buttonIndex)")
+        }
+    }
+    
+    // MARK: - CLLocationManagerDelegate Methods
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
+        
+        server.location = manager.location
+    }
     
 }

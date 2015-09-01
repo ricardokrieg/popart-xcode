@@ -18,6 +18,8 @@
 		8C2655901B7ED08100648FC5 /* PopArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26558F1B7ED08100648FC5 /* PopArtTests.swift */; };
 		8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */; };
 		8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C34DAA61B924DB400D9EB8D /* HistoryViewController.swift */; };
+		8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */; };
+		8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */; };
 		8CF994F41B82D05600BC4E44 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F31B82D05600BC4E44 /* Server.swift */; };
 		8CF994F81B82E4E600BC4E44 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F51B82E4E600BC4E44 /* ysocket.swift */; };
 		8CF994F91B82E4E600BC4E44 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */; };
@@ -53,6 +55,8 @@
 		8C26558F1B7ED08100648FC5 /* PopArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopArtTests.swift; sourceTree = "<group>"; };
 		8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		8C34DAA61B924DB400D9EB8D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8CF994F31B82D05600BC4E44 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		8CF994F51B82E4E600BC4E44 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
 		8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				8C22C6F81B820F1400627D69 /* Painting.swift */,
 				8C22C6FA1B82109800627D69 /* Photo.swift */,
 				8C26557D1B7ED08100648FC5 /* Main.storyboard */,
+				8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */,
+				8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */,
 				8C34DAA61B924DB400D9EB8D /* HistoryViewController.swift */,
 				8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */,
 				8C00DD211B890222009450BD /* SendingPictureViewController.swift */,
@@ -254,11 +260,13 @@
 				8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */,
 				8CF994F41B82D05600BC4E44 /* Server.swift in Sources */,
 				8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */,
+				8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */,
 				8C22C6FB1B82109800627D69 /* Photo.swift in Sources */,
 				8C22C6F91B820F1400627D69 /* Painting.swift in Sources */,
 				8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */,
 				8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */,
 				8CF994FA1B82E4E600BC4E44 /* ytcpsocket.swift in Sources */,
+				8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */,
 				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
 				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,
 				8CF994F91B82E4E600BC4E44 /* ytcpsocket.c in Sources */,
