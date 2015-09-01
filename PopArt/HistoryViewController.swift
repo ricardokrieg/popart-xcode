@@ -36,9 +36,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         // Do any additional setup after loading the view.
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.registerClass(HistoryTableViewCell.self, forCellReuseIdentifier: "Cell")
+//        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.registerClass(HistoryTableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,14 +76,16 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let painting = paintings[indexPath.row]
         
-        cell.textLabel!.text = painting.valueForKey("result_title") as? String
+//        cell.textLabel!.text = painting.valueForKey("result_title") as? String
+        cell.titleLabel!.text = painting.valueForKey("result_title") as? String
+        cell.descriptionLabel!.text = painting.valueForKey("result_description_l1") as? String
         
         let image_url = painting.valueForKey("image_url") as? String
 
         if let url = NSURL(string: image_url!) {
             if let data = NSData(contentsOfURL: url){
-//                cell.imageContainer!.contentMode = .ScaleAspectFit
-//                cell.imageContainer!.image = UIImage(data: data)
+                cell.imageContainer!.contentMode = .ScaleAspectFit
+                cell.imageContainer!.image = UIImage(data: data)
             }
         }
         
