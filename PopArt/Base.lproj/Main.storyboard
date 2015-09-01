@@ -504,6 +504,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ylc-6B-VjN">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="teY-Ue-OVL"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="facebookIcon" id="hq4-TW-pxb"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="eP8-cx-E3D"/>
+                                    <barButtonItem image="twitterIcon" id="aaB-N2-eca"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3dH-dQ-oZ4"/>
+                                    <barButtonItem image="googlePlusIcon" id="I4b-DL-7EY"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CYI-a7-d6o"/>
+                                    <barButtonItem image="mailIcon" id="LO2-rJ-BWZ"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -535,6 +552,7 @@
                             <constraint firstItem="pBU-L7-Ids" firstAttribute="top" secondItem="PQt-gq-DoH" secondAttribute="bottom" constant="8" id="NH3-6X-0yt"/>
                             <constraint firstItem="PQt-gq-DoH" firstAttribute="trailing" secondItem="Zli-5l-t7g" secondAttribute="trailingMargin" id="Niw-GU-WAx"/>
                             <constraint firstItem="PQt-gq-DoH" firstAttribute="leading" secondItem="Zli-5l-t7g" secondAttribute="leadingMargin" id="NlL-en-xb4"/>
+                            <constraint firstItem="d3J-qq-lPv" firstAttribute="top" secondItem="ylc-6B-VjN" secondAttribute="bottom" id="OSx-dK-sjA"/>
                             <constraint firstAttribute="centerX" secondItem="jm0-DT-iQ6" secondAttribute="centerX" id="PRQ-3z-Gib"/>
                             <constraint firstItem="eMV-4D-ooA" firstAttribute="trailing" secondItem="Zli-5l-t7g" secondAttribute="trailingMargin" id="Q8d-ca-JQt"/>
                             <constraint firstItem="X84-DW-vie" firstAttribute="leading" secondItem="Zli-5l-t7g" secondAttribute="leadingMargin" constant="-16" id="QZG-ZW-NV3"/>
@@ -546,6 +564,7 @@
                             <constraint firstItem="PQt-gq-DoH" firstAttribute="trailing" secondItem="Zli-5l-t7g" secondAttribute="trailingMargin" id="YD0-bX-QSj"/>
                             <constraint firstItem="pVa-2b-9qA" firstAttribute="top" secondItem="ilh-eJ-72M" secondAttribute="bottom" id="aFb-EP-jEo"/>
                             <constraint firstItem="X84-DW-vie" firstAttribute="top" secondItem="jm0-DT-iQ6" secondAttribute="top" constant="-328" id="aqm-B6-8KI"/>
+                            <constraint firstItem="ylc-6B-VjN" firstAttribute="width" secondItem="Zli-5l-t7g" secondAttribute="width" id="bTO-Cd-Cxy"/>
                             <constraint firstItem="X84-DW-vie" firstAttribute="top" secondItem="jm0-DT-iQ6" secondAttribute="top" constant="-272" id="c9d-ck-BDe"/>
                             <constraint firstItem="PQt-gq-DoH" firstAttribute="leading" secondItem="Zli-5l-t7g" secondAttribute="leadingMargin" id="clA-MS-6gt"/>
                             <constraint firstItem="pBU-L7-Ids" firstAttribute="trailing" secondItem="Zli-5l-t7g" secondAttribute="trailingMargin" id="dOV-J8-Jer"/>
@@ -644,6 +663,10 @@
         <image name="HistoryIcon" width="32" height="32"/>
         <image name="LibraryIcon" width="32" height="32"/>
         <image name="MoreIcon" width="32" height="32"/>
+        <image name="facebookIcon" width="36" height="36"/>
+        <image name="googlePlusIcon" width="36" height="36"/>
+        <image name="mailIcon" width="36" height="36"/>
+        <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="evL-ah-ioV"/>

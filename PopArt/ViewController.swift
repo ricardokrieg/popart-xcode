@@ -67,6 +67,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imagePicker.delegate = self
         
+        // Setup Camera Preview
+        
         captureSession.sessionPreset = AVCaptureSessionPresetLow
         
         let devices = AVCaptureDevice.devices()
@@ -108,11 +110,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func configureDevice() {
-        if let device = captureDevice {
-            device.lockForConfiguration(nil)
-            device.focusMode = .Locked
-            device.unlockForConfiguration()
-        }
+//        if let device = captureDevice {
+//            device.lockForConfiguration(nil)
+//            device.focusMode = .Locked
+//            device.unlockForConfiguration()
+//        }
     }
     
     func beginSession() {
