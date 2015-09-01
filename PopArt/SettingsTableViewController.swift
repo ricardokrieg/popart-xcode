@@ -19,6 +19,8 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        tableView.registerClass(HistoryTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,25 +30,36 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Potentially incomplete method implementation.
+//        // Return the number of sections.
+//        return 0
+//    }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete method implementation.
+//        // Return the number of rows in the section.
+//        return 0
+//    }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath.row {
-        case 0:
-            page_url = "http://popart-app.com/static/help-center.html"
-            performSegueWithIdentifier("fromSettingsToPage", sender: nil)
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.section {
+        case 1:
+            switch indexPath.row {
+            case 0:
+                page_url = "http://popart-app.com/static/help-center.html"
+                performSegueWithIdentifier("fromSettingsToPage", sender: nil)
+            case 1:
+                page_url = "http://popart-app.com/static/privacy-policy.html"
+                performSegueWithIdentifier("fromSettingsToPage", sender: nil)
+            case 2:
+                page_url = "http://popart-app.com/static/terms-of-use.html"
+                performSegueWithIdentifier("fromSettingsToPage", sender: nil)
+            default:
+                println("Unhandled row: \(indexPath.row)")
+            }
         default:
-            println("Unhandled index at tableView: \(indexPath.row)")
+            println("Unhandled section: \(indexPath.section)")
         }
     }
 
