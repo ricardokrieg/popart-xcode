@@ -64,6 +64,7 @@ class ResultViewController: UIViewController {
             
             let result_image_url = json?["image_url"] as? String?
             let result_query_image_url = json?["query_image_url"] as? String?
+            let result_thumb_image_url = json?["thumb_image_url"] as? String?
             let result_title = json?["title"] as? String?
             let result_description_l1 = json?["description_l1"] as? String?
             let result_description_l2 = json?["description_l2"] as? String?
@@ -113,6 +114,10 @@ class ResultViewController: UIViewController {
                         
                         if result_image_url != nil {
                             painting.setValue(result_image_url!, forKey: "result_image_url")
+                        }
+                        
+                        if result_thumb_image_url != nil {
+                            painting.setValue(result_thumb_image_url!, forKey: "thumb_image_url")
                         }
                         
                         if result_title != nil {

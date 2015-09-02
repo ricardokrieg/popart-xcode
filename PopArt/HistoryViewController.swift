@@ -89,7 +89,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.dateLabel!.text = dateFormatter.stringFromDate(result_date)
         }
         
-        if let image_url = painting.valueForKey("image_url") as? String {
+        if let image_url = painting.valueForKey("thumb_image_url") as? String {
             if let url = NSURL(string: image_url) {
                 if let data = NSData(contentsOfURL: url){
                     cell.imageContainer!.contentMode = .ScaleAspectFit
