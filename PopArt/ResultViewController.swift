@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Social
 
 class ResultViewController: UIViewController {
     @IBOutlet weak var resultImage: UIImageView!
@@ -19,6 +20,38 @@ class ResultViewController: UIViewController {
     var result: NSData?
     var saveToHistory = false
 
+    @IBAction func facebookButtonClicked(sender: AnyObject) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+            var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            facebookSheet.setInitialText(resultTitle?.text)
+            facebookSheet.addImage(resultImage?.image)
+            self.presentViewController(facebookSheet, animated: true, completion: nil)
+        } else {
+            var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func twitterButtonClicked(sender: AnyObject) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+            var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            twitterSheet.setInitialText(resultTitle?.text)
+            twitterSheet.addImage(resultImage?.image)
+            self.presentViewController(twitterSheet, animated: true, completion: nil)
+        } else {
+            var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func googlePlusButtonClicked(sender: AnyObject) {
+    }
+    
+    @IBAction func mailButtonClicked(sender: AnyObject) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
