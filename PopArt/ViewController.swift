@@ -149,6 +149,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
             if pickedImage != nil {
