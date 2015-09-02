@@ -138,6 +138,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if previewLayer != nil {
+            previewLayer?.frame = self.cameraView.layer.frame
+            //        previewLayer?.frame = self.view.layer.frame
+            //        previewLayer?.frame = self.view.bounds
+            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
             if pickedImage != nil {
@@ -213,7 +224,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        previewLayer?.frame = self.view.layer.frame
 //        previewLayer?.frame = self.view.bounds
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        previewLayer?.bounds = self.cameraView.bounds
         captureSession.startRunning()
     }
     
