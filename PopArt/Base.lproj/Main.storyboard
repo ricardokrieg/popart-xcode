@@ -334,7 +334,7 @@
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leadingMargin" id="BIv-gF-2WG"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="qE6-x1-wN6" secondAttribute="bottom" constant="2" id="Emf-RZ-jhu"/>
@@ -400,7 +400,7 @@
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-Zb-0Wj">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-Zb-0Wj">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>

@@ -165,6 +165,10 @@ class SendingPictureViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromSendingPictureToResult" {
             if result != nil {
