@@ -142,10 +142,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillLayoutSubviews()
         
         if previewLayer != nil {
-            previewLayer?.frame = self.cameraView.layer.frame
-            //        previewLayer?.frame = self.view.layer.frame
-            //        previewLayer?.frame = self.view.bounds
+            let bounds = cameraView.layer.bounds
             previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            previewLayer?.bounds = bounds
+            previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
         }
     }
     
@@ -220,10 +220,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
 //        self.view.layer.addSublayer(previewLayer)
         self.cameraView.layer.addSublayer(previewLayer)
-        previewLayer?.frame = self.cameraView.layer.frame
+//        previewLayer?.frame = self.cameraView.layer.frame
 //        previewLayer?.frame = self.view.layer.frame
 //        previewLayer?.frame = self.view.bounds
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+//        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        
         captureSession.startRunning()
     }
     
