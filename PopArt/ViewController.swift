@@ -207,8 +207,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.view.layer.addSublayer(previewLayer)
-        previewLayer?.frame = self.view.layer.frame
-//        previewLayer?.frame = self.view.bounds
+//        previewLayer?.frame = self.view.layer.frame
+        previewLayer?.frame = self.view.bounds
 //        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         captureSession.startRunning()
     }
