@@ -12,6 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var selectImageButton: UIBarButtonItem!
     
@@ -206,9 +207,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.view.layer.addSublayer(previewLayer)
+//        self.view.layer.addSublayer(previewLayer)
+        self.cameraView.layer.addSublayer(previewLayer)
+        previewLayer?.frame = self.cameraView.layer.frame
 //        previewLayer?.frame = self.view.layer.frame
-        previewLayer?.frame = self.view.bounds
+//        previewLayer?.frame = self.view.bounds
 //        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         captureSession.startRunning()
     }
