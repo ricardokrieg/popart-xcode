@@ -79,7 +79,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.titleLabel!.text = painting.valueForKey("result_title") as? String
         cell.descriptionLabel!.text = painting.valueForKey("result_description_l1") as? String
-//        cell.dateLabel!.text = painting.valueForKey("date") as? NSDate
+
+        cell.locationAreaLabel!.text = painting.valueForKey("location_area") as? String
+        cell.locationCountryLabel!.text = painting.valueForKey("location_country") as? String
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         if let result_date = painting.valueForKey("date") as? NSDate {

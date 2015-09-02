@@ -26,6 +26,7 @@ class Server {
     var shouldSend = false
     
     var location: CLLocation?
+    var placemark: CLPlacemark?
     
     init() {}
     

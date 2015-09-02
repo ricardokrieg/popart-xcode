@@ -59,14 +59,37 @@ class SendingPictureViewController: UIViewController {
                 
                 let message_code = "IDENTIFY64"
 //                let message_code = "IDENTIFY"
-                let message_lat  = server.location?.coordinate.latitude
-                let message_lng  = server.location?.coordinate.longitude
+                
+                var message_lat = ""
+                var message_lng = ""
+                var message_location_area = ""
+                var message_location_country = ""
+                
+                if server.location != nil {
+                    message_lat = String(stringInterpolationSegment: server.location!.coordinate.latitude)
+                    message_lng = String(stringInterpolationSegment: server.location!.coordinate.longitude)
+//                    if let coordinate = server.location!.coordinate {
+//                        message_lat = String(stringInterpolationSegment: coordinate.latitude)
+//                        message_lng = String(stringInterpolationSegment: coordinate.longitude)
+//                    }
+                }
+                
+                if server.placemark != nil {
+                    if let msg_location_area = server.placemark!.administrativeArea {
+                        message_location_area = String(msg_location_area)
+                    }
+                    
+                    if let msg_location_country = server.placemark!.country {
+                        message_location_country = String(msg_location_country)
+                    }
+                }
+                
                 let message_size = imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
                 let message_data = imageDataBase64
 //                let message_size = imageDataString!.length
 //                let message_data = imageDataString
             
-                let message = "\(message_code):\(message_lat):\(message_lng):\(message_size):\(message_data)"
+                let message = "\(message_code):\(message_lat):\(message_lng):\(message_location_area):\(message_location_country):\(message_size):\(message_data)"
                 
                 server.connect()
                 server.send(message)

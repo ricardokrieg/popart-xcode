@@ -165,9 +165,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - CLLocationManagerDelegate Methods
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error) -> Void in
+            if (error != nil) {
+                println("Reverse geocoder failed with error" + error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0 {
+                let placemark = placemarks[0] as! CLPlacemark
+                
+                self.locationManager.stopUpdatingLocation()
+                
+                println(placemark.locality)
+                println(placemark.postalCode)
+                println(placemark.administrativeArea)
+                println(placemark.country)
+                
+                server.location = manager.location
+                server.placemark = placemark
+            } else {
+                println("Problem with the data received from geocoder")
+            }
+        })
         
-        server.location = manager.location
+        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
     }
     
 }

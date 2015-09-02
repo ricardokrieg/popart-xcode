@@ -13,7 +13,8 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationAreaLabel: UILabel!
+    @IBOutlet weak var locationCountryLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
