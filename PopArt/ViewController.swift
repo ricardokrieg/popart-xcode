@@ -239,6 +239,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println("camera frame")
         println(cameraView.frame)
         println(cameraView.frame.size)
+        println("scree frame")
+        println(self.view.frame)
+        println(self.view.frame.size)
         
         captureSession.startRunning()
     }
