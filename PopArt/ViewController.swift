@@ -25,11 +25,52 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
     var captureDevice: AVCaptureDevice?
+    var stillImageOutput : AVCaptureStillImageOutput?
     
     @IBAction func cameraButtonClicked(sender: UIButton) {
         println("Camera")
         
-        performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+        if captureDevice == nil {
+            performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+            return
+        }
+        
+        if let stillOutput = self.stillImageOutput {
+            // we do this on another thread so we don't hang the UI
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                // find video connection
+                var videoConnection : AVCaptureConnection?
+                for connection in stillOutput.connections {
+                    // find a matching input port
+                    for port in connection.inputPorts! {
+                        // and matching type
+                        if port.mediaType == AVMediaTypeVideo {
+                            videoConnection = connection as? AVCaptureConnection
+                            break
+                        }
+                    }
+                    if videoConnection != nil {
+                        break // for connection
+                    }
+                }
+                
+                if videoConnection != nil {
+                    // found the video connection, let's get the image
+                    stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) {
+                        (imageSampleBuffer:CMSampleBuffer!, _) in
+                        
+                        let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
+                        let image = UIImage(data: imageData)
+                        
+                        self.pickedImage = image
+                        
+                        self.dismissViewControllerAnimated(true, completion: {
+                            self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+                        })
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func selectImageButtonClicked(sender: UIBarButtonItem) {
@@ -111,9 +152,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func configureDevice() {
         if let device = captureDevice {
-            device.lockForConfiguration(nil)
-            device.focusMode = .Locked
-            device.unlockForConfiguration()
+            if device.lockForConfiguration(nil) {
+                if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
+                    device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
+                } else if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
+                    device.focusMode = AVCaptureFocusMode.AutoFocus
+                }
+                
+                device.unlockForConfiguration()
+            }
+            
+            
+//            let screenRect: CGRect = [[UIScreen mainScreen] bounds]
+//            
+//            let screenWidth = screenRect.size.width
+//            let screenHeight = screenRect.size.height
+//            let focus_x = thisFocusPoint.center.x/screenWidth
+//            let focus_y = thisFocusPoint.center.y/screenHeight
+//            
+//            [[self captureManager].videoDevice lockForConfiguration:&error];
+//            [[self captureManager].videoDevice setFocusPointOfInterest:CGPointMake(focus_x,focus_y)];
         }
     }
     
@@ -128,9 +186,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             println("error: \(err?.localizedDescription)")
         }
         
+        stillImageOutput = AVCaptureStillImageOutput()
+        let outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
+        stillImageOutput!.outputSettings = outputSettings
+        
+        if captureSession.canAddOutput(stillImageOutput) {
+            println("camera:addOutput")
+            
+            captureSession.addOutput(stillImageOutput)
+        } else {
+            println("camera: couldn't add output")
+        }
+        
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.view.layer.addSublayer(previewLayer)
-        previewLayer?.frame = self.view.layer.frame
+//        previewLayer?.frame = self.view.layer.frame
+        previewLayer?.frame = self.view.bounds
+//        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         captureSession.startRunning()
     }
     

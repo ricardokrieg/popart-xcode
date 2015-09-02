@@ -107,6 +107,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         result = painting.valueForKey("json") as? NSData
         performSegueWithIdentifier("fromHistoryToResult", sender: nil)
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60.0
+    }
 
     // MARK: - Navigation
     
