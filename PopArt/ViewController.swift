@@ -32,7 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         println("Camera")
         
         if captureDevice == nil {
-            performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+//            performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
             return
         }
         

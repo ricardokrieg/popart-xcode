@@ -237,7 +237,7 @@
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-Rk-k0N">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNr-dh-hKN">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -306,9 +306,6 @@
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx2-Bo-5N4">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="XZ0-DN-Yg6"/>
-                                </constraints>
                                 <items/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
@@ -321,23 +318,38 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKZ-vn-KhL">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem image="BackIcon" style="plain" id="BoM-5c-DCY">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="ZUi-pf-S6c" kind="unwind" unwindAction="backToMain:" id="Eih-1Y-Eyt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="qE6-x1-wN6" secondAttribute="bottom" constant="2" id="DGx-sH-dUO"/>
-                            <constraint firstItem="fx2-Bo-5N4" firstAttribute="bottom" secondItem="cHo-TL-F2X" secondAttribute="top" id="E1H-Qd-Rtv"/>
+                            <constraint firstItem="J3C-b1-u3n" firstAttribute="centerX" secondItem="fx2-Bo-5N4" secondAttribute="centerX" id="CX7-TE-Prc"/>
+                            <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="qE6-x1-wN6" secondAttribute="bottom" constant="2" id="Emf-RZ-jhu"/>
+                            <constraint firstItem="dbz-rh-1gR" firstAttribute="trailing" secondItem="KKZ-vn-KhL" secondAttribute="trailing" id="FJc-00-2ak"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="width" secondItem="fx2-Bo-5N4" secondAttribute="width" id="Fgc-nf-uex"/>
-                            <constraint firstItem="J3C-b1-u3n" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leadingMargin" id="HWo-7g-UG5"/>
-                            <constraint firstItem="dbz-rh-1gR" firstAttribute="bottom" secondItem="fx2-Bo-5N4" secondAttribute="top" id="Jca-bu-8dq"/>
-                            <constraint firstAttribute="trailing" secondItem="dbz-rh-1gR" secondAttribute="trailing" id="KaV-cc-gCp"/>
+                            <constraint firstItem="dbz-rh-1gR" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leading" id="Guc-j9-PLl"/>
+                            <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="KKZ-vn-KhL" secondAttribute="top" id="JEj-WL-D0P"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="centerX" secondItem="fx2-Bo-5N4" secondAttribute="centerX" id="LSa-60-kMG"/>
+                            <constraint firstItem="J3C-b1-u3n" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leadingMargin" id="SbQ-Jd-CIf"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="fx2-Bo-5N4" secondAttribute="top" constant="-502" id="VdB-JF-UvI"/>
-                            <constraint firstItem="dbz-rh-1gR" firstAttribute="trailing" secondItem="fx2-Bo-5N4" secondAttribute="trailing" id="WHt-lA-mnx"/>
+                            <constraint firstItem="J3C-b1-u3n" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" constant="11" id="X4b-Z0-HMP"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="centerY" secondItem="fx2-Bo-5N4" secondAttribute="centerY" constant="-0.5" id="Zag-Sp-keA"/>
-                            <constraint firstItem="J3C-b1-u3n" firstAttribute="centerX" secondItem="fx2-Bo-5N4" secondAttribute="centerX" id="cnR-aJ-Bls"/>
-                            <constraint firstItem="dbz-rh-1gR" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leading" id="cpO-fM-IcO"/>
-                            <constraint firstItem="dbz-rh-1gR" firstAttribute="leading" secondItem="fx2-Bo-5N4" secondAttribute="leading" id="ltw-Pa-zvm"/>
-                            <constraint firstItem="J3C-b1-u3n" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" constant="11" id="sVb-Yn-onS"/>
+                            <constraint firstItem="fx2-Bo-5N4" firstAttribute="bottom" secondItem="cHo-TL-F2X" secondAttribute="top" id="bKO-16-ruc"/>
+                            <constraint firstItem="dbz-rh-1gR" firstAttribute="leading" secondItem="KKZ-vn-KhL" secondAttribute="leading" id="dSz-a5-zus"/>
+                            <constraint firstItem="fx2-Bo-5N4" firstAttribute="trailing" secondItem="dbz-rh-1gR" secondAttribute="trailing" id="paR-q8-SRc"/>
+                            <constraint firstItem="fx2-Bo-5N4" firstAttribute="leading" secondItem="dbz-rh-1gR" secondAttribute="leading" id="rsj-HM-Xy3"/>
+                            <constraint firstItem="fx2-Bo-5N4" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" id="ryt-hG-I5y"/>
+                            <constraint firstAttribute="trailing" secondItem="dbz-rh-1gR" secondAttribute="trailing" id="vup-YP-RQi"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -353,9 +365,11 @@
                         <outlet property="imageContainer" destination="dbz-rh-1gR" id="Cuz-28-nPB"/>
                         <outlet property="statusLabel" destination="J3C-b1-u3n" id="98C-IE-IQM"/>
                         <segue destination="FzV-1f-g1n" kind="show" identifier="fromSendingPictureToResult" id="do7-Cx-Cef"/>
+                        <segue destination="aMG-Ul-1e7" kind="show" identifier="fromSendingToMain" id="FD1-vL-86h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lg3-u2-D5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZUi-pf-S6c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="658" y="192"/>
         </scene>
@@ -817,6 +831,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bfq-3Z-hPx"/>
-        <segue reference="ooM-xI-8Z0"/>
+        <segue reference="do7-Cx-Cef"/>
     </inferredMetricsTieBreakers>
 </document>

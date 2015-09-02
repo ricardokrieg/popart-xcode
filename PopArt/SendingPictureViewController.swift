@@ -33,12 +33,12 @@ class SendingPictureViewController: UIViewController {
             imageContainer.contentMode = .ScaleAspectFit
             imageContainer.image = compressImage(pickedImage!)
         } else {
-            if let url = NSURL(string: "http://www.vangoghbikes.com/wp-content/uploads/2014/12/Johannes_Vermeer_1632-1675_-_The_Girl_With_The_Pearl_Earring_1665-2.jpg") {
-                if let data = NSData(contentsOfURL: url){
-                    imageContainer.contentMode = .ScaleAspectFit
-                    imageContainer.image = compressImage(UIImage(data: data)!)
-                }
-            }
+//            if let url = NSURL(string: "http://www.vangoghbikes.com/wp-content/uploads/2014/12/Johannes_Vermeer_1632-1675_-_The_Girl_With_The_Pearl_Earring_1665-2.jpg") {
+//                if let data = NSData(contentsOfURL: url){
+//                    imageContainer.contentMode = .ScaleAspectFit
+//                    imageContainer.image = compressImage(UIImage(data: data)!)
+//                }
+//            }
         }
         
         // Get location
