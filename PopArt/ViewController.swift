@@ -112,7 +112,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Setup Camera Preview
         
-        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+        captureSession.sessionPreset = AVCaptureSessionPresetHigh
         
         let devices = AVCaptureDevice.devices()
         println("AVCaptureDevice list")
@@ -209,7 +209,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.view.layer.addSublayer(previewLayer)
         previewLayer?.frame = self.view.layer.frame
 //        previewLayer?.frame = self.view.bounds
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+//        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         captureSession.startRunning()
     }
     
