@@ -225,18 +225,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        previewLayer?.frame = self.view.bounds
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         
-        previewLayer?.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 88)
-//        previewLayer?.contentsGravity = kCAGravityResizeAspectFill
+        previewLayer?.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        previewLayer?.contentsGravity = kCAGravityResizeAspectFill
         
 //        println("preview frame")
 //        println(previewLayer?.frame)
 //        println(previewLayer?.frame.size)
-//        println("camera frame")
-//        println(cameraView.frame)
-//        println(cameraView.frame.size)
+        println("camera frame")
+        println(cameraView.frame)
+        println(cameraView.frame.size)
 //        println("scree frame")
 //        println(self.view.frame)
 //        println(self.view.frame.size)
+        println("bounds")
+        println(cameraView.bounds.size)
         
         captureSession.startRunning()
     }
