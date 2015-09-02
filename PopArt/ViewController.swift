@@ -138,16 +138,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        if previewLayer != nil {
-            let bounds = cameraView.layer.bounds
-            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            previewLayer?.bounds = bounds
-            previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
-        }
-    }
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        
+//        if previewLayer != nil {
+//            let bounds = cameraView.layer.bounds
+//            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+//            previewLayer?.bounds = bounds
+//            previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
@@ -224,6 +224,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        previewLayer?.frame = self.view.layer.frame
 //        previewLayer?.frame = self.view.bounds
 //        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        
+        let bounds = cameraView.layer.bounds
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        previewLayer?.bounds = bounds
+        previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
         
         captureSession.startRunning()
     }
