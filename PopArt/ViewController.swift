@@ -138,16 +138,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-//        
-//        if previewLayer != nil {
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+                println("preview frame")
+                println(previewLayer?.frame)
+                println(previewLayer?.frame.size)
+                println("camera frame")
+                println(cameraView.frame)
+                println(cameraView.frame.size)
+                println("scree frame")
+                println(self.view.frame)
+                println(self.view.frame.size)
+
+        
+        if previewLayer != nil {
 //            let bounds = cameraView.layer.bounds
 //            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
 //            previewLayer?.bounds = bounds
 //            previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
-//        }
-//    }
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
@@ -180,17 +191,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 device.unlockForConfiguration()
             }
-            
-            
-//            let screenRect: CGRect = [[UIScreen mainScreen] bounds]
-//            
-//            let screenWidth = screenRect.size.width
-//            let screenHeight = screenRect.size.height
-//            let focus_x = thisFocusPoint.center.x/screenWidth
-//            let focus_y = thisFocusPoint.center.y/screenHeight
-//            
-//            [[self captureManager].videoDevice lockForConfiguration:&error];
-//            [[self captureManager].videoDevice setFocusPointOfInterest:CGPointMake(focus_x,focus_y)];
         }
     }
     
@@ -225,14 +225,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        previewLayer?.frame = self.view.bounds
         previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         
-//        let bounds = cameraView.layer.bounds
-//        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-//        previewLayer?.bounds = bounds
-//        previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
-        
 //        previewLayer?.frame = CGRectMake(0, 0, cameraView.frame.size.width, cameraView.frame.size.height)
 //        previewLayer?.contentsGravity = kCAGravityResizeAspectFill
-//        
+        
 //        println("preview frame")
 //        println(previewLayer?.frame)
 //        println(previewLayer?.frame.size)
