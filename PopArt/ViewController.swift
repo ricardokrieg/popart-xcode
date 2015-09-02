@@ -161,9 +161,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func configureDevice() {
         if let device = captureDevice {
             if device.lockForConfiguration(nil) {
+                let autoFocusPoint = CGPointMake(0.5, 0.5)
+                println(device.focusPointOfInterest)
+                device.focusPointOfInterest = autoFocusPoint
+                println(device.focusPointOfInterest)
+                
                 if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
+                    println("focus: ContinuousAutoFocus")
                     device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
                 } else if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
+                    println("focus: AutoFocus")
                     device.focusMode = AVCaptureFocusMode.AutoFocus
                 }
                 
@@ -256,10 +263,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 self.locationManager.stopUpdatingLocation()
                 
-                println(placemark.locality)
-                println(placemark.postalCode)
-                println(placemark.administrativeArea)
-                println(placemark.country)
+//                println(placemark.locality)
+//                println(placemark.postalCode)
+//                println(placemark.administrativeArea)
+//                println(placemark.country)
                 
                 server.location = manager.location
                 server.placemark = placemark
@@ -268,7 +275,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         })
         
-        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
+//        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
     }
     
 }
