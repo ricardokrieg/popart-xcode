@@ -35,43 +35,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         
-        println("camera: start")
         if let stillOutput = self.stillImageOutput {
-            println("camera: stillOutput")
+            if stillOutput.capturingStillImage {
+                println("camera: capturing in progress")
+            }
+            
             // we do this on another thread so we don't hang the UI
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                println("camera: videoConnection")
                 // find video connection
                 var videoConnection : AVCaptureConnection?
                 for connection in stillOutput.connections {
-                    println("camera: connection")
                     // find a matching input port
                     for port in connection.inputPorts! {
-                        println("camera: port")
                         // and matching type
                         if port.mediaType == AVMediaTypeVideo {
-                            println("camera: port.mediaType break")
                             videoConnection = connection as? AVCaptureConnection
                             break
                         }
                     }
                     if videoConnection != nil {
-                        println("camera: connection break")
                         break // for connection
                     }
                 }
                 
                 if videoConnection != nil {
-                    println("camera: videoConnection not nil")
                     // found the video connection, let's get the image
                     stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) {
                         (imageSampleBuffer:CMSampleBuffer!, _) in
                         
-                        println("camera: captureStillImage")
                         let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
                         let image = UIImage(data: imageData)
                         
-                        println("camera: pickedImage")
                         self.pickedImage = image
                         
                         self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
@@ -118,7 +112,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Setup Camera Preview
         
-        captureSession.sessionPreset = AVCaptureSessionPresetLow
+        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         
         let devices = AVCaptureDevice.devices()
         println("AVCaptureDevice list")
@@ -162,9 +156,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let device = captureDevice {
             if device.lockForConfiguration(nil) {
                 let autoFocusPoint = CGPointMake(0.5, 0.5)
-                println(device.focusPointOfInterest)
                 device.focusPointOfInterest = autoFocusPoint
-                println(device.focusPointOfInterest)
                 
                 if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
                     println("focus: ContinuousAutoFocus")
