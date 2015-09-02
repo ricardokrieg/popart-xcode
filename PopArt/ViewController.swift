@@ -138,27 +138,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-//        
-//                println("preview frame")
-//                println(previewLayer?.frame)
-//                println(previewLayer?.frame.size)
-//                println("camera frame")
-//                println(cameraView.frame)
-//                println(cameraView.frame.size)
-//                println("scree frame")
-//                println(self.view.frame)
-//                println(self.view.frame.size)
-//
-//        
-//        if previewLayer != nil {
-////            let bounds = cameraView.layer.bounds
-////            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-////            previewLayer?.bounds = bounds
-////            previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
-//        }
-//    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        println("preview frame")
+        println(previewLayer?.frame)
+        println(previewLayer?.frame.size)
+        println("camera frame")
+        println(cameraView.frame)
+        println(cameraView.frame.size)
+        println(cameraView.layer.bounds.size)
+        println("scree frame")
+        println(self.view.frame)
+        println(self.view.frame.size)
+
+        
+        if previewLayer != nil {
+            let bounds = cameraView.layer.bounds
+            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            previewLayer?.bounds = bounds
+            previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
@@ -223,22 +224,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        previewLayer?.frame = self.cameraView.layer.frame
 //        previewLayer?.frame = self.view.layer.frame
 //        previewLayer?.frame = self.view.bounds
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+//        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         
-        previewLayer?.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-        previewLayer?.contentsGravity = kCAGravityResizeAspectFill
-        
-//        println("preview frame")
-//        println(previewLayer?.frame)
-//        println(previewLayer?.frame.size)
-        println("camera frame")
-        println(cameraView.frame)
-        println(cameraView.frame.size)
-//        println("scree frame")
-//        println(self.view.frame)
-//        println(self.view.frame.size)
-        println("bounds")
-        println(cameraView.bounds.size)
+//        previewLayer?.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+//        previewLayer?.contentsGravity = kCAGravityResizeAspectFill
+//        
+////        println("preview frame")
+////        println(previewLayer?.frame)
+////        println(previewLayer?.frame.size)
+//        println("camera frame")
+//        println(cameraView.frame)
+//        println(cameraView.frame.size)
+////        println("scree frame")
+////        println(self.view.frame)
+////        println(self.view.frame.size)
+//        println("bounds")
+//        println(cameraView.bounds.size)
         
         captureSession.startRunning()
     }
