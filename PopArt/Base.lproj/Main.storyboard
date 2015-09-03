@@ -947,10 +947,10 @@
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SKZ-1n-KDw"/>
-        <segue reference="evL-ah-ioV"/>
+        <segue reference="fhn-Em-7be"/>
+        <segue reference="yd5-8l-fho"/>
+        <segue reference="ooM-xI-8Z0"/>
         <segue reference="CZ7-l5-vkx"/>
-        <segue reference="nwg-rm-PVL"/>
-        <segue reference="do7-Cx-Cef"/>
+        <segue reference="evL-ah-ioV"/>
     </inferredMetricsTieBreakers>
 </document>
