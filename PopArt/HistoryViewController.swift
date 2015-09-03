@@ -9,11 +9,16 @@
 import UIKit
 import CoreData
 
-class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     
     var result: NSData?
     var paintings = [NSManagedObject]()
+    
+    let imagePicker = UIImagePickerController()
+    var pickedImage: UIImage?
 
     @IBAction func clearButtonClicked(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -32,14 +37,26 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             managedContext.save(nil)
             
+            self.paintings = [NSManagedObject]()
             self.tableView.reloadData()
             
             println("History cleared")
         }
     }
     
+    @IBAction func selectImageButtonClicked(sender: AnyObject) {
+        pickedImage = nil
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,7 +139,40 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
                 destination.saveToHistory = false
                 self.result = nil
             }
+        } else if segue.identifier == "fromHistoryToSendingPicture" {
+            if pickedImage != nil {
+                let destination = segue.destinationViewController as! SendingPictureViewController
+                destination.pickedImage = pickedImage
+                pickedImage = nil
+            }
+            
+            server.shouldSend = true
+        } else if segue.identifier == "fromHistoryToMenu" {
+            if let controller = segue.destinationViewController as? UIViewController {
+                controller.popoverPresentationController!.delegate = self
+                controller.preferredContentSize = CGSize(width: 200, height: 140)
+            }
         }
     }
 
+    // MARK: - UIImagePickerControllerDelegate Methods
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        pickedImage = image
+        
+        dismissViewControllerAnimated(true, completion: {
+            self.performSegueWithIdentifier("fromHistoryToSendingPicture", sender: nil)
+        })
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Return no adaptive presentation style, use default presentation behaviour
+        return .None
+    }
 }

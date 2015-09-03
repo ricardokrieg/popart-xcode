@@ -85,12 +85,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func moreButtonClicked(sender: UIButton) {
+//    @IBAction func moreButtonClicked(sender: UIButton) {
 //        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Settings", "Profile", "About")
-        
+//        
 //        actionSheet.showInView(self.view)
-        performSegueWithIdentifier("menu", sender: nil)
-    }
+//    }
     
     @IBAction func backToMain(segue: UIStoryboardSegue) {}
 
@@ -166,7 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else if segue.identifier == "fromMainToPage" {
             let destination = segue.destinationViewController as! PageViewController
             destination.url = page_url
-        } else if segue.identifier == "menu" {
+        } else if segue.identifier == "fromMainToMenu" {
             if let controller = segue.destinationViewController as? UIViewController {
                 controller.popoverPresentationController!.delegate = self
                 controller.preferredContentSize = CGSize(width: 200, height: 140)

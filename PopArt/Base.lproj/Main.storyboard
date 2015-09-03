@@ -173,6 +173,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="moreButtonClicked:" destination="aMG-Ul-1e7" id="wfN-3u-gfr"/>
+                                                    <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromHistoryToMenu" popoverAnchorBarButtonItem="ee0-kd-ELO" id="yd5-8l-fho">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                                    </segue>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="xus-14-2RW"/>
@@ -185,7 +188,7 @@
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="cameraButtonClicked:" destination="aMG-Ul-1e7" eventType="touchUpInside" id="wu2-5F-xOE"/>
+                                                        <segue destination="MTg-X6-FeT" kind="unwind" unwindAction="backToMain:" id="aKw-xG-NuF"/>
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
@@ -193,7 +196,7 @@
                                             <barButtonItem image="library" style="plain" id="4LS-ud-pq1">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <action selector="selectImageButtonClicked:" destination="aMG-Ul-1e7" id="HNc-T7-hbw"/>
+                                                    <action selector="selectImageButtonClicked:" destination="Kow-jb-spm" id="4Ky-kK-GeV"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
@@ -238,8 +241,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="selectImageButton" destination="4LS-ud-pq1" id="0SB-gX-ci4"/>
                         <outlet property="tableView" destination="eu6-Q7-foa" id="51B-8n-0ib"/>
                         <segue destination="FzV-1f-g1n" kind="show" identifier="fromHistoryToResult" id="ooM-xI-8Z0"/>
+                        <segue destination="mGA-4a-zWH" kind="show" identifier="fromHistoryToSendingPicture" id="fhn-Em-7be"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iF2-Ej-br4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,6 +274,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="moreButtonClicked:" destination="aMG-Ul-1e7" id="uLe-ta-EoW"/>
+                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromMainToMenu" popoverAnchorBarButtonItem="Rqe-PC-4mP" id="7OK-sO-FDr">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                            </segue>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Die-1u-I5T"/>
@@ -351,9 +359,6 @@
                         <segue destination="mGA-4a-zWH" kind="show" identifier="fromMainToSendingPicture" id="W2i-LE-0ss"/>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromMainToPage" id="Bfq-3Z-hPx"/>
                         <segue destination="IOH-bG-bS2" kind="show" identifier="fromMainToSettings" id="kBO-0a-pVg"/>
-                        <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="menu" popoverAnchorBarButtonItem="Rqe-PC-4mP" id="kyD-P6-xYo">
-                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVX-N0-Ocg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -519,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHb-FA-1gU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-277" y="888"/>
+            <point key="canvasLocation" x="-235" y="192"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="7Yq-6u-Ulc">
@@ -892,8 +897,10 @@
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="W2i-LE-0ss"/>
         <segue reference="Bfq-3Z-hPx"/>
         <segue reference="kBO-0a-pVg"/>
+        <segue reference="yd5-8l-fho"/>
         <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>
