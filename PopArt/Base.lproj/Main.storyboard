@@ -661,16 +661,6 @@
                             </items>
                             <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </toolbar>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="nY7-iv-2Zw">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem title="Item" id="mTb-gu-NMP"/>
-                            </items>
-                            <connections>
-                                <outlet property="delegate" destination="s05-g7-cQH" id="OVv-fZ-OMB"/>
-                            </connections>
-                        </toolbar>
                         <sections>
                             <tableViewSection headerTitle="Settings" id="JUJ-th-riY">
                                 <cells>
