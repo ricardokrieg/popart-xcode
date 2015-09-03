@@ -610,6 +610,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="toolbar" destination="0u9-Cy-4rU" id="jBQ-Tq-cZY"/>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromSettingsToPage" id="evL-ah-ioV"/>
                     </connections>
                 </tableViewController>
@@ -860,7 +861,7 @@
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="ooM-xI-8Z0"/>
+        <segue reference="evL-ah-ioV"/>
     </inferredMetricsTieBreakers>
 </document>

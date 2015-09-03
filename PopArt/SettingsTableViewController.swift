@@ -9,6 +9,8 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    @IBOutlet weak var toolbar: UIToolbar!
+    
     var page_url: String?
 
     override func viewDidLoad() {
@@ -19,6 +21,8 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        toolbar.frame = CGRectMake(0, 0, view.frame.size.width, 64)
         
         tableView.registerClass(HistoryTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
     }

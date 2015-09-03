@@ -17,8 +17,8 @@
 import Foundation
 import CoreLocation
 
-let SERVER_ADDRESS = "popart-app.com"
-//let SERVER_ADDRESS = "192.168.0.175"
+//let SERVER_ADDRESS = "popart-app.com"
+let SERVER_ADDRESS = "192.168.0.175"
 let SERVER_PORT = 5100
 
 class Server {
