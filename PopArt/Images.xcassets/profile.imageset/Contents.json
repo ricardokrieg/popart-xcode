@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "th_ffffff_32.png"
+      "filename" : "Layer-8.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "Layer-8@2x.png"
     },
     {
       "idiom" : "universal",

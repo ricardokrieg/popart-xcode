@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "logo_im_lg.png"
+      "filename" : "Shape-1-copy.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "Shape-1-copy@2x.png"
     },
     {
       "idiom" : "universal",

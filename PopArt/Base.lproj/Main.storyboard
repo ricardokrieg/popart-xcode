@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="44" id="6bv-r3-BtA"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="BackIcon" style="plain" id="cpF-3o-HBK">
+                                    <barButtonItem image="back" style="plain" id="cpF-3o-HBK">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="MTg-X6-FeT" kind="unwind" unwindAction="backToMain:" id="rje-hP-T2W"/>
@@ -200,19 +200,19 @@
                                     <constraint firstAttribute="height" constant="60" id="LJT-Hy-9eL"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="MoreIcon" style="plain" id="Rqe-PC-4mP">
+                                    <barButtonItem image="more" style="plain" id="Rqe-PC-4mP">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="moreButtonClicked:" destination="aMG-Ul-1e7" id="uLe-ta-EoW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Die-1u-I5T"/>
-                                    <barButtonItem style="plain" id="VBx-dd-bwW">
+                                    <barButtonItem title="Item" style="plain" id="VBx-dd-bwW">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jze-Du-4DE">
                                             <rect key="frame" x="135" y="-32" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                            <state key="normal" image="CameraIcon">
+                                            <state key="normal" image="logo">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -221,7 +221,7 @@
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="faF-O7-fE2"/>
-                                    <barButtonItem image="LibraryIcon" style="plain" id="Pmp-6z-32c">
+                                    <barButtonItem image="library" style="plain" id="Pmp-6z-32c">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="selectImageButtonClicked:" destination="aMG-Ul-1e7" id="Qpf-KO-C4v"/>
@@ -243,7 +243,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Eui-zI-yz5"/>
-                                    <barButtonItem image="HistoryIcon" style="plain" id="L6D-XJ-TOB">
+                                    <barButtonItem image="history" style="plain" id="L6D-XJ-TOB">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="Kow-jb-spm" kind="show" id="lgg-H9-mAH"/>
@@ -324,7 +324,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKZ-vn-KhL">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem image="BackIcon" style="plain" id="BoM-5c-DCY">
+                                    <barButtonItem image="back" style="plain" id="BoM-5c-DCY">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="ZUi-pf-S6c" kind="unwind" unwindAction="backToMain:" id="Eih-1Y-Eyt"/>
@@ -391,7 +391,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPM-cb-6IS">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem image="BackIcon" style="plain" id="2P1-Qt-xjF">
+                                    <barButtonItem image="back" style="plain" id="2P1-Qt-xjF">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="qJN-7o-0Ma" kind="unwind" unwindAction="backToMain:" id="iFH-y4-eQl"/>
@@ -452,7 +452,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem image="BackIcon" id="DfC-z0-2kX">
+                                <barButtonItem image="back" id="DfC-z0-2kX">
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <segue destination="E3k-tU-lOf" kind="unwind" unwindAction="backToMain:" id="AGv-Ij-hhk"/>
@@ -606,7 +606,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-2b-9qA">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem image="BackIcon" style="plain" id="VPj-FB-kBR">
+                                    <barButtonItem image="back" style="plain" id="VPj-FB-kBR">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="3AU-PM-a5D" kind="unwind" unwindAction="backToMain:" id="0RA-CS-x6k"/>
@@ -821,19 +821,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackIcon" width="32" height="32"/>
-        <image name="CameraIcon" width="35" height="40"/>
         <image name="ForwardIcon" width="32" height="32"/>
-        <image name="HistoryIcon" width="32" height="32"/>
-        <image name="LibraryIcon" width="32" height="32"/>
-        <image name="MoreIcon" width="32" height="32"/>
+        <image name="back" width="21" height="29"/>
         <image name="facebookIcon" width="36" height="36"/>
         <image name="googlePlusIcon" width="36" height="36"/>
+        <image name="history" width="32" height="29"/>
+        <image name="library" width="38" height="29"/>
+        <image name="logo" width="50" height="43"/>
         <image name="mailIcon" width="36" height="36"/>
+        <image name="more" width="6" height="24"/>
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="evL-ah-ioV"/>
-        <segue reference="do7-Cx-Cef"/>
+        <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -3,11 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "logo_im_lg.png"
+      "filename" : "Layer-4.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "Layer-4@2x.png"
     },
     {
       "idiom" : "universal",
