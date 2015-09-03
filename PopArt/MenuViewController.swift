@@ -62,7 +62,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             println("Invalid menu cell")
         }
         
-        
         return cell
     }
     

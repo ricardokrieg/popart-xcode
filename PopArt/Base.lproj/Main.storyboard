@@ -415,9 +415,9 @@
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="769-B5-vhU">
-                                                    <rect key="frame" x="32" y="11" width="234" height="21"/>
+                                                    <rect key="frame" x="32" y="11" width="288" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="234" id="SAG-zm-zm8"/>
+                                                        <constraint firstAttribute="width" constant="288" id="RSB-Jc-Em4"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.4039215686" green="0.40784313729999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -426,11 +426,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JWx-hE-JhY" firstAttribute="centerY" secondItem="CMy-TG-DIJ" secondAttribute="centerY" id="Ce3-LZ-BhH"/>
-                                                <constraint firstItem="769-B5-vhU" firstAttribute="leading" secondItem="JWx-hE-JhY" secondAttribute="trailing" constant="8" symbolic="YES" id="Lo6-TQ-TfY"/>
-                                                <constraint firstItem="769-B5-vhU" firstAttribute="top" secondItem="CMy-TG-DIJ" secondAttribute="topMargin" constant="3" id="c1B-9Q-5AV"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="769-B5-vhU" secondAttribute="trailing" constant="39" id="i0L-5s-SwT"/>
                                                 <constraint firstItem="JWx-hE-JhY" firstAttribute="top" secondItem="CMy-TG-DIJ" secondAttribute="topMargin" constant="6" id="i7G-2q-afH"/>
+                                                <constraint firstItem="769-B5-vhU" firstAttribute="leading" secondItem="JWx-hE-JhY" secondAttribute="trailing" constant="8" symbolic="YES" id="jHz-ts-gU3"/>
+                                                <constraint firstItem="769-B5-vhU" firstAttribute="top" secondItem="CMy-TG-DIJ" secondAttribute="topMargin" constant="3" id="lLo-iD-j3u"/>
                                                 <constraint firstItem="JWx-hE-JhY" firstAttribute="leading" secondItem="CMy-TG-DIJ" secondAttribute="leadingMargin" constant="-7" id="rSy-2Q-xIe"/>
+                                                <constraint firstAttribute="trailing" secondItem="769-B5-vhU" secondAttribute="trailing" id="vgY-ZR-Ugp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
