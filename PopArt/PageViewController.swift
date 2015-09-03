@@ -8,15 +8,28 @@
 
 import UIKit
 
-class PageViewController: UIViewController {
+class PageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
+    
     @IBOutlet weak var webView: UIWebView!
     
     var url: String?
+    
+    let imagePicker = UIImagePickerController()
+    var pickedImage: UIImage?
+    
+    @IBAction func selectImageButtonClicked(sender: AnyObject) {
+        pickedImage = nil
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
         
         if url != nil {
             webView.loadRequest(NSURLRequest(URL: NSURL(string: url!)!))
@@ -33,14 +46,43 @@ class PageViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "fromPageToSendingPicture" {
+            if pickedImage != nil {
+                let destination = segue.destinationViewController as! SendingPictureViewController
+                destination.pickedImage = pickedImage
+                pickedImage = nil
+            }
+            
+            server.shouldSend = true
+        } else if segue.identifier == "fromPageToMenu" {
+            if let controller = segue.destinationViewController as? UIViewController {
+                controller.popoverPresentationController!.delegate = self
+                controller.preferredContentSize = CGSize(width: 200, height: 140)
+            }
+        }
     }
-    */
 
+    // MARK: - UIImagePickerControllerDelegate Methods
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        pickedImage = image
+        
+        dismissViewControllerAnimated(true, completion: {
+            self.performSegueWithIdentifier("fromPageToSendingPicture", sender: nil)
+        })
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Return no adaptive presentation style, use default presentation behaviour
+        return .None
+    }
 }

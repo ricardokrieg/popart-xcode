@@ -8,13 +8,19 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
+    
     @IBOutlet weak var toolbar: UIToolbar!
     
     var page_url: String?
+    
+    let imagePicker = UIImagePickerController()
+    var pickedImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -124,7 +130,40 @@ class SettingsTableViewController: UITableViewController {
         if segue.identifier == "fromSettingsToPage" {
             let destination = segue.destinationViewController as! PageViewController
             destination.url = page_url
+        } else if segue.identifier == "fromSettingsToSendingPicture" {
+            if pickedImage != nil {
+                let destination = segue.destinationViewController as! SendingPictureViewController
+                destination.pickedImage = pickedImage
+                pickedImage = nil
+            }
+            
+            server.shouldSend = true
+        } else if segue.identifier == "fromSettingsToMenu" {
+            if let controller = segue.destinationViewController as? UIViewController {
+                controller.popoverPresentationController!.delegate = self
+                controller.preferredContentSize = CGSize(width: 200, height: 140)
+            }
         }
     }
 
+    // MARK: - UIImagePickerControllerDelegate Methods
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        pickedImage = image
+        
+        dismissViewControllerAnimated(true, completion: {
+            self.performSegueWithIdentifier("fromPageToSendingPicture", sender: nil)
+        })
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Return no adaptive presentation style, use default presentation behaviour
+        return .None
+    }
 }
