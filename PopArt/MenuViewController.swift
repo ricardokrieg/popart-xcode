@@ -50,11 +50,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         switch indexPath.row {
         case 0:
-            cell.icon.image = UIImage(contentsOfFile: "profile")
+            cell.icon.image = UIImage(named: "settings")
             cell.label.text = "Settings"
         case 1:
+            cell.icon.image = UIImage(named: "profile")
             cell.label.text = "Profile"
         case 2:
+            cell.icon.image = UIImage(named: "about")
             cell.label.text = "About"
         default:
             println("Invalid menu cell")
