@@ -167,6 +167,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             destination.url = page_url
         } else if segue.identifier == "fromMainToMenu" {
             if let controller = segue.destinationViewController as? UIViewController {
+                controller.popoverPresentationController!.backgroundColor = UIColor(red: 222, green: 223, blue: 239, alpha: 1.0)
                 controller.popoverPresentationController!.delegate = self
                 controller.preferredContentSize = CGSize(width: 200, height: 140)
             }

@@ -2,52 +2,71 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 PopArt. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="527" width="281" height="21"/>
+                    <rect key="frame" x="160" y="571" width="281" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="281" id="5hv-fl-fHo"/>
+                        <constraint firstAttribute="height" constant="21" id="sDm-f2-iL5"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="f0z-jw-ddI">
-                    <rect key="frame" x="18" y="27" width="285" height="345"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="09t-JT-Wx7">
+                    <rect key="frame" x="140" y="140" width="320" height="320"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="345" id="y77-df-0O7"/>
+                        <constraint firstAttribute="width" secondItem="09t-JT-Wx7" secondAttribute="height" multiplier="1:1" id="62P-Fp-4R8"/>
+                        <constraint firstAttribute="height" constant="320" id="Chs-i9-yeQ"/>
+                        <constraint firstAttribute="width" constant="320" id="E2c-CM-G3a"/>
+                        <constraint firstAttribute="width" constant="320" id="sBV-V1-S2Z"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Chs-i9-yeQ"/>
+                            <exclude reference="E2c-CM-G3a"/>
+                            <exclude reference="sBV-V1-S2Z"/>
+                        </mask>
+                    </variation>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KnP-pb-kL6">
-                    <rect key="frame" x="63" y="387" width="195" height="46"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logoTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KnP-pb-kL6">
+                    <rect key="frame" x="203" y="468" width="195" height="46"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="Qy6-69-n4I"/>
+                        <constraint firstAttribute="width" constant="195" id="0fh-z5-fCq"/>
+                        <constraint firstAttribute="height" constant="46" id="V9c-BE-Dd2"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="KnP-pb-kL6" firstAttribute="top" secondItem="f0z-jw-ddI" secondAttribute="bottom" constant="15" id="9sm-EO-hBD"/>
-                <constraint firstItem="f0z-jw-ddI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="CNf-40-Weg"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="f0z-jw-ddI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="aQY-DB-TlS"/>
-                <constraint firstItem="KnP-pb-kL6" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="e4P-Lq-Ekz"/>
-                <constraint firstItem="KnP-pb-kL6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="63" id="pHj-0W-tr7"/>
-                <constraint firstItem="f0z-jw-ddI" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="pPo-ur-Ytf"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="centerX" secondItem="KnP-pb-kL6" secondAttribute="centerX" id="58U-t8-81a"/>
+                <constraint firstItem="09t-JT-Wx7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7XH-IX-rij"/>
+                <constraint firstItem="KnP-pb-kL6" firstAttribute="top" secondItem="09t-JT-Wx7" secondAttribute="bottom" constant="8" symbolic="YES" id="E6k-Jr-XL8"/>
+                <constraint firstItem="09t-JT-Wx7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eOi-kz-gdW"/>
+                <constraint firstItem="KnP-pb-kL6" firstAttribute="centerX" secondItem="09t-JT-Wx7" secondAttribute="centerX" id="kXO-cY-8y6"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="p8J-wj-wu5"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="KnP-pb-kL6" secondAttribute="bottom" constant="57" id="sIl-0M-1vq"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="sIl-0M-1vq"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
-        <image name="logoIcon" width="690" height="807"/>
         <image name="logoTextIcon" width="447" height="119"/>
+        <image name="splash" width="411" height="475"/>
     </resources>
 </document>
