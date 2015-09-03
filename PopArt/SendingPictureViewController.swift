@@ -31,8 +31,8 @@ class SendingPictureViewController: UIViewController {
         
         if pickedImage != nil {
             imageContainer.contentMode = .ScaleAspectFit
-//            imageContainer.image = compressImage(pickedImage!)
-            imageContainer.image = pickedImage
+            imageContainer.image = compressImage(pickedImage!)
+//            imageContainer.image = pickedImage
         } else {
 //            if let url = NSURL(string: "http://www.vangoghbikes.com/wp-content/uploads/2014/12/Johannes_Vermeer_1632-1675_-_The_Girl_With_The_Pearl_Earring_1665-2.jpg") {
 //                if let data = NSData(contentsOfURL: url){
@@ -54,7 +54,7 @@ class SendingPictureViewController: UIViewController {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if self.imageContainer.image != nil {
-                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 0.5)
+                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 1.0)
                 let imageDataBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
 //                let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
                 
