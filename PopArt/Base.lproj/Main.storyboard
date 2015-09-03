@@ -285,6 +285,9 @@
                         <segue destination="mGA-4a-zWH" kind="show" identifier="fromMainToSendingPicture" id="W2i-LE-0ss"/>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromMainToPage" id="Bfq-3Z-hPx"/>
                         <segue destination="IOH-bG-bS2" kind="show" identifier="fromMainToSettings" id="kBO-0a-pVg"/>
+                        <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="menu" popoverAnchorBarButtonItem="Rqe-PC-4mP" id="kyD-P6-xYo">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVX-N0-Ocg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -387,20 +390,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-Dp-0zE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <sections/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="3" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rO4-xM-X22">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.84313725490196079" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="dv7-QU-XkG" customClass="MenuTableViewCell" customModule="PopArt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dv7-QU-XkG" id="CMy-TG-DIJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JWx-hE-JhY">
+                                                    <rect key="frame" x="8" y="0.0" width="62" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="62" id="5oM-0J-dlt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="769-B5-vhU">
+                                                    <rect key="frame" x="78" y="11" width="234" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="234" id="Tcg-jq-ZmO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.4039215686" green="0.40784313729999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="0.40392156862745099" green="0.40784313725490196" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="JWx-hE-JhY" secondAttribute="bottom" id="021-kZ-fwb"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="769-B5-vhU" secondAttribute="trailing" constant="-7" id="0Et-X8-jF0"/>
+                                                <constraint firstItem="JWx-hE-JhY" firstAttribute="top" secondItem="CMy-TG-DIJ" secondAttribute="top" id="IqL-9J-zeF"/>
+                                                <constraint firstItem="769-B5-vhU" firstAttribute="leading" secondItem="JWx-hE-JhY" secondAttribute="trailing" constant="8" symbolic="YES" id="NHk-HM-NiK"/>
+                                                <constraint firstItem="769-B5-vhU" firstAttribute="centerY" secondItem="JWx-hE-JhY" secondAttribute="centerY" id="Yx3-Aa-eKu"/>
+                                                <constraint firstItem="JWx-hE-JhY" firstAttribute="leading" secondItem="CMy-TG-DIJ" secondAttribute="leadingMargin" constant="-7" id="yKi-JR-ahu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="icon" destination="JWx-hE-JhY" id="hTa-a1-y9Y"/>
+                                            <outlet property="label" destination="769-B5-vhU" id="1JQ-5r-2sk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="tableView" destination="rO4-xM-X22" id="AHf-0H-Ver"/>
+                        <segue destination="TTA-04-dta" kind="show" identifier="fromMenuToPage" id="adw-Tr-v6p"/>
+                        <segue destination="IOH-bG-bS2" kind="show" identifier="fromMenuToSettings" id="CZ7-l5-vkx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHb-FA-1gU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-244" y="888"/>
+            <point key="canvasLocation" x="-277" y="888"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="7Yq-6u-Ulc">
@@ -774,6 +820,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ooM-xI-8Z0"/>
-        <segue reference="evL-ah-ioV"/>
+        <segue reference="CZ7-l5-vkx"/>
+        <segue reference="adw-Tr-v6p"/>
     </inferredMetricsTieBreakers>
 </document>

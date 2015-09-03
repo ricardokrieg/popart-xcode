@@ -21,6 +21,7 @@
 		8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */; };
 		8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */; };
 		8CF30E451B97D47F00F97DA3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E441B97D47F00F97DA3 /* MenuViewController.swift */; };
+		8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E461B98C99700F97DA3 /* MenuTableViewCell.swift */; };
 		8CF994F41B82D05600BC4E44 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F31B82D05600BC4E44 /* Server.swift */; };
 		8CF994F81B82E4E600BC4E44 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F51B82E4E600BC4E44 /* ysocket.swift */; };
 		8CF994F91B82E4E600BC4E44 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */; };
@@ -59,6 +60,7 @@
 		8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8CF30E441B97D47F00F97DA3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8CF30E461B98C99700F97DA3 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		8CF994F31B82D05600BC4E44 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		8CF994F51B82E4E600BC4E44 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
 		8CF994F61B82E4E600BC4E44 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				8C22C6F81B820F1400627D69 /* Painting.swift */,
 				8C22C6FA1B82109800627D69 /* Photo.swift */,
 				8C26557D1B7ED08100648FC5 /* Main.storyboard */,
+				8CF30E461B98C99700F97DA3 /* MenuTableViewCell.swift */,
 				8CF30E441B97D47F00F97DA3 /* MenuViewController.swift */,
 				8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */,
 				8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */,
@@ -263,6 +266,7 @@
 				8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */,
 				8CF994F41B82D05600BC4E44 /* Server.swift in Sources */,
 				8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */,
+				8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */,
 				8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */,
 				8C22C6FB1B82109800627D69 /* Photo.swift in Sources */,
 				8CF30E451B97D47F00F97DA3 /* MenuViewController.swift in Sources */,

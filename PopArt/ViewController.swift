@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIPopoverPresentationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var cameraButton: UIButton!
@@ -86,9 +86,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func moreButtonClicked(sender: UIButton) {
-        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Settings", "Profile", "About")
+//        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Settings", "Profile", "About")
         
-        actionSheet.showInView(self.view)
+//        actionSheet.showInView(self.view)
+        performSegueWithIdentifier("menu", sender: nil)
     }
     
     @IBAction func backToMain(segue: UIStoryboardSegue) {}
@@ -165,6 +166,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else if segue.identifier == "fromMainToPage" {
             let destination = segue.destinationViewController as! PageViewController
             destination.url = page_url
+        } else if segue.identifier == "menu" {
+            if let controller = segue.destinationViewController as? UIViewController {
+                controller.popoverPresentationController!.delegate = self
+                controller.preferredContentSize = CGSize(width: 320, height: 186)
+            }
         }
     }
     
@@ -242,6 +248,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         default:
             println("actionSheet without action \(buttonIndex)")
         }
+    }
+    
+    // MARK: UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Return no adaptive presentation style, use default presentation behaviour
+        return .None
     }
     
     // MARK: - CLLocationManagerDelegate Methods
