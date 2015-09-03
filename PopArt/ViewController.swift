@@ -169,7 +169,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else if segue.identifier == "menu" {
             if let controller = segue.destinationViewController as? UIViewController {
                 controller.popoverPresentationController!.delegate = self
-                controller.preferredContentSize = CGSize(width: 320, height: 186)
+                controller.preferredContentSize = CGSize(width: 200, height: 140)
             }
         }
     }
