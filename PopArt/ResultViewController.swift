@@ -113,7 +113,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                     }
                 }
                 
-                dispatch_async(dispatch_get_main_queue()) {}
+//                dispatch_async(dispatch_get_main_queue()) {}
             }
             
             if result_title != nil {
