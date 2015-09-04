@@ -55,7 +55,7 @@ class SendingPictureViewController: UIViewController {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if self.imageContainer.image != nil {
-                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 1.0)
+                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 0.5)
                 let imageDataBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
 //                let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
                 
@@ -96,7 +96,9 @@ class SendingPictureViewController: UIViewController {
 //                server.connect()
 //                server.send(message)
                 
-                let params: Dictionary<String, AnyObject> = ["image64": message_data, "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
+//                let params: Dictionary<String, AnyObject> = ["image64": message_data, "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
+                let params: Dictionary<String, AnyObject> = ["image": HTTPUpload(data: imageData, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
+                
                 server.request.POST(server.http_url, parameters: params, completionHandler: {(response: HTTPResponse) in
                     
                     if let err = response.error {
