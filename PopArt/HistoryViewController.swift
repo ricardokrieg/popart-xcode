@@ -71,6 +71,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let managedContext = appDelegate.managedObjectContext!
         
         let fetchRequest = NSFetchRequest(entityName: "Painting")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
         var error: NSError?
         
