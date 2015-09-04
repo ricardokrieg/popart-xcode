@@ -56,8 +56,7 @@ class Server {
         let data = client.read(1024*10)
         if let d=data{
             if let str=NSString(bytes: d, length: d.count, encoding: NSUTF8StringEncoding){
-                println(str)
-                
+                println(str)                
                 return str
             }
         }

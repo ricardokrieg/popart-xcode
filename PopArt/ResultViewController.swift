@@ -18,7 +18,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultDescriptionL3: UILabel!
     
     var result: NSData?
-    var saveToHistory = false
+    var saveToHistory = true
 
     @IBAction func facebookButtonClicked(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
@@ -101,7 +101,7 @@ class ResultViewController: UIViewController {
                 saveToHistory = false
                 
                 if let result_success = json?["success"] as? Bool? {
-                    if result_success == true {
+                    //if result_success == true {
                         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         let managedContext = appDelegate.managedObjectContext!
                         
@@ -151,7 +151,7 @@ class ResultViewController: UIViewController {
                         if !managedContext.save(&error) {
                             println("Could not save \(error), \(error?.userInfo)")
                         }
-                    }
+                    //}
                 }
             }
         }
