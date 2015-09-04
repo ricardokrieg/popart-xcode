@@ -102,12 +102,18 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let result_location_country = json?["location_country"] as? String?
             
             if result_image_url != nil {
-                if let url = NSURL(string: result_image_url!!) {
-                    if let data = NSData(contentsOfURL: url){
-                        resultImage.contentMode = .ScaleAspectFit
-                        resultImage.image = UIImage(data: data)
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    if let url = NSURL(string: result_image_url!!) {
+                        if let data = NSData(contentsOfURL: url){
+                            dispatch_async(dispatch_get_main_queue()) {
+                                self.resultImage.contentMode = .ScaleAspectFit
+                                self.resultImage.image = UIImage(data: data)
+                            }
+                        }
                     }
                 }
+                
+                dispatch_async(dispatch_get_main_queue()) {}
             }
             
             if result_title != nil {
