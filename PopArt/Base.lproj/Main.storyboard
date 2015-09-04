@@ -51,7 +51,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-qo-pc7">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-Q7-foa">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-Q7-foa">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -345,7 +345,17 @@
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-Rk-k0N">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jib-Jh-lYD">
+                                        <rect key="frame" x="6" y="422" width="308" height="31"/>
+                                    </slider>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="trailing" secondItem="v7w-Rk-k0N" secondAttribute="trailingMargin" id="POB-a8-sNa"/>
+                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="bottom" secondItem="v7w-Rk-k0N" secondAttribute="bottomMargin" id="R61-pl-5vi"/>
+                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="leading" secondItem="v7w-Rk-k0N" secondAttribute="leadingMargin" id="iHw-vM-Ihe"/>
+                                </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNr-dh-hKN">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -1045,10 +1055,10 @@
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kBO-0a-pVg"/>
         <segue reference="W2i-LE-0ss"/>
-        <segue reference="do7-Cx-Cef"/>
+        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="7OK-sO-FDr"/>
-        <segue reference="CZ7-l5-vkx"/>
-        <segue reference="adw-Tr-v6p"/>
+        <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>
