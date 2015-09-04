@@ -26,7 +26,7 @@ class SendingPictureViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         if !server.shouldSend { return }
         
-        self.statusLabel.text = "Uploading"
+        self.statusLabel.text = "Searching"
         
         // Display capture/picked image
         
