@@ -165,10 +165,6 @@ class SendingPictureViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromSendingPictureToResult" {
             if result != nil {
@@ -206,7 +202,7 @@ class SendingPictureViewController: UIViewController {
             }
         }
         
-        let rect = CGRectMake(CGFloat(0.0), CGFloat(0.0), CGFloat(actualWidth), CGFloat(actualHeight))
+        let rect = CGRectMake(CGFloat(0.0), CGFloat(0.0), CGFloat(Int(actualWidth)), CGFloat(Int(actualHeight)))
         UIGraphicsBeginImageContext(rect.size)
         
         image.drawInRect(rect)

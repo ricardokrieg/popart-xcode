@@ -425,7 +425,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fx2-Bo-5N4">
-                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="G8t-RO-gXX"/>
                                 </constraints>
@@ -433,10 +433,11 @@
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbz-rh-1gR">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Uploading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3C-b1-u3n">
-                                <rect key="frame" x="16" y="491" width="288" height="21"/>
+                                <rect key="frame" x="16" y="535" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -711,19 +712,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
-                        <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0u9-Cy-4rU">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem image="back" id="DfC-z0-2kX">
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <connections>
-                                        <segue destination="E3k-tU-lOf" kind="unwind" unwindAction="backToMain:" id="AGv-Ij-hhk"/>
-                                    </connections>
-                                </barButtonItem>
-                            </items>
-                            <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </toolbar>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Dyj-ys-rgX">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCF-eV-AKP">
+                                    <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                    <items>
+                                        <barButtonItem image="back" id="ASf-nK-Uoi">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="E3k-tU-lOf" kind="unwind" unwindAction="backToMain:" id="iK6-bf-2iC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </items>
+                                    <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </toolbar>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="iCF-eV-AKP" secondAttribute="trailing" id="3y3-0V-n7y"/>
+                                <constraint firstAttribute="bottom" secondItem="iCF-eV-AKP" secondAttribute="bottom" id="fGp-9J-zc6"/>
+                                <constraint firstItem="iCF-eV-AKP" firstAttribute="leading" secondItem="Dyj-ys-rgX" secondAttribute="leading" id="l46-HD-PU9"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection headerTitle="Settings" id="JUJ-th-riY">
                                 <cells>
@@ -846,7 +859,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="toolbar" destination="0u9-Cy-4rU" id="jBQ-Tq-cZY"/>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromSettingsToPage" id="evL-ah-ioV"/>
                     </connections>
                 </tableViewController>
@@ -864,44 +876,32 @@
                         <viewControllerLayoutGuide type="bottom" id="d3J-qq-lPv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zli-5l-t7g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-2b-9qA">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem image="back" style="plain" id="VPj-FB-kBR">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="3AU-PM-a5D" kind="unwind" unwindAction="backToMain:" id="0RA-CS-x6k"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf8-qz-mXQ">
-                                <rect key="frame" x="-20" y="64" width="360" height="416"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X84-DW-vie">
-                                        <rect key="frame" x="20" y="0.0" width="320" height="282"/>
+                                        <rect key="frame" x="20" y="0.0" width="335" height="425"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionL1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-gq-DoH">
-                                        <rect key="frame" x="36" y="327" width="288" height="21"/>
+                                        <rect key="frame" x="36" y="470" width="303" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionL2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBU-L7-Ids">
-                                        <rect key="frame" x="36" y="356" width="288" height="21"/>
+                                        <rect key="frame" x="36" y="499" width="303" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionL3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMV-4D-ooA">
-                                        <rect key="frame" x="36" y="385" width="288" height="21"/>
+                                        <rect key="frame" x="36" y="528" width="303" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jm0-DT-iQ6">
-                                        <rect key="frame" x="36" y="298" width="288" height="21"/>
+                                        <rect key="frame" x="36" y="441" width="303" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="73V-V2-kur"/>
                                             <constraint firstAttribute="height" constant="21" id="z5S-xM-fx2"/>
@@ -935,8 +935,20 @@
                                     <constraint firstItem="pBU-L7-Ids" firstAttribute="trailing" secondItem="PQt-gq-DoH" secondAttribute="trailing" id="zsu-8x-bnj"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylc-6B-VjN">
-                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-2b-9qA">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem image="back" style="plain" id="VPj-FB-kBR">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="3AU-PM-a5D" kind="unwind" unwindAction="backToMain:" id="0RA-CS-x6k"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylc-6B-VjN">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem image="facebookIcon" id="hq4-TW-pxb">
                                         <connections>
@@ -963,24 +975,24 @@
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.15686275059999999" green="0.7254902124" blue="0.1647058874" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Sf8-qz-mXQ" firstAttribute="centerX" secondItem="ylc-6B-VjN" secondAttribute="centerX" id="Drj-eH-U5b"/>
+                            <constraint firstItem="Sf8-qz-mXQ" firstAttribute="top" secondItem="ilh-eJ-72M" secondAttribute="bottom" constant="44" id="12W-g9-8D5"/>
+                            <constraint firstAttribute="centerX" secondItem="Sf8-qz-mXQ" secondAttribute="centerX" id="BRd-VR-TJI"/>
                             <constraint firstItem="ylc-6B-VjN" firstAttribute="bottom" secondItem="d3J-qq-lPv" secondAttribute="top" id="FyN-rX-s14"/>
-                            <constraint firstItem="Sf8-qz-mXQ" firstAttribute="bottom" secondItem="ylc-6B-VjN" secondAttribute="top" id="SeW-WT-txW"/>
+                            <constraint firstItem="d3J-qq-lPv" firstAttribute="top" secondItem="Sf8-qz-mXQ" secondAttribute="bottom" constant="44" id="Ihx-6Y-LGo"/>
+                            <constraint firstAttribute="width" secondItem="Sf8-qz-mXQ" secondAttribute="width" id="Ir6-eF-k1H"/>
                             <constraint firstAttribute="trailing" secondItem="pVa-2b-9qA" secondAttribute="trailing" id="W36-Ad-0En"/>
-                            <constraint firstItem="pVa-2b-9qA" firstAttribute="leading" secondItem="ylc-6B-VjN" secondAttribute="leading" id="cpa-xs-ISD"/>
-                            <constraint firstItem="Sf8-qz-mXQ" firstAttribute="centerX" secondItem="pVa-2b-9qA" secondAttribute="centerX" id="jUv-dg-6Pa"/>
-                            <constraint firstItem="Sf8-qz-mXQ" firstAttribute="leading" secondItem="Zli-5l-t7g" secondAttribute="leadingMargin" constant="-36" id="ngH-UW-yJp"/>
-                            <constraint firstItem="Sf8-qz-mXQ" firstAttribute="top" secondItem="pVa-2b-9qA" secondAttribute="bottom" id="pES-rn-ygX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ylc-6B-VjN" secondAttribute="trailing" constant="-16" id="Y78-jC-Rq5"/>
+                            <constraint firstItem="ylc-6B-VjN" firstAttribute="leading" secondItem="Zli-5l-t7g" secondAttribute="leadingMargin" constant="-16" id="gYW-RP-zCj"/>
                             <constraint firstItem="pVa-2b-9qA" firstAttribute="leading" secondItem="Zli-5l-t7g" secondAttribute="leading" id="qNt-dh-h8q"/>
                             <constraint firstItem="pVa-2b-9qA" firstAttribute="top" secondItem="ilh-eJ-72M" secondAttribute="bottom" id="xSN-E5-CYz"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="resultDescriptionL1" destination="PQt-gq-DoH" id="Bnr-N0-CgP"/>
                         <outlet property="resultDescriptionL2" destination="pBU-L7-Ids" id="YU8-iY-YOF"/>
@@ -1009,10 +1021,10 @@
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="evL-ah-ioV"/>
+        <segue reference="kBO-0a-pVg"/>
         <segue reference="W2i-LE-0ss"/>
         <segue reference="do7-Cx-Cef"/>
-        <segue reference="kBO-0a-pVg"/>
         <segue reference="7OK-sO-FDr"/>
-        <segue reference="Bfq-3Z-hPx"/>
     </inferredMetricsTieBreakers>
 </document>
