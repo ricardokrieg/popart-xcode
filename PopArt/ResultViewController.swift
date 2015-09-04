@@ -26,7 +26,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
             if let title = resultTitle {
-                facebookSheet.setInitialText("User A, found \(title.text) with PopArt App <linked to App Store>")
+                facebookSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
             }
             
             facebookSheet.addImage(resultImage?.image)
@@ -43,7 +43,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             
             if let title = resultTitle {
-                twitterSheet.setInitialText("User A, found \(title.text) with PopArt App <linked to App Store>")
+                twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
             }
             
             twitterSheet.addImage(resultImage?.image)
