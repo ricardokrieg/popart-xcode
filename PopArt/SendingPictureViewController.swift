@@ -111,7 +111,10 @@ class SendingPictureViewController: UIViewController {
                         println("response: \(str)") //prints the HTML of the page
                         
                         self.result = str!.dataUsingEncoding(NSUTF8StringEncoding)
-                        self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
+                        }
                     }
                 })
                 
@@ -174,7 +177,7 @@ class SendingPictureViewController: UIViewController {
                 */
             }
             
-            dispatch_async(dispatch_get_main_queue()) {}
+//            dispatch_async(dispatch_get_main_queue()) {}
         }
         
         server.shouldSend = false
