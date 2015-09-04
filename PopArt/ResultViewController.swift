@@ -25,7 +25,10 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
-            facebookSheet.setInitialText("User A, found \(resultTitle?.text) with PopArt App <linked to App Store>")
+            if let title = resultTitle {
+                facebookSheet.setInitialText("User A, found \(title.text) with PopArt App <linked to App Store>")
+            }
+            
             facebookSheet.addImage(resultImage?.image)
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
@@ -39,7 +42,10 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             
-            twitterSheet.setInitialText("User A, found \(resultTitle?.text) with PopArt App <linked to App Store>")
+            if let title = resultTitle {
+                twitterSheet.setInitialText("User A, found \(title.text) with PopArt App <linked to App Store>")
+            }
+            
             twitterSheet.addImage(resultImage?.image)
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {

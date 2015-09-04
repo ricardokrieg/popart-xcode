@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aMG-Ul-1e7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aMG-Ul-1e7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -879,17 +879,17 @@
                         <viewControllerLayoutGuide type="bottom" id="d3J-qq-lPv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zli-5l-t7g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sf8-qz-mXQ">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X84-DW-vie">
-                                        <rect key="frame" x="20" y="0.0" width="280" height="326"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X84-DW-vie">
+                                        <rect key="frame" x="20" y="0.0" width="335" height="425"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jm0-DT-iQ6">
-                                        <rect key="frame" x="36" y="342" width="248" height="21"/>
+                                        <rect key="frame" x="36" y="441" width="303" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="73V-V2-kur"/>
                                             <constraint firstAttribute="height" constant="21" id="z5S-xM-fx2"/>
@@ -903,52 +903,43 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionL1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQt-gq-DoH">
-                                        <rect key="frame" x="36" y="371" width="248" height="21"/>
+                                        <rect key="frame" x="36" y="470" width="303" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionL2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBU-L7-Ids">
-                                        <rect key="frame" x="36" y="400" width="248" height="21"/>
+                                        <rect key="frame" x="36" y="499" width="303" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionL3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMV-4D-ooA">
-                                        <rect key="frame" x="36" y="429" width="248" height="21"/>
+                                        <rect key="frame" x="36" y="528" width="303" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="X84-DW-vie" firstAttribute="leading" secondItem="Sf8-qz-mXQ" secondAttribute="leading" constant="20" id="2Et-5A-KsE"/>
-                                    <constraint firstItem="X84-DW-vie" firstAttribute="top" secondItem="Sf8-qz-mXQ" secondAttribute="top" id="6re-v2-CC6"/>
                                     <constraint firstItem="jm0-DT-iQ6" firstAttribute="top" secondItem="X84-DW-vie" secondAttribute="bottom" constant="16" id="7b5-7y-k8p"/>
                                     <constraint firstItem="jm0-DT-iQ6" firstAttribute="leading" secondItem="Sf8-qz-mXQ" secondAttribute="leading" constant="36" id="AkT-a6-4hM"/>
                                     <constraint firstItem="eMV-4D-ooA" firstAttribute="trailing" secondItem="pBU-L7-Ids" secondAttribute="trailing" id="B14-2p-JwL"/>
                                     <constraint firstItem="pBU-L7-Ids" firstAttribute="leading" secondItem="PQt-gq-DoH" secondAttribute="leading" id="GTF-nL-u3O"/>
                                     <constraint firstItem="PQt-gq-DoH" firstAttribute="trailing" secondItem="jm0-DT-iQ6" secondAttribute="trailing" id="I3e-he-uHr"/>
-                                    <constraint firstItem="X84-DW-vie" firstAttribute="centerX" secondItem="Sf8-qz-mXQ" secondAttribute="centerX" id="MoR-8o-cjj"/>
-                                    <constraint firstItem="jm0-DT-iQ6" firstAttribute="top" secondItem="X84-DW-vie" secondAttribute="bottom" constant="16" id="Nkl-r2-dcf"/>
+                                    <constraint firstItem="X84-DW-vie" firstAttribute="leading" secondItem="Sf8-qz-mXQ" secondAttribute="leading" constant="20" id="NlN-c7-Qsc"/>
                                     <constraint firstItem="pBU-L7-Ids" firstAttribute="top" secondItem="PQt-gq-DoH" secondAttribute="bottom" constant="8" symbolic="YES" id="VMn-mz-3wf"/>
-                                    <constraint firstItem="X84-DW-vie" firstAttribute="centerX" secondItem="jm0-DT-iQ6" secondAttribute="centerX" id="Vgn-Iq-ITn"/>
+                                    <constraint firstItem="X84-DW-vie" firstAttribute="top" secondItem="Sf8-qz-mXQ" secondAttribute="top" id="egL-YH-nI9"/>
                                     <constraint firstItem="PQt-gq-DoH" firstAttribute="top" secondItem="jm0-DT-iQ6" secondAttribute="bottom" constant="8" symbolic="YES" id="gLj-zG-pZA"/>
                                     <constraint firstItem="eMV-4D-ooA" firstAttribute="leading" secondItem="pBU-L7-Ids" secondAttribute="leading" id="nm8-Vx-p4W"/>
-                                    <constraint firstItem="jm0-DT-iQ6" firstAttribute="top" secondItem="X84-DW-vie" secondAttribute="top" constant="342" id="oV3-2M-0lW"/>
                                     <constraint firstAttribute="bottom" secondItem="eMV-4D-ooA" secondAttribute="bottom" constant="10" id="ofe-uT-BKC"/>
                                     <constraint firstItem="PQt-gq-DoH" firstAttribute="leading" secondItem="jm0-DT-iQ6" secondAttribute="leading" id="pUh-9C-6Y3"/>
                                     <constraint firstItem="eMV-4D-ooA" firstAttribute="top" secondItem="pBU-L7-Ids" secondAttribute="bottom" constant="8" symbolic="YES" id="tpC-iK-hyh"/>
+                                    <constraint firstItem="eMV-4D-ooA" firstAttribute="centerX" secondItem="X84-DW-vie" secondAttribute="centerX" id="ytV-aK-hik"/>
+                                    <constraint firstItem="X84-DW-vie" firstAttribute="centerX" secondItem="Sf8-qz-mXQ" secondAttribute="centerX" id="zbB-Lj-3FP"/>
                                     <constraint firstItem="pBU-L7-Ids" firstAttribute="trailing" secondItem="PQt-gq-DoH" secondAttribute="trailing" id="zsu-8x-bnj"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="6re-v2-CC6"/>
-                                        <exclude reference="7b5-7y-k8p"/>
-                                        <exclude reference="oV3-2M-0lW"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-2b-9qA">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <barButtonItem image="back" style="plain" id="VPj-FB-kBR">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -960,7 +951,7 @@
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylc-6B-VjN">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem image="facebookIcon" id="hq4-TW-pxb">
                                         <connections>
@@ -993,9 +984,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Sf8-qz-mXQ" firstAttribute="top" secondItem="ilh-eJ-72M" secondAttribute="bottom" constant="44" id="12W-g9-8D5"/>
-                            <constraint firstItem="X84-DW-vie" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ylc-6B-VjN" secondAttribute="bottom" constant="-178" id="2At-Ip-sKE"/>
                             <constraint firstAttribute="centerX" secondItem="Sf8-qz-mXQ" secondAttribute="centerX" id="BRd-VR-TJI"/>
-                            <constraint firstItem="X84-DW-vie" firstAttribute="top" secondItem="pVa-2b-9qA" secondAttribute="bottom" id="Be2-Dy-U7O"/>
                             <constraint firstItem="ylc-6B-VjN" firstAttribute="bottom" secondItem="d3J-qq-lPv" secondAttribute="top" id="FyN-rX-s14"/>
                             <constraint firstItem="d3J-qq-lPv" firstAttribute="top" secondItem="Sf8-qz-mXQ" secondAttribute="bottom" constant="44" id="Ihx-6Y-LGo"/>
                             <constraint firstAttribute="width" secondItem="Sf8-qz-mXQ" secondAttribute="width" id="Ir6-eF-k1H"/>
@@ -1005,14 +994,8 @@
                             <constraint firstItem="pVa-2b-9qA" firstAttribute="leading" secondItem="Zli-5l-t7g" secondAttribute="leading" id="qNt-dh-h8q"/>
                             <constraint firstItem="pVa-2b-9qA" firstAttribute="top" secondItem="ilh-eJ-72M" secondAttribute="bottom" id="xSN-E5-CYz"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="2At-Ip-sKE"/>
-                                <exclude reference="Be2-Dy-U7O"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="resultDescriptionL1" destination="PQt-gq-DoH" id="Bnr-N0-CgP"/>
                         <outlet property="resultDescriptionL2" destination="pBU-L7-Ids" id="YU8-iY-YOF"/>
@@ -1041,10 +1024,18 @@
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W2i-LE-0ss"/>
-        <segue reference="do7-Cx-Cef"/>
+<<<<<<< HEAD
+        <segue reference="fhn-Em-7be"/>
+        <segue reference="ooM-xI-8Z0"/>
         <segue reference="7OK-sO-FDr"/>
         <segue reference="CZ7-l5-vkx"/>
         <segue reference="adw-Tr-v6p"/>
+=======
+        <segue reference="evL-ah-ioV"/>
+        <segue reference="kBO-0a-pVg"/>
+        <segue reference="W2i-LE-0ss"/>
+        <segue reference="do7-Cx-Cef"/>
+        <segue reference="7OK-sO-FDr"/>
+>>>>>>> 815258240c6387fa037e955471336915e1df02ce
     </inferredMetricsTieBreakers>
 </document>

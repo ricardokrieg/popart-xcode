@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5AD7503E-B991-4CAC-A23A-000CD05C7A72</string>
+	<string>E214A35C-9505-42B1-890D-1B97FF56AEE9</string>
 	<key>IDESourceControlProjectName</key>
 	<string>PopArt</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>bitbucket.org:ricardokrieg/popart-xcode.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PopArt.xcodeproj</string>
+	<string>PopArt.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>977BDEEAFA6E9687036BE40776A71512A63B64EE</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>bitbucket.org:ricardokrieg/popart-xcode.git</string>
