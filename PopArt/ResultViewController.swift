@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import Social
+import MessageUI
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultTitle: UILabel!
     @IBOutlet weak var resultDescriptionL1: UILabel!
@@ -18,12 +19,13 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultDescriptionL3: UILabel!
     
     var result: NSData?
-    var saveToHistory = false
+    var saveToHistory:Bool = false
 
     @IBAction func facebookButtonClicked(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText(resultTitle?.text)
+            
+            facebookSheet.setInitialText("User A, found \(resultTitle?.text) with PopArt App <linked to App Store>")
             facebookSheet.addImage(resultImage?.image)
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
@@ -36,7 +38,8 @@ class ResultViewController: UIViewController {
     @IBAction func twitterButtonClicked(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText(resultTitle?.text)
+            
+            twitterSheet.setInitialText("User A, found \(resultTitle?.text) with PopArt App <linked to App Store>")
             twitterSheet.addImage(resultImage?.image)
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
@@ -50,6 +53,26 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func mailButtonClicked(sender: AnyObject) {
+        if MFMailComposeViewController.canSendMail() {
+            var mc:MFMailComposeViewController = MFMailComposeViewController()
+            mc.mailComposeDelegate = self
+            mc.setSubject(resultTitle?.text)
+            UIImageJPEGRepresentation(resultImage?.image, 1)
+            
+            mc.addAttachmentData(UIImageJPEGRepresentation(resultImage?.image, 1), mimeType: "image/jpeg", fileName: "image.jpeg")
+            //        self.showViewController(mc, sender: self)
+            self.presentViewController(mc, animated: true, completion: nil)
+        }else{
+            var alert = UIAlertController(title: "Accounts", message: "Please login to a Email account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+
+        }
+        
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -101,7 +124,7 @@ class ResultViewController: UIViewController {
                 saveToHistory = false
                 
                 if let result_success = json?["success"] as? Bool? {
-                    if result_success == true {
+                    //if result_success == true {
                         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         let managedContext = appDelegate.managedObjectContext!
                         
@@ -151,7 +174,7 @@ class ResultViewController: UIViewController {
                         if !managedContext.save(&error) {
                             println("Could not save \(error), \(error?.userInfo)")
                         }
-                    }
+                    //}
                 }
             }
         }
@@ -160,10 +183,6 @@ class ResultViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
 
     /*

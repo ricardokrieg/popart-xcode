@@ -28,6 +28,7 @@
 		8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */; };
 		8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */; };
 		8CFEA6931B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6911B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld */; };
+		CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE652D5C1B995F07006687BA /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8CFEA6921B8F575F00826DB1 /* PopArtDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopArtDataModel.xcdatamodel; sourceTree = "<group>"; };
+		CE652D5C1B995F07006687BA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */,
 				8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +93,7 @@
 		8C26556B1B7ED08100648FC5 = {
 			isa = PBXGroup;
 			children = (
+				CE652D5C1B995F07006687BA /* MessageUI.framework */,
 				8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */,
 				8C2655761B7ED08100648FC5 /* PopArt */,
 				8C26558C1B7ED08100648FC5 /* PopArtTests */,
@@ -403,8 +407,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PopArt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -413,8 +419,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PopArt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

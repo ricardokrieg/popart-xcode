@@ -26,7 +26,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
     var captureDevice: AVCaptureDevice?
+    var videoInput:AVCaptureInput?
+    var isFront:Bool = false
+    
     var stillImageOutput : AVCaptureStillImageOutput?
+    
+    var videoConnection : AVCaptureConnection?
     
     @IBAction func cameraButtonClicked(sender: UIButton) {
         println("Camera")
@@ -44,24 +49,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // we do this on another thread so we don't hang the UI
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 // find video connection
-                var videoConnection : AVCaptureConnection?
                 for connection in stillOutput.connections {
                     // find a matching input port
                     for port in connection.inputPorts! {
                         // and matching type
                         if port.mediaType == AVMediaTypeVideo {
-                            videoConnection = connection as? AVCaptureConnection
+                            self.videoConnection = connection as? AVCaptureConnection
                             break
                         }
                     }
-                    if videoConnection != nil {
+                    if self.videoConnection != nil {
                         break // for connection
                     }
                 }
                 
-                if videoConnection != nil {
+                switch (UIApplication.sharedApplication().statusBarOrientation)
+                {
+                case UIInterfaceOrientation.Portrait:
+                    self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+                case UIInterfaceOrientation.PortraitUpsideDown:
+                    self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+                case UIInterfaceOrientation.LandscapeLeft:
+                    self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+                case UIInterfaceOrientation.LandscapeRight:
+                    self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+                default:
+                    self.videoConnection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+                }
+                
+                if self.videoConnection != nil {
                     // found the video connection, let's get the image
-                    stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) {
+                    stillOutput.captureStillImageAsynchronouslyFromConnection(self.videoConnection) {
                         (imageSampleBuffer:CMSampleBuffer!, _) in
                         
                         let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
@@ -74,6 +92,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
+    }
+    @IBAction func onRotateCamera(sender: AnyObject) {
+        if isFront {
+            captureDevice = getBackCamera()
+            isFront = false
+        }else{
+            captureDevice = getFrontCamera()
+            isFront = true
+        }        
+        if captureDevice != nil {
+            println("Capture device found")
+            beginSession()
+        }
+    }
+    
+    func getFrontCamera () -> AVCaptureDevice! {
+        var devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
+        for device in devices {
+            var camera:AVCaptureDevice = device as! AVCaptureDevice
+            if camera.position == AVCaptureDevicePosition.Front {
+                return camera
+            }
+        }
+        return nil
+    }
+    
+    func getBackCamera () -> AVCaptureDevice! {
+        var devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
+        for device in devices {
+            var camera:AVCaptureDevice = device as! AVCaptureDevice
+            if camera.position == AVCaptureDevicePosition.Back {
+                return camera
+            }
+        }
+        return nil
     }
     
     @IBAction func selectImageButtonClicked(sender: UIBarButtonItem) {
@@ -128,6 +181,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         println("Capture device found")
                         beginSession()
                     }
+                    isFront = false
                 }
             }
         }
@@ -146,11 +200,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             previewLayer?.bounds = bounds
             previewLayer?.position = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
+            
+            let connection = previewLayer?.connection
+            
+            switch (UIApplication.sharedApplication().statusBarOrientation)
+            {
+            case UIInterfaceOrientation.Portrait:
+                connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+            case UIInterfaceOrientation.PortraitUpsideDown:
+                connection?.videoOrientation = AVCaptureVideoOrientation.PortraitUpsideDown
+            case UIInterfaceOrientation.LandscapeLeft:
+                connection?.videoOrientation = AVCaptureVideoOrientation.LandscapeLeft
+            case UIInterfaceOrientation.LandscapeRight:
+                connection?.videoOrientation = AVCaptureVideoOrientation.LandscapeRight
+            default:
+                connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+            }
         }
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -177,8 +243,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func configureDevice() {
         if let device = captureDevice {
             if device.lockForConfiguration(nil) {
-                let autoFocusPoint = CGPointMake(0.5, 0.5)
-                device.focusPointOfInterest = autoFocusPoint
+//                let autoFocusPoint = CGPointMake(0.5, 0.5)
+//                device.focusPointOfInterest = autoFocusPoint
                 
                 if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
                     println("focus: ContinuousAutoFocus")
@@ -197,8 +263,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         configureDevice()
         
         var err: NSError? = nil
-        
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
+        if videoInput != nil {
+            captureSession.stopRunning()
+            
+            captureSession.removeInput(videoInput)
+            videoInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
+            captureSession.addInput(videoInput)
+            captureSession.startRunning()
+            return
+        }
+        videoInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
+        captureSession.addInput(videoInput)
         
         if err != nil {
             println("error: \(err?.localizedDescription)")
@@ -222,6 +297,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         captureSession.startRunning()
     }
     
+    
+    
     // MARK: - UIImagePickerControllerDelegate Methods
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
@@ -230,10 +307,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: {
             self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
         })
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     }
     
     // MARK: - UIActionSheetDelegate Methods

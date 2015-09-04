@@ -28,7 +28,7 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        toolbar.frame = CGRectMake(0, 0, view.frame.size.width, 64)
+//        toolbar.frame = CGRectMake(0, 0, view.frame.size.width, 44)
         
         tableView.registerClass(HistoryTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
     }
@@ -36,10 +36,6 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
     }
 
     // MARK: - Table view data source
