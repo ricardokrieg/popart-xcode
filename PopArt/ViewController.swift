@@ -155,14 +155,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var hardwareZoom = false
         
         if let device = captureDevice {
-            if device.respondsToSelector("setVideoZoomFactor:") {
+            if device.respondsToSelector("videoZoomFactor") {
                 if device.lockForConfiguration(nil) {
+                    println("Setting zoom")
                     device.videoZoomFactor = CGFloat(slider.value)
 
                     device.unlockForConfiguration()
                     hardwareZoom = true
+                } else {
+                    println("could not lock")
                 }
+            } else {
+                println("No videoZoom feature")
             }
+        } else {
+            println("No device")
         }
         
         if !hardwareZoom {
