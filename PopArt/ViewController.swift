@@ -292,6 +292,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
                 
                 if device.respondsToSelector("setVideoZoomFactor:") {
+                    println("Max zoom")
+                    println(device.activeFormat.videoMaxZoomFactor)
                     slider.maximumValue = Float(device.activeFormat.videoMaxZoomFactor)
                 }
                 
