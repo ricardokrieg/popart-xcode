@@ -346,8 +346,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-Rk-k0N">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jib-Jh-lYD">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Jib-Jh-lYD">
                                         <rect key="frame" x="6" y="422" width="308" height="31"/>
+                                        <connections>
+                                            <action selector="sliderValueChanged:" destination="aMG-Ul-1e7" eventType="valueChanged" id="GyM-hR-Hjd"/>
+                                        </connections>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -416,6 +419,7 @@
                         <outlet property="cameraButton" destination="jze-Du-4DE" id="ibc-V1-q42"/>
                         <outlet property="cameraView" destination="v7w-Rk-k0N" id="mcD-p9-rKK"/>
                         <outlet property="selectImageButton" destination="Pmp-6z-32c" id="aZ2-iS-wdT"/>
+                        <outlet property="slider" destination="Jib-Jh-lYD" id="tQK-OV-zaA"/>
                         <segue destination="mGA-4a-zWH" kind="show" identifier="fromMainToSendingPicture" id="W2i-LE-0ss"/>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromMainToPage" id="Bfq-3Z-hPx"/>
                         <segue destination="IOH-bG-bS2" kind="show" identifier="fromMainToSettings" id="kBO-0a-pVg"/>
