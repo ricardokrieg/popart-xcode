@@ -11,6 +11,9 @@ import CoreData
 import Social
 import MessageUI
 
+
+
+
 class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultTitle: UILabel!
@@ -56,6 +59,51 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     @IBAction func googlePlusButtonClicked(sender: AnyObject) {
+        
+        
+//        id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+//        
+//        // Set any prefilled text that you might want to suggest
+//        [shareBuilder setPrefillText:@"Achievement unlocked! I just scored 99 points. Can you beat me?"]
+//        
+//        NSString *fileName = @"samplemedia1";
+//        [shareBuilder attachImage:[UIImage imageNamed:fileName];
+//        
+//        [shareBuilder open];
+        
+        
+//        var shareBuilder = GPSha
+        
+
+
+        
+//        [shareBuilder setURLToShare:[NSURL URLWithString:@"https://www.example.com/restaurant/sf/1234567/"]];
+
+        
+        if result != nil {
+            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
+            
+            var result_image_url = json?["image_url"] as? String?
+            
+            
+            var shareBuilder =        GPPShare.sharedInstance().shareDialog();
+            shareBuilder.setURLToShare(NSURL(string: "\(result_image_url)" ));
+            
+            shareBuilder.open();
+
+        }
+        
+       
+        
+        
+//        if let title = resultTitle {
+//            twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
+//        }
+//        
+//        twitterSheet.addImage(resultImage?.image)
+
+        
+        
     }
     
     @IBAction func mailButtonClicked(sender: AnyObject) {

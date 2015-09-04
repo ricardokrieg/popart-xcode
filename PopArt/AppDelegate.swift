@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+
+let kClientId = "699313552804-btfstgb1uiqu4a6mt83j2tu93lbs1msu.apps.googleusercontent.com";
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         application.statusBarStyle = UIStatusBarStyle.LightContent
+        
+        
+        
+        var signIn = GPPSignIn.sharedInstance()
+        //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
+        
+        // You previously set kClientId in the "Initialize the Google+ client" step
+        signIn.clientID = kClientId;
+        
+        
         return true
     }
 
