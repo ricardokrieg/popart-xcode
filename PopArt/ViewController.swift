@@ -292,7 +292,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
                 
                 if device.respondsToSelector("setVideoZoomFactor:") {
-                    slider.maximumValue = Float(device.activeFormat.videoMaxZoomFactor)
+                    slider.maximumValue = min(Float(device.activeFormat.videoMaxZoomFactor), 20.0)
                 }
                 
                 device.unlockForConfiguration()
@@ -334,6 +334,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.cameraView.layer.addSublayer(previewLayer)
+        
+        self.cameraView.bringSubviewToFront(slider)
         
         captureSession.startRunning()
     }
