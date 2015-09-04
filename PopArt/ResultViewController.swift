@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import Social
+import MessageUI
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultTitle: UILabel!
     @IBOutlet weak var resultDescriptionL1: UILabel!
@@ -50,6 +51,26 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func mailButtonClicked(sender: AnyObject) {
+        if MFMailComposeViewController.canSendMail() {
+            var mc:MFMailComposeViewController = MFMailComposeViewController()
+            mc.mailComposeDelegate = self
+            mc.setSubject(resultTitle?.text)
+            UIImageJPEGRepresentation(resultImage?.image, 1)
+            
+            mc.addAttachmentData(UIImageJPEGRepresentation(resultImage?.image, 1), mimeType: "image/jpeg", fileName: "image.jpeg")
+            //        self.showViewController(mc, sender: self)
+            self.presentViewController(mc, animated: true, completion: nil)
+        }else{
+            var alert = UIAlertController(title: "Accounts", message: "Please login to a Email account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+
+        }
+        
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {
