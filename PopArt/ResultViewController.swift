@@ -18,7 +18,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultDescriptionL3: UILabel!
     
     var result: NSData?
-    var saveToHistory = true
+    var saveToHistory:Bool = false
 
     @IBAction func facebookButtonClicked(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
