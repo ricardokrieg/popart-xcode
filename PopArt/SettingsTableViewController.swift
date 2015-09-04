@@ -141,7 +141,8 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
         } else if segue.identifier == "fromSettingsToMenu" {
             if let controller = segue.destinationViewController as? UIViewController {
                 controller.popoverPresentationController!.delegate = self
-                controller.preferredContentSize = CGSize(width: 200, height: 140)
+                controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
+                controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)
             }
         }
     }

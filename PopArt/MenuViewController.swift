@@ -21,6 +21,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewWillAppear(animated: Bool){
+        super.viewWillAppear(animated)
+        self.view.superview?.layer.cornerRadius = 0
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
