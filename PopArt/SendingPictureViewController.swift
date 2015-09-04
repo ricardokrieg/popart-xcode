@@ -113,21 +113,15 @@ class SendingPictureViewController: UIViewController {
                         self.result = str!.dataUsingEncoding(NSUTF8StringEncoding)
                         
                         dispatch_async(dispatch_get_main_queue()) {
-<<<<<<< HEAD
-                        self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
-                        }
-                        
-=======
                             self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
                         }
->>>>>>> origin/master
+                        
                     }
                 })
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.statusLabel.text = "Searching"
                 }
-                
 //                if let response = server.read() {
 //                    server.disconnect()
 //                    
