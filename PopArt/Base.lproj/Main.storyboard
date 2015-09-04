@@ -347,7 +347,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jib-Jh-lYD">
-                                        <rect key="frame" x="6" y="422" width="308" height="31"/>
+                                        <rect key="frame" x="42" y="422" width="237" height="31"/>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="aMG-Ul-1e7" eventType="valueChanged" id="GyM-hR-Hjd"/>
                                         </connections>
@@ -355,9 +355,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="trailing" secondItem="v7w-Rk-k0N" secondAttribute="trailingMargin" id="POB-a8-sNa"/>
-                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="bottom" secondItem="v7w-Rk-k0N" secondAttribute="bottomMargin" id="R61-pl-5vi"/>
-                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="leading" secondItem="v7w-Rk-k0N" secondAttribute="leadingMargin" id="iHw-vM-Ihe"/>
+                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="leading" secondItem="v7w-Rk-k0N" secondAttribute="leading" constant="44" id="JYX-Rb-xdK"/>
+                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="bottom" secondItem="v7w-Rk-k0N" secondAttribute="bottomMargin" id="heG-vx-C7a"/>
+                                    <constraint firstItem="Jib-Jh-lYD" firstAttribute="centerX" secondItem="v7w-Rk-k0N" secondAttribute="centerX" id="vp9-fM-18R"/>
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNr-dh-hKN">
