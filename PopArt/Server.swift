@@ -16,12 +16,12 @@
 
 import Foundation
 import CoreLocation
-import SwiftHTTP
+//import SwiftHTTP
 
-//let SERVER_ADDRESS = "popart-app.com"
-let SERVER_ADDRESS = "192.168.0.175"
-//let SERVER_PORT = 5100
-let SERVER_PORT = 5200
+let SERVER_ADDRESS = "popart-app.com"
+//let SERVER_ADDRESS = "192.168.0.175"
+let SERVER_PORT = 5100
+//let SERVER_PORT = 5200
 
 class Server {
     let client: TCPClient = TCPClient(addr: SERVER_ADDRESS, port: SERVER_PORT)

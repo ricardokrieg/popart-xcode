@@ -93,26 +93,35 @@ class SendingPictureViewController: UIViewController {
             
                 let message = "\(message_code):\(message_lat):\(message_lng):\(message_location_area):\(message_location_country):\(message_size):\(message_data)"
                 
-//                server.connect()
-//                server.send(message)
+                server.connect()
+                server.send(message)
                 
-                let params: Dictionary<String, AnyObject> = ["param": "param1", "array": ["first array element","second","third"], "num": 23, "dict": ["someKey": "someVal"]]
-                server.request.POST(server.http_url, parameters: params, completionHandler: {(response: HTTPResponse) in
-                    
-                    self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
-                    self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
-                })
+//                let params: Dictionary<String, AnyObject> = ["param": "param1", "array": ["first array element","second","third"], "num": 23, "dict": ["someKey": "someVal"]]
+//                server.request.POST(server.http_url, parameters: params, completionHandler: {(response: HTTPResponse) in
+//                    
+//                    if let err = response.error {
+//                        println("error: \(err.localizedDescription)")
+//                        return //also notify app of failure as needed
+//                    }
+//                    
+//                    if let res: AnyObject = response.responseObject {
+//                        println("response: \(res)")
+//                        
+//                        self.result = res.dataUsingEncoding(NSUTF8StringEncoding)
+//                        self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
+//                    }
+//                })
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.statusLabel.text = "Searching"
                 }
                 
-//                if let response = server.read() {
-//                    server.disconnect()
-//                    
-//                    self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
-//                    self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
-//                }
+                if let response = server.read() {
+                    server.disconnect()
+                    
+                    self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
+                    self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
+                }
                 
                 /*
                 if false {
