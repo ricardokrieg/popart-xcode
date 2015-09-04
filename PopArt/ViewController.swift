@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var selectImageButton: UIBarButtonItem!
+    @IBOutlet weak var slider: UISlider!
     
     let locationManager = CLLocationManager()
     
@@ -93,14 +94,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
+    
     @IBAction func onRotateCamera(sender: AnyObject) {
         if isFront {
             captureDevice = getBackCamera()
             isFront = false
-        }else{
+        } else {
             captureDevice = getFrontCamera()
             isFront = true
-        }        
+        }
+        
         if captureDevice != nil {
             println("Capture device found")
             beginSession()
@@ -146,6 +149,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func backToMain(segue: UIStoryboardSegue) {}
 
+    @IBAction func sliderValueChanged(sender: AnyObject) {
+        println(slider.value)
+        
+        var hardwareZoom = false
+        
+        if let device = captureDevice {
+            if device.respondsToSelector("setVideoZoomFactor:") {
+                if device.lockForConfiguration(nil) {
+                    device.videoZoomFactor = CGFloat(slider.value)
+
+                    device.unlockForConfiguration()
+                    hardwareZoom = true
+                }
+            }
+        }
+        
+        if !hardwareZoom {
+//            let frame = captureDevice.frame
+//            let width = frame.size.width * slider.value
+//            let height = frame.size.height * slider.value
+//            let x = (frame.size.width - width)/2
+//            let y = (frame.size.height - height)/2
+//            
+//            captureDevice.bounds = CGRectMake(x, y, width, height)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -254,6 +284,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     device.focusMode = AVCaptureFocusMode.AutoFocus
                 }
                 
+                if device.respondsToSelector("setVideoZoomFactor:") {
+                    slider.maximumValue = Float(device.activeFormat.videoMaxZoomFactor)
+                }
+                
                 device.unlockForConfiguration()
             }
         }
@@ -296,8 +330,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         captureSession.startRunning()
     }
-    
-    
     
     // MARK: - UIImagePickerControllerDelegate Methods
     
