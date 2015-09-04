@@ -335,6 +335,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.cameraView.layer.addSublayer(previewLayer)
         
+        self.cameraView.bringSubviewToFront(slider)
+        
         captureSession.startRunning()
     }
     
