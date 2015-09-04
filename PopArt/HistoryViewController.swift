@@ -107,10 +107,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         if let image_url = painting.valueForKey("thumb_image_url") as? String {
-            if let url = NSURL(string: image_url) {
-                if let data = NSData(contentsOfURL: url){
-                    cell.imageContainer!.contentMode = .ScaleAspectFit
-                    cell.imageContainer!.image = UIImage(data: data)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                if let url = NSURL(string: image_url) {
+                    if let data = NSData(contentsOfURL: url){
+                        dispatch_async(dispatch_get_main_queue()) {
+                            cell.imageContainer!.contentMode = .ScaleAspectFit
+                            cell.imageContainer!.image = UIImage(data: data)
+                        }
+                    }
                 }
             }
         }
