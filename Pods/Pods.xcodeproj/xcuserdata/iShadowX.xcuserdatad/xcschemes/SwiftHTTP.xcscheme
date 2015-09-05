@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E94484D1948084903ADCEDD950EC7BA"
-               BuildableName = "Pods.framework"
-               BlueprintName = "Pods"
+               BlueprintIdentifier = "AB33B84630B10DE253DA6B29E233F61D"
+               BuildableName = "SwiftHTTP.framework"
+               BlueprintName = "SwiftHTTP"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E94484D1948084903ADCEDD950EC7BA"
-            BuildableName = "Pods.framework"
-            BlueprintName = "Pods"
+            BlueprintIdentifier = "AB33B84630B10DE253DA6B29E233F61D"
+            BuildableName = "SwiftHTTP.framework"
+            BlueprintName = "SwiftHTTP"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E94484D1948084903ADCEDD950EC7BA"
-            BuildableName = "Pods.framework"
-            BlueprintName = "Pods"
+            BlueprintIdentifier = "AB33B84630B10DE253DA6B29E233F61D"
+            BuildableName = "SwiftHTTP.framework"
+            BlueprintName = "SwiftHTTP"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
