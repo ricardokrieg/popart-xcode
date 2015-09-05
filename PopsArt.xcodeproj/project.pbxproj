@@ -14,7 +14,6 @@
 		8C26557F1B7ED08100648FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C26557D1B7ED08100648FC5 /* Main.storyboard */; };
 		8C2655811B7ED08100648FC5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2655801B7ED08100648FC5 /* Images.xcassets */; };
 		8C2655841B7ED08100648FC5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2655821B7ED08100648FC5 /* LaunchScreen.xib */; };
-		8C2655901B7ED08100648FC5 /* PopArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26558F1B7ED08100648FC5 /* PopArtTests.swift */; };
 		8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */; };
 		8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C34DAA61B924DB400D9EB8D /* HistoryViewController.swift */; };
 		8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */; };
@@ -32,28 +31,16 @@
 		CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE652D5C1B995F07006687BA /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		8C26558A1B7ED08100648FC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8C26556C1B7ED08100648FC5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8C2655731B7ED08100648FC5;
-			remoteInfo = PopArt;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		35AC21A9D3B9E9380CB7086D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4A0C59614E4977B9271C859C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8C00DD211B890222009450BD /* SendingPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingPictureViewController.swift; sourceTree = "<group>"; };
-		8C2655741B7ED08100648FC5 /* PopArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C2655781B7ED08100648FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2655741B7ED08100648FC5 /* PopsArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopsArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2655791B7ED08100648FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C26557B1B7ED08100648FC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C26557E1B7ED08100648FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C2655801B7ED08100648FC5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8C2655831B7ED08100648FC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8C2655891B7ED08100648FC5 /* PopArtTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopArtTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C26558E1B7ED08100648FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C26558F1B7ED08100648FC5 /* PopArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopArtTests.swift; sourceTree = "<group>"; };
 		8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -82,13 +69,6 @@
 				CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */,
 				8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */,
 				2AE6D526DCF6347D9B6D48CF /* Pods.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C2655861B7ED08100648FC5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,8 +108,7 @@
 		8C2655751B7ED08100648FC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C2655741B7ED08100648FC5 /* PopArt.app */,
-				8C2655891B7ED08100648FC5 /* PopArtTests.xctest */,
+				8C2655741B7ED08100648FC5 /* PopsArt.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,19 +133,10 @@
 				8C00DD211B890222009450BD /* SendingPictureViewController.swift */,
 				8C2655801B7ED08100648FC5 /* Images.xcassets */,
 				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
-				8C2655771B7ED08100648FC5 /* Supporting Files */,
 				8CF994F31B82D05600BC4E44 /* Server.swift */,
 				8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */,
 			);
 			path = PopArt;
-			sourceTree = "<group>";
-		};
-		8C2655771B7ED08100648FC5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8C2655781B7ED08100648FC5 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8C26558C1B7ED08100648FC5 /* PopArtTests */ = {
@@ -189,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C2655731B7ED08100648FC5 /* PopArt */ = {
+		8C2655731B7ED08100648FC5 /* PopsArt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C2655931B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArt" */;
+			buildConfigurationList = 8C2655931B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopsArt" */;
 			buildPhases = (
 				E6AEC15391F853FD019136E3 /* Check Pods Manifest.lock */,
 				8C2655701B7ED08100648FC5 /* Sources */,
@@ -204,28 +174,10 @@
 			);
 			dependencies = (
 			);
-			name = PopArt;
+			name = PopsArt;
 			productName = PopArt;
-			productReference = 8C2655741B7ED08100648FC5 /* PopArt.app */;
+			productReference = 8C2655741B7ED08100648FC5 /* PopsArt.app */;
 			productType = "com.apple.product-type.application";
-		};
-		8C2655881B7ED08100648FC5 /* PopArtTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8C2655961B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArtTests" */;
-			buildPhases = (
-				8C2655851B7ED08100648FC5 /* Sources */,
-				8C2655861B7ED08100648FC5 /* Frameworks */,
-				8C2655871B7ED08100648FC5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8C26558B1B7ED08100648FC5 /* PBXTargetDependency */,
-			);
-			name = PopArtTests;
-			productName = PopArtTests;
-			productReference = 8C2655891B7ED08100648FC5 /* PopArtTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -234,18 +186,15 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = "Ricardo Franco";
+				ORGANIZATIONNAME = "Netronian Inc.";
 				TargetAttributes = {
 					8C2655731B7ED08100648FC5 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					8C2655881B7ED08100648FC5 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 8C2655731B7ED08100648FC5;
+						DevelopmentTeam = 63P726UZMA;
 					};
 				};
 			};
-			buildConfigurationList = 8C26556F1B7ED08100648FC5 /* Build configuration list for PBXProject "PopArt" */;
+			buildConfigurationList = 8C26556F1B7ED08100648FC5 /* Build configuration list for PBXProject "PopsArt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -258,8 +207,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C2655731B7ED08100648FC5 /* PopArt */,
-				8C2655881B7ED08100648FC5 /* PopArtTests */,
+				8C2655731B7ED08100648FC5 /* PopsArt */,
 			);
 		};
 /* End PBXProject section */
@@ -272,13 +220,6 @@
 				8C26557F1B7ED08100648FC5 /* Main.storyboard in Resources */,
 				8C2655841B7ED08100648FC5 /* LaunchScreen.xib in Resources */,
 				8C2655811B7ED08100648FC5 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C2655871B7ED08100648FC5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,23 +297,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8C2655851B7ED08100648FC5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C2655901B7ED08100648FC5 /* PopArtTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8C26558B1B7ED08100648FC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8C2655731B7ED08100648FC5 /* PopArt */;
-			targetProxy = 8C26558A1B7ED08100648FC5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8C26557D1B7ED08100648FC5 /* Main.storyboard */ = {
@@ -433,6 +358,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "c28732da-ccd8-4e62-81bc-58a690138c23";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,6 +397,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "c28732da-ccd8-4e62-81bc-58a690138c23";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -482,10 +409,14 @@
 			baseConfigurationReference = 4A0C59614E4977B9271C859C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PopArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PopsArt;
+				PROVISIONING_PROFILE = "c28732da-ccd8-4e62-81bc-58a690138c23";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -495,52 +426,22 @@
 			baseConfigurationReference = 35AC21A9D3B9E9380CB7086D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PopArt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PopsArt;
+				PROVISIONING_PROFILE = "c28732da-ccd8-4e62-81bc-58a690138c23";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		8C2655971B7ED08100648FC5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PopArtTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopArt.app/PopArt";
-			};
-			name = Debug;
-		};
-		8C2655981B7ED08100648FC5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = PopArtTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopArt.app/PopArt";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C26556F1B7ED08100648FC5 /* Build configuration list for PBXProject "PopArt" */ = {
+		8C26556F1B7ED08100648FC5 /* Build configuration list for PBXProject "PopsArt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C2655911B7ED08100648FC5 /* Debug */,
@@ -549,20 +450,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C2655931B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArt" */ = {
+		8C2655931B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopsArt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C2655941B7ED08100648FC5 /* Debug */,
 				8C2655951B7ED08100648FC5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8C2655961B7ED08100648FC5 /* Build configuration list for PBXNativeTarget "PopArtTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8C2655971B7ED08100648FC5 /* Debug */,
-				8C2655981B7ED08100648FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
