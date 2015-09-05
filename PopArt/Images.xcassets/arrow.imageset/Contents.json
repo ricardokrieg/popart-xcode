@@ -12,7 +12,12 @@
     },
     {
       "idiom" : "universal",
+<<<<<<< HEAD
       "scale" : "3x"
+=======
+      "scale" : "3x",
+      "filename" : "arrow@3x.png"
+>>>>>>> 14ccaf6a45a328334cfa42368ecaec3f3377c7ae
     }
   ],
   "info" : {
