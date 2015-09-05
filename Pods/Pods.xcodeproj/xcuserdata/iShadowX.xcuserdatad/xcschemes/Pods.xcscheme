@@ -5,6 +5,7 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+<<<<<<< HEAD
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -21,6 +22,8 @@
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
+=======
+>>>>>>> 14ccaf6a45a328334cfa42368ecaec3f3377c7ae
    </BuildAction>
    <TestAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,6 +42,7 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+<<<<<<< HEAD
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -48,6 +52,8 @@
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+=======
+>>>>>>> 14ccaf6a45a328334cfa42368ecaec3f3377c7ae
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -57,6 +63,7 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+<<<<<<< HEAD
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -66,6 +73,8 @@
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+=======
+>>>>>>> 14ccaf6a45a328334cfa42368ecaec3f3377c7ae
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
