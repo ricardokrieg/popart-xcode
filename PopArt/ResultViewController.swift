@@ -1,9 +1,9 @@
 //
 //  ResultViewController.swift
-//  PopsArt
+//  PopArt
 //
-//  Created by Netronian Inc. on 25/08/15.
-//  Copyright © 2015 Netronian Inc. All rights reserved.
+//  Created by Ricardo Franco on 25/08/15.
+//  Copyright (c) 2015 Ricardo Franco. All rights reserved.
 //
 
 import UIKit
@@ -29,7 +29,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
             if let title = resultTitle {
-                facebookSheet.setInitialText("User A, found \(title.text!) with PopsArt App <linked to App Store>")
+                facebookSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
             }
             
             facebookSheet.addImage(resultImage?.image)
@@ -46,7 +46,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             
             if let title = resultTitle {
-                twitterSheet.setInitialText("User A, found \(title.text!) with PopsArt App <linked to App Store>")
+                twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
             }
             
             twitterSheet.addImage(resultImage?.image)
