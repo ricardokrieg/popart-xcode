@@ -14,7 +14,7 @@ import MessageUI
 
 
 
-class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultTitle: UILabel!
     @IBOutlet weak var resultDescriptionL1: UILabel!
@@ -61,37 +61,53 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBAction func googlePlusButtonClicked(sender: AnyObject) {
         
         
-//        id<GPPNativeShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
-//        
-//        // Set any prefilled text that you might want to suggest
-//        [shareBuilder setPrefillText:@"Achievement unlocked! I just scored 99 points. Can you beat me?"]
-//        
-//        NSString *fileName = @"samplemedia1";
-//        [shareBuilder attachImage:[UIImage imageNamed:fileName];
-//        
-//        [shareBuilder open];
         
         
-//        var shareBuilder = GPSha
-        
-
-
-        
-//        [shareBuilder setURLToShare:[NSURL URLWithString:@"https://www.example.com/restaurant/sf/1234567/"]];
-
-        
-        if result != nil {
-            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
-            
-            var result_image_url = json?["image_url"] as? String?
+        var instagramURL = NSURL(string: "instagram://app")!
+        if UIApplication.sharedApplication().canOpenURL(instagramURL) {
+            var documentDirectory = NSHomeDirectory().stringByAppendingPathComponent("Documents")
+            var saveImagePath = documentDirectory.stringByAppendingPathComponent("Image.igo")
             
             
-            var shareBuilder =        GPPShare.sharedInstance().shareDialog();
-            shareBuilder.setURLToShare(NSURL(string: "\(result_image_url)" ));
-            
-            shareBuilder.open();
+            var newImage = self.resultImage.image!.imageWithNewSize(CGSizeMake(640, 640))
 
+            
+            var imageData = UIImagePNGRepresentation(newImage)
+            
+            imageData.writeToFile(saveImagePath, atomically: true)
+            
+            var imageURL = NSURL.fileURLWithPath(saveImagePath)!
+          var   docController  = UIDocumentInteractionController()
+            docController.delegate = self
+            docController.UTI = "com.instagram.exclusivegram"
+            docController.URL = imageURL
+            docController.presentOpenInMenuFromRect(CGRectZero, inView: self.view, animated: true)
+            
+        } else {
+            println("instagram not found")
+
+            var alertCont = UIAlertController(title: "Instagram", message: "Hello, You need Instagram app to be downloaded in to your device for share image on Instagram.", preferredStyle: UIAlertControllerStyle.Alert);
+            alertCont.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alertCont, animated: true, completion: nil);
+            
         }
+        
+        
+        
+        
+        
+//        if result != nil {
+//            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
+//            
+//            var result_image_url = json?["image_url"] as? String?
+//            
+//            
+//            var shareBuilder =        GPPShare.sharedInstance().shareDialog();
+//            shareBuilder.setURLToShare(NSURL(string: "\(result_image_url)" ));
+//            
+//            shareBuilder.open();
+//
+//        }
         
        
         
@@ -256,3 +272,17 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     */
 
 }
+
+extension UIImage {
+    func imageWithNewSize(newSize:CGSize) ->UIImage {
+        UIGraphicsBeginImageContext(newSize)
+        self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        return newImage
+    }
+}
+
+

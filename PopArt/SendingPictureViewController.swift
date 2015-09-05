@@ -97,6 +97,8 @@ class SendingPictureViewController: UIViewController {
 //                server.send(message)
                 
 //                let params: Dictionary<String, AnyObject> = ["image64": message_data, "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
+                
+                
                 let params: Dictionary<String, AnyObject> = ["image": HTTPUpload(data: imageData, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
                 
                 server.request.POST(server.http_url, parameters: params, completionHandler: {(response: HTTPResponse) in
