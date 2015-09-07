@@ -26,9 +26,9 @@ class MenuPopoverBackgroundView: UIPopoverBackgroundView {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 222, green: 223, blue: 239, alpha: 1.0)
         
-        var arrowView = UIImageView(image: UIImage(named: "arrow"))
-        arrowView.frame = CGRect(x: 16.0, y: 140.0, width: 16.0, height: 9.0)
-        self.addSubview(arrowView)
+//        var arrowView = UIImageView(image: UIImage(named: "arrow"))
+//        arrowView.frame = CGRect(x: 16.0, y: 140.0, width: 16.0, height: 9.0)
+//        self.addSubview(arrowView)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -48,7 +48,7 @@ class MenuPopoverBackgroundView: UIPopoverBackgroundView {
     }
     
     override class func arrowBase() -> CGFloat{
-        return 24.0
+        return 0.0
     }
     
     /*
