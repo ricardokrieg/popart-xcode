@@ -7,13 +7,11 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "facebookIcon@x2.png"
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "facebookIcon@x3.png"
+      "scale" : "3x"
     }
   ],
   "info" : {
