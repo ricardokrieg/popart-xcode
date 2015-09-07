@@ -1,13 +1,17 @@
 //
 //  AppDelegate.swift
-//  PopsArt
+//  PopArt
 //
-//  Created by Netronian Inc. on 14/08/15.
-//  Copyright © 2015 Netronian Inc. All rights reserved.
+//  Created by Ricardo Franco on 14/08/15.
+//  Copyright (c) 2015 Ricardo Franco. All rights reserved.
 //
 
 import UIKit
 import CoreData
+
+
+let kClientId = "699313552804-btfstgb1uiqu4a6mt83j2tu93lbs1msu.apps.googleusercontent.com";
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         application.statusBarStyle = UIStatusBarStyle.LightContent
+        
+        
+        
+        var signIn = GPPSignIn.sharedInstance()
+        //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
+        
+        // You previously set kClientId in the "Initialize the Google+ client" step
+        signIn.clientID = kClientId;
+        
+        
         return true
     }
 

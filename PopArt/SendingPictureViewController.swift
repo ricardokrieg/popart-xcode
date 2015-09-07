@@ -1,9 +1,9 @@
 //
 //  SendingPictureViewController.swift
-//  PopsArt
+//  PopArt
 //
-//  Created by Netronian Inc. on 22/08/15.
-//  Copyright © 2015 Netronian Inc. All rights reserved.
+//  Created by Ricardo Franco on 22/08/15.
+//  Copyright (c) 2015 Ricardo Franco. All rights reserved.
 //
 
 import UIKit
@@ -97,6 +97,8 @@ class SendingPictureViewController: UIViewController {
 //                server.send(message)
                 
 //                let params: Dictionary<String, AnyObject> = ["image64": message_data, "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
+                
+                
                 let params: Dictionary<String, AnyObject> = ["image": HTTPUpload(data: imageData, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
                 
                 server.request.POST(server.http_url, parameters: params, completionHandler: {(response: HTTPResponse) in
@@ -115,13 +117,13 @@ class SendingPictureViewController: UIViewController {
                         dispatch_async(dispatch_get_main_queue()) {
                             self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
                         }
+                        
                     }
                 })
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.statusLabel.text = "Searching"
                 }
-                
 //                if let response = server.read() {
 //                    server.disconnect()
 //                    

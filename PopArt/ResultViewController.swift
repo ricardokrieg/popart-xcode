@@ -1,9 +1,9 @@
 //
 //  ResultViewController.swift
-//  PopsArt
+//  PopArt
 //
-//  Created by Netronian Inc. on 25/08/15.
-//  Copyright © 2015 Netronian Inc. All rights reserved.
+//  Created by Ricardo Franco on 25/08/15.
+//  Copyright (c) 2015 Ricardo Franco. All rights reserved.
 //
 
 import UIKit
@@ -11,7 +11,10 @@ import CoreData
 import Social
 import MessageUI
 
-class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate {
+
+
+
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultTitle: UILabel!
     @IBOutlet weak var resultDescriptionL1: UILabel!
@@ -26,7 +29,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
             if let title = resultTitle {
-                facebookSheet.setInitialText("User A, found \(title.text!) with PopsArt App <linked to App Store>")
+                facebookSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
             }
             
             facebookSheet.addImage(resultImage?.image)
@@ -43,7 +46,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             
             if let title = resultTitle {
-                twitterSheet.setInitialText("User A, found \(title.text!) with PopsArt App <linked to App Store>")
+                twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
             }
             
             twitterSheet.addImage(resultImage?.image)
@@ -56,6 +59,67 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     @IBAction func googlePlusButtonClicked(sender: AnyObject) {
+        
+        
+        
+        
+        var instagramURL = NSURL(string: "instagram://app")!
+        if UIApplication.sharedApplication().canOpenURL(instagramURL) {
+            var documentDirectory = NSHomeDirectory().stringByAppendingPathComponent("Documents")
+            var saveImagePath = documentDirectory.stringByAppendingPathComponent("Image.igo")
+            
+            
+            var newImage = self.resultImage.image!.imageWithNewSize(CGSizeMake(640, 640))
+
+            
+            var imageData = UIImagePNGRepresentation(newImage)
+            
+            imageData.writeToFile(saveImagePath, atomically: true)
+            
+            var imageURL = NSURL.fileURLWithPath(saveImagePath)!
+          var   docController  = UIDocumentInteractionController()
+            docController.delegate = self
+            docController.UTI = "com.instagram.exclusivegram"
+            docController.URL = imageURL
+            docController.presentOpenInMenuFromRect(CGRectZero, inView: self.view, animated: true)
+            
+        } else {
+            println("instagram not found")
+
+            var alertCont = UIAlertController(title: "Instagram", message: "Hello, You need Instagram app to be downloaded in to your device for share image on Instagram.", preferredStyle: UIAlertControllerStyle.Alert);
+            alertCont.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alertCont, animated: true, completion: nil);
+            
+        }
+        
+        
+        
+        
+        
+//        if result != nil {
+//            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
+//            
+//            var result_image_url = json?["image_url"] as? String?
+//            
+//            
+//            var shareBuilder =        GPPShare.sharedInstance().shareDialog();
+//            shareBuilder.setURLToShare(NSURL(string: "\(result_image_url)" ));
+//            
+//            shareBuilder.open();
+//
+//        }
+        
+       
+        
+        
+//        if let title = resultTitle {
+//            twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
+//        }
+//        
+//        twitterSheet.addImage(resultImage?.image)
+
+        
+        
     }
     
     @IBAction func mailButtonClicked(sender: AnyObject) {
@@ -208,3 +272,17 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     */
 
 }
+
+extension UIImage {
+    func imageWithNewSize(newSize:CGSize) ->UIImage {
+        UIGraphicsBeginImageContext(newSize)
+        self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        return newImage
+    }
+}
+
+

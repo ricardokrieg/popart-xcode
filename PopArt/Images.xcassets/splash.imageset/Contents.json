@@ -3,17 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "logo_lg.png"
+      "filename" : "logo_lg-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "logo_lg@x2.png"
+      "filename" : "logo_im_lg.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "logo_lg@x3.png"
+      "scale" : "3x"
     }
   ],
   "info" : {
