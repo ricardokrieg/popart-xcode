@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4EDA770ABE1685F08273CF44DD01B43B /* PBXContainerItemProxy */ = {
+		454620D08BC65579D5A25E7D56FF6D0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -210,7 +210,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F8DAA440D69E888FD6F19B39AF123D05 /* PBXTargetDependency */,
+				F2F3B7170F87A7A816905B51FB60CD46 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
@@ -286,11 +286,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F8DAA440D69E888FD6F19B39AF123D05 /* PBXTargetDependency */ = {
+		F2F3B7170F87A7A816905B51FB60CD46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftHTTP;
 			target = AB33B84630B10DE253DA6B29E233F61D /* SwiftHTTP */;
-			targetProxy = 4EDA770ABE1685F08273CF44DD01B43B /* PBXContainerItemProxy */;
+			targetProxy = 454620D08BC65579D5A25E7D56FF6D0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
