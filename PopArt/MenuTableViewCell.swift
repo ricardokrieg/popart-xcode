@@ -2,8 +2,8 @@
 //  MenuTableViewCell.swift
 //  PopArt
 //
-//  Created by Ricardo Franco on 03/09/15.
-//  Copyright (c) 2015 Ricardo Franco. All rights reserved.
+//  Created by Netronian Inc. on 03/09/15.
+//  Copyright © 2015 PopsArt. All rights reserved.
 //
 
 import UIKit

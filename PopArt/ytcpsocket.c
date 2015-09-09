@@ -1,5 +1,5 @@
 /*
- Copyright (c) <2014>, skysent
+ Copyright © <2014>, skysent
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without

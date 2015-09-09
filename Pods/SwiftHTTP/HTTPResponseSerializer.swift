@@ -3,7 +3,7 @@
 //  HTTPResponseSerializer.swift
 //
 //  Created by Dalton Cherry on 6/16/14.
-//  Copyright (c) 2014 Vluxe. All rights reserved.
+//  Copyright © 2014 Vluxe. All rights reserved.
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

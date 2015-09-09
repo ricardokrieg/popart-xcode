@@ -281,7 +281,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = "Ricardo Franco";
+				ORGANIZATIONNAME = "Netronian Inc.";
 				TargetAttributes = {
 					8C2655731B7ED08100648FC5 = {
 						CreatedOnToolsVersion = 6.4;
