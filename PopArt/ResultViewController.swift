@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Social
 import MessageUI
-
+import AssetsLibrary
 
 
 
@@ -63,25 +63,39 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
         
         
         
+        
+      
+        
+        
+        
+        
+        
         var instagramURL = NSURL(string: "instagram://app")!
         if UIApplication.sharedApplication().canOpenURL(instagramURL) {
-            var documentDirectory = NSHomeDirectory().stringByAppendingPathComponent("Documents")
-            var saveImagePath = documentDirectory.stringByAppendingPathComponent("Image.igo")
             
             
+            
+             var library = ALAssetsLibrary() ;
+            
+            // Create a bitmap graphics context
             var newImage = self.resultImage.image!.imageWithNewSize(CGSizeMake(640, 640))
 
             
-            var imageData = UIImagePNGRepresentation(newImage)
+//            library.writeImageToSavedPhotosAlbum:scaledImage.CGImage orientation:(ALAssetOrientation)image.imageOrientation completionBlock:^(NSURL assetURL, NSError error) {
             
-            imageData.writeToFile(saveImagePath, atomically: true)
+            library.writeImageToSavedPhotosAlbum(newImage.CGImage, metadata:nil , completionBlock: { ( asseturl: NSURL! , error: NSError!) -> Void in
+                
+                
+                var escapedString = asseturl.absoluteString?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
+                
+                      var  instagramURL = NSURL(string: "instagram://library?AssetPath=\(escapedString)");
+                
+                    UIApplication.sharedApplication().openURL(instagramURL!)
+                
+            })
+
+        
             
-            var imageURL = NSURL.fileURLWithPath(saveImagePath)!
-          var   docController  = UIDocumentInteractionController()
-            docController.delegate = self
-            docController.UTI = "com.instagram.exclusivegram"
-            docController.URL = imageURL
-            docController.presentOpenInMenuFromRect(CGRectZero, inView: self.view, animated: true)
             
         } else {
             println("instagram not found")
