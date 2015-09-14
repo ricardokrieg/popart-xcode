@@ -47,5 +47,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>helvetica-regular.otf</string>
+		<string>MyriadPro-Regular.otf</string>
+		<string>MinionPro-Regular.otf</string>
+		<string>Helvetica-Condensed-Black.otf</string>
+	</array>
 </dict>
 </plist>

@@ -48,7 +48,7 @@
                                         </button>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-qo-pc7">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
@@ -249,7 +249,7 @@
                                                 </connections>
                                             </barButtonItem>
                                         </items>
-                                        <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Ygw-fP-X49"/>
@@ -354,7 +354,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.90951330069727543" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="LJT-Hy-9eL"/>
@@ -392,7 +392,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.89257943630218506" green="0.89268004894256592" blue="0.8925214409828186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKr-37-is6">
                                 <rect key="frame" x="248" y="74" width="56" height="30"/>
@@ -471,7 +471,7 @@
                                     <constraint firstAttribute="height" constant="44" id="G8t-RO-gXX"/>
                                 </constraints>
                                 <items/>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbz-rh-1gR">
                                 <rect key="frame" x="0.0" y="20" width="320" height="504"/>
@@ -496,7 +496,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.89263248443603516" green="0.89265328645706177" blue="0.89264208078384399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
                         <animations/>
@@ -665,7 +665,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-Zb-0Wj">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
@@ -710,7 +710,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="qYD-E6-McZ"/>
@@ -1056,7 +1056,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylc-6B-VjN">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
@@ -1087,7 +1087,7 @@
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="0.90951330070000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <animations/>
@@ -1136,7 +1136,7 @@
         <image name="InsGrm" width="36" height="36"/>
         <image name="back" width="21" height="29"/>
         <image name="facebookIcon" width="36" height="36"/>
-        <image name="history" width="32" height="29"/>
+        <image name="history" width="36" height="36"/>
         <image name="library" width="38" height="29"/>
         <image name="logo" width="50" height="43"/>
         <image name="mailIcon" width="36" height="36"/>
@@ -1146,9 +1146,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="W2i-LE-0ss"/>
-        <segue reference="7OK-sO-FDr"/>
-        <segue reference="Bfq-3Z-hPx"/>
-        <segue reference="kBO-0a-pVg"/>
         <segue reference="do7-Cx-Cef"/>
+        <segue reference="7OK-sO-FDr"/>
+        <segue reference="kBO-0a-pVg"/>
+        <segue reference="Bfq-3Z-hPx"/>
     </inferredMetricsTieBreakers>
 </document>
