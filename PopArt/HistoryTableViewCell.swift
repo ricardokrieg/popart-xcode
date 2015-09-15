@@ -1,6 +1,6 @@
 //
 //  HistoryTableViewCell.swift
-//  PopArt
+//  PopsArt
 //
 //  Created by Netronian Inc. on 28/08/15.
 //  Copyright © 2015 PopsArt. All rights reserved.

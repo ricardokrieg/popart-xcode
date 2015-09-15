@@ -4,7 +4,7 @@
 //  SwiftHTTP
 //
 //  Created by Dalton Cherry on 5/13/15.
-//  Copyright © 2015 Vluxe. All rights reserved.
+//  Copyright (c) 2015 Vluxe. All rights reserved.
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

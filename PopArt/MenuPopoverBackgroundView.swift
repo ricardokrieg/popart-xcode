@@ -1,6 +1,6 @@
 //
 //  MenuPopoverBackgroundView.swift
-//  PopArt
+//  PopsArt
 //
 //  Created by Netronian Inc. on 03/09/15.
 //  Copyright © 2015 PopsArt. All rights reserved.

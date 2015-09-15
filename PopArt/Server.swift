@@ -1,6 +1,6 @@
 //
 //  Server.swift
-//  PopArt
+//  PopsArt
 //
 //  Created by Netronian Inc. on 17/08/15.
 //  Copyright © 2015 PopsArt. All rights reserved.

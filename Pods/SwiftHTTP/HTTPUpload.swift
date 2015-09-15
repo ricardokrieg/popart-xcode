@@ -3,7 +3,7 @@
 //  HTTPUpload.swift
 //
 //  Created by Dalton Cherry on 6/5/14.
-//  Copyright © 2014 Vluxe. All rights reserved.
+//  Copyright (c) 2014 Vluxe. All rights reserved.
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////
 

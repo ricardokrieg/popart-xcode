@@ -40,6 +40,10 @@
 		8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */; };
 		8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */; };
 		8CFEA6931B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6911B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld */; };
+		C71D2FB41BA6890D0044FD0D /* Helvetica-Condensed-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C71D2FB01BA6890D0044FD0D /* Helvetica-Condensed-Black.otf */; };
+		C71D2FB61BA6890D0044FD0D /* MinionPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C71D2FB21BA6890D0044FD0D /* MinionPro-Regular.otf */; };
+		C71D2FB71BA6890D0044FD0D /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C71D2FB31BA6890D0044FD0D /* MyriadPro-Regular.otf */; };
+		C71D2FB91BA68D160044FD0D /* helvetica-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C71D2FB81BA68CE40044FD0D /* helvetica-regular.otf */; };
 		CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE652D5C1B995F07006687BA /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +98,10 @@
 		8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8CFEA6921B8F575F00826DB1 /* PopArtDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopArtDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C71D2FB01BA6890D0044FD0D /* Helvetica-Condensed-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica-Condensed-Black.otf"; sourceTree = "<group>"; };
+		C71D2FB21BA6890D0044FD0D /* MinionPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MinionPro-Regular.otf"; sourceTree = "<group>"; };
+		C71D2FB31BA6890D0044FD0D /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		C71D2FB81BA68CE40044FD0D /* helvetica-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helvetica-regular.otf"; sourceTree = "<group>"; };
 		CE652D5C1B995F07006687BA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D30CAD5554801A3D6E8E4D0A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -201,6 +209,7 @@
 				8C00DD211B890222009450BD /* SendingPictureViewController.swift */,
 				8C2655801B7ED08100648FC5 /* Images.xcassets */,
 				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
+				C71D2FAD1BA687DC0044FD0D /* Custom Fonts */,
 				8C2655771B7ED08100648FC5 /* Supporting Files */,
 				8CF994F31B82D05600BC4E44 /* Server.swift */,
 				8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */,
@@ -231,6 +240,17 @@
 				8C26558E1B7ED08100648FC5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C71D2FAD1BA687DC0044FD0D /* Custom Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C71D2FB81BA68CE40044FD0D /* helvetica-regular.otf */,
+				C71D2FB01BA6890D0044FD0D /* Helvetica-Condensed-Black.otf */,
+				C71D2FB21BA6890D0044FD0D /* MinionPro-Regular.otf */,
+				C71D2FB31BA6890D0044FD0D /* MyriadPro-Regular.otf */,
+			);
+			name = "Custom Fonts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +305,6 @@
 				TargetAttributes = {
 					8C2655731B7ED08100648FC5 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 63P726UZMA;
 					};
 					8C2655881B7ED08100648FC5 = {
 						CreatedOnToolsVersion = 6.4;
@@ -317,8 +336,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C71D2FB91BA68D160044FD0D /* helvetica-regular.otf in Resources */,
+				C71D2FB41BA6890D0044FD0D /* Helvetica-Condensed-Black.otf in Resources */,
 				8C26557F1B7ED08100648FC5 /* Main.storyboard in Resources */,
+				C71D2FB71BA6890D0044FD0D /* MyriadPro-Regular.otf in Resources */,
 				8C2655841B7ED08100648FC5 /* LaunchScreen.xib in Resources */,
+				C71D2FB61BA6890D0044FD0D /* MinionPro-Regular.otf in Resources */,
 				4787ED5A1B9A611700C144B4 /* GooglePlus.bundle in Resources */,
 				8C2655811B7ED08100648FC5 /* Images.xcassets in Resources */,
 			);
@@ -534,7 +557,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -561,7 +583,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
