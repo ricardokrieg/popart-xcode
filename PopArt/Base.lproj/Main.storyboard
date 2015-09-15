@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aMG-Ul-1e7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aMG-Ul-1e7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -10,7 +10,7 @@
         <!--History View Controller-->
         <scene sceneID="Hdj-qe-WH8">
             <objects>
-                <viewController id="Kow-jb-spm" customClass="HistoryViewController" customModule="PopArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Kow-jb-spm" customClass="HistoryViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hoC-vj-YVT"/>
                         <viewControllerLayoutGuide type="bottom" id="mMk-qr-3pm"/>
@@ -55,7 +55,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="D95-Eq-tdg" customClass="HistoryTableViewCell" customModule="PopArt" customModuleProvider="target">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="D95-Eq-tdg" customClass="HistoryTableViewCell" customModule="PopsArt" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D95-Eq-tdg" id="neb-am-HSY">
@@ -208,7 +208,7 @@
                                             <barButtonItem image="more" style="plain" id="ee0-kd-ELO">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
-                                                    <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromHistoryToMenu" popoverAnchorBarButtonItem="ee0-kd-ELO" id="yd5-8l-fho">
+                                                    <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromHistoryToMenu" popoverAnchorView="SRh-Ea-QAE" id="yd5-8l-fho">
                                                         <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                                     </segue>
                                                 </connections>
@@ -291,7 +291,7 @@
         <!--View Controller-->
         <scene sceneID="QKo-rB-LNN">
             <objects>
-                <viewController id="aMG-Ul-1e7" customClass="ViewController" customModule="PopArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aMG-Ul-1e7" customClass="ViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sdI-ys-32a"/>
                         <viewControllerLayoutGuide type="bottom" id="I70-Ht-jKu"/>
@@ -309,7 +309,7 @@
                                     <barButtonItem image="more" style="plain" id="Rqe-PC-4mP">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromMainToMenu" popoverAnchorBarButtonItem="Rqe-PC-4mP" id="7OK-sO-FDr">
+                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromMainToMenu" popoverAnchorView="oQB-fX-nvO" id="7OK-sO-FDr">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                             </segue>
                                         </connections>
@@ -432,7 +432,7 @@
         <!--Sending Picture View Controller-->
         <scene sceneID="CB1-7e-s7F">
             <objects>
-                <viewController id="mGA-4a-zWH" customClass="SendingPictureViewController" customModule="PopArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mGA-4a-zWH" customClass="SendingPictureViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qE6-x1-wN6"/>
                         <viewControllerLayoutGuide type="bottom" id="cHo-TL-F2X"/>
@@ -517,7 +517,7 @@
         <!--Menu View Controller-->
         <scene sceneID="gzf-5y-ahw">
             <objects>
-                <viewController id="SpB-eF-Vyb" customClass="MenuViewController" customModule="PopArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SpB-eF-Vyb" customClass="MenuViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h98-xy-C0t"/>
                         <viewControllerLayoutGuide type="bottom" id="5CX-fM-qmQ"/>
@@ -532,7 +532,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" id="dv7-QU-XkG" customClass="MenuTableViewCell" customModule="PopArt" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" id="dv7-QU-XkG" customClass="MenuTableViewCell" customModule="PopsArt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dv7-QU-XkG" id="CMy-TG-DIJ">
@@ -611,7 +611,7 @@
         <!--Page View Controller-->
         <scene sceneID="7Yq-6u-Ulc">
             <objects>
-                <viewController id="TTA-04-dta" customClass="PageViewController" customModule="PopArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TTA-04-dta" customClass="PageViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tr9-Uj-FwZ"/>
                         <viewControllerLayoutGuide type="bottom" id="NNW-6e-heO"/>
@@ -645,7 +645,7 @@
                                     <barButtonItem image="more" style="plain" id="xde-VW-oR1">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromPageToMenu" popoverAnchorBarButtonItem="xde-VW-oR1" id="nwg-rm-PVL">
+                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromPageToMenu" popoverAnchorView="bqo-Ax-LXE" id="nwg-rm-PVL">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                             </segue>
                                         </connections>
@@ -724,7 +724,7 @@
         <!--Settings Table View Controller-->
         <scene sceneID="zyv-Lu-MpL">
             <objects>
-                <tableViewController id="IOH-bG-bS2" customClass="SettingsTableViewController" customModule="PopArt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="IOH-bG-bS2" customClass="SettingsTableViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="s05-g7-cQH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -887,7 +887,7 @@
         <!--Result View Controller-->
         <scene sceneID="Gqn-VE-sAd">
             <objects>
-                <viewController id="FzV-1f-g1n" customClass="ResultViewController" customModule="PopArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FzV-1f-g1n" customClass="ResultViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ilh-eJ-72M"/>
                         <viewControllerLayoutGuide type="bottom" id="d3J-qq-lPv"/>
@@ -1072,14 +1072,14 @@
         <image name="logo" width="50" height="43"/>
         <image name="mailIcon" width="36" height="36"/>
         <image name="more" width="6" height="24"/>
-        <image name="switchcamera" width="280" height="151"/>
+        <image name="switchcamera" width="50" height="37"/>
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="W2i-LE-0ss"/>
         <segue reference="do7-Cx-Cef"/>
         <segue reference="kBO-0a-pVg"/>
-        <segue reference="Bfq-3Z-hPx"/>
-        <segue reference="7OK-sO-FDr"/>
+        <segue reference="yd5-8l-fho"/>
     </inferredMetricsTieBreakers>
 </document>

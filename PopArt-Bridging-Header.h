@@ -3,7 +3,7 @@
 //  PopArt
 //
 //  Created by iShadowX on 9/5/15.
-//  Copyright (c) 2015 Ricardo Franco. All rights reserved.
+//  Copyright © 2015 PopsArt. All rights reserved.
 //
 
 
