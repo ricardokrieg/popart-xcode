@@ -1,6 +1,6 @@
 //
 //  PageViewController.swift
-//  PopArt
+//  PopsArt
 //
 //  Created by Netronian Inc. on 31/08/15.
 //  Copyright © 2015 PopsArt. All rights reserved.

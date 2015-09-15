@@ -1,6 +1,6 @@
 //
 //  HistoryViewController.swift
-//  PopArt
+//  PopsArt
 //
 //  Created by Netronian Inc. on 29/08/15.
 //  Copyright © 2015 PopsArt. All rights reserved.

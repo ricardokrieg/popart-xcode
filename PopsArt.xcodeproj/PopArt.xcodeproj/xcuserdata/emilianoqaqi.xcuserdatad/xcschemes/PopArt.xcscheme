@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C2655731B7ED08100648FC5"
-            BuildableName = "PopArt.app"
-            BlueprintName = "PopArt"
-            ReferencedContainer = "container:PopArt.xcodeproj">
+            BuildableName = "PopsArt.app"
+            BlueprintName = "PopsArt"
+            ReferencedContainer = "container:PopsArt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C2655731B7ED08100648FC5"
-            BuildableName = "PopArt.app"
-            BlueprintName = "PopArt"
-            ReferencedContainer = "container:PopArt.xcodeproj">
+            BuildableName = "PopsArt.app"
+            BlueprintName = "PopsArt"
+            ReferencedContainer = "container:PopsArt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
