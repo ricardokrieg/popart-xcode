@@ -39,6 +39,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if captureDevice == nil {
 //            performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+            println("fallback to library")
+            
+            pickedImage = nil
+            
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .PhotoLibrary
+            
+            presentViewController(imagePicker, animated: true, completion: nil)
+            
             return
         }
         

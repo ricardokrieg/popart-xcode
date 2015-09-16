@@ -12,9 +12,8 @@ import Social
 import MessageUI
 import AssetsLibrary
 
-
-
-class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate {
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIPopoverPresentationControllerDelegate {
+    
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultTitle: UILabel!
     @IBOutlet weak var resultDescriptionL1: UILabel!
@@ -258,16 +257,24 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
         // Dispose of any resources that can be recreated.
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "fromResultToMenu" {
+            if let controller = segue.destinationViewController as? UIViewController {
+                controller.popoverPresentationController!.delegate = self
+                controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
+                controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)
+            }
+        }
     }
-    */
-
+    
+    // MARK: UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Return no adaptive presentation style, use default presentation behaviour
+        return .None
+    }
 }
 
 extension UIImage {
