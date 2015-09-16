@@ -13,7 +13,7 @@ import CoreLocation
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIPopoverPresentationControllerDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var cameraView: UIView!
-    @IBOutlet weak var cameraButton: UIButton!
+//    @IBOutlet weak var cameraButton: UIButton!
 //    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     @IBOutlet weak var slider: UISlider!
     
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var videoConnection : AVCaptureConnection?
     
-    @IBAction func cameraButtonClicked(sender: UIButton) {
+    @IBAction func cameraButtonClicked(sender: AnyObject) {
         println("Camera")
         
         if captureDevice == nil {

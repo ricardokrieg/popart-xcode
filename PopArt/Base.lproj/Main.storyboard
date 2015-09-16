@@ -254,18 +254,11 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="xus-14-2RW"/>
-                                            <barButtonItem title="Item" style="plain" id="YII-vS-T6i">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IRY-1y-GGr">
-                                                    <rect key="frame" x="135" y="-32" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                                    <state key="normal" image="logo">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="MTg-X6-FeT" kind="unwind" unwindAction="backToMain:" id="aKw-xG-NuF"/>
-                                                    </connections>
-                                                </button>
+                                            <barButtonItem image="logo" style="plain" id="qJv-8C-kX9">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <segue destination="MTg-X6-FeT" kind="unwind" unwindAction="backToMain:" id="qw9-ro-sff"/>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="5ff-h6-F36"/>
                                             <barButtonItem image="more" style="plain" id="ee0-kd-ELO">
@@ -354,18 +347,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Die-1u-I5T"/>
-                                    <barButtonItem title="Item" style="plain" id="VBx-dd-bwW">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jze-Du-4DE">
-                                            <rect key="frame" x="135" y="-32" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                            <state key="normal" image="logo">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="cameraButtonClicked:" destination="aMG-Ul-1e7" eventType="touchUpInside" id="tIF-zU-Let"/>
-                                            </connections>
-                                        </button>
+                                    <barButtonItem image="logo" style="plain" id="y3A-yX-bo4">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="cameraButtonClicked:" destination="aMG-Ul-1e7" id="tg9-6U-Fk7"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="faF-O7-fE2"/>
                                     <barButtonItem image="more" style="plain" id="Rqe-PC-4mP">
@@ -451,7 +437,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="cameraButton" destination="jze-Du-4DE" id="ibc-V1-q42"/>
                         <outlet property="cameraView" destination="v7w-Rk-k0N" id="mcD-p9-rKK"/>
                         <outlet property="slider" destination="Jib-Jh-lYD" id="tQK-OV-zaA"/>
                         <segue destination="mGA-4a-zWH" kind="show" identifier="fromMainToSendingPicture" id="W2i-LE-0ss"/>
@@ -683,18 +668,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gra-hf-uL6"/>
-                                    <barButtonItem title="Item" style="plain" id="2dJ-bG-JTH">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WPX-63-WNS">
-                                            <rect key="frame" x="135" y="-32" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                            <state key="normal" image="logo">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="qJN-7o-0Ma" kind="unwind" unwindAction="backToMain:" id="5Wq-2c-q2o"/>
-                                            </connections>
-                                        </button>
+                                    <barButtonItem image="logo" style="plain" id="3QT-CE-cHv">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="qJN-7o-0Ma" kind="unwind" unwindAction="backToMain:" id="VIA-7T-bZa"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bYm-gH-rSM"/>
                                     <barButtonItem image="more" style="plain" id="xde-VW-oR1">
@@ -1109,10 +1087,10 @@
         <image name="twitterIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lgg-H9-mAH"/>
+        <segue reference="tAC-U4-LSq"/>
+        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="fhn-Em-7be"/>
         <segue reference="kBO-0a-pVg"/>
-        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="ooM-xI-8Z0"/>
         <segue reference="yd5-8l-fho"/>
     </inferredMetricsTieBreakers>
