@@ -24,6 +24,22 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     var result: NSData?
     var saveToHistory:Bool = false
 
+    @IBAction func shareButtonClicked(sender: AnyObject) {
+        var textToShare = ""
+        if let title = resultTitle {
+            textToShare = "User A, found \(title.text!) with PopArt App <linked to App Store>"
+        }
+        var imageToShare:UIImage? = nil
+        if let image = resultImage?.image {
+            imageToShare = image
+        }
+        
+        let objectsToShare = [textToShare, imageToShare as! AnyObject]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+        self.presentViewController(activityVC, animated: true, completion: nil)
+    }
+    
     @IBAction func facebookButtonClicked(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
