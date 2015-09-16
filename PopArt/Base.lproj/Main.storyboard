@@ -363,7 +363,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="LJT-Hy-9eL"/>
@@ -547,9 +547,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="3" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rO4-xM-X22">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
-                                <color key="backgroundColor" red="0.83921568627450982" green="0.84313725490196079" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexTrackingBackgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" id="dv7-QU-XkG" customClass="MenuTableViewCell" customModule="PopsArt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -605,7 +605,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="icon" destination="JWx-hE-JhY" id="hTa-a1-y9Y"/>
                                             <outlet property="label" destination="769-B5-vhU" id="1JQ-5r-2sk"/>
@@ -614,7 +614,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.83921568629999999" green="0.84313725490000002" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -684,7 +684,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="qYD-E6-McZ"/>
@@ -1088,10 +1088,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tAC-U4-LSq"/>
-        <segue reference="Bfq-3Z-hPx"/>
-        <segue reference="fhn-Em-7be"/>
-        <segue reference="kBO-0a-pVg"/>
+        <segue reference="adw-Tr-v6p"/>
+        <segue reference="nwg-rm-PVL"/>
+        <segue reference="CZ7-l5-vkx"/>
+        <segue reference="SKZ-1n-KDw"/>
         <segue reference="ooM-xI-8Z0"/>
-        <segue reference="yd5-8l-fho"/>
     </inferredMetricsTieBreakers>
 </document>
