@@ -12,7 +12,7 @@ import CoreData
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var selectImageButton: UIBarButtonItem!
+//    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     
     var result: NSData?
     var paintings = [NSManagedObject]()
@@ -44,14 +44,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    @IBAction func selectImageButtonClicked(sender: AnyObject) {
-        pickedImage = nil
-        
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
+//    @IBAction func selectImageButtonClicked(sender: AnyObject) {
+//        pickedImage = nil
+//        
+//        imagePicker.allowsEditing = false
+//        imagePicker.sourceType = .PhotoLibrary
+//        
+//        presentViewController(imagePicker, animated: true, completion: nil)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

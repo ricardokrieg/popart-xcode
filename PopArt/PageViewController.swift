@@ -17,14 +17,14 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
     
-    @IBAction func selectImageButtonClicked(sender: AnyObject) {
-        pickedImage = nil
-        
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
+//    @IBAction func selectImageButtonClicked(sender: AnyObject) {
+//        pickedImage = nil
+//        
+//        imagePicker.allowsEditing = false
+//        imagePicker.sourceType = .PhotoLibrary
+//        
+//        presentViewController(imagePicker, animated: true, completion: nil)
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

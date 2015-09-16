@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var selectImageButton: UIBarButtonItem!
+//    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     @IBOutlet weak var slider: UISlider!
     
     let locationManager = CLLocationManager()
@@ -132,14 +132,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return nil
     }
     
-    @IBAction func selectImageButtonClicked(sender: UIBarButtonItem) {
-        pickedImage = nil
-        
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
+//    @IBAction func selectImageButtonClicked(sender: UIBarButtonItem) {
+//        pickedImage = nil
+//        
+//        imagePicker.allowsEditing = false
+//        imagePicker.sourceType = .PhotoLibrary
+//        
+//        presentViewController(imagePicker, animated: true, completion: nil)
+//    }
     
 //    @IBAction func moreButtonClicked(sender: UIButton) {
 //        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Settings", "Profile", "About")
