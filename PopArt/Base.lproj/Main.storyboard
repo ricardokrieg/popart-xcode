@@ -16,6 +16,7 @@
             <string>MinionPro-Regular</string>
             <string>MinionPro-Regular</string>
             <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Regular.otf">
             <string>MyriadPro-Regular</string>
@@ -477,7 +478,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Uploading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3C-b1-u3n">
                                 <rect key="frame" x="16" y="535" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -496,7 +497,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="J3C-b1-u3n" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leadingMargin" id="BIv-gF-2WG"/>
+                            <constraint firstItem="J3C-b1-u3n" firstAttribute="centerX" secondItem="fx2-Bo-5N4" secondAttribute="centerX" id="5Jz-mt-hhT"/>
+                            <constraint firstItem="cHo-TL-F2X" firstAttribute="top" secondItem="J3C-b1-u3n" secondAttribute="bottom" constant="12" id="6O4-cC-Tp6"/>
+                            <constraint firstItem="J3C-b1-u3n" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leadingMargin" id="9jR-Mh-lCN"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="qE6-x1-wN6" secondAttribute="bottom" id="Emf-RZ-jhu"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="trailing" secondItem="KKZ-vn-KhL" secondAttribute="trailing" id="FJc-00-2ak"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="width" secondItem="fx2-Bo-5N4" secondAttribute="width" id="Fgc-nf-uex"/>
@@ -504,13 +507,12 @@
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="KKZ-vn-KhL" secondAttribute="top" id="JEj-WL-D0P"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="centerX" secondItem="fx2-Bo-5N4" secondAttribute="centerX" id="LSa-60-kMG"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="fx2-Bo-5N4" secondAttribute="top" constant="-502" id="VdB-JF-UvI"/>
-                            <constraint firstItem="J3C-b1-u3n" firstAttribute="centerX" secondItem="fx2-Bo-5N4" secondAttribute="centerX" id="ZTa-jm-piN"/>
+                            <constraint firstItem="J3C-b1-u3n" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" constant="11" id="YP4-lj-vzK"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="centerY" secondItem="fx2-Bo-5N4" secondAttribute="centerY" constant="-0.5" id="Zag-Sp-keA"/>
                             <constraint firstItem="fx2-Bo-5N4" firstAttribute="bottom" secondItem="cHo-TL-F2X" secondAttribute="top" id="bKO-16-ruc"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="leading" secondItem="KKZ-vn-KhL" secondAttribute="leading" id="dSz-a5-zus"/>
                             <constraint firstItem="fx2-Bo-5N4" firstAttribute="trailing" secondItem="dbz-rh-1gR" secondAttribute="trailing" id="paR-q8-SRc"/>
                             <constraint firstItem="fx2-Bo-5N4" firstAttribute="leading" secondItem="dbz-rh-1gR" secondAttribute="leading" id="rsj-HM-Xy3"/>
-                            <constraint firstItem="J3C-b1-u3n" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" constant="11" id="rwn-XU-gyt"/>
                             <constraint firstItem="fx2-Bo-5N4" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" id="ryt-hG-I5y"/>
                             <constraint firstAttribute="trailing" secondItem="dbz-rh-1gR" secondAttribute="trailing" id="vup-YP-RQi"/>
                         </constraints>
@@ -1112,10 +1114,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="e5l-YI-WXC"/>
-        <segue reference="ooM-xI-8Z0"/>
-        <segue reference="aHv-um-iYM"/>
+        <segue reference="do7-Cx-Cef"/>
         <segue reference="fhn-Em-7be"/>
         <segue reference="Bfq-3Z-hPx"/>
         <segue reference="kBO-0a-pVg"/>
+        <segue reference="aHv-um-iYM"/>
     </inferredMetricsTieBreakers>
 </document>
