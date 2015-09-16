@@ -98,8 +98,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.titleLabel!.text = painting.valueForKey("result_title") as? String
         cell.descriptionLabel!.text = painting.valueForKey("result_description_l1") as? String
 
-//        cell.locationAreaLabel!.text = painting.valueForKey("location_area") as? String
-//        cell.locationCountryLabel!.text = painting.valueForKey("location_country") as? String
+        cell.locationAreaLabel!.text = painting.valueForKey("location_area") as? String
+        cell.locationCountryLabel!.text = painting.valueForKey("location_country") as? String
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -131,7 +131,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60.0
+        return 80.0
     }
 
     // MARK: - Navigation

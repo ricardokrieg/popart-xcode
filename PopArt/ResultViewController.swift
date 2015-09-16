@@ -59,23 +59,9 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     @IBAction func googlePlusButtonClicked(sender: AnyObject) {
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
         var instagramURL = NSURL(string: "instagram://app")!
         if UIApplication.sharedApplication().canOpenURL(instagramURL) {
-            
-            
-            
-             var library = ALAssetsLibrary() ;
+            var library = ALAssetsLibrary() ;
             
             // Create a bitmap graphics context
             var newImage = self.resultImage.image!.imageWithNewSize(CGSizeMake(640, 640))
@@ -85,30 +71,19 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             library.writeImageToSavedPhotosAlbum(newImage.CGImage, metadata:nil , completionBlock: { ( asseturl: NSURL! , error: NSError!) -> Void in
                 
-                
                 var escapedString = asseturl.absoluteString?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
                 
                       var  instagramURL = NSURL(string: "instagram://library?AssetPath=\(escapedString)");
                 
                     UIApplication.sharedApplication().openURL(instagramURL!)
-                
             })
-
-        
-            
-            
         } else {
             println("instagram not found")
 
             var alertCont = UIAlertController(title: "Instagram", message: "Hello, You need Instagram app to be downloaded in to your device for share image on Instagram.", preferredStyle: UIAlertControllerStyle.Alert);
             alertCont.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertCont, animated: true, completion: nil);
-            
         }
-        
-        
-        
-        
         
 //        if result != nil {
 //            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
@@ -123,17 +98,11 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
 //
 //        }
         
-       
-        
-        
 //        if let title = resultTitle {
 //            twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
 //        }
 //        
 //        twitterSheet.addImage(resultImage?.image)
-
-        
-        
     }
     
     @IBAction func mailButtonClicked(sender: AnyObject) {
@@ -146,13 +115,11 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             mc.addAttachmentData(UIImageJPEGRepresentation(resultImage?.image, 1), mimeType: "image/jpeg", fileName: "image.jpeg")
             //        self.showViewController(mc, sender: self)
             self.presentViewController(mc, animated: true, completion: nil)
-        }else{
+        } else {
             var alert = UIAlertController(title: "Accounts", message: "Please login to a Email account to share.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
-
         }
-        
     }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
@@ -214,7 +181,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                 saveToHistory = false
                 
                 if let result_success = json?["success"] as? Bool? {
-                    //if result_success == true {
+                    if result_success == true {
                         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         let managedContext = appDelegate.managedObjectContext!
                         
@@ -264,7 +231,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                         if !managedContext.save(&error) {
                             println("Could not save \(error), \(error?.userInfo)")
                         }
-                    //}
+                    }
                 }
             }
         }
