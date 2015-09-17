@@ -368,11 +368,26 @@
                                             <action selector="sliderValueChanged:" destination="aMG-Ul-1e7" eventType="valueChanged" id="GyM-hR-Hjd"/>
                                         </connections>
                                     </slider>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grid" translatesAutoresizingMaskIntoConstraints="NO" id="gxx-hR-pL8">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="488"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="504" id="mI4-KE-NJ1"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="mI4-KE-NJ1"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="gxx-hR-pL8" firstAttribute="leading" secondItem="v7w-Rk-k0N" secondAttribute="leading" id="7BL-Xr-SKR"/>
+                                    <constraint firstItem="gxx-hR-pL8" firstAttribute="centerX" secondItem="Jib-Jh-lYD" secondAttribute="centerX" id="ADV-7T-mH2"/>
                                     <constraint firstItem="Jib-Jh-lYD" firstAttribute="leading" secondItem="v7w-Rk-k0N" secondAttribute="leading" constant="44" id="JYX-Rb-xdK"/>
+                                    <constraint firstAttribute="trailing" secondItem="gxx-hR-pL8" secondAttribute="trailing" id="LZg-LG-7dw"/>
+                                    <constraint firstItem="gxx-hR-pL8" firstAttribute="top" secondItem="v7w-Rk-k0N" secondAttribute="top" id="PB5-Ep-bKj"/>
                                     <constraint firstItem="Jib-Jh-lYD" firstAttribute="bottom" secondItem="v7w-Rk-k0N" secondAttribute="bottomMargin" id="heG-vx-C7a"/>
                                     <constraint firstItem="Jib-Jh-lYD" firstAttribute="centerX" secondItem="v7w-Rk-k0N" secondAttribute="centerX" id="vp9-fM-18R"/>
                                 </constraints>
@@ -453,6 +468,7 @@
                             <constraint firstItem="kKr-37-is6" firstAttribute="top" secondItem="wNr-dh-hKN" secondAttribute="bottom" constant="10" id="eoy-un-WdQ"/>
                             <constraint firstItem="v7w-Rk-k0N" firstAttribute="top" secondItem="wNr-dh-hKN" secondAttribute="bottom" id="iVr-LC-q1S"/>
                             <constraint firstItem="oQB-fX-nvO" firstAttribute="bottom" secondItem="I70-Ht-jKu" secondAttribute="top" id="klv-zP-Xeb"/>
+                            <constraint firstItem="oQB-fX-nvO" firstAttribute="top" secondItem="gxx-hR-pL8" secondAttribute="bottom" id="km0-j9-nbn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kKr-37-is6" secondAttribute="trailing" id="qSf-jR-dhu"/>
                             <constraint firstItem="wNr-dh-hKN" firstAttribute="trailing" secondItem="oQB-fX-nvO" secondAttribute="trailing" id="tgT-gA-m6O"/>
                         </constraints>
@@ -1278,6 +1294,7 @@
     </scenes>
     <resources>
         <image name="back" width="21" height="29"/>
+        <image name="grid" width="889" height="1185"/>
         <image name="history" width="24" height="24"/>
         <image name="logo" width="50" height="43"/>
         <image name="more" width="6" height="24"/>
@@ -1285,11 +1302,11 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fhn-Em-7be"/>
-        <segue reference="lgg-H9-mAH"/>
+        <segue reference="W2i-LE-0ss"/>
         <segue reference="Bfq-3Z-hPx"/>
+        <segue reference="lgg-H9-mAH"/>
         <segue reference="kBO-0a-pVg"/>
-        <segue reference="yd5-8l-fho"/>
+        <segue reference="7OK-sO-FDr"/>
         <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>
