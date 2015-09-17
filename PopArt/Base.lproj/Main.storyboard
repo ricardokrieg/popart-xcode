@@ -391,46 +391,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQB-fX-nvO">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="LJT-Hy-9eL"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem image="history" style="plain" id="L6D-XJ-TOB">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="Kow-jb-spm" kind="show" id="lgg-H9-mAH"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Die-1u-I5T"/>
-                                    <barButtonItem image="logo" style="plain" id="y3A-yX-bo4">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="cameraButtonClicked:" destination="aMG-Ul-1e7" id="tg9-6U-Fk7"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="faF-O7-fE2"/>
-                                    <barButtonItem image="more" style="plain" id="Rqe-PC-4mP">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromMainToMenu" popoverAnchorView="oQB-fX-nvO" id="7OK-sO-FDr">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="LJT-Hy-9eL"/>
-                                    </mask>
-                                </variation>
-                            </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-Rk-k0N">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-Rk-k0N">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <subviews>
-                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jib-Jh-lYD">
+                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jib-Jh-lYD">
                                         <rect key="frame" x="42" y="422" width="237" height="31"/>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="aMG-Ul-1e7" eventType="valueChanged" id="GyM-hR-Hjd"/>
@@ -468,6 +432,43 @@
                                     <action selector="onRotateCamera:" destination="aMG-Ul-1e7" eventType="touchUpInside" id="H6O-6l-raJ"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQB-fX-nvO">
+                                <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="LJT-Hy-9eL"/>
+                                    <constraint firstAttribute="height" constant="60" id="twh-FE-r9J"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="history" style="plain" id="L6D-XJ-TOB">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Kow-jb-spm" kind="show" id="lgg-H9-mAH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Die-1u-I5T"/>
+                                    <barButtonItem image="logo" style="plain" id="y3A-yX-bo4">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="cameraButtonClicked:" destination="aMG-Ul-1e7" id="tg9-6U-Fk7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="faF-O7-fE2"/>
+                                    <barButtonItem image="more" style="plain" id="Rqe-PC-4mP">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromMainToMenu" popoverAnchorView="oQB-fX-nvO" id="7OK-sO-FDr">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LJT-Hy-9eL"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1169,7 +1170,7 @@
     <resources>
         <image name="ForwardIcon" width="128" height="128"/>
         <image name="back" width="21" height="29"/>
-        <image name="history" width="36" height="36"/>
+        <image name="history" width="24" height="24"/>
         <image name="logo" width="50" height="43"/>
         <image name="more" width="6" height="24"/>
         <image name="share" width="36" height="36"/>
@@ -1177,10 +1178,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="W2i-LE-0ss"/>
+        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="lgg-H9-mAH"/>
+        <segue reference="kBO-0a-pVg"/>
+        <segue reference="7OK-sO-FDr"/>
         <segue reference="do7-Cx-Cef"/>
-        <segue reference="adw-Tr-v6p"/>
-        <segue reference="nwg-rm-PVL"/>
-        <segue reference="CZ7-l5-vkx"/>
     </inferredMetricsTieBreakers>
 </document>
