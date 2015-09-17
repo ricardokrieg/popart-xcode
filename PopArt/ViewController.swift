@@ -40,9 +40,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if let device = captureDevice {
                 if device.respondsToSelector("videoZoomFactor") {
                     if device.lockForConfiguration(nil) {
-                        device.videoZoomFactor = CGFloat(device.videoZoomFactor * sender.scale)
-                        device.videoZoomFactor = CGFloat(min(device.videoZoomFactor, maxZoomFactor))
-                        device.videoZoomFactor = CGFloat(max(device.videoZoomFactor, 1.0))
+                        var tempZoomFactor = device.videoZoomFactor
+                        
+                        tempZoomFactor = CGFloat(tempZoomFactor * sender.scale)
+                        tempZoomFactor = CGFloat(min(tempZoomFactor, maxZoomFactor))
+                        tempZoomFactor = CGFloat(max(tempZoomFactor, 1.0))
+                        
+                        device.videoZoomFactor = tempZoomFactor
                         sender.scale = 1
                         
                         println("Zoom: \(device.videoZoomFactor)")
