@@ -41,32 +41,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud0-rK-Qwj">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="6bv-r3-BtA"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zeL-h2-dvF"/>
-                                    <barButtonItem style="plain" id="aPf-zm-FhS">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j1O-wy-afi">
-                                            <rect key="frame" x="204" y="7" width="100" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Clear History">
-                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="clearButtonClicked:" destination="Kow-jb-spm" eventType="touchUpInside" id="oyB-ft-OvA"/>
-                                            </connections>
-                                        </button>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-qo-pc7">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="518"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-Q7-foa">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
@@ -261,7 +237,7 @@
                                         </connections>
                                     </tableView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRh-Ea-QAE">
-                                        <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="460" width="320" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Ygw-fP-X49"/>
                                             <constraint firstAttribute="height" constant="60" id="vcL-Q0-ccs"/>
@@ -318,6 +294,31 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud0-rK-Qwj">
+                                <rect key="frame" x="0.0" y="20" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6bv-r3-BtA"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zeL-h2-dvF"/>
+                                    <barButtonItem style="plain" id="aPf-zm-FhS">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j1O-wy-afi">
+                                            <rect key="frame" x="240" y="7" width="64" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <state key="normal" title="Clear History">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="clearButtonClicked:" destination="Kow-jb-spm" eventType="touchUpInside" id="oyB-ft-OvA"/>
+                                            </connections>
+                                        </button>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1280,11 +1281,11 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W2i-LE-0ss"/>
-        <segue reference="Bfq-3Z-hPx"/>
+        <segue reference="fhn-Em-7be"/>
         <segue reference="lgg-H9-mAH"/>
+        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="kBO-0a-pVg"/>
-        <segue reference="7OK-sO-FDr"/>
+        <segue reference="yd5-8l-fho"/>
         <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>
