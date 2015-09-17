@@ -310,7 +310,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if let controller = segue.destinationViewController as? UIViewController {
                 controller.popoverPresentationController!.delegate = self
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
-                controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)
+                let width = min(self.view.frame.width-20, 320)
+                controller.preferredContentSize = CGSize(width: width, height: 140)
             }
         }
     }
