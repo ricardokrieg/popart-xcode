@@ -36,6 +36,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var videoConnection : AVCaptureConnection?
     
+    @IBAction func handleTouch(sender: UITapGestureRecognizer) {
+        if sender.state == .Ended {
+            if let view = sender.view {
+                let point = sender.locationInView(sender.view)
+                let screenBounds = view.bounds
+                let autoFocusPoint = CGPointMake(point.x/screenBounds.size.width, point.y/screenBounds.size.height)
+                
+//                println("Tap: \(point)")
+//                println("Bounds: \(screenBounds)")
+//                println("FocusPoint: \(autoFocusPoint)")
+                
+                if let device = captureDevice {
+                    if device.lockForConfiguration(nil) {
+                        if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
+                            device.focusPointOfInterest = autoFocusPoint
+                            device.focusMode = AVCaptureFocusMode.AutoFocus
+                        }
+                        
+                        if device.isExposureModeSupported(AVCaptureExposureMode.AutoExpose) {
+                            device.exposurePointOfInterest = autoFocusPoint
+                            device.exposureMode = AVCaptureExposureMode.AutoExpose
+                        }
+                        
+                        device.unlockForConfiguration()
+                    }
+                } else {
+                    println("No device")
+                }
+            }
+        }
+    }
+    
     @IBAction func handlePinch(sender: UIPinchGestureRecognizer) {
         if let view = sender.view {
             if let device = captureDevice {
