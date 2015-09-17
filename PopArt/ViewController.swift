@@ -29,7 +29,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var captureDevice: AVCaptureDevice?
     var videoInput:AVCaptureInput?
     var isFront:Bool = false
-    var maxZoomFactor:CGFloat = 20.0
+    var maxZoomFactor:CGFloat = 10.0
     
     var stillImageOutput : AVCaptureStillImageOutput?
     
@@ -329,8 +329,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
                 
                 if device.respondsToSelector("setVideoZoomFactor:") {
-                    slider.maximumValue = min(Float(device.activeFormat.videoMaxZoomFactor), 20.0)
-                    maxZoomFactor = CGFloat(min(Float(device.activeFormat.videoMaxZoomFactor), 20.0))
+                    slider.maximumValue = min(Float(device.activeFormat.videoMaxZoomFactor), 10.0)
+                    maxZoomFactor = CGFloat(min(Float(device.activeFormat.videoMaxZoomFactor), 10.0))
                 }
                 
                 device.unlockForConfiguration()
