@@ -15,6 +15,17 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationAreaLabel: UILabel!
     @IBOutlet weak var locationCountryLabel: UILabel!
+    
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set (newFrame) {
+            var frame = newFrame
+            frame.size.width = CGFloat(frame.size.width + 15)
+            super.frame = frame
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
