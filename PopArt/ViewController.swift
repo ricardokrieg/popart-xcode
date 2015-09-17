@@ -34,6 +34,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var videoConnection : AVCaptureConnection?
     
+    @IBAction func handlePinch(sender: UIPinchGestureRecognizer) {
+        if let view = sender.view {
+            if let device = captureDevice {
+                if device.respondsToSelector("videoZoomFactor") {
+                    if device.lockForConfiguration(nil) {
+                        device.videoZoomFactor = CGFloat(device.videoZoomFactor * sender.scale)
+                        device.videoZoomFactor = CGFloat(min(device.videoZoomFactor, 20.0))
+                        device.videoZoomFactor = CGFloat(max(device.videoZoomFactor, 1.0))
+                        sender.scale = 1
+                        
+                        println("Zoom: \(device.videoZoomFactor)")
+                        
+                        device.unlockForConfiguration()
+                    } else {
+                        println("could not lock")
+                    }
+                } else {
+                    println("No videoZoom feature")
+                }
+            } else {
+                println("No device")
+            }
+        }
+    }
+    
     @IBAction func cameraButtonClicked(sender: AnyObject) {
         println("Camera")
         
