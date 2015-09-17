@@ -70,7 +70,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkZ-qo-pc7">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-Q7-foa">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-Q7-foa">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -298,10 +298,11 @@
                                             <outlet property="delegate" destination="Kow-jb-spm" id="yZI-BW-EUf"/>
                                         </connections>
                                     </tableView>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRh-Ea-QAE">
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRh-Ea-QAE">
                                         <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Ygw-fP-X49"/>
+                                            <constraint firstAttribute="height" constant="60" id="vcL-Q0-ccs"/>
                                         </constraints>
                                         <items>
                                             <barButtonItem image="history" style="plain" id="kl1-Xe-AJI">
@@ -719,13 +720,14 @@
                                 </items>
                                 <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-Zb-0Wj">
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-Zb-0Wj">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-Ax-LXE">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-Ax-LXE">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hYm-Nt-VrW"/>
                                     <constraint firstAttribute="height" constant="60" id="qYD-E6-McZ"/>
                                 </constraints>
                                 <items>
@@ -1093,9 +1095,10 @@
                                 </items>
                                 <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lee-42-lhS">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lee-42-lhS">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="VaR-q1-pGc"/>
                                     <constraint firstAttribute="height" constant="60" id="X5x-OU-0rR"/>
                                 </constraints>
                                 <items>
@@ -1177,11 +1180,11 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W2i-LE-0ss"/>
+        <segue reference="SKZ-1n-KDw"/>
         <segue reference="Bfq-3Z-hPx"/>
-        <segue reference="lgg-H9-mAH"/>
         <segue reference="kBO-0a-pVg"/>
-        <segue reference="7OK-sO-FDr"/>
-        <segue reference="do7-Cx-Cef"/>
+        <segue reference="tAC-U4-LSq"/>
+        <segue reference="nwg-rm-PVL"/>
+        <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>
