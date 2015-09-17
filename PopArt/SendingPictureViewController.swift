@@ -77,7 +77,7 @@ class SendingPictureViewController: UIViewController {
                 }
                 
                 if server.placemark != nil {
-                    if let msg_location_area = server.placemark!.administrativeArea {
+                    if let msg_location_area = server.placemark!.locality {
                         message_location_area = String(msg_location_area)
                     }
                     
