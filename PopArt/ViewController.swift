@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //    @IBOutlet weak var cameraButton: UIButton!
 //    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var grid: UIImageView!
     
     let locationManager = CLLocationManager()
     
@@ -374,6 +375,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.layer.addSublayer(previewLayer)
         
         self.cameraView.bringSubviewToFront(slider)
+        self.cameraView.bringSubviewToFront(grid)
         
         captureSession.startRunning()
     }

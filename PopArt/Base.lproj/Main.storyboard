@@ -486,6 +486,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cameraView" destination="v7w-Rk-k0N" id="mcD-p9-rKK"/>
+                        <outlet property="grid" destination="gxx-hR-pL8" id="kNQ-oZ-fqs"/>
                         <outlet property="slider" destination="Jib-Jh-lYD" id="tQK-OV-zaA"/>
                         <segue destination="mGA-4a-zWH" kind="show" identifier="fromMainToSendingPicture" id="W2i-LE-0ss"/>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromMainToPage" id="Bfq-3Z-hPx"/>
@@ -1307,6 +1308,6 @@
         <segue reference="lgg-H9-mAH"/>
         <segue reference="kBO-0a-pVg"/>
         <segue reference="7OK-sO-FDr"/>
-        <segue reference="ooM-xI-8Z0"/>
+        <segue reference="aRS-Ce-dOV"/>
     </inferredMetricsTieBreakers>
 </document>
