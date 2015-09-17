@@ -20,6 +20,7 @@
 		4787ED591B9A611700C144B4 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED571B9A611700C144B4 /* GoogleOpenSource.framework */; };
 		4787ED5A1B9A611700C144B4 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4787ED581B9A611700C144B4 /* GooglePlus.bundle */; };
 		8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C00DD211B890222009450BD /* SendingPictureViewController.swift */; };
+		8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */; };
 		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
 		8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26557B1B7ED08100648FC5 /* ViewController.swift */; };
 		8C26557F1B7ED08100648FC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C26557D1B7ED08100648FC5 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		4787ED581B9A611700C144B4 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 		4A0C59614E4977B9271C859C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8C00DD211B890222009450BD /* SendingPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingPictureViewController.swift; sourceTree = "<group>"; };
+		8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
 		8C2655741B7ED08100648FC5 /* PopsArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopsArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2655781B7ED08100648FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C2655791B7ED08100648FC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				8C2655771B7ED08100648FC5 /* Supporting Files */,
 				8CF994F31B82D05600BC4E44 /* Server.swift */,
 				8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */,
+				8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */,
 			);
 			path = PopArt;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */,
 				8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */,
 				8CF994FA1B82E4E600BC4E44 /* ytcpsocket.swift in Sources */,
+				8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */,
 				8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */,
 				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
 				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,

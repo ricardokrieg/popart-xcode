@@ -22,7 +22,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     var result: NSData?
     var saveToHistory:Bool = false
-
+    
     @IBAction func shareButtonClicked(sender: AnyObject) {
         var textToShare = ""
         if let title = resultTitle {
@@ -266,6 +266,9 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
                 controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)
             }
+        } else if segue.identifier == "fromResultToResultModal" {
+            let destination = segue.destinationViewController as! ResultModalViewController
+            destination.result = self.result
         }
     }
     

@@ -57,6 +57,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        
+        tableView.separatorColor = UIColor.blackColor()
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
     }
 
     override func didReceiveMemoryWarning() {
