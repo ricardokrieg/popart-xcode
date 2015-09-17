@@ -50,13 +50,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 if let device = captureDevice {
                     if device.lockForConfiguration(nil) {
                         if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
-                            device.focusPointOfInterest = autoFocusPoint
                             device.focusMode = AVCaptureFocusMode.AutoFocus
+                        }
+                        if device.focusPointOfInterestSupported {
+                            device.focusPointOfInterest = autoFocusPoint
                         }
                         
                         if device.isExposureModeSupported(AVCaptureExposureMode.AutoExpose) {
-                            device.exposurePointOfInterest = autoFocusPoint
                             device.exposureMode = AVCaptureExposureMode.AutoExpose
+                        }
+                        if device.exposurePointOfInterestSupported {
+                            device.exposurePointOfInterest = autoFocusPoint
                         }
                         
                         device.unlockForConfiguration()
@@ -350,17 +354,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func configureDevice() {
         if let device = captureDevice {
-            if device.lockForConfiguration(nil) {
-//                let autoFocusPoint = CGPointMake(0.5, 0.5)
-//                device.focusPointOfInterest = autoFocusPoint
-                
-                if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
-                    println("focus: ContinuousAutoFocus")
-                    device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
-                } else if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
-                    println("focus: AutoFocus")
-                    device.focusMode = AVCaptureFocusMode.AutoFocus
-                }
+            if device.lockForConfiguration(nil) {                
+//                if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
+//                    println("focus: ContinuousAutoFocus")
+//                    device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
+//                } else if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
+//                    println("focus: AutoFocus")
+//                    device.focusMode = AVCaptureFocusMode.AutoFocus
+//                }
                 
                 if device.respondsToSelector("setVideoZoomFactor:") {
                     slider.maximumValue = min(Float(device.activeFormat.videoMaxZoomFactor), 10.0)
