@@ -11,39 +11,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KnP-pb-kL6">
-                    <rect key="frame" x="60" y="81" width="200" height="40"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="296" id="3iR-p4-5Il"/>
-                        <constraint firstAttribute="height" constant="40" id="Ds8-1Z-HiE"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="3iR-p4-5Il"/>
-                        </mask>
-                    </variation>
-                </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2015 PopsArt. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="-20" y="539" width="361" height="21"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="kR2-Gp-N51"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="09t-JT-Wx7">
-                    <rect key="frame" x="60" y="129" width="200" height="200"/>
+                    <rect key="frame" x="60" y="154" width="200" height="200"/>
                     <animations/>
                     <color key="tintColor" red="0.38823529410000002" green="0.76862745099999996" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="67d-wN-5iK"/>
                         <constraint firstAttribute="height" constant="363" id="AzH-Gs-oC8"/>
                         <constraint firstAttribute="height" constant="320" id="Chs-i9-yeQ"/>
                         <constraint firstAttribute="width" constant="320" id="E2c-CM-G3a"/>
                         <constraint firstAttribute="width" constant="361" id="L5H-lk-85C"/>
+                        <constraint firstAttribute="height" constant="200" id="LlA-GM-zZZ"/>
                         <constraint firstAttribute="width" constant="361" id="eM7-zM-9mR"/>
                         <constraint firstAttribute="width" constant="320" id="sBV-V1-S2Z"/>
                     </constraints>
@@ -58,26 +35,49 @@
                         </mask>
                     </variation>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright © 2015 PopsArt. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                    <rect key="frame" x="-20" y="539" width="361" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="3wU-WS-InI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KnP-pb-kL6">
+                    <rect key="frame" x="60" y="106" width="200" height="40"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="296" id="3iR-p4-5Il"/>
+                        <constraint firstAttribute="height" constant="40" id="trR-7P-4pa"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="3iR-p4-5Il"/>
+                        </mask>
+                    </variation>
+                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="09t-JT-Wx7" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="4yU-rd-zvk"/>
-                <constraint firstItem="KnP-pb-kL6" firstAttribute="trailing" secondItem="09t-JT-Wx7" secondAttribute="trailing" id="NHM-Fa-LYV"/>
+                <constraint firstItem="KnP-pb-kL6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Fm-rZ-a7S"/>
+                <constraint firstItem="KnP-pb-kL6" firstAttribute="trailing" secondItem="09t-JT-Wx7" secondAttribute="trailing" id="7WX-7d-JEj"/>
+                <constraint firstItem="KnP-pb-kL6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="106" id="Gpe-O2-MkL"/>
                 <constraint firstItem="09t-JT-Wx7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="118" id="Nek-PO-1H1"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="WEv-wn-0vP"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="centerX" secondItem="09t-JT-Wx7" secondAttribute="centerX" id="TJu-V9-91d"/>
                 <constraint firstItem="09t-JT-Wx7" firstAttribute="leading" secondItem="8ie-xW-0ye" secondAttribute="leading" id="Wmh-Gj-5WO"/>
                 <constraint firstItem="KnP-pb-kL6" firstAttribute="centerX" secondItem="09t-JT-Wx7" secondAttribute="centerX" id="XYQ-Q5-4UK"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="09t-JT-Wx7" secondAttribute="bottom" constant="90" id="akj-kF-MpP"/>
-                <constraint firstItem="09t-JT-Wx7" firstAttribute="top" secondItem="KnP-pb-kL6" secondAttribute="bottom" constant="8" symbolic="YES" id="bxy-9t-ikA"/>
-                <constraint firstItem="KnP-pb-kL6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="kvh-HH-d12"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-20" id="bms-Xn-rhU"/>
+                <constraint firstItem="KnP-pb-kL6" firstAttribute="leading" secondItem="09t-JT-Wx7" secondAttribute="leading" id="cvR-bk-QGi"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="kOW-V8-Oz2"/>
                 <constraint firstAttribute="centerY" secondItem="09t-JT-Wx7" secondAttribute="centerY" constant="0.5" id="lGm-Vu-pwT"/>
-                <constraint firstItem="KnP-pb-kL6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="81" id="pL2-J3-La7"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-20" id="pQk-1d-VmZ"/>
-                <constraint firstItem="09t-JT-Wx7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pkm-pm-MEX"/>
+                <constraint firstItem="09t-JT-Wx7" firstAttribute="top" secondItem="KnP-pb-kL6" secondAttribute="bottom" constant="8" symbolic="YES" id="qlt-ta-Qqy"/>
                 <constraint firstItem="KnP-pb-kL6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="qv9-Fl-K36"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="KnP-pb-kL6" secondAttribute="bottom" constant="57" id="sIl-0M-1vq"/>
-                <constraint firstItem="KnP-pb-kL6" firstAttribute="leading" secondItem="09t-JT-Wx7" secondAttribute="leading" id="sUW-04-YbN"/>
+                <constraint firstItem="KnP-pb-kL6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="60" id="shF-yj-VDk"/>
                 <constraint firstItem="09t-JT-Wx7" firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" id="xLn-wx-sxF"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
