@@ -1176,11 +1176,11 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SKZ-1n-KDw"/>
-        <segue reference="evL-ah-ioV"/>
-        <segue reference="kBO-0a-pVg"/>
-        <segue reference="tAC-U4-LSq"/>
-        <segue reference="nwg-rm-PVL"/>
+        <segue reference="W2i-LE-0ss"/>
+        <segue reference="lgg-H9-mAH"/>
         <segue reference="do7-Cx-Cef"/>
+        <segue reference="adw-Tr-v6p"/>
+        <segue reference="nwg-rm-PVL"/>
+        <segue reference="CZ7-l5-vkx"/>
     </inferredMetricsTieBreakers>
 </document>
