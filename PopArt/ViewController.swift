@@ -194,8 +194,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
 //        // Ask for Authorisation from the User.
 //        self.locationManager.requestAlwaysAuthorization()
         
@@ -231,21 +229,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
-        
-//        for fontFamilyName in UIFont.familyNames() {
-//            println("-- \(fontFamilyName) --")
-//            
-//            for fontName in UIFont.fontNamesForFamilyName(fontFamilyName as! String) {
-//                println(fontName)
-//            }
-//            
-//            println(" ")
-//        }
-//        label1.font = UIFont(name: "YanoneKaffeesatz-Regular", size: 20.0)
-//        label1.text = "Tips and Tricks in Xcode"
-//        
-//        label2.font = UIFont(name: "YanoneKaffeesatz-Bold", size: 20.0)
-//        label2.text = "Tips and Tricks in Xcode"
     }
 
     override func didReceiveMemoryWarning() {
