@@ -24,7 +24,6 @@ let SERVER_ADDRESS = "popart-app.com"
 let SERVER_PORT = 5200
 
 class Server {
-    let client: TCPClient = TCPClient(addr: SERVER_ADDRESS, port: SERVER_PORT)
     var shouldSend = false
     var request = HTTPTask()
     
@@ -33,40 +32,35 @@ class Server {
     var location: CLLocation?
     var placemark: CLPlacemark?
     
+    let squareSize = 200
+    var focusSquare: FocusSquareView?
+    
     init() {}
     
-    func connect() {
-        client.connect(timeout: 10)
-    }
-    
-    func disconnect() {
-        client.close()
-    }
-    
-    func send(message: NSData) {
-        println("Send \(message)")
-        client.send(data: message)
-    }
-    
-    func send(message: String) {
-        let array_message = Array(message)[0..<100]
-        let print_message = String(array_message)
-        println("Send \(print_message) ...")
+    func ping(sender: UIViewController) -> Bool {
+        var success:Bool = true
         
-        client.send(str: message)
-    }
-    
-    func read() -> NSString? {
-        println("Read")
-        let data = client.read(1024*10)
-        if let d=data{
-            if let str=NSString(bytes: d, length: d.count, encoding: NSUTF8StringEncoding){
-                println(str)                
-                return str
+        request.GET(http_url, parameters: nil, completionHandler: {(response: HTTPResponse) in
+            if let err = response.error {
+                success = false
+                println("error: \(err.localizedDescription)")
+                self.displayAlert("Error", message: err.localizedDescription, sender: sender)
+                return
             }
-        }
+        })
+
+        return success
+    }
+    
+    func displayAlert(title: String, message: String, sender: UIViewController) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
         
-        return nil
+        sender.presentViewController(alertController, animated: true, completion: {
+            if !sender.isKindOfClass(ViewController) {
+                sender.performSegueWithIdentifier("backToMain", sender: sender)
+            }
+        })
     }
 }
 

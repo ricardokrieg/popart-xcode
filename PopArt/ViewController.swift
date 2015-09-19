@@ -47,6 +47,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //                println("Bounds: \(screenBounds)")
 //                println("FocusPoint: \(autoFocusPoint)")
                 
+                server.focusSquare?.center.x = point.x
+                server.focusSquare?.center.y = point.y
+                
+                server.focusSquare?.setNeedsDisplay()
+                
+                server.focusSquare?.alpha = 0.1
+                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.Repeat | UIViewAnimationOptions.Autoreverse, animations: {
+                    server.focusSquare?.alpha = 1.0
+                }, completion: nil)
+                
                 if let device = captureDevice {
                     if device.lockForConfiguration(nil) {
                         if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
@@ -73,6 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func handlePinch(sender: UIPinchGestureRecognizer) {
+        println(sender.scale)
         if let view = sender.view {
             if let device = captureDevice {
                 if device.respondsToSelector("videoZoomFactor") {
@@ -261,6 +272,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        server.ping(self)
 //        // Ask for Authorisation from the User.
 //        self.locationManager.requestAlwaysAuthorization()
         
@@ -296,6 +309,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
+        
+        server.focusSquare = FocusSquareView(frame:CGRect(x: 0, y: 0, width: server.squareSize, height: server.squareSize))
+        self.cameraView.addSubview(server.focusSquare!)
+        server.focusSquare!.setNeedsDisplay()
     }
 
     override func didReceiveMemoryWarning() {
@@ -354,7 +371,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func configureDevice() {
         if let device = captureDevice {
-            if device.lockForConfiguration(nil) {                
+            if device.lockForConfiguration(nil) {
 //                if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
 //                    println("focus: ContinuousAutoFocus")
 //                    device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
@@ -409,6 +426,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.layer.addSublayer(previewLayer)
         
         self.cameraView.bringSubviewToFront(slider)
+        self.cameraView.bringSubviewToFront(server.focusSquare!)
         self.cameraView.bringSubviewToFront(grid)
         
         captureSession.startRunning()

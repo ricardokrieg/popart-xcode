@@ -393,6 +393,7 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="TRa-HM-vJ8" appends="YES" id="0BN-6t-5XV"/>
+                                    <outletCollection property="gestureRecognizers" destination="0f3-38-FSv" appends="YES" id="N0C-8b-Ki5"/>
                                 </connections>
                             </view>
                             <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNr-dh-hKN">
@@ -479,9 +480,6 @@
                                 <exclude reference="ABQ-4k-ZBK"/>
                             </mask>
                         </variation>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="0f3-38-FSv" appends="YES" id="caN-GT-APo"/>
-                        </connections>
                     </view>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -506,7 +504,7 @@
                 <tapGestureRecognizer id="0f3-38-FSv">
                     <connections>
                         <action selector="handleTouch:" destination="aMG-Ul-1e7" id="mWd-Jo-86A"/>
-                        <outlet property="delegate" destination="iEo-zY-2RC" id="Q3H-tv-6Fv"/>
+                        <outlet property="delegate" destination="v7w-Rk-k0N" id="hJx-vH-tH4"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
