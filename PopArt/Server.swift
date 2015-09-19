@@ -54,13 +54,14 @@ class Server {
     
     func displayAlert(title: String, message: String, sender: UIViewController) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: nil))
-        
-        sender.presentViewController(alertController, animated: true, completion: {
-            if !sender.isKindOfClass(ViewController) {
-                sender.performSegueWithIdentifier("backToMain", sender: sender)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+                if sender.isKindOfClass(SendingPictureViewController) {
+                    sender.performSegueWithIdentifier("fromSendingToMain", sender: sender)
+                }
             }
-        })
+        ))
+        
+        sender.presentViewController(alertController, animated: true, completion: nil)
     }
 }
 
