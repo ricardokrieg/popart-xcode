@@ -441,6 +441,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.bringSubviewToFront(server.focusSquare!)
         self.cameraView.bringSubviewToFront(grid)
         
+        println("CameraView (bounds): \(cameraView!.bounds)")
+        println("CameraViewr (frame): \(cameraView!.frame)")
+        println("PreviewLayer (bounds): \(previewLayer!.bounds)")
+        println("PreviewLayer (frame): \(previewLayer!.frame)")
+        
         captureSession.startRunning()
     }
     
