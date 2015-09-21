@@ -12,6 +12,8 @@ class FocusSquareView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        userInteractionEnabled = false
+        
         backgroundColor = UIColor.clearColor()
         layer.borderWidth = 2.0
         layer.cornerRadius = 4.0

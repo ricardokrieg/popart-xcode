@@ -39,44 +39,55 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func handleTouch(sender: UITapGestureRecognizer) {
         if sender.state == .Ended {
             if let view = sender.view {
-                let point = sender.locationInView(sender.view)
-                let screenBounds = view.bounds
-                let autoFocusPoint = CGPointMake(point.x/screenBounds.size.width, point.y/screenBounds.size.height)
+                if let focusSquare = server.focusSquare {
+                    let point = sender.locationInView(sender.view)
+                    
+                    // checking if touch is inside current square (hide it if positive)
+                    if CGRectContainsPoint(focusSquare.frame, point) {
+                        focusSquare.layer.removeAllAnimations()
+                        focusSquare.center.x = 0
+                        focusSquare.center.y = 0
+                        focusSquare.alpha = 0.0
+                    } else {
+                        let screenBounds = view.bounds
+                        let autoFocusPoint = CGPointMake(point.x/screenBounds.size.width, point.y/screenBounds.size.height)
                 
-//                println("Tap: \(point)")
-//                println("Bounds: \(screenBounds)")
-//                println("FocusPoint: \(autoFocusPoint)")
+//                        println("Tap: \(point)")
+//                        println("Bounds: \(screenBounds)")
+//                        println("FocusPoint: \(autoFocusPoint)")
                 
-                server.focusSquare?.center.x = point.x
-                server.focusSquare?.center.y = point.y
+                        focusSquare.center.x = point.x
+                        focusSquare.center.y = point.y
                 
-                server.focusSquare?.setNeedsDisplay()
+                        focusSquare.setNeedsDisplay()
                 
-                server.focusSquare?.alpha = 0.1
-                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.Repeat | UIViewAnimationOptions.Autoreverse, animations: {
-                    server.focusSquare?.alpha = 1.0
-                }, completion: nil)
+                        focusSquare.alpha = 0.1
+                        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.Repeat | UIViewAnimationOptions.Autoreverse, animations: {
+                                focusSquare.alpha = 1.0
+                            }, completion: nil)
                 
-                if let device = captureDevice {
-                    if device.lockForConfiguration(nil) {
-                        if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
-                            device.focusMode = AVCaptureFocusMode.AutoFocus
-                        }
-                        if device.focusPointOfInterestSupported {
-                            device.focusPointOfInterest = autoFocusPoint
-                        }
+                        if let device = captureDevice {
+                            if device.lockForConfiguration(nil) {
+                                if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
+                                    device.focusMode = AVCaptureFocusMode.AutoFocus
+                                }
+                                if device.focusPointOfInterestSupported {
+                                    device.focusPointOfInterest = autoFocusPoint
+                                }
                         
-                        if device.isExposureModeSupported(AVCaptureExposureMode.AutoExpose) {
-                            device.exposureMode = AVCaptureExposureMode.AutoExpose
-                        }
-                        if device.exposurePointOfInterestSupported {
-                            device.exposurePointOfInterest = autoFocusPoint
-                        }
+                                if device.isExposureModeSupported(AVCaptureExposureMode.AutoExpose) {
+                                    device.exposureMode = AVCaptureExposureMode.AutoExpose
+                                }
+                                if device.exposurePointOfInterestSupported {
+                                    device.exposurePointOfInterest = autoFocusPoint
+                                }
                         
-                        device.unlockForConfiguration()
+                                device.unlockForConfiguration()
+                            }
+                        } else {
+                            println("No device")
+                        }
                     }
-                } else {
-                    println("No device")
                 }
             }
         }
@@ -310,6 +321,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
         
+        server.squareSize = Int(self.view.bounds.width / 5)
         server.focusSquare = FocusSquareView(frame:CGRect(x: 0, y: 0, width: server.squareSize, height: server.squareSize))
         self.cameraView.addSubview(server.focusSquare!)
         server.focusSquare!.setNeedsDisplay()

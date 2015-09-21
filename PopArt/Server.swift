@@ -32,7 +32,7 @@ class Server {
     var location: CLLocation?
     var placemark: CLPlacemark?
     
-    let squareSize = 200
+    var squareSize = 200
     var focusSquare: FocusSquareView?
     
     init() {}
