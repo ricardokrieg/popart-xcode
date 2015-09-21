@@ -297,6 +297,7 @@
 		8C26556C1B7ED08100648FC5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Netronian Inc.";
 				TargetAttributes = {
