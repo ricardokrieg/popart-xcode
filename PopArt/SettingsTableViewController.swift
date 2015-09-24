@@ -66,10 +66,10 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
                 page_url = "http://popart-app.com/static/terms-of-use.html"
                 performSegueWithIdentifier("fromSettingsToPage", sender: nil)
             default:
-                println("Unhandled row: \(indexPath.row)")
+                print("Unhandled row: \(indexPath.row)")
             }
         default:
-            println("Unhandled section: \(indexPath.section)")
+            print("Unhandled section: \(indexPath.section)")
         }
     }
 
@@ -135,7 +135,7 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
             
             server.shouldSend = true
         } else if segue.identifier == "fromSettingsToMenu" {
-            if let controller = segue.destinationViewController as? UIViewController {
+            if let controller = segue.destinationViewController as UIViewController? {
                 controller.popoverPresentationController!.delegate = self
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
                 controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)

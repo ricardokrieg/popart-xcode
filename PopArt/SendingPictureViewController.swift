@@ -46,17 +46,17 @@ class SendingPictureViewController: UIViewController {
         // Get location
         
         if server.location != nil {
-            println("User location: (\(server.location!.coordinate.latitude), \(server.location!.coordinate.longitude))")
+            print("User location: (\(server.location!.coordinate.latitude), \(server.location!.coordinate.longitude))")
         } else {
-            println("User didnt allow location")
+            print("User didnt allow location")
         }
         
         // Send to server
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if self.imageContainer.image != nil {
-                let imageData = UIImageJPEGRepresentation(self.imageContainer.image, 0.5)
-                let imageDataBase64 = imageData.base64EncodedStringWithOptions(.allZeros)
+                let imageData = UIImageJPEGRepresentation(self.imageContainer.image!, 0.5)
+//                let imageDataBase64 = imageData!.base64EncodedStringWithOptions([])
 //                let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
                 
 //                let message_code = "IDENTIFY64"
@@ -87,7 +87,7 @@ class SendingPictureViewController: UIViewController {
                 }
                 
 //                let message_size = imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-                let message_data = imageDataBase64
+//                let message_data = imageDataBase64
 //                let message_size = imageDataString!.length
 //                let message_data = imageDataString
             
@@ -99,28 +99,31 @@ class SendingPictureViewController: UIViewController {
 //                let params: Dictionary<String, AnyObject> = ["image64": message_data, "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
                 
                 
-                let params: Dictionary<String, AnyObject> = ["image": HTTPUpload(data: imageData, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
+                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
                 
                 server.ping(self)
-                server.request.POST(server.http_url, parameters: params, completionHandler: {(response: HTTPResponse) in
+                
+                do {
+                    let opt = try HTTP.POST(server.http_url, parameters: params)
+                
+                    opt.start { response in
+                        if let err = response.error {
+                            print("error: \(err.localizedDescription)")
+                            return //also notify app of failure as needed
+                        }
                     
-                    if let err = response.error {
-                        println("error: \(err.localizedDescription)")
-                        return //also notify app of failure as needed
-                    }
-                    
-                    if let data = response.responseObject as? NSData {
-                        let str = NSString(data: data, encoding: NSUTF8StringEncoding)
-                        println("response: \(str)") //prints the HTML of the page
+                        let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                        print("response: \(str)") //prints the HTML of the page
                         
                         self.result = str!.dataUsingEncoding(NSUTF8StringEncoding)
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
                         }
-                        
                     }
-                })
+                } catch let error {
+                    print("got an error creating the request: \(error)")
+                }
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     self.statusLabel.text = "Searching"
@@ -237,7 +240,7 @@ class SendingPictureViewController: UIViewController {
         let imageData = UIImageJPEGRepresentation(img, CGFloat(compressionQuality))
         UIGraphicsEndImageContext()
         
-        return UIImage(data: imageData)!
+        return UIImage(data: imageData!)!
     }
 
     /*

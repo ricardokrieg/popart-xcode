@@ -26,21 +26,24 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         let fetchRequest = NSFetchRequest(entityName: "Painting")
         
-        var fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: nil) as? [NSManagedObject]
+        var fetchedResults = (try? managedContext.executeFetchRequest(fetchRequest)) as? [NSManagedObject]
         
-        if let results = fetchedResults {
+        if let _ = fetchedResults {
             for history in fetchedResults! {
                 managedContext.deleteObject(history)
             }
             
             fetchedResults!.removeAll(keepCapacity: false)
             
-            managedContext.save(nil)
+            do {
+                try managedContext.save()
+            } catch _ {
+            }
             
             self.paintings = [NSManagedObject]()
             self.tableView.reloadData()
             
-            println("History cleared")
+            print("History cleared")
         }
     }
     
@@ -75,16 +78,18 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let fetchRequest = NSFetchRequest(entityName: "Painting")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
         
-        var error: NSError?
-        
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
-        
-        if let results = fetchedResults {
-            paintings = results
+        do {
+            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
-            println("History: \(paintings.count) items")
-        } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
+            if let results = fetchedResults {
+                paintings = results
+                
+                print("History: \(paintings.count) items")
+            } else {
+                print("Could not fetch history")
+            }
+        } catch let error {
+            print("Error loading history: \(error)")
         }
     }
     
@@ -155,7 +160,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             server.shouldSend = true
         } else if segue.identifier == "fromHistoryToMenu" {
-            if let controller = segue.destinationViewController as? UIViewController {
+            if let controller = segue.destinationViewController as UIViewController? {
                 controller.popoverPresentationController!.delegate = self
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
                 controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)

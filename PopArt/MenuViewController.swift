@@ -64,7 +64,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.icon.image = UIImage(named: "about")
             cell.label.text = "About"
         default:
-            println("Invalid menu cell")
+            print("Invalid menu cell")
         }
         
         return cell
@@ -78,7 +78,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             page_url = "http://popart-app.com/static/about-us.html"
             performSegueWithIdentifier("fromMenuToPage", sender: nil)
         default:
-            println("actionSheet without action \(indexPath.row)")
+            print("actionSheet without action \(indexPath.row)")
         }
     }
 

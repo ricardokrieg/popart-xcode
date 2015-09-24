@@ -41,7 +41,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     @IBAction func facebookButtonClicked(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
-            var facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
             if let title = resultTitle {
                 facebookSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
@@ -50,7 +50,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             facebookSheet.addImage(resultImage?.image)
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
-            var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -58,7 +58,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     @IBAction func twitterButtonClicked(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
-            var twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             
             if let title = resultTitle {
                 twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
@@ -67,35 +67,35 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             twitterSheet.addImage(resultImage?.image)
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
-            var alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
     @IBAction func googlePlusButtonClicked(sender: AnyObject) {
-        var instagramURL = NSURL(string: "instagram://app")!
+        let instagramURL = NSURL(string: "instagram://app")!
         if UIApplication.sharedApplication().canOpenURL(instagramURL) {
-            var library = ALAssetsLibrary() ;
+            let library = ALAssetsLibrary() ;
             
             // Create a bitmap graphics context
-            var newImage = self.resultImage.image!.imageWithNewSize(CGSizeMake(640, 640))
+            let newImage = self.resultImage.image!.imageWithNewSize(CGSizeMake(640, 640))
 
             
 //            library.writeImageToSavedPhotosAlbum:scaledImage.CGImage orientation:(ALAssetOrientation)image.imageOrientation completionBlock:^(NSURL assetURL, NSError error) {
             
             library.writeImageToSavedPhotosAlbum(newImage.CGImage, metadata:nil , completionBlock: { ( asseturl: NSURL! , error: NSError!) -> Void in
                 
-                var escapedString = asseturl.absoluteString?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
+                let escapedString = asseturl.absoluteString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())
                 
-                      var  instagramURL = NSURL(string: "instagram://library?AssetPath=\(escapedString)");
+                      let instagramURL = NSURL(string: "instagram://library?AssetPath=\(escapedString)");
                 
                     UIApplication.sharedApplication().openURL(instagramURL!)
             })
         } else {
-            println("instagram not found")
+            print("instagram not found")
 
-            var alertCont = UIAlertController(title: "Instagram", message: "Hello, You need Instagram app to be downloaded in to your device for share image on Instagram.", preferredStyle: UIAlertControllerStyle.Alert);
+            let alertCont = UIAlertController(title: "Instagram", message: "Hello, You need Instagram app to be downloaded in to your device for share image on Instagram.", preferredStyle: UIAlertControllerStyle.Alert);
             alertCont.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertCont, animated: true, completion: nil);
         }
@@ -122,22 +122,22 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     @IBAction func mailButtonClicked(sender: AnyObject) {
         if MFMailComposeViewController.canSendMail() {
-            var mc:MFMailComposeViewController = MFMailComposeViewController()
+            let mc:MFMailComposeViewController = MFMailComposeViewController()
             mc.mailComposeDelegate = self
-            mc.setSubject(resultTitle?.text)
-            UIImageJPEGRepresentation(resultImage?.image, 1)
+            mc.setSubject((resultTitle?.text)!)
+            UIImageJPEGRepresentation((resultImage?.image)!, 1)
             
-            mc.addAttachmentData(UIImageJPEGRepresentation(resultImage?.image, 1), mimeType: "image/jpeg", fileName: "image.jpeg")
+            mc.addAttachmentData(UIImageJPEGRepresentation((resultImage?.image)!, 1)!, mimeType: "image/jpeg", fileName: "image.jpeg")
             //        self.showViewController(mc, sender: self)
             self.presentViewController(mc, animated: true, completion: nil)
         } else {
-            var alert = UIAlertController(title: "Accounts", message: "Please login to a Email account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Email account to share.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -149,7 +149,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     override func viewWillAppear(animated: Bool) {
         if result != nil {
-            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
+            let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
             
             let result_image_url = json?["image_url"] as? String?
             let result_query_image_url = json?["query_image_url"] as? String?
@@ -243,8 +243,11 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                         painting.setValue(result!, forKey: "json")
                         
                         var error: NSError?
-                        if !managedContext.save(&error) {
-                            println("Could not save \(error), \(error?.userInfo)")
+                        do {
+                            try managedContext.save()
+                        } catch let error1 as NSError {
+                            error = error1
+                            print("Could not save \(error), \(error?.userInfo)")
                         }
                     }
                 }
@@ -261,7 +264,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromResultToMenu" {
-            if let controller = segue.destinationViewController as? UIViewController {
+            if let controller = segue.destinationViewController as UIViewController? {
                 controller.popoverPresentationController!.delegate = self
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
                 controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)

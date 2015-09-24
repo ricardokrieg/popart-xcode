@@ -21,7 +21,7 @@ class FocusSquareView: UIView {
         alpha = 0.0
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

@@ -62,12 +62,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         focusSquare.setNeedsDisplay()
                 
                         focusSquare.alpha = 0.1
-                        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.Repeat | UIViewAnimationOptions.Autoreverse, animations: {
+                        UIView.animateWithDuration(1.0, delay: 0.0, options: [UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse], animations: {
                                 focusSquare.alpha = 1.0
                             }, completion: nil)
                 
                         if let device = captureDevice {
-                            if device.lockForConfiguration(nil) {
+                            do {
+                                try device.lockForConfiguration()
                                 if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
                                     device.focusMode = AVCaptureFocusMode.AutoFocus
                                 }
@@ -83,9 +84,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                                 }
                         
                                 device.unlockForConfiguration()
+                            } catch _ {
                             }
                         } else {
-                            println("No device")
+                            print("No device")
                         }
                     }
                 }
@@ -94,11 +96,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func handlePinch(sender: UIPinchGestureRecognizer) {
-        println(sender.scale)
-        if let view = sender.view {
+        print(sender.scale)
+        if let _ = sender.view {
             if let device = captureDevice {
                 if device.respondsToSelector("videoZoomFactor") {
-                    if device.lockForConfiguration(nil) {
+                    do {
+                        try device.lockForConfiguration()
                         var tempZoomFactor = device.videoZoomFactor
                         
                         tempZoomFactor = CGFloat(tempZoomFactor * sender.scale)
@@ -108,27 +111,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         device.videoZoomFactor = tempZoomFactor
                         sender.scale = 1
                         
-                        println("Zoom: \(device.videoZoomFactor)")
+                        print("Zoom: \(device.videoZoomFactor)")
                         
                         device.unlockForConfiguration()
-                    } else {
-                        println("could not lock")
+                    } catch _ {
+                        print("could not lock")
                     }
                 } else {
-                    println("No videoZoom feature")
+                    print("No videoZoom feature")
                 }
             } else {
-                println("No device")
+                print("No device")
             }
         }
     }
     
     @IBAction func cameraButtonClicked(sender: AnyObject) {
-        println("Camera")
+        print("Camera")
         
         if captureDevice == nil {
 //            performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
-            println("fallback to library")
+            print("fallback to library")
             
             pickedImage = nil
             
@@ -142,7 +145,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let stillOutput = self.stillImageOutput {
             if stillOutput.capturingStillImage {
-                println("camera: capturing in progress")
+                print("camera: capturing in progress")
             }
             
             // we do this on another thread so we don't hang the UI
@@ -203,15 +206,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         if captureDevice != nil {
-            println("Capture device found")
+            print("Capture device found")
             beginSession()
         }
     }
     
     func getFrontCamera () -> AVCaptureDevice! {
-        var devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
+        let devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
         for device in devices {
-            var camera:AVCaptureDevice = device as! AVCaptureDevice
+            let camera:AVCaptureDevice = device as! AVCaptureDevice
             if camera.position == AVCaptureDevicePosition.Front {
                 return camera
             }
@@ -220,9 +223,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func getBackCamera () -> AVCaptureDevice! {
-        var devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
+        let devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
         for device in devices {
-            var camera:AVCaptureDevice = device as! AVCaptureDevice
+            let camera:AVCaptureDevice = device as! AVCaptureDevice
             if camera.position == AVCaptureDevicePosition.Back {
                 return camera
             }
@@ -248,26 +251,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func backToMain(segue: UIStoryboardSegue) {}
 
     @IBAction func sliderValueChanged(sender: AnyObject) {
-        println(slider.value)
+        print(slider.value)
         
         var hardwareZoom = false
         
         if let device = captureDevice {
             if device.respondsToSelector("videoZoomFactor") {
-                if device.lockForConfiguration(nil) {
-                    println("Setting zoom")
+                do {
+                    try device.lockForConfiguration()
+                    print("Setting zoom")
                     device.videoZoomFactor = CGFloat(slider.value)
 
                     device.unlockForConfiguration()
                     hardwareZoom = true
-                } else {
-                    println("could not lock")
+                } catch _ {
+                    print("could not lock")
                 }
             } else {
-                println("No videoZoom feature")
+                print("No videoZoom feature")
             }
         } else {
-            println("No device")
+            print("No device")
         }
         
         if !hardwareZoom {
@@ -304,8 +308,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         
         let devices = AVCaptureDevice.devices()
-        println("AVCaptureDevice list")
-        println(devices)
+        print("AVCaptureDevice list")
+        print(devices)
         
         for device in devices {
             if device.hasMediaType(AVMediaTypeVideo) {
@@ -313,7 +317,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     captureDevice = device as? AVCaptureDevice
                     
                     if captureDevice != nil {
-                        println("Capture device found")
+                        print("Capture device found")
                         beginSession()
                     }
                     isFront = false
@@ -372,7 +376,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let destination = segue.destinationViewController as! PageViewController
             destination.url = page_url
         } else if segue.identifier == "fromMainToMenu" {
-            if let controller = segue.destinationViewController as? UIViewController {
+            if let controller = segue.destinationViewController as UIViewController? {
                 controller.popoverPresentationController!.delegate = self
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
                 let width = min(self.view.frame.width-20, 320)
@@ -383,7 +387,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func configureDevice() {
         if let device = captureDevice {
-            if device.lockForConfiguration(nil) {
+            do {
+                try device.lockForConfiguration()
 //                if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
 //                    println("focus: ContinuousAutoFocus")
 //                    device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
@@ -398,6 +403,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
                 
                 device.unlockForConfiguration()
+            } catch _ {
             }
         }
     }
@@ -410,16 +416,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             captureSession.stopRunning()
             
             captureSession.removeInput(videoInput)
-            videoInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
+            do {
+                videoInput = try AVCaptureDeviceInput(device: captureDevice)
+            } catch let error as NSError {
+                err = error
+                videoInput = nil
+            }
             captureSession.addInput(videoInput)
             captureSession.startRunning()
             return
         }
-        videoInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
+        do {
+            videoInput = try AVCaptureDeviceInput(device: captureDevice)
+        } catch let error as NSError {
+            err = error
+            videoInput = nil
+        }
         captureSession.addInput(videoInput)
         
         if err != nil {
-            println("error: \(err?.localizedDescription)")
+            print("error: \(err?.localizedDescription)")
         }
         
         stillImageOutput = AVCaptureStillImageOutput()
@@ -427,24 +443,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         stillImageOutput!.outputSettings = outputSettings
         
         if captureSession.canAddOutput(stillImageOutput) {
-            println("camera:addOutput")
+            print("camera:addOutput")
             
             captureSession.addOutput(stillImageOutput)
         } else {
-            println("camera: couldn't add output")
+            print("camera: couldn't add output")
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.cameraView.layer.addSublayer(previewLayer)
+        self.cameraView.layer.addSublayer(previewLayer!)
         
         self.cameraView.bringSubviewToFront(slider)
         self.cameraView.bringSubviewToFront(server.focusSquare!)
         self.cameraView.bringSubviewToFront(grid)
         
-        println("CameraView (bounds): \(cameraView!.bounds)")
-        println("CameraViewr (frame): \(cameraView!.frame)")
-        println("PreviewLayer (bounds): \(previewLayer!.bounds)")
-        println("PreviewLayer (frame): \(previewLayer!.frame)")
+        print("CameraView (bounds): \(cameraView!.bounds)")
+        print("CameraViewr (frame): \(cameraView!.frame)")
+        print("PreviewLayer (bounds): \(previewLayer!.bounds)")
+        print("PreviewLayer (frame): \(previewLayer!.frame)")
         
         captureSession.startRunning()
     }
@@ -475,7 +491,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             page_url = "http://popart-app.com/static/about-us.html"
             performSegueWithIdentifier("fromMainToPage", sender: nil)
         default:
-            println("actionSheet without action \(buttonIndex)")
+            print("actionSheet without action \(buttonIndex)")
         }
     }
     
@@ -488,15 +504,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // MARK: - CLLocationManagerDelegate Methods
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: {(placemarks, error) -> Void in
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
             if (error != nil) {
-                println("Reverse geocoder failed with error" + error.localizedDescription)
+                print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return
             }
             
-            if placemarks.count > 0 {
-                let placemark = placemarks[0] as! CLPlacemark
+            if placemarks!.count > 0 {
+                let placemark = placemarks![0] as CLPlacemark
                 
                 self.locationManager.stopUpdatingLocation()
                 
@@ -508,7 +524,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 server.location = manager.location
                 server.placemark = placemark
             } else {
-                println("Problem with the data received from geocoder")
+                print("Problem with the data received from geocoder")
             }
         })
         

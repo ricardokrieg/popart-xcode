@@ -31,7 +31,7 @@ class ResultModalViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         if result != nil {
-            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
+            let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
             
             let result_image_url = json?["image_url"] as? String?
             let result_title = json?["title"] as? String?

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2AE6D526DCF6347D9B6D48CF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D30CAD5554801A3D6E8E4D0A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4787ED461B9A5FDC00C144B4 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED451B9A5FDC00C144B4 /* GooglePlus.framework */; };
 		4787ED481B9A607900C144B4 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED471B9A607900C144B4 /* AddressBook.framework */; };
 		4787ED4A1B9A608000C144B4 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED491B9A608000C144B4 /* AssetsLibrary.framework */; };
 		4787ED4C1B9A609D00C144B4 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED4B1B9A609D00C144B4 /* CoreMotion.framework */; };
@@ -17,7 +15,6 @@
 		4787ED521B9A60C300C144B4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED511B9A60C300C144B4 /* MediaPlayer.framework */; };
 		4787ED541B9A60CB00C144B4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED531B9A60CB00C144B4 /* Security.framework */; };
 		4787ED561B9A60D600C144B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED551B9A60D600C144B4 /* SystemConfiguration.framework */; };
-		4787ED591B9A611700C144B4 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4787ED571B9A611700C144B4 /* GoogleOpenSource.framework */; };
 		4787ED5A1B9A611700C144B4 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4787ED581B9A611700C144B4 /* GooglePlus.bundle */; };
 		8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C00DD211B890222009450BD /* SendingPictureViewController.swift */; };
 		8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */; };
@@ -57,9 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		35AC21A9D3B9E9380CB7086D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		4787ED3F1B9A51BB00C144B4 /* PopArt-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PopArt-Bridging-Header.h"; sourceTree = "<group>"; };
-		4787ED431B9A5C8D00C144B4 /* google_plus_ios_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = google_plus_ios_sdk.framework; path = "Pods/../build/Debug-iphoneos/Pods/google_plus_ios_sdk.framework"; sourceTree = "<group>"; };
 		4787ED451B9A5FDC00C144B4 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		4787ED471B9A607900C144B4 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		4787ED491B9A608000C144B4 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -71,7 +65,7 @@
 		4787ED551B9A60D600C144B4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4787ED571B9A611700C144B4 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		4787ED581B9A611700C144B4 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
-		4A0C59614E4977B9271C859C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8AD0F9C24310683E04E3BFD9 /* Pods-PopsArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopsArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopsArt/Pods-PopsArt.release.xcconfig"; sourceTree = "<group>"; };
 		8C00DD211B890222009450BD /* SendingPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingPictureViewController.swift; sourceTree = "<group>"; };
 		8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
 		8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareView.swift; sourceTree = "<group>"; };
@@ -87,6 +81,7 @@
 		8C26558F1B7ED08100648FC5 /* PopArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopArtTests.swift; sourceTree = "<group>"; };
 		8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		8C34DAA61B924DB400D9EB8D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		8C54E7721BB38F0700A1F1C0 /* PopArt-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PopArt-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8CF30E441B97D47F00F97DA3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +96,7 @@
 		C71D2FB31BA6890D0044FD0D /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		C71D2FB81BA68CE40044FD0D /* helvetica-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helvetica-regular.otf"; sourceTree = "<group>"; };
 		CE652D5C1B995F07006687BA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		D30CAD5554801A3D6E8E4D0A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E07DAD5A9A46DF55177CFEC9 /* Pods-PopsArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopsArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopsArt/Pods-PopsArt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +106,6 @@
 			files = (
 				4787ED561B9A60D600C144B4 /* SystemConfiguration.framework in Frameworks */,
 				4787ED541B9A60CB00C144B4 /* Security.framework in Frameworks */,
-				4787ED591B9A611700C144B4 /* GoogleOpenSource.framework in Frameworks */,
 				4787ED521B9A60C300C144B4 /* MediaPlayer.framework in Frameworks */,
 				4787ED501B9A60B900C144B4 /* CoreText.framework in Frameworks */,
 				4787ED4E1B9A60AE00C144B4 /* CoreGraphics.framework in Frameworks */,
@@ -119,9 +113,7 @@
 				8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */,
 				4787ED4A1B9A608000C144B4 /* AssetsLibrary.framework in Frameworks */,
 				4787ED481B9A607900C144B4 /* AddressBook.framework in Frameworks */,
-				4787ED461B9A5FDC00C144B4 /* GooglePlus.framework in Frameworks */,
 				CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */,
-				2AE6D526DCF6347D9B6D48CF /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +138,6 @@
 				4787ED4B1B9A609D00C144B4 /* CoreMotion.framework */,
 				4787ED491B9A608000C144B4 /* AssetsLibrary.framework */,
 				4787ED471B9A607900C144B4 /* AddressBook.framework */,
-				4787ED431B9A5C8D00C144B4 /* google_plus_ios_sdk.framework */,
-				D30CAD5554801A3D6E8E4D0A /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,8 +145,8 @@
 		23102BD3A06F510C42C00CD1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4A0C59614E4977B9271C859C /* Pods.debug.xcconfig */,
-				35AC21A9D3B9E9380CB7086D /* Pods.release.xcconfig */,
+				E07DAD5A9A46DF55177CFEC9 /* Pods-PopsArt.debug.xcconfig */,
+				8AD0F9C24310683E04E3BFD9 /* Pods-PopsArt.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -164,10 +154,10 @@
 		8C26556B1B7ED08100648FC5 = {
 			isa = PBXGroup;
 			children = (
+				8C54E7721BB38F0700A1F1C0 /* PopArt-Bridging-Header.h */,
 				4787ED571B9A611700C144B4 /* GoogleOpenSource.framework */,
 				4787ED581B9A611700C144B4 /* GooglePlus.bundle */,
 				4787ED451B9A5FDC00C144B4 /* GooglePlus.framework */,
-				4787ED3F1B9A51BB00C144B4 /* PopArt-Bridging-Header.h */,
 				CE652D5C1B995F07006687BA /* MessageUI.framework */,
 				8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */,
 				8C2655761B7ED08100648FC5 /* PopArt */,
@@ -297,8 +287,9 @@
 		8C26556C1B7ED08100648FC5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Netronian Inc.";
 				TargetAttributes = {
 					8C2655731B7ED08100648FC5 = {
@@ -367,7 +358,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PopsArt/Pods-PopsArt-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		71257AADFCA5A28B1C6B113A /* Embed Pods Frameworks */ = {
@@ -382,7 +373,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PopsArt/Pods-PopsArt-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E6AEC15391F853FD019136E3 /* Check Pods Manifest.lock */ = {
@@ -484,6 +475,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -550,14 +542,10 @@
 		};
 		8C2655941B7ED08100648FC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A0C59614E4977B9271C859C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = E07DAD5A9A46DF55177CFEC9 /* Pods-PopsArt.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -566,6 +554,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.netronian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PopsArt;
 				SWIFT_OBJC_BRIDGING_HEADER = "PopArt-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -576,14 +565,10 @@
 		};
 		8C2655951B7ED08100648FC5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35AC21A9D3B9E9380CB7086D /* Pods.release.xcconfig */;
+			baseConfigurationReference = 8AD0F9C24310683E04E3BFD9 /* Pods-PopsArt.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -592,6 +577,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.netronian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PopsArt;
 				SWIFT_OBJC_BRIDGING_HEADER = "PopArt-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -614,6 +600,7 @@
 				);
 				INFOPLIST_FILE = PopArtTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ricardofranco.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PopsArtTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopsArt.app/PopsArt";
 			};
@@ -629,6 +616,7 @@
 				);
 				INFOPLIST_FILE = PopArtTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ricardofranco.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PopsArtTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PopsArt.app/PopsArt";
 			};

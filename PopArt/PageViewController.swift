@@ -53,7 +53,7 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             server.shouldSend = true
         } else if segue.identifier == "fromPageToMenu" {
-            if let controller = segue.destinationViewController as? UIViewController {
+            if let controller = segue.destinationViewController as UIViewController? {
                 controller.popoverPresentationController!.delegate = self
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
                 controller.preferredContentSize = CGSize(width: self.view.frame.width-20, height: 140)

@@ -4,4 +4,6 @@ use_frameworks!
 
 xcodeproj 'PopsArt.xcodeproj'
 
-pod 'SwiftHTTP', '~> 0.9.4'
+target 'PopsArt' do
+    pod 'SwiftHTTP', '~> 1.0.0'
+end

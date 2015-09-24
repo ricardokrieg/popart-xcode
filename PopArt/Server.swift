@@ -25,7 +25,6 @@ let SERVER_PORT = 5200
 
 class Server {
     var shouldSend = false
-    var request = HTTPTask()
     
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
     
@@ -38,23 +37,30 @@ class Server {
     init() {}
     
     func ping(sender: UIViewController) -> Bool {
-        var success:Bool = true
+        var s:Bool = true
         
-        request.GET(http_url, parameters: nil, completionHandler: {(response: HTTPResponse) in
-            if let err = response.error {
-                success = false
-                println("error: \(err.localizedDescription)")
-                self.displayAlert("Error", message: err.localizedDescription, sender: sender)
-                return
+        do {
+            let opt = try HTTP.GET(http_url, parameters: nil)
+            
+            opt.start { response in
+                if let err = response.error {
+                    s = false
+                    print("error: \(err.localizedDescription)")
+                    self.displayAlert("Error", message: err.localizedDescription, sender: sender)
+                    return
+                }
             }
-        })
-
-        return success
+        } catch let error {
+            s = false
+            print("got an error creating the request: \(error)")
+        }
+        
+        return s
     }
     
     func displayAlert(title: String, message: String, sender: UIViewController) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
                 if sender.isKindOfClass(SendingPictureViewController) {
                     sender.performSegueWithIdentifier("fromSendingToMain", sender: sender)
                 }
