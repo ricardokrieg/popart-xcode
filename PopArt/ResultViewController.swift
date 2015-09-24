@@ -14,6 +14,7 @@ import AssetsLibrary
 
 class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIPopoverPresentationControllerDelegate {
     
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultTitle: UILabel!
     @IBOutlet weak var resultDescriptionL1: UILabel!
@@ -151,6 +152,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
         if result != nil {
             let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
             
+            let result_success = json?["success"] as? Bool
             let result_image_url = json?["image_url"] as? String?
             let result_query_image_url = json?["query_image_url"] as? String?
             let result_thumb_image_url = json?["thumb_image_url"] as? String?
@@ -160,6 +162,14 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let result_description_l3 = json?["description_l3"] as? String?
             let result_location_area = json?["location_area"] as? String?
             let result_location_country = json?["location_country"] as? String?
+            
+            if (result_success == true) {
+                shareButton.enabled = true
+                shareButton.hidden = false
+            } else {
+                shareButton.enabled = false
+                shareButton.hidden = true
+            }
             
             if result_image_url != nil {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
