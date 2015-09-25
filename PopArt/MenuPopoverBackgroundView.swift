@@ -17,7 +17,7 @@ class MenuPopoverBackgroundView: UIPopoverBackgroundView {
     }
     
     override var arrowDirection: UIPopoverArrowDirection {
-        get {return UIPopoverArrowDirection.Up}
+        get {return UIPopoverArrowDirection.Down}
         
         set {}
     }

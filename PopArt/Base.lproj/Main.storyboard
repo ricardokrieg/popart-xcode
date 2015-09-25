@@ -277,7 +277,7 @@
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromHistoryToMenu" popoverAnchorView="SRh-Ea-QAE" id="yd5-8l-fho">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                                        <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                                     </segue>
                                                 </connections>
                                             </barButtonItem>
@@ -357,7 +357,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iF2-Ej-br4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="MTg-X6-FeT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="658" y="-450"/>
+            <point key="canvasLocation" x="658" y="-458"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QKo-rB-LNN">
@@ -453,7 +453,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromMainToMenu" popoverAnchorView="oQB-fX-nvO" id="7OK-sO-FDr">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                             </segue>
                                         </connections>
                                     </barButtonItem>
@@ -758,7 +758,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromPageToMenu" popoverAnchorView="bqo-Ax-LXE" id="nwg-rm-PVL">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                             </segue>
                                         </connections>
                                     </barButtonItem>
@@ -1171,7 +1171,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromResultToMenu" popoverAnchorView="Lee-42-lhS" id="aHv-um-iYM">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
                                             </segue>
                                         </connections>
                                     </barButtonItem>
@@ -1380,11 +1380,11 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e5l-YI-WXC"/>
-        <segue reference="aRS-Ce-dOV"/>
-        <segue reference="aHv-um-iYM"/>
-        <segue reference="SKZ-1n-KDw"/>
-        <segue reference="Bfq-3Z-hPx"/>
         <segue reference="kBO-0a-pVg"/>
+        <segue reference="fhn-Em-7be"/>
+        <segue reference="tAC-U4-LSq"/>
+        <segue reference="adw-Tr-v6p"/>
+        <segue reference="yd5-8l-fho"/>
+        <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>
