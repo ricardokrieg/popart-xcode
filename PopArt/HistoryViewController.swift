@@ -43,6 +43,16 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.paintings = [NSManagedObject]()
             self.tableView.reloadData()
             
+            if paintings.isEmpty {
+                let emptyHistoryLabel = UILabel.init(frame: CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height))
+                emptyHistoryLabel.text = "Empty History"
+                emptyHistoryLabel.textAlignment = .Center
+                emptyHistoryLabel.sizeToFit()
+                
+                tableView.backgroundView = emptyHistoryLabel
+                tableView.separatorStyle = .None
+            }
+            
             print("History cleared")
         }
     }
@@ -90,6 +100,16 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         } catch let error {
             print("Error loading history: \(error)")
+        }
+        
+        if paintings.isEmpty {
+            let emptyHistoryLabel = UILabel.init(frame: CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height))
+            emptyHistoryLabel.text = "Empty History"
+            emptyHistoryLabel.textAlignment = .Center
+            emptyHistoryLabel.sizeToFit()
+            
+            tableView.backgroundView = emptyHistoryLabel
+            tableView.separatorStyle = .None
         }
     }
     
