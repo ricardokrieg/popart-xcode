@@ -303,6 +303,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imagePicker.delegate = self
         
+        // Create Focus Square
+        
+        server.squareSize = Int(self.view.bounds.width / 5)
+        server.focusSquare = FocusSquareView(frame:CGRect(x: 0, y: 0, width: server.squareSize, height: server.squareSize))
+        self.cameraView.addSubview(server.focusSquare!)
+        server.focusSquare!.setNeedsDisplay()
+        
         // Setup Camera Preview
         
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -324,11 +331,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
-        
-        server.squareSize = Int(self.view.bounds.width / 5)
-        server.focusSquare = FocusSquareView(frame:CGRect(x: 0, y: 0, width: server.squareSize, height: server.squareSize))
-        self.cameraView.addSubview(server.focusSquare!)
-        server.focusSquare!.setNeedsDisplay()
     }
 
     override func didReceiveMemoryWarning() {
