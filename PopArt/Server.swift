@@ -6,14 +6,6 @@
 //  Copyright © 2015 PopsArt. All rights reserved.
 //
 
-//        https://github.com/swiftsocket/SwiftSocket
-//        var client:TCPClient = TCPClient(addr: "192.168.0.175", port: 5100)
-//        var (success,errmsg)=client.connect(timeout: 10)
-//        var (success,errmsg)=client.send(str:"GET / HTTP/1.0\n\n" )
-//        socket.send(data:[Int8])
-//        var data=client.read(1024*10) //return optional [Int8]
-//        var (success,errormsg)=client.close()
-
 import Foundation
 import CoreLocation
 import SwiftHTTP
@@ -35,6 +27,10 @@ class Server {
     var focusSquare: FocusSquareView?
     
     init() {}
+    
+    func userSignedIn() -> Bool {
+        return false
+    }
     
     func ping(sender: UIViewController) -> Bool {
         var s:Bool = true
