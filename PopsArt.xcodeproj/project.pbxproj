@@ -35,6 +35,8 @@
 		8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E461B98C99700F97DA3 /* MenuTableViewCell.swift */; };
 		8CF30E4B1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E4A1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift */; };
 		8CF994F41B82D05600BC4E44 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF994F31B82D05600BC4E44 /* Server.swift */; };
+		8CFA9BC01BC4051A00E8A116 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA9BBF1BC4051A00E8A116 /* SignInViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8CFA9BC21BC4078B00E8A116 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA9BC11BC4078B00E8A116 /* Button.swift */; settings = {ASSET_TAGS = (); }; };
 		8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */; };
 		8CFEA6891B8D3AA700826DB1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */; };
 		8CFEA6931B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEA6911B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld */; };
@@ -92,6 +94,8 @@
 		8CF30E461B98C99700F97DA3 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		8CF30E4A1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuPopoverBackgroundView.swift; sourceTree = "<group>"; };
 		8CF994F31B82D05600BC4E44 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		8CFA9BBF1BC4051A00E8A116 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		8CFA9BC11BC4078B00E8A116 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8CFEA6881B8D3AA700826DB1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		8CFEA6921B8F575F00826DB1 /* PopArtDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PopArtDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			children = (
 				8C2655791B7ED08100648FC5 /* AppDelegate.swift */,
 				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
+				8CFA9BBF1BC4051A00E8A116 /* SignInViewController.swift */,
 				8C00DD211B890222009450BD /* SendingPictureViewController.swift */,
 				8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */,
 				8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */,
@@ -197,6 +202,7 @@
 				8CF30E461B98C99700F97DA3 /* MenuTableViewCell.swift */,
 				8CF30E4A1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift */,
 				8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */,
+				8CFA9BC11BC4078B00E8A116 /* Button.swift */,
 				8CF994F31B82D05600BC4E44 /* Server.swift */,
 				8C46CD521BC35D1700327681 /* Session.swift */,
 				8C46CD511BC35D1700327681 /* Session+CoreDataProperties.swift */,
@@ -409,6 +415,7 @@
 				8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */,
 				8CF994F41B82D05600BC4E44 /* Server.swift in Sources */,
 				8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */,
+				8CFA9BC21BC4078B00E8A116 /* Button.swift in Sources */,
 				8C46CD531BC35D1700327681 /* Session+CoreDataProperties.swift in Sources */,
 				8CF30E4B1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift in Sources */,
 				8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */,
@@ -418,6 +425,7 @@
 				8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */,
 				8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */,
 				8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */,
+				8CFA9BC01BC4051A00E8A116 /* SignInViewController.swift in Sources */,
 				8C260A991BAB64A800BAACC5 /* FocusSquareView.swift in Sources */,
 				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
 				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,

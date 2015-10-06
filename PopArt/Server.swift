@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import SwiftHTTP
+import CoreData
 
 let SERVER_ADDRESS = "popart-app.com"
 //let SERVER_ADDRESS = "192.168.0.175"
@@ -16,6 +17,8 @@ let SERVER_ADDRESS = "popart-app.com"
 let SERVER_PORT = 5200
 
 class Server {
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
     var shouldSend = false
     
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
@@ -26,7 +29,34 @@ class Server {
     var squareSize = 200
     var focusSquare: FocusSquareView?
     
-    init() {}
+    var test: Session?
+    
+    init() {
+//        test = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: self.managedObjectContext!) as? Session
+//        
+//        test!.email = "ricardo.krieg@gmail.com"
+//        test!.session = "asdfasdf"
+//        test!.name = "Ricardo Franco"
+        
+        
+        
+//        // Create a new fetch request using the LogItem entity
+//        let fetchRequest = NSFetchRequest(entityName: "LogItem")
+//        
+//        // Execute the fetch request, and cast the results to an array of LogItem objects
+//        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [LogItem] {
+//            
+//            // Create an Alert, and set it's message to whatever the itemText is
+//            let alert = UIAlertController(title: fetchResults[0].title,
+//                message: fetchResults[0].itemText,
+//                preferredStyle: .Alert)
+//            
+//            // Display the alert
+//            self.presentViewController(alert,
+//                animated: true,
+//                completion: nil)
+//        }
+    }
     
     func userSignedIn() -> Bool {
         return false
