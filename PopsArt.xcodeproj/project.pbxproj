@@ -27,6 +27,8 @@
 		8C2655901B7ED08100648FC5 /* PopArtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C26558F1B7ED08100648FC5 /* PopArtTests.swift */; };
 		8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */; };
 		8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C34DAA61B924DB400D9EB8D /* HistoryViewController.swift */; };
+		8C46CD531BC35D1700327681 /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46CD511BC35D1700327681 /* Session+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		8C46CD541BC35D1700327681 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46CD521BC35D1700327681 /* Session.swift */; settings = {ASSET_TAGS = (); }; };
 		8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */; };
 		8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */; };
 		8CF30E451B97D47F00F97DA3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E441B97D47F00F97DA3 /* MenuViewController.swift */; };
@@ -81,6 +83,8 @@
 		8C26558F1B7ED08100648FC5 /* PopArtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopArtTests.swift; sourceTree = "<group>"; };
 		8C34DAA21B912CC100D9EB8D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		8C34DAA61B924DB400D9EB8D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		8C46CD511BC35D1700327681 /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8C46CD521BC35D1700327681 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		8C54E7721BB38F0700A1F1C0 /* PopArt-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PopArt-Bridging-Header.h"; sourceTree = "<group>"; };
 		8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				8CF30E4A1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift */,
 				8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */,
 				8CF994F31B82D05600BC4E44 /* Server.swift */,
+				8C46CD521BC35D1700327681 /* Session.swift */,
+				8C46CD511BC35D1700327681 /* Session+CoreDataProperties.swift */,
 				8C26557D1B7ED08100648FC5 /* Main.storyboard */,
 				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
 				8C2655801B7ED08100648FC5 /* Images.xcassets */,
@@ -399,9 +405,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CFEA6931B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld in Sources */,
+				8C46CD541BC35D1700327681 /* Session.swift in Sources */,
 				8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */,
 				8CF994F41B82D05600BC4E44 /* Server.swift in Sources */,
 				8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */,
+				8C46CD531BC35D1700327681 /* Session+CoreDataProperties.swift in Sources */,
 				8CF30E4B1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift in Sources */,
 				8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */,
 				8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */,
