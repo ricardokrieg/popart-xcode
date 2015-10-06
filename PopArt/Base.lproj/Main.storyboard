@@ -394,10 +394,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Qj-Rg-TPg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Qj-Rg-TPg">
                                 <rect key="frame" x="65" y="249" width="239" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-AT-X4t">
                                 <rect key="frame" x="16" y="278" width="288" height="1"/>
@@ -412,10 +412,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-ru-aaK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-ru-aaK">
                                 <rect key="frame" x="98" y="305" width="206" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08r-lT-IDG">
                                 <rect key="frame" x="16" y="334" width="288" height="1"/>
@@ -445,6 +445,9 @@
                                 <state key="normal" title="I forgot my password">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="WuT-ce-iYX" kind="show" identifier="fromSignInToResetPassword" id="a9M-jB-8jz"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJK-D5-iBp">
                                 <rect key="frame" x="158" y="413" width="146" height="1"/>
@@ -474,6 +477,9 @@
                                         <exclude reference="cqr-Nj-w1b"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="GrN-5q-l32" kind="show" identifier="fromSignInToSignUp" id="IZU-tw-Pc7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -604,7 +610,29 @@
                     <view key="view" contentMode="scaleToFill" id="0yG-Rd-ddJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signin-bg" translatesAutoresizingMaskIntoConstraints="NO" id="obm-KD-rGU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logoTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9g7-ro-Lnb">
+                                <rect key="frame" x="94" y="20" width="132" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="ee0-f8-ZXQ"/>
+                                    <constraint firstAttribute="height" constant="23" id="tZy-u6-zAi"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Qy8-eg-1WY">
+                                <rect key="frame" x="94" y="51" width="132" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="1M7-3y-EWJ"/>
+                                    <constraint firstAttribute="height" constant="144" id="wTK-eI-PSG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qy8-eg-1WY" firstAttribute="top" secondItem="9g7-ro-Lnb" secondAttribute="bottom" constant="8" symbolic="YES" id="gAs-gs-ehQ"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -623,7 +651,29 @@
                     <view key="view" contentMode="scaleToFill" id="Rer-6O-7Du">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signin-bg" translatesAutoresizingMaskIntoConstraints="NO" id="Pav-LA-iIb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logoTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wYK-cF-vmv">
+                                <rect key="frame" x="94" y="20" width="132" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="N13-Zb-alu"/>
+                                    <constraint firstAttribute="height" constant="23" id="vrU-GD-mgQ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="WO0-dS-BbR">
+                                <rect key="frame" x="94" y="51" width="132" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="144" id="0pq-IM-sWa"/>
+                                    <constraint firstAttribute="width" constant="132" id="d2y-FQ-ZXy"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WO0-dS-BbR" firstAttribute="top" secondItem="wYK-cF-vmv" secondAttribute="bottom" constant="8" symbolic="YES" id="8B9-MP-cgx"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
@@ -1520,25 +1570,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOq-ou-phI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1040" y="-458"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="a8c-e3-OgB">
-            <objects>
-                <viewController id="BYA-X1-dCk" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="G4n-7k-ZuM"/>
-                        <viewControllerLayoutGuide type="bottom" id="00b-zT-uRs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DS4-hM-A6E">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FOe-Dn-i9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1415" y="-458"/>
         </scene>
         <!--Result Modal View Controller-->
         <scene sceneID="duF-dP-dHc">
