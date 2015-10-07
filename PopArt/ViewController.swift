@@ -288,7 +288,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.performSegueWithIdentifier("goToSignIn", sender: self)
+        server.requireSignedIn("ViewController")
         
         server.ping(self)
 //        // Ask for Authorization from the User.

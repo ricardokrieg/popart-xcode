@@ -37,29 +37,53 @@ class Server {
 //        test!.email = "ricardo.krieg@gmail.com"
 //        test!.session = "asdfasdf"
 //        test!.name = "Ricardo Franco"
-        
-        
-        
-//        // Create a new fetch request using the LogItem entity
-//        let fetchRequest = NSFetchRequest(entityName: "LogItem")
 //        
-//        // Execute the fetch request, and cast the results to an array of LogItem objects
-//        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [LogItem] {
-//            
-//            // Create an Alert, and set it's message to whatever the itemText is
-//            let alert = UIAlertController(title: fetchResults[0].title,
-//                message: fetchResults[0].itemText,
-//                preferredStyle: .Alert)
-//            
-//            // Display the alert
-//            self.presentViewController(alert,
-//                animated: true,
-//                completion: nil)
+//        do {
+//            try self.managedObjectContext!.save()
+//        } catch _ {
 //        }
     }
     
+    func requireSignedIn(caller: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var rootControllerIdentifier: String?
+        
+        if userSignedIn() {
+            rootControllerIdentifier = "ViewController"
+        } else {
+            rootControllerIdentifier = "SignInViewController"
+        }
+        
+        if caller != rootControllerIdentifier {
+            if let window = appDelegate.window {
+                let rootController = storyboard.instantiateViewControllerWithIdentifier(rootControllerIdentifier!)
+                window.rootViewController = rootController
+            }
+        }
+    }
+    
     func userSignedIn() -> Bool {
-        return false
+        let session = getSession()
+        
+        return session != nil
+    }
+    
+    func getSession() -> Session? {
+        var session: Session? = nil
+        let fetchRequest = NSFetchRequest(entityName: "Session")
+        
+        do {
+            if let fetchResults = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [Session] {
+                if fetchResults.count > 0 {
+                    session = fetchResults[0]
+                }
+            }
+        } catch _ {
+        }
+        
+        
+        return session
     }
     
     func ping(sender: UIViewController) -> Bool {

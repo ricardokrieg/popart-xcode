@@ -14,6 +14,8 @@ class SignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        server.requireSignedIn("SignInViewController")
     }
 
     override func didReceiveMemoryWarning() {

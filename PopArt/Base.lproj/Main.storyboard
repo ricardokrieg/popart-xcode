@@ -362,7 +362,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="PF3-38-xgM">
             <objects>
-                <viewController id="YUE-OV-ccd" customClass="SignInViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="YUE-OV-ccd" customClass="SignInViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eeF-rh-C3l"/>
                         <viewControllerLayoutGuide type="bottom" id="HDR-kJ-8QU"/>
@@ -1073,7 +1073,7 @@
         <!--View Controller-->
         <scene sceneID="QKo-rB-LNN">
             <objects>
-                <viewController id="aMG-Ul-1e7" customClass="ViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="aMG-Ul-1e7" customClass="ViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sdI-ys-32a"/>
                         <viewControllerLayoutGuide type="bottom" id="I70-Ht-jKu"/>
@@ -2134,9 +2134,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="ooM-xI-8Z0"/>
         <segue reference="lgg-H9-mAH"/>
-        <segue reference="fhn-Em-7be"/>
-        <segue reference="yd5-8l-fho"/>
-        <segue reference="adw-Tr-v6p"/>
-        <segue reference="CZ7-l5-vkx"/>
+        <segue reference="W2i-LE-0ss"/>
+        <segue reference="kBO-0a-pVg"/>
+        <segue reference="7OK-sO-FDr"/>
+        <segue reference="Bfq-3Z-hPx"/>
     </inferredMetricsTieBreakers>
 </document>

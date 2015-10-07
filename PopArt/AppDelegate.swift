@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         // Override point for customization after application launch.
 //        application.statusBarStyle = UIStatusBarStyle.LightContent
-        
         
         
 //        let signIn = GPPSignIn.sharedInstance()
@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // You previously set kClientId in the "Initialize the Google+ client" step
 //        signIn.clientID = kClientId;
-        
         
         return true
     }
