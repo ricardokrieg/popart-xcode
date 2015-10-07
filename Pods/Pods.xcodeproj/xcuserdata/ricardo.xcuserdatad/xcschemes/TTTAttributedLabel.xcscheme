@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C331006E144C7F91D75D5263"
-               BuildableName = "Pods_PopsArt.framework"
-               BlueprintName = "Pods-PopsArt"
+               BlueprintIdentifier = "C0E0BEB76E624B13F7E542BB"
+               BuildableName = "TTTAttributedLabel.framework"
+               BlueprintName = "TTTAttributedLabel"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

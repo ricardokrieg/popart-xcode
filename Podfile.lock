@@ -1,10 +1,13 @@
 PODS:
   - SwiftHTTP (1.0.0)
+  - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
   - SwiftHTTP (~> 1.0.0)
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   SwiftHTTP: 9cc47717bb09f60ee842f998b50bdad50c842c4c
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 COCOAPODS: 0.38.2
