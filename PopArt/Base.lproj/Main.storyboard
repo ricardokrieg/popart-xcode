@@ -431,7 +431,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="loginButtonClicked:" destination="YUE-OV-ccd" eventType="touchUpInside" id="gZa-h9-3TC"/>
+                                    <action selector="loginButtonClicked:" destination="YUE-OV-ccd" eventType="touchUpInside" id="nmG-7i-xcB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Td5-rO-A3r">
@@ -461,9 +461,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="SIGN UP"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="cqr-Nj-w1b"/>
@@ -733,9 +730,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="LOGIN"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="HyL-Da-Vmk"/>
@@ -990,9 +984,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="LOGIN"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="4Wj-J8-tbR"/>
@@ -1576,19 +1567,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DUw-IB-n8c">
-                                                    <rect key="frame" x="263" y="6" width="51" height="31"/>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a sample setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlT-au-nOD">
-                                                    <rect key="frame" x="8" y="31" width="111" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="111" id="mRE-7z-mjQ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite Facebook Friends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-Nc-AHd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Edit Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-Nc-AHd">
                                                     <rect key="frame" x="8" y="8" width="184" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1596,12 +1575,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="vlT-au-nOD" secondAttribute="bottom" id="7cp-Cv-6t5"/>
                                                 <constraint firstItem="oNn-Nc-AHd" firstAttribute="top" secondItem="Fhr-33-RXJ" secondAttribute="topMargin" id="8to-hA-bfC"/>
-                                                <constraint firstItem="oNn-Nc-AHd" firstAttribute="leading" secondItem="vlT-au-nOD" secondAttribute="leading" id="Dfi-iU-oXj"/>
-                                                <constraint firstItem="DUw-IB-n8c" firstAttribute="leading" secondItem="oNn-Nc-AHd" secondAttribute="trailing" constant="71" id="Ikl-Wr-1Va"/>
-                                                <constraint firstItem="DUw-IB-n8c" firstAttribute="trailing" secondItem="Fhr-33-RXJ" secondAttribute="trailingMargin" id="XbY-33-cks"/>
-                                                <constraint firstAttribute="centerY" secondItem="DUw-IB-n8c" secondAttribute="centerY" id="drm-WZ-4ij"/>
                                                 <constraint firstItem="oNn-Nc-AHd" firstAttribute="leading" secondItem="Fhr-33-RXJ" secondAttribute="leadingMargin" id="xL6-49-uZh"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1613,16 +1587,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Another sample setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VP1-1y-NW6">
-                                                    <rect key="frame" x="8" y="31" width="109" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="109" id="ErG-OT-L3H"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3e-Db-CZG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3e-Db-CZG">
                                                     <rect key="frame" x="8" y="8" width="83" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1631,9 +1596,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="f3e-Db-CZG" firstAttribute="leading" secondItem="gYN-X8-xsa" secondAttribute="leadingMargin" id="6oI-nq-6w9"/>
-                                                <constraint firstAttribute="bottom" secondItem="VP1-1y-NW6" secondAttribute="bottom" id="bKK-n7-hc7"/>
                                                 <constraint firstAttribute="centerY" secondItem="f3e-Db-CZG" secondAttribute="centerY" constant="3" id="iMc-Kl-We5"/>
-                                                <constraint firstItem="VP1-1y-NW6" firstAttribute="leading" secondItem="f3e-Db-CZG" secondAttribute="leading" id="wHY-OM-CBq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2108,23 +2071,6 @@
             </objects>
             <point key="canvasLocation" x="1415" y="192"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="MLO-xg-umq">
-            <objects>
-                <viewController id="jI0-xd-DUZ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LJ4-uW-CsM"/>
-                        <viewControllerLayoutGuide type="bottom" id="ulY-lx-16b"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="lim-dV-Fnh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Sm-Pt-0kY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="back" width="21" height="29"/>
@@ -2139,11 +2085,11 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ooM-xI-8Z0"/>
         <segue reference="lgg-H9-mAH"/>
         <segue reference="W2i-LE-0ss"/>
-        <segue reference="kBO-0a-pVg"/>
         <segue reference="7OK-sO-FDr"/>
-        <segue reference="Bfq-3Z-hPx"/>
+        <segue reference="kBO-0a-pVg"/>
+        <segue reference="evL-ah-ioV"/>
+        <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>

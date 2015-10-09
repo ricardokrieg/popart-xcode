@@ -16,6 +16,7 @@ class SignInViewController: UIViewController {
     @IBAction func goToSignIn(segue: UIStoryboardSegue) {}
     
     @IBAction func loginButtonClicked(sender: AnyObject) {
+        
         server.doSignIn(self, email: emailTextField.text!, password: passwordTextField.text!)
     }
 

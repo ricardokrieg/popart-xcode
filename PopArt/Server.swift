@@ -119,8 +119,10 @@ class Server {
         
         if caller != rootControllerIdentifier {
             if let window = appDelegate.window {
-                let rootController = storyboard.instantiateViewControllerWithIdentifier(rootControllerIdentifier!)
-                window.rootViewController = rootController
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    let rootController = storyboard.instantiateViewControllerWithIdentifier(rootControllerIdentifier!)
+                    window.rootViewController = rootController
+                }
             }
         }
     }
