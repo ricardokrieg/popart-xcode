@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Locksmith.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PopsArt.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,6 +27,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1D6D4C3929366D28D11FFA03CC233C40</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>21EDD644402D467859151BB70225F30C</key>
 		<dict>
 			<key>primary</key>
@@ -32,7 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEC9E24C08B8CE31923D335FA2C08CA7</key>
+		<key>DECBE274AB71888D90DE497AE6BE7923</key>
 		<dict>
 			<key>primary</key>
 			<true/>

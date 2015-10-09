@@ -430,6 +430,9 @@
                                         <exclude reference="ssB-A7-tAl"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="YUE-OV-ccd" eventType="touchUpInside" id="gZa-h9-3TC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Td5-rO-A3r">
                                 <rect key="frame" x="158" y="384" width="146" height="30"/>
@@ -598,6 +601,10 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="0Qj-Rg-TPg" id="STp-0G-Shw"/>
+                        <outlet property="passwordTextField" destination="BLb-ru-aaK" id="9GI-pI-Ils"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="az2-03-nvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

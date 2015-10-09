@@ -288,7 +288,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.requireSignedIn("ViewController")
+        server.authenticateUser("ViewController")
         
         server.ping(self)
 //        // Ask for Authorization from the User.

@@ -7,4 +7,5 @@ xcodeproj 'PopsArt.xcodeproj'
 target 'PopsArt' do
     pod 'SwiftHTTP', '~> 1.0.0'
     pod 'TTTAttributedLabel'
+    pod 'Locksmith'
 end

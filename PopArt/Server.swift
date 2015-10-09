@@ -10,11 +10,12 @@ import Foundation
 import CoreLocation
 import SwiftHTTP
 import CoreData
+import Locksmith
 
 let SERVER_ADDRESS = "popart-app.com"
-//let SERVER_ADDRESS = "192.168.0.175"
-//let SERVER_PORT = 5100
 let SERVER_PORT = 5200
+let API_ADDRESS = "192.168.0.175"
+let API_PORT = 3000
 
 class Server {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -22,6 +23,8 @@ class Server {
     var shouldSend = false
     
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
+    let signInUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/sign_in"
+    let signUpUrl = "http://\(API_ADDRESS):\(API_PORT)/auth"
     
     var location: CLLocation?
     var placemark: CLPlacemark?
@@ -29,22 +32,81 @@ class Server {
     var squareSize = 200
     var focusSquare: FocusSquareView?
     
-    var test: Session?
+    init() {}
     
-    init() {
-//        test = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext: self.managedObjectContext!) as? Session
-//        
-//        test!.email = "ricardo.krieg@gmail.com"
-//        test!.session = "asdfasdf"
-//        test!.name = "Ricardo Franco"
-//        
-//        do {
-//            try self.managedObjectContext!.save()
-//        } catch _ {
-//        }
+    func doSignIn(sender: UIViewController, email: String, password: String) {
+        doSignOut()
+        
+        do {
+            let loading: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+            loading.center = sender.view.center
+            loading.hidesWhenStopped = true
+            loading.activityIndicatorViewStyle = .Gray
+            sender.view.addSubview(loading)
+            loading.startAnimating()
+            
+            let opt = try HTTP.POST(signInUrl, parameters: ["email": email, "password": password])
+            
+            opt.start { response in
+                loading.stopAnimating()
+                
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    self.displayAlert("Error", message: err.localizedDescription, sender: sender)
+                    return
+                }
+                
+                let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                
+                let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+                
+                do {
+                    if let data = json!["data"] as? NSDictionary {
+                        let email = data["email"] as! String
+                        let first_name = data["first_name"] as! String
+                        let last_name = data["last_name"] as! String
+                        let image = data["image"] as! String
+                        let token: String = response.headers!["Access-Token"]!
+                        
+                        try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token)
+                        
+                        self.authenticateUser("SignInViewController")
+                    } else {
+                        print("Error: Invalid JSON")
+                    }
+                } catch let error {
+                    print("Error: \(error)")
+                }
+                
+            }
+        } catch let error {
+            print("Error: \(error)")
+        }
     }
     
-    func requireSignedIn(caller: String) {
+    func doSignOut() {
+        do {
+            try Account.delete()
+        } catch let error {
+            print("SignOut Error: \(error)")
+        }
+    }
+    
+    func saveAccount(email: String, first_name: String, last_name: String, image: String, token: String) throws -> Account {
+        let account = Account(
+            email: email,
+            first_name: first_name,
+            last_name: last_name,
+            image: image,
+            token: token)
+        
+        try account.save()
+        
+        return account
+    }
+    
+    func authenticateUser(caller: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var rootControllerIdentifier: String?
@@ -64,26 +126,12 @@ class Server {
     }
     
     func userSignedIn() -> Bool {
-        let session = getSession()
-        
-        return session != nil
-    }
-    
-    func getSession() -> Session? {
-        var session: Session? = nil
-        let fetchRequest = NSFetchRequest(entityName: "Session")
-        
-        do {
-            if let fetchResults = try managedObjectContext!.executeFetchRequest(fetchRequest) as? [Session] {
-                if fetchResults.count > 0 {
-                    session = fetchResults[0]
-                }
-            }
-        } catch _ {
+        if let account = Account.load() {
+            print(account)
+            return true
+        } else {
+            return false
         }
-        
-        
-        return session
     }
     
     func ping(sender: UIViewController) -> Bool {

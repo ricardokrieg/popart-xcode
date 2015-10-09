@@ -13,14 +13,7 @@
         <attribute name="result_title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumb_image_url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Session" representedClassName=".Session" syncable="YES">
-        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="session" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <elements>
         <element name="Painting" positionX="-63" positionY="-18" width="128" height="210"/>
-        <element name="Session" positionX="-63" positionY="63" width="128" height="105"/>
     </elements>
 </model>

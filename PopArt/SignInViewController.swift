@@ -10,12 +10,19 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     @IBAction func goToSignIn(segue: UIStoryboardSegue) {}
+    
+    @IBAction func loginButtonClicked(sender: AnyObject) {
+        server.doSignIn(self, email: emailTextField.text!, password: passwordTextField.text!)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.requireSignedIn("SignInViewController")
+        server.authenticateUser("SignInViewController")
     }
 
     override func didReceiveMemoryWarning() {
