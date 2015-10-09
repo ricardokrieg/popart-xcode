@@ -35,20 +35,17 @@ class Server {
     init() {}
     
     func doSignIn(sender: UIViewController, email: String, password: String) {
+        let loading = self.displayLoading(sender.view)
+        
         doSignOut()
         
         do {
-            let loading: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
-            loading.center = sender.view.center
-            loading.hidesWhenStopped = true
-            loading.activityIndicatorViewStyle = .Gray
-            sender.view.addSubview(loading)
-            loading.startAnimating()
-            
             let opt = try HTTP.POST(signInUrl, parameters: ["email": email, "password": password])
             
             opt.start { response in
-                loading.stopAnimating()
+                dispatch_async(dispatch_get_main_queue(), {
+                    loading.stopAnimating()
+                })
                 
                 if let err = response.error {
                     print("error: \(err.localizedDescription)")
@@ -78,9 +75,9 @@ class Server {
                 } catch let error {
                     print("Error: \(error)")
                 }
-                
             }
         } catch let error {
+            loading.stopAnimating()
             print("Error: \(error)")
         }
     }
@@ -160,6 +157,7 @@ class Server {
     
     func displayAlert(title: String, message: String, sender: UIViewController) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
                 if sender.isKindOfClass(SendingPictureViewController) {
                     sender.performSegueWithIdentifier("fromSendingToMain", sender: sender)
@@ -167,7 +165,29 @@ class Server {
             }
         ))
         
-        sender.presentViewController(alertController, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue(), {
+            sender.presentViewController(alertController, animated: true, completion: nil)
+        })
+    }
+    
+    func displayLoading(view: UIView) -> UIActivityIndicatorView {
+//        let overlay = UIView(frame: view.bounds)
+//        overlay.backgroundColor = UIColor.grayColor()
+        
+        let loading: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        
+//        loading.center = overlay.center
+        loading.center = view.center
+        loading.hidesWhenStopped = true
+        loading.activityIndicatorViewStyle = .Gray
+        dispatch_async(dispatch_get_main_queue(), {
+//            overlay.addSubview(loading)
+//            view.addSubview(overlay)
+            view.addSubview(loading)
+        })
+        loading.startAnimating()
+        
+        return loading
     }
 }
 
