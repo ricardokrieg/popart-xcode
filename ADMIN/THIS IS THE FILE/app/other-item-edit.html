@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App + jQuery">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <title>Angle - Bootstrap Admin Template</title>
+   <!-- =============== VENDOR STYLES ===============-->
+   <!-- FONT AWESOME-->
+   <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.min.css">
+   <!-- SIMPLE LINE ICONS-->
+   <link rel="stylesheet" href="../vendor/simple-line-icons/css/simple-line-icons.css">
+   <!-- ANIMATE.CSS-->
+   <link rel="stylesheet" href="../vendor/animate.css/animate.min.css">
+   <!-- WHIRL (spinners)-->
+   <link rel="stylesheet" href="../vendor/whirl/dist/whirl.css">
+   <!-- =============== PAGE VENDOR STYLES ===============-->
+   <!-- =============== BOOTSTRAP STYLES ===============-->
+   <link rel="stylesheet" href="css/bootstrap.css" id="bscss">
+   <!-- =============== APP STYLES ===============-->
+   <link rel="stylesheet" href="css/app.css" id="maincss">
+</head>
+
+<body>
+   <div class="wrapper">
+      <!-- top navbar-->
+      <header class="topnavbar-wrapper">
+         <!-- START Top Navbar-->
+         <nav role="navigation" class="navbar topnavbar">
+            <!-- START navbar header-->
+            <div class="navbar-header">
+               <a href="#/" class="navbar-brand">
+                  <div class="brand-logo">
+                     <img src="img/logo.png" alt="App Logo" class="img-responsive">
+                  </div>
+                  <div class="brand-logo-collapsed">
+                     <img src="img/logo-single.png" alt="App Logo" class="img-responsive">
+                  </div>
+               </a>
+            </div>
+            <!-- END navbar header-->
+            <!-- START Nav wrapper-->
+            <div class="nav-wrapper">
+               <!-- START Left navbar-->
+               <ul class="nav navbar-nav">
+                  <li>
+                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                     <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                        <em class="fa fa-navicon"></em>
+                     </a>
+                     <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                     <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                        <em class="fa fa-navicon"></em>
+                     </a>
+                  </li>
+                  <!-- START User avatar toggle-->
+                  <li>
+                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                     <a id="user-block-toggle" href="#user-block" data-toggle="collapse">
+                        <em class="icon-user"></em>
+                     </a>
+                  </li>
+                  <!-- END User avatar toggle-->
+                  <!-- START lock screen-->
+                  <li>
+                     <a href="lock.html" title="Lock screen">
+                        <em class="icon-lock"></em>
+                     </a>
+                  </li>
+                  <!-- END lock screen-->
+               </ul>
+               <!-- END Left navbar-->
+               <!-- START Right Navbar-->
+               <ul class="nav navbar-nav navbar-right">
+                  <!-- Search icon-->
+                  <li>
+                     <a href="#" data-search-open="">
+                        <em class="icon-magnifier"></em>
+                     </a>
+                  </li>
+                  <!-- Fullscreen (only desktops)-->
+                  <li class="visible-lg">
+                     <a href="#" data-toggle-fullscreen="">
+                        <em class="fa fa-expand"></em>
+                     </a>
+                  </li>
+                  <!-- START Alert menu-->
+                  <li class="dropdown dropdown-list">
+                     <a href="#" data-toggle="dropdown">
+                        <em class="icon-bell"></em>
+                        <div class="label label-danger">11</div>
+                     </a>
+                     <!-- START Dropdown menu-->
+                     <ul class="dropdown-menu animated swing">
+                        <li>
+                           <!-- START list group-->
+                           <div class="list-group">
+                              <!-- list item-->
+							  
+							  <a class="list-group-item" href="#">
+                                 <div class="media-box">
+                                    <div class="pull-left">
+                                       <img class="media-box-object img-circle thumb32" alt="Image" src="img/user/02.jpg">
+                                    </div>
+                                    <div class="media-box-body clearfix">
+                                       <small class="pull-right">2h</small>
+                                       <strong class="media-box-heading text-primary">
+                                          <span class="circle circle-success circle-lg text-left"></span>Catherine Ellis</strong>
+                                       <p class="mb-sm">
+                                          <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </a>
+							  
+							  
+							  
+							  <a class="list-group-item" href="#">
+                                 <div class="media-box">
+                                    <div class="pull-left">
+                                       <img class="media-box-object img-circle thumb32" alt="Image" src="img/user/03.jpg">
+                                    </div>
+                                    <div class="media-box-body clearfix">
+                                       <small class="pull-right">3h</small>
+                                       <strong class="media-box-heading text-primary">
+                                          <span class="circle circle-success circle-lg text-left"></span>Jessica Silva</strong>
+                                       <p class="mb-sm">
+                                          <small>Cras sit amet nibh libero, in gravida nulla. Nulla facilisi.</small>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </a>
+							  
+							  
+							  
+							  
+							  <a class="list-group-item" href="#">
+                                 <div class="media-box">
+                                    <div class="pull-left">
+                                       <img class="media-box-object img-circle thumb32" alt="Image" src="img/user/09.jpg">
+                                    </div>
+                                    <div class="media-box-body clearfix">
+                                       <small class="pull-right">4h</small>
+                                       <strong class="media-box-heading text-primary">
+                                          <span class="circle circle-danger circle-lg text-left"></span>Jessie Wells</strong>
+                                       <p class="mb-sm">
+                                          <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </a>
+							  
+                              <!-- last list item -->
+                              <a href="#" class="list-group-item">
+                                 <small>More notifications</small>
+                                 <span class="label label-danger pull-right">14</span>
+                              </a>
+                           </div>
+                           <!-- END list group-->
+                        </li>
+                     </ul>
+                     <!-- END Dropdown menu-->
+                  </li>
+                  <!-- END Alert menu-->
+                  <!-- START Offsidebar button-->
+                  <li>
+                     <a href="#" data-toggle-state="offsidebar-open" data-no-persist="true">
+                        <em class="icon-notebook"></em>
+                     </a>
+                  </li>
+                  <!-- END Offsidebar menu-->
+               </ul>
+               <!-- END Right Navbar-->
+            </div>
+            <!-- END Nav wrapper-->
+            <!-- START Search form-->
+            <form role="search" action="search.html" class="navbar-form">
+               <div class="form-group has-feedback">
+                  <input type="text" placeholder="Type and hit enter ..." class="form-control">
+                  <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
+               </div>
+               <button type="submit" class="hidden btn btn-default">Submit</button>
+            </form>
+            <!-- END Search form-->
+         </nav>
+         <!-- END Top Navbar-->
+      </header>
+      <!-- sidebar-->
+      <aside class="aside">
+         <!-- START Sidebar (left)-->
+         <div class="aside-inner">
+            <nav data-sidebar-anyclick-close="" class="sidebar">
+               <!-- START sidebar nav-->
+               <ul class="nav">
+                  <!-- START user info-->
+                  <li class="has-user-block">
+                     <div id="user-block" class="collapse">
+                        <div class="item user-block">
+                           <!-- User picture-->
+                           <div class="user-block-picture">
+                              <div class="user-block-status">
+                                 <img src="img/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
+                                 <div class="circle circle-success circle-lg"></div>
+                              </div>
+                           </div>
+                           <!-- Name and Job-->
+                           <div class="user-block-info">
+                              <span class="user-block-name">Hello, Mike</span>
+                              <span class="user-block-role">Designer</span>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <!-- END user info-->
+                  <!-- Iterates over all sidebar items-->
+                  <li class="nav-heading ">
+                     <span data-localize="sidebar.heading.HEADER">Main Navigation</span>
+                  </li>
+                  <li class=" ">
+                     <a href="dashboard.html" title="Dashboard">
+                        <em class="icon-speedometer"></em>
+                        <span>Dashboard</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="app-users.html" title="App Users">
+                        <em class="icon-users"></em>
+                        <span>App Users</span>
+                     </a>
+                  </li>
+				  
+				   <li class=" ">
+                     <a href="gallery-users.html" title="Galleries">
+                        <em class="icon-grid"></em>
+                        <span>Galleries</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="inventory.html" title="Inventory">
+                        <em class="icon-book-open"></em>
+                        <span>Inventory</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="app-searches.html" title="App Searches">
+                        <em class="fa fa-search"></em>
+                        <span>App Searches</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="inventory-upload.html" title="Inventory Upload">
+                       
+                        <em class="icon-cloud-upload"></em>
+                        <span>Inventory Upload</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="other-page.html" title="Other">
+                       
+                        <em class="icon-note"></em>
+                        <span>Other</span>
+                     </a>
+                  </li>
+			   </ul>
+               <!-- END sidebar nav-->
+            </nav>
+         </div>
+         <!-- END Sidebar (left)-->
+      </aside>
+      <!-- offsidebar-->
+       <aside class="offsidebar hide">
+         <!-- START Off Sidebar (right)-->
+         <nav>
+            <div role="tabpanel">
+               <!-- Nav tabs-->
+               <ul role="tablist" class="nav nav-tabs nav-justified">
+                  <li role="presentation">
+                     <a href="#app-chat" aria-controls="app-chat" role="tab" data-toggle="tab">
+                        <em class="icon-users fa-lg"></em>
+                     </a>
+                  </li>
+               </ul>
+               <!-- Tab panes-->
+               <div class="tab-content">
+
+                  <div id="app-chat" role="tabpanel" class="tab-pane fade in active">
+                     <h3 class="text-center text-thin">Galleries</h3>
+                     <ul class="nav">
+                        <!-- START list title-->
+                        <li class="p">
+                           <small class="text-muted">ONLINE</small>
+                        </li>
+                        <!-- END list title-->
+                        <li>
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-success circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/05.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Juan Sims</strong>
+                                    <br>
+                                    <small class="text-muted">Designeer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-success circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/06.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Maureen Jenkins</strong>
+                                    <br>
+                                    <small class="text-muted">Designeer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-danger circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/07.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Billie Dunn</strong>
+                                    <br>
+                                    <small class="text-muted">Designeer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-warning circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/08.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Tomothy Roberts</strong>
+                                    <br>
+                                    <small class="text-muted">Designer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                        </li>
+                        <!-- START list title-->
+                        <li class="p">
+                           <small class="text-muted">RECENTLY ONLINE</small>
+                        </li>
+                        <!-- END list title-->
+                        <li>
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/09.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Lawrence Robinson</strong>
+                                    <br>
+                                    <small class="text-muted">Developer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/10.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Tyrone Owens</strong>
+                                    <br>
+                                    <small class="text-muted">Designer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                        </li>
+                     </ul>
+                     <!-- Extra items-->
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <!-- END Off Sidebar (right)-->
+      </aside>
+      <!-- Main section-->
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+           <div class="panel-body">
+				<form class="form-horizontal" action="#" method="get">
+					<fieldset>
+                        <div class="form-group">
+                           <label class="col-sm-2">Page Title</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" placeholder="Enter Page Title">
+                           </div>
+                        </div>
+						<br>
+						<div class="form-group">
+							<div class="col-lg-12">
+								<span><b>Permalink: </b> http://examaple.com/page.php?<span style="color:#ccc">id=123/</span></span>
+							
+								<button class="mb-sm btn btn-default" type="button">Edit</button>
+								<button class="mb-sm btn btn-default" type="button">View Page</button>
+								<button class="mb-sm btn btn-default" type="button">Get Shortlink</button>
+							</div>
+						</div>
+                    </fieldset>
+					
+					<fieldset>
+						<div class="form-group">
+						   <label class="col-sm-2">Simple wysiwyg</label>
+						   <div class="col-sm-10">
+							  <div data-role="editor-toolbar" data-target="#editor" class="btn-toolbar btn-editor">
+								 <div class="btn-group dropdown">
+									<a data-toggle="dropdown" title="Font" class="btn btn-default">
+									   <em class="fa fa-font"></em><b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu">
+									   <li><a href="" data-edit="fontName Arial" style="font-family:'Arial'">Arial</a>
+									   </li>
+									   <li><a href="" data-edit="fontName Sans" style="font-family:'Sans'">Sans</a>
+									   </li>
+									   <li><a href="" data-edit="fontName Serif" style="font-family:'Serif'">Serif</a>
+									   </li>
+									</ul>
+								 </div>
+								 <div class="btn-group dropdown">
+									<a data-toggle="dropdown" title="Font Size" class="btn btn-default">
+									   <em class="fa fa-text-height"></em>&nbsp;<b class="caret"></b>
+									</a>
+									<ul class="dropdown-menu">
+									   <li><a href="" data-edit="fontSize 5" style="font-size:24px">Huge</a>
+									   </li>
+									   <li><a href="" data-edit="fontSize 3" style="font-size:18px">Normal</a>
+									   </li>
+									   <li><a href="" data-edit="fontSize 1" style="font-size:14px">Small</a>
+									   </li>
+									</ul>
+								 </div>
+								 <div class="btn-group">
+									<a data-edit="bold" data-toggle="tooltip" title="Bold (Ctrl/Cmd+B)" class="btn btn-default">
+									   <em class="fa fa-bold"></em>
+									</a>
+									<a data-edit="italic" data-toggle="tooltip" title="Italic (Ctrl/Cmd+I)" class="btn btn-default">
+									   <em class="fa fa-italic"></em>
+									</a>
+									<a data-edit="strikethrough" data-toggle="tooltip" title="Strikethrough" class="btn btn-default">
+									   <em class="fa fa-strikethrough"></em>
+									</a>
+									<a data-edit="underline" data-toggle="tooltip" title="Underline (Ctrl/Cmd+U)" class="btn btn-default">
+									   <em class="fa fa-underline"></em>
+									</a>
+								 </div>
+								 <div class="btn-group">
+									<a data-edit="insertunorderedlist" data-toggle="tooltip" title="Bullet list" class="btn btn-default">
+									   <em class="fa fa-list-ul"></em>
+									</a>
+									<a data-edit="insertorderedlist" data-toggle="tooltip" title="Number list" class="btn btn-default">
+									   <em class="fa fa-list-ol"></em>
+									</a>
+									<a data-edit="outdent" data-toggle="tooltip" title="Reduce indent (Shift+Tab)" class="btn btn-default">
+									   <em class="fa fa-dedent"></em>
+									</a>
+									<a data-edit="indent" data-toggle="tooltip" title="Indent (Tab)" class="btn btn-default">
+									   <em class="fa fa-indent"></em>
+									</a>
+								 </div>
+								 <div class="btn-group">
+									<a data-edit="justifyleft" data-toggle="tooltip" title="Align Left (Ctrl/Cmd+L)" class="btn btn-default">
+									   <em class="fa fa-align-left"></em>
+									</a>
+									<a data-edit="justifycenter" data-toggle="tooltip" title="Center (Ctrl/Cmd+E)" class="btn btn-default">
+									   <em class="fa fa-align-center"></em>
+									</a>
+									<a data-edit="justifyright" data-toggle="tooltip" title="Align Right (Ctrl/Cmd+R)" class="btn btn-default">
+									   <em class="fa fa-align-right"></em>
+									</a>
+									<a data-edit="justifyfull" data-toggle="tooltip" title="Justify (Ctrl/Cmd+J)" class="btn btn-default">
+									   <em class="fa fa-align-justify"></em>
+									</a>
+								 </div>
+								 <div class="btn-group dropdown">
+									<a data-toggle="dropdown" title="Hyperlink" class="btn btn-default">
+									   <em class="fa fa-link"></em>
+									</a>
+									<div class="dropdown-menu">
+									   <div class="input-group ml-xs mr-xs">
+										  <input id="LinkInput" placeholder="URL" type="text" data-edit="createLink" class="form-control input-sm">
+										  <div class="input-group-btn">
+											 <button type="button" class="btn btn-sm btn-default">Add</button>
+										  </div>
+									   </div>
+									</div>
+									<a data-edit="unlink" data-toggle="tooltip" title="Remove Hyperlink" class="btn btn-default">
+									   <em class="fa fa-cut"></em>
+									</a>
+								 </div>
+								 <div class="btn-group">
+									<a id="pictureBtn" data-toggle="tooltip" title="Insert picture (or just drag &amp; drop)" class="btn btn-default">
+									   <em class="fa fa-picture-o"></em>
+									</a>
+									<input type="file" data-edit="insertImage" style="position:absolute; opacity:0; width:41px; height:34px">
+								 </div>
+								 <div class="btn-group pull-right">
+									<a data-edit="undo" data-toggle="tooltip" title="Undo (Ctrl/Cmd+Z)" class="btn btn-default">
+									   <em class="fa fa-undo"></em>
+									</a>
+									<a data-edit="redo" data-toggle="tooltip" title="Redo (Ctrl/Cmd+Y)" class="btn btn-default">
+									   <em class="fa fa-repeat"></em>
+									</a>
+								 </div>
+							  </div>
+							  <div style="overflow:scroll; height:250px;max-height:250px" class="form-control wysiwyg mt-lg">Type something ...</div>
+						   </div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="form-group">
+						   <div class="col-sm-4 col-sm-offset-2">
+							  <button type="submit" class="btn btn-default">Cancel</button>
+							  <button type="submit" class="btn btn-primary">Save changes</button>
+						   </div>
+						</div>
+					</fieldset>
+				</form>
+            </div>
+		 </div>
+      </section>
+      <!-- Page footer-->
+      <footer>
+         <span>&copy; 2015 - Angle</span>
+      </footer>
+   </div>
+   <!-- =============== VENDOR SCRIPTS ===============-->
+   <!-- MODERNIZR-->
+   <script src="../vendor/modernizr/modernizr.js"></script>
+   <!-- JQUERY-->
+   <script src="../vendor/jquery/dist/jquery.js"></script>
+   <!-- BOOTSTRAP-->
+   <script src="../vendor/bootstrap/dist/js/bootstrap.js"></script>
+   <!-- STORAGE API-->
+   <script src="../vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+   <!-- JQUERY EASING-->
+   <script src="../vendor/jquery.easing/js/jquery.easing.js"></script>
+   <!-- ANIMO-->
+   <script src="../vendor/animo.js/animo.js"></script>
+   <!-- SLIMSCROLL-->
+   <script src="../vendor/slimScroll/jquery.slimscroll.min.js"></script>
+   <!-- SCREENFULL-->
+   <script src="../vendor/screenfull/dist/screenfull.js"></script>
+   <!-- LOCALIZE-->
+   <script src="../vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+   <!-- RTL demo-->
+   <script src="js/demo/demo-rtl.js"></script>
+   <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+   <!-- FILESTYLE-->
+   <script src="../vendor/bootstrap-filestyle/src/bootstrap-filestyle.js"></script>
+   <!-- TAGS INPUT-->
+   <script src="../vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+   <!-- CHOSEN-->
+   <script src="../vendor/chosen_v1.2.0/chosen.jquery.min.js"></script>
+   <!-- SLIDER CTRL-->
+   <script src="../vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+   <!-- INPUT MASK-->
+   <script src="../vendor/jquery.inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+   <!-- WYSIWYG-->
+   <script src="../vendor/bootstrap-wysiwyg/bootstrap-wysiwyg.js"></script>
+   <script src="../vendor/bootstrap-wysiwyg/external/jquery.hotkeys.js"></script>
+   <!-- MOMENT JS-->
+   <script src="../vendor/moment/min/moment-with-locales.min.js"></script>
+   <!-- DATETIMEPICKER-->
+   <script type="text/javascript" src="../vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+   <!-- Demo-->
+   <script src="js/demo/demo-forms.js"></script>
+   <!-- =============== APP SCRIPTS ===============-->
+   <script src="js/app.js"></script>
+</body>
+
+</html>

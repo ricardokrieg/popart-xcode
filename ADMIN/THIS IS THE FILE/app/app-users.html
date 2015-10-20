@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App + jQuery">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <title>Angle - Bootstrap Admin Template</title>
+   <!-- =============== VENDOR STYLES ===============-->
+   <!-- FONT AWESOME-->
+   <link rel="stylesheet" href="../vendor/fontawesome/css/font-awesome.min.css">
+   <!-- SIMPLE LINE ICONS-->
+   <link rel="stylesheet" href="../vendor/simple-line-icons/css/simple-line-icons.css">
+   <!-- ANIMATE.CSS-->
+   <link rel="stylesheet" href="../vendor/animate.css/animate.min.css">
+   <!-- WHIRL (spinners)-->
+   <link rel="stylesheet" href="../vendor/whirl/dist/whirl.css">
+   <!-- =============== PAGE VENDOR STYLES ===============-->
+   <!-- =============== BOOTSTRAP STYLES ===============-->
+   <link rel="stylesheet" href="css/bootstrap.css" id="bscss">
+   <!-- =============== APP STYLES ===============-->
+   <link rel="stylesheet" href="css/app.css" id="maincss">
+</head>
+
+<body>
+   <div class="wrapper">
+      <!-- top navbar-->
+      <header class="topnavbar-wrapper">
+         <!-- START Top Navbar-->
+         <nav role="navigation" class="navbar topnavbar">
+            <!-- START navbar header-->
+            <div class="navbar-header">
+               <a href="#/" class="navbar-brand">
+                  <div class="brand-logo">
+                     <img src="img/logo.png" alt="App Logo" class="img-responsive">
+                  </div>
+                  <div class="brand-logo-collapsed">
+                     <img src="img/logo-single.png" alt="App Logo" class="img-responsive">
+                  </div>
+               </a>
+            </div>
+            <!-- END navbar header-->
+            <!-- START Nav wrapper-->
+            <div class="nav-wrapper">
+               <!-- START Left navbar-->
+               <ul class="nav navbar-nav">
+                  <li>
+                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                     <a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+                        <em class="fa fa-navicon"></em>
+                     </a>
+                     <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                     <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                        <em class="fa fa-navicon"></em>
+                     </a>
+                  </li>
+                  <!-- START User avatar toggle-->
+                  <li>
+                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                     <a id="user-block-toggle" href="#user-block" data-toggle="collapse">
+                        <em class="icon-user"></em>
+                     </a>
+                  </li>
+                  <!-- END User avatar toggle-->
+                  <!-- START lock screen-->
+                  <li>
+                     <a href="lock.html" title="Lock screen">
+                        <em class="icon-lock"></em>
+                     </a>
+                  </li>
+                  <!-- END lock screen-->
+               </ul>
+               <!-- END Left navbar-->
+               <!-- START Right Navbar-->
+               <ul class="nav navbar-nav navbar-right">
+                  <!-- Search icon-->
+                  <li>
+                     <a href="#" data-search-open="">
+                        <em class="icon-magnifier"></em>
+                     </a>
+                  </li>
+                  <!-- Fullscreen (only desktops)-->
+                  <li class="visible-lg">
+                     <a href="#" data-toggle-fullscreen="">
+                        <em class="fa fa-expand"></em>
+                     </a>
+                  </li>
+                  <!-- START Alert menu-->
+                  <li class="dropdown dropdown-list">
+                     <a href="#" data-toggle="dropdown">
+                        <em class="icon-bell"></em>
+                        <div class="label label-danger">11</div>
+                     </a>
+                     <!-- START Dropdown menu-->
+                     <ul class="dropdown-menu animated swing">
+                        <li>
+                           <!-- START list group-->
+                           <div class="list-group">
+                              <!-- list item-->
+							  
+							  <a class="list-group-item" href="#">
+                                 <div class="media-box">
+                                    <div class="pull-left">
+                                       <img class="media-box-object img-circle thumb32" alt="Image" src="img/user/02.jpg">
+                                    </div>
+                                    <div class="media-box-body clearfix">
+                                       <small class="pull-right">2h</small>
+                                       <strong class="media-box-heading text-primary">
+                                          <span class="circle circle-success circle-lg text-left"></span>Catherine Ellis</strong>
+                                       <p class="mb-sm">
+                                          <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </a>
+							  
+							  
+							  
+							  <a class="list-group-item" href="#">
+                                 <div class="media-box">
+                                    <div class="pull-left">
+                                       <img class="media-box-object img-circle thumb32" alt="Image" src="img/user/03.jpg">
+                                    </div>
+                                    <div class="media-box-body clearfix">
+                                       <small class="pull-right">3h</small>
+                                       <strong class="media-box-heading text-primary">
+                                          <span class="circle circle-success circle-lg text-left"></span>Jessica Silva</strong>
+                                       <p class="mb-sm">
+                                          <small>Cras sit amet nibh libero, in gravida nulla. Nulla facilisi.</small>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </a>
+							  
+							  
+							  
+							  
+							  <a class="list-group-item" href="#">
+                                 <div class="media-box">
+                                    <div class="pull-left">
+                                       <img class="media-box-object img-circle thumb32" alt="Image" src="img/user/09.jpg">
+                                    </div>
+                                    <div class="media-box-body clearfix">
+                                       <small class="pull-right">4h</small>
+                                       <strong class="media-box-heading text-primary">
+                                          <span class="circle circle-danger circle-lg text-left"></span>Jessie Wells</strong>
+                                       <p class="mb-sm">
+                                          <small>Cras sit amet nibh libero, in gravida nulla. Nulla...</small>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </a>
+							  
+                              <!-- last list item -->
+                              <a href="#" class="list-group-item">
+                                 <small>More notifications</small>
+                                 <span class="label label-danger pull-right">14</span>
+                              </a>
+                           </div>
+                           <!-- END list group-->
+                        </li>
+                     </ul>
+                     <!-- END Dropdown menu-->
+                  </li>
+                  <!-- END Alert menu-->
+                  <!-- START Offsidebar button-->
+                  <li>
+                     <a href="#" data-toggle-state="offsidebar-open" data-no-persist="true">
+                        <em class="icon-notebook"></em>
+                     </a>
+                  </li>
+                  <!-- END Offsidebar menu-->
+               </ul>
+               <!-- END Right Navbar-->
+            </div>
+            <!-- END Nav wrapper-->
+            <!-- START Search form-->
+            <form role="search" action="search.html" class="navbar-form">
+               <div class="form-group has-feedback">
+                  <input type="text" placeholder="Type and hit enter ..." class="form-control">
+                  <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
+               </div>
+               <button type="submit" class="hidden btn btn-default">Submit</button>
+            </form>
+            <!-- END Search form-->
+         </nav>
+         <!-- END Top Navbar-->
+      </header>
+      <!-- sidebar-->
+      <aside class="aside">
+         <!-- START Sidebar (left)-->
+         <div class="aside-inner">
+            <nav data-sidebar-anyclick-close="" class="sidebar">
+               <!-- START sidebar nav-->
+               <ul class="nav">
+                  <!-- START user info-->
+                  <li class="has-user-block">
+                     <div id="user-block" class="collapse">
+                        <div class="item user-block">
+                           <!-- User picture-->
+                           <div class="user-block-picture">
+                              <div class="user-block-status">
+                                 <img src="img/user/02.jpg" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle">
+                                 <div class="circle circle-success circle-lg"></div>
+                              </div>
+                           </div>
+                           <!-- Name and Job-->
+                           <div class="user-block-info">
+                              <span class="user-block-name">Hello, Mike</span>
+                              <span class="user-block-role">Designer</span>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <!-- END user info-->
+                  <!-- Iterates over all sidebar items-->
+                  <li class="nav-heading ">
+                     <span data-localize="sidebar.heading.HEADER">Main Navigation</span>
+                  </li>
+                  <li class=" ">
+                     <a href="dashboard.html" title="Dashboard">
+                        <em class="icon-speedometer"></em>
+                        <span>Dashboard</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="app-users.html" title="App Users">
+                        <em class="icon-users"></em>
+                        <span>App Users</span>
+                     </a>
+                  </li>
+				  
+				   <li class=" ">
+                     <a href="gallery-users.html" title="Galleries">
+                        <em class="icon-grid"></em>
+                        <span>Galleries</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="inventory.html" title="Inventory">
+                        <em class="icon-book-open"></em>
+                        <span>Inventory</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="app-searches.html" title="App Searches">
+                        <em class="fa fa-search"></em>
+                        <span>App Searches</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="inventory-upload.html" title="Inventory Upload">
+                       
+                        <em class="icon-cloud-upload"></em>
+                        <span>Inventory Upload</span>
+                     </a>
+                  </li>
+				  <li class=" ">
+                     <a href="other-page.html" title="Other">
+                       
+                        <em class="icon-note"></em>
+                        <span>Other</span>
+                     </a>
+                  </li>
+			   </ul>
+               <!-- END sidebar nav-->
+            </nav>
+         </div>
+         <!-- END Sidebar (left)-->
+      </aside>
+      <!-- offsidebar-->
+       <aside class="offsidebar hide">
+         <!-- START Off Sidebar (right)-->
+         <nav>
+            <div role="tabpanel">
+               <!-- Nav tabs-->
+               <ul role="tablist" class="nav nav-tabs nav-justified">
+                  <li role="presentation">
+                     <a href="#app-chat" aria-controls="app-chat" role="tab" data-toggle="tab">
+                        <em class="icon-users fa-lg"></em>
+                     </a>
+                  </li>
+               </ul>
+               <!-- Tab panes-->
+               <div class="tab-content">
+
+                  <div id="app-chat" role="tabpanel" class="tab-pane fade in active">
+                     <h3 class="text-center text-thin">Galleries</h3>
+                     <ul class="nav">
+                        <!-- START list title-->
+                        <li class="p">
+                           <small class="text-muted">ONLINE</small>
+                        </li>
+                        <!-- END list title-->
+                        <li>
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-success circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/05.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Juan Sims</strong>
+                                    <br>
+                                    <small class="text-muted">Designeer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-success circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/06.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Maureen Jenkins</strong>
+                                    <br>
+                                    <small class="text-muted">Designeer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-danger circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/07.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Billie Dunn</strong>
+                                    <br>
+                                    <small class="text-muted">Designeer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-warning circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/08.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Tomothy Roberts</strong>
+                                    <br>
+                                    <small class="text-muted">Designer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                        </li>
+                        <!-- START list title-->
+                        <li class="p">
+                           <small class="text-muted">RECENTLY ONLINE</small>
+                        </li>
+                        <!-- END list title-->
+                        <li>
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/09.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Lawrence Robinson</strong>
+                                    <br>
+                                    <small class="text-muted">Developer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                           <!-- START User status-->
+                           <a href="#" class="media-box p mt0">
+                              <span class="pull-right">
+                                 <span class="circle circle-lg"></span>
+                              </span>
+                              <span class="pull-left">
+                                 <!-- Contact avatar-->
+                                 <img src="img/user/10.jpg" alt="Image" class="media-box-object img-circle thumb48">
+                              </span>
+                              <!-- Contact info-->
+                              <span class="media-box-body">
+                                 <span class="media-box-heading">
+                                    <strong>Tyrone Owens</strong>
+                                    <br>
+                                    <small class="text-muted">Designer</small>
+                                 </span>
+                              </span>
+                           </a>
+                           <!-- END User status-->
+                        </li>
+                     </ul>
+                     <!-- Extra items-->
+                  </div>
+               </div>
+            </div>
+         </nav>
+         <!-- END Off Sidebar (right)-->
+      </aside>
+      <!-- Main section-->
+      <section>
+         <!-- Page content-->
+         <div class="content-wrapper">
+            <h3>App Users</h3>
+			<div class="row">
+				<div class="col-xs-12">
+					<button class="btn btn-inverse pull-right" style="margin-bottom:10px" type="button">Add New User</button>
+				</div>
+			</div>
+			<div id="datatable1_wrapper" class="dataTables_wrapper form-inline no-footer">
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="dataTables_length" id="datatable1_length">
+							<label style="font-weight:normal"><select name="datatable1_length" aria-controls="datatable1" class="form-control input-sm">
+								<option value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+							</select>Records per page</label>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div id="datatable1_filter" class="dataTables_filter">
+							<label class="pull-right" style="font-weight:normal">Search all columns:<input type="search" class="form-control input-sm" placeholder="" aria-controls="datatable1"></label>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="panel-footer">
+                  <div class="row">
+                     <div class="col-lg-2">
+                        <div class="input-group pull-right">
+                           <select class="input-sm form-control">
+                              <option value="0">Bulk action</option>
+                              <option value="1">Delete</option>
+                              <option value="2">Clone</option>
+                              <option value="3">Export</option>
+                           </select>
+                           <span class="input-group-btn">
+                              <button class="btn btn-sm btn-default">Apply</button>
+                           </span>
+                        </div>
+                     </div>
+                     <div class="col-lg-10"></div>
+                  </div>
+               </div>
+            <!-- START panel-->
+            <div class="panel panel-default">
+               
+			   
+			   <div class="panel-heading">Total 36,000,000 Users</div>
+               <!-- START table-responsive-->
+               <div class="table-responsive">
+                  <table id="table-ext-1" class="table table-bordered table-hover">
+                     <thead>
+                        <tr>
+							<th data-check-all>
+								<div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+                           </th>
+                           <th>UID</th>
+                           <th>Picture</th>
+                           <th>Location</th>
+                           <th>First Name</th>
+                           <th>Last Name</th>
+                           <th>Email</th>
+                           <th>Searches</th>
+                           <th>Last Login</th>
+                           <th>Active</th>
+						   <th>Edit</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>1</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/01.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@twitter</a></td>
+                           <td>Larry</td>
+                           <td>the Bird</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="25%" class="radial-bar radial-bar-25 radial-bar-xs"></div>
+                           </td>
+                           <td>
+						   08-Oct-2015<br>
+						   <small>1 week</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>2</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/02.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@mdo</a></td>
+                           <td>Mark</td>
+                           <td>Otto</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="50%" class="radial-bar radial-bar-50 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>25 minutes</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>3</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/03.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@fat</a></td>
+                           <td>Jacob</td>
+                           <td>Thornton</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="80%" class="radial-bar radial-bar-80 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>10 hours</small>
+						   
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+						
+						<tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>4</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/01.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@twitter</a></td>
+                           <td>Larry</td>
+                           <td>the Bird</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="25%" class="radial-bar radial-bar-25 radial-bar-xs"></div>
+                           </td>
+                           <td>
+						   08-Oct-2015<br>
+						   <small>1 week</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>5</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/02.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@mdo</a></td>
+                           <td>Mark</td>
+                           <td>Otto</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="50%" class="radial-bar radial-bar-50 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>25 minutes</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>6</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/03.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@fat</a></td>
+                           <td>Jacob</td>
+                           <td>Thornton</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="80%" class="radial-bar radial-bar-80 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>10 hours</small>
+						   
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+						
+						<tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>7</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/01.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@twitter</a></td>
+                           <td>Larry</td>
+                           <td>the Bird</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="25%" class="radial-bar radial-bar-25 radial-bar-xs"></div>
+                           </td>
+                           <td>
+						   08-Oct-2015<br>
+						   <small>1 week</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>8</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/02.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@mdo</a></td>
+                           <td>Mark</td>
+                           <td>Otto</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="50%" class="radial-bar radial-bar-50 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>25 minutes</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>9</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/03.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@fat</a></td>
+                           <td>Jacob</td>
+                           <td>Thornton</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="80%" class="radial-bar radial-bar-80 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>10 hours</small>
+						   
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+						
+						<tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>10</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/01.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@twitter</a></td>
+                           <td>Larry</td>
+                           <td>the Bird</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="25%" class="radial-bar radial-bar-25 radial-bar-xs"></div>
+                           </td>
+                           <td>
+						   08-Oct-2015<br>
+						   <small>1 week</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>11</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/02.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@mdo</a></td>
+                           <td>Mark</td>
+                           <td>Otto</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="50%" class="radial-bar radial-bar-50 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>25 minutes</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>12</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/03.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@fat</a></td>
+                           <td>Jacob</td>
+                           <td>Thornton</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="80%" class="radial-bar radial-bar-80 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>10 hours</small>
+						   
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+						
+						<tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>13</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/01.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@twitter</a></td>
+                           <td>Larry</td>
+                           <td>the Bird</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="25%" class="radial-bar radial-bar-25 radial-bar-xs"></div>
+                           </td>
+                           <td>
+						   08-Oct-2015<br>
+						   <small>1 week</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>14</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/02.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@mdo</a></td>
+                           <td>Mark</td>
+                           <td>Otto</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="50%" class="radial-bar radial-bar-50 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>25 minutes</small>
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                        <tr>
+							<td>
+								<div class="checkbox c-checkbox">
+									<label>
+										<input type="checkbox">
+										<span class="fa fa-check"></span>
+									</label>
+								</div>
+							</td>
+                           <td>15</td>
+                           <td>
+                              <div class="media">
+                                 <img src="img/user/03.jpg" alt="Image" class="img-responsive img-circle">
+                              </div>
+                           </td>
+                           <td><a href="app-profile.html">@fat</a></td>
+                           <td>Jacob</td>
+                           <td>Thornton</td>
+                           <td>mail@example.com</td>
+                           <td class="text-center">
+                              <div data-label="80%" class="radial-bar radial-bar-80 radial-bar-xs"></div>
+                           </td>
+                           <td>
+								15-Oct-2015<br>
+							   <small>10 hours</small>
+						   
+						   </td>
+                           <td class="text-center">
+                              <label class="switch">
+                                 <input type="checkbox" checked="">
+                                 <span></span>
+                              </label>
+                           </td>
+						   <td><a href="inventory-item-edit.html">Edit</a></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <!-- END table-responsive-->
+               
+            </div>
+            <!-- END panel-->
+         
+           
+          
+         </div>
+      </section>
+      <!-- Page footer-->
+      <footer>
+         <span>&copy; 2015 - Angle</span>
+      </footer>
+   </div>
+   <!-- =============== VENDOR SCRIPTS ===============-->
+   <!-- MODERNIZR-->
+   <script src="../vendor/modernizr/modernizr.js"></script>
+   <!-- JQUERY-->
+   <script src="../vendor/jquery/dist/jquery.js"></script>
+   <!-- BOOTSTRAP-->
+   <script src="../vendor/bootstrap/dist/js/bootstrap.js"></script>
+   <!-- STORAGE API-->
+   <script src="../vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+   <!-- JQUERY EASING-->
+   <script src="../vendor/jquery.easing/js/jquery.easing.js"></script>
+   <!-- ANIMO-->
+   <script src="../vendor/animo.js/animo.js"></script>
+   <!-- SLIMSCROLL-->
+   <script src="../vendor/slimScroll/jquery.slimscroll.min.js"></script>
+   <!-- SCREENFULL-->
+   <script src="../vendor/screenfull/dist/screenfull.js"></script>
+   <!-- LOCALIZE-->
+   <script src="../vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+   <!-- RTL demo-->
+   <script src="js/demo/demo-rtl.js"></script>
+   <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+   <!-- SPARKLINE-->
+   <script src="vendor/sparklines/jquery.sparkline.min.js"></script>
+   <!-- =============== APP SCRIPTS ===============-->
+   <script src="js/app.js"></script>
+</body>
+
+</html>
