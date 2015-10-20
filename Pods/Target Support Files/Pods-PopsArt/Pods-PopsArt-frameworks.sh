@@ -52,8 +52,12 @@ code_sign_if_enabled() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'Pods-PopsArt/Locksmith.framework'
   install_framework 'Pods-PopsArt/SwiftHTTP.framework'
+  install_framework 'Pods-PopsArt/TTTAttributedLabel.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'Pods-PopsArt/Locksmith.framework'
   install_framework 'Pods-PopsArt/SwiftHTTP.framework'
+  install_framework 'Pods-PopsArt/TTTAttributedLabel.framework'
 fi

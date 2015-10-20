@@ -6,27 +6,25 @@
 //  Copyright © 2015 PopsArt. All rights reserved.
 //
 
-//        https://github.com/swiftsocket/SwiftSocket
-//        var client:TCPClient = TCPClient(addr: "192.168.0.175", port: 5100)
-//        var (success,errmsg)=client.connect(timeout: 10)
-//        var (success,errmsg)=client.send(str:"GET / HTTP/1.0\n\n" )
-//        socket.send(data:[Int8])
-//        var data=client.read(1024*10) //return optional [Int8]
-//        var (success,errormsg)=client.close()
-
 import Foundation
 import CoreLocation
 import SwiftHTTP
+import CoreData
+import Locksmith
 
 let SERVER_ADDRESS = "popart-app.com"
-//let SERVER_ADDRESS = "192.168.0.175"
-//let SERVER_PORT = 5100
 let SERVER_PORT = 5200
+let API_ADDRESS = "192.168.0.175"
+let API_PORT = 3000
 
 class Server {
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
     var shouldSend = false
     
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
+    let signInUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/sign_in"
+    let signUpUrl = "http://\(API_ADDRESS):\(API_PORT)/auth"
     
     var location: CLLocation?
     var placemark: CLPlacemark?
@@ -35,6 +33,105 @@ class Server {
     var focusSquare: FocusSquareView?
     
     init() {}
+    
+    func doSignIn(sender: UIViewController, email: String, password: String) {
+        let loading = self.displayLoading(sender.view)
+        
+        doSignOut()
+        
+        do {
+            let opt = try HTTP.POST(signInUrl, parameters: ["email": email, "password": password])
+            
+            opt.start { response in
+                dispatch_async(dispatch_get_main_queue(), {
+                    loading.stopAnimating()
+                })
+                
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    self.displayAlert("Error", message: err.localizedDescription, sender: sender)
+                    return
+                }
+                
+                let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                
+                let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+                
+                do {
+                    if let data = json!["data"] as? NSDictionary {
+                        let email = data["email"] as! String
+                        let first_name = data["first_name"] as! String
+                        let last_name = data["last_name"] as! String
+                        let image = data["image"] as! String
+                        let token: String = response.headers!["Access-Token"]!
+                        
+                        try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token)
+                        
+                        self.authenticateUser("SignInViewController")
+                    } else {
+                        print("Error: Invalid JSON")
+                    }
+                } catch let error {
+                    print("Error: \(error)")
+                }
+            }
+        } catch let error {
+            loading.stopAnimating()
+            print("Error: \(error)")
+        }
+    }
+    
+    func doSignOut() {
+        do {
+            try Account.delete()
+        } catch let error {
+            print("SignOut Error: \(error)")
+        }
+    }
+    
+    func saveAccount(email: String, first_name: String, last_name: String, image: String, token: String) throws -> Account {
+        let account = Account(
+            email: email,
+            first_name: first_name,
+            last_name: last_name,
+            image: image,
+            token: token)
+        
+        try account.save()
+        
+        return account
+    }
+    
+    func authenticateUser(caller: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var rootControllerIdentifier: String?
+        
+        if userSignedIn() {
+            rootControllerIdentifier = "ViewController"
+        } else {
+            rootControllerIdentifier = "SignInViewController"
+        }
+        
+        if caller != rootControllerIdentifier {
+            if let window = appDelegate.window {
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    let rootController = storyboard.instantiateViewControllerWithIdentifier(rootControllerIdentifier!)
+                    window.rootViewController = rootController
+                }
+            }
+        }
+    }
+    
+    func userSignedIn() -> Bool {
+        if let account = Account.load() {
+            print(account)
+            return true
+        } else {
+            return false
+        }
+    }
     
     func ping(sender: UIViewController) -> Bool {
         var s:Bool = true
@@ -60,6 +157,7 @@ class Server {
     
     func displayAlert(title: String, message: String, sender: UIViewController) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
                 if sender.isKindOfClass(SendingPictureViewController) {
                     sender.performSegueWithIdentifier("fromSendingToMain", sender: sender)
@@ -67,7 +165,29 @@ class Server {
             }
         ))
         
-        sender.presentViewController(alertController, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue(), {
+            sender.presentViewController(alertController, animated: true, completion: nil)
+        })
+    }
+    
+    func displayLoading(view: UIView) -> UIActivityIndicatorView {
+//        let overlay = UIView(frame: view.bounds)
+//        overlay.backgroundColor = UIColor.grayColor()
+        
+        let loading: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
+        
+//        loading.center = overlay.center
+        loading.center = view.center
+        loading.hidesWhenStopped = true
+        loading.activityIndicatorViewStyle = .Gray
+        dispatch_async(dispatch_get_main_queue(), {
+//            overlay.addSubview(loading)
+//            view.addSubview(overlay)
+            view.addSubview(loading)
+        })
+        loading.startAnimating()
+        
+        return loading
     }
 }
 

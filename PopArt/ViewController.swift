@@ -288,8 +288,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        server.authenticateUser("ViewController")
+        
         server.ping(self)
-//        // Ask for Authorisation from the User.
+//        // Ask for Authorization from the User.
 //        self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
