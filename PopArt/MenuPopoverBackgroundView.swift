@@ -51,13 +51,5 @@ class MenuPopoverBackgroundView: UIPopoverBackgroundView {
     override class func arrowBase() -> CGFloat{
         return 0.0
     }
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
