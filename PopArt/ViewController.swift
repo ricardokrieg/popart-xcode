@@ -283,7 +283,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.authenticateUser("ViewController")
+        server.authenticateUser("ViewController", checkToken: true)
         
         server.ping(self)
 

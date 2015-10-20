@@ -37,7 +37,7 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
             switch indexPath.row {
             case 1:
                 server.doSignOut()
-                server.authenticateUser("SettingsTableViewController")
+                server.authenticateUser("SettingsTableViewController", checkToken: false)
             default:
                 print("Unhandled row: \(indexPath.row)")
             }

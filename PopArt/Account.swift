@@ -15,6 +15,7 @@ class Account {
     var last_name: String
     var image: String
     var token: String
+    var client: String
     
     class func load() -> Account? {
         if let result = Locksmith.loadDataForUserAccount("PopArtAccount") {
@@ -23,7 +24,8 @@ class Account {
                 first_name: result["first_name"] as! String,
                 last_name: result["last_name"] as! String,
                 image: result["image"] as! String,
-                token: result["token"] as! String)
+                token: result["token"] as! String,
+                client: result["client"] as! String)
         } else {
             return nil
         }
@@ -33,12 +35,13 @@ class Account {
         try Locksmith.deleteDataForUserAccount("PopArtAccount")
     }
     
-    init(uid: String, first_name: String, last_name: String, image: String, token: String) {
+    init(uid: String, first_name: String, last_name: String, image: String, token: String, client: String) {
         self.uid = uid
         self.first_name = first_name
         self.last_name = last_name
         self.image = image
         self.token = token
+        self.client = client
     }
     
     func save() throws {
@@ -47,7 +50,8 @@ class Account {
             "first_name": first_name,
             "last_name": last_name,
             "image": image,
-            "token": token
+            "token": token,
+            "client": client
         ]
         
         try Locksmith.updateData(data, forUserAccount: "PopArtAccount")

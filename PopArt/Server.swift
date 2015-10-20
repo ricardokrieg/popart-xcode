@@ -26,6 +26,7 @@ class Server {
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
     let signInUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/sign_in"
     let signUpUrl = "http://\(API_ADDRESS):\(API_PORT)/auth"
+    let validateTokenUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/validate_token"
     
     var location: CLLocation?
     var placemark: CLPlacemark?
@@ -100,10 +101,11 @@ class Server {
                     let last_name = data["last_name"] as! String
                     let image = data["image"] as! String
                     let token: String = response.headers!["Access-Token"]!
+                    let client: String = response.headers!["Client"]!
                     
-                    try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token)
+                    try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token, client: client)
                     
-                    self.authenticateUser("SignInViewController")
+                    self.authenticateUser("SignInViewController", checkToken: false)
                 } else {
                     print("Error: Invalid JSON")
                 }
@@ -121,30 +123,36 @@ class Server {
         }
     }
     
-    func saveAccount(uid: String, first_name: String, last_name: String, image: String, token: String) throws -> Account {
+    func saveAccount(uid: String, first_name: String, last_name: String, image: String, token: String, client: String) throws -> Account {
         let account = Account(
             uid: uid,
             first_name: first_name,
             last_name: last_name,
             image: image,
-            token: token)
+            token: token,
+            client: client)
         
         try account.save()
         
         return account
     }
     
-    func authenticateUser(caller: String) {
+    func authenticateUser(caller: String, checkToken: Bool) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         var rootControllerIdentifier = "SignInViewController"
-        
-        if userSignedIn() {
+
+        if checkToken {
             if let account = Account.load() {
-                print(account.token)
-                rootControllerIdentifier = "ViewController"
+                if tokenIsValid(account) {
+                    rootControllerIdentifier = "ViewController"
+                }  else {
+                    doSignOut()
+                }
             }
+        } else {
+            rootControllerIdentifier = "ViewController"
         }
         
         if caller != rootControllerIdentifier {
@@ -157,12 +165,50 @@ class Server {
         }
     }
     
-    func userSignedIn() -> Bool {
-        if let _ = Account.load() {
-            return true
-        } else {
-            return false
+    func tokenIsValid(account: Account) -> Bool {
+        var success = true
+        
+        do {
+            let opt = try HTTP.GET(validateTokenUrl, parameters: ["uid": account.uid, "access-token": account.token, "client": account.client])
+                    
+            opt.start { response in
+                let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+                        
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
+                            
+                    success = false
+                    return
+                }
+                        
+                do {
+                    if let data = json!["data"] as? NSDictionary {
+                        let email = data["email"] as! String
+                        let first_name = data["first_name"] as! String
+                        let last_name = data["last_name"] as! String
+                        let image = data["image"] as! String
+                        let token: String = account.token
+                        let client: String = account.client
+                                
+                        try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token, client: client)
+                    } else {
+                        print("Error: Invalid JSON")
+                        success = false
+                    }
+                } catch let error {
+                    print("Error: \(error)")
+                    success = false
+                }
+            }
+        } catch let error {
+            print("Error: \(error)")
+            success = false
         }
+        
+        return success
     }
     
     func ping(sender: UIViewController) -> Bool {

@@ -31,6 +31,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // You previously set kClientId in the "Initialize the Google+ client" step
 //        signIn.clientID = kClientId;
         
+        if !NSUserDefaults.standardUserDefaults().boolForKey("firstlaunch1.0") {
+            do {
+                try Account.delete()
+            } catch _ {}
+            
+            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "firstlaunch1.0")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        
         return true
     }
 

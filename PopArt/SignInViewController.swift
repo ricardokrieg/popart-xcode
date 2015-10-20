@@ -22,7 +22,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.authenticateUser("SignInViewController")
+        server.authenticateUser("SignInViewController", checkToken: true)
     }
 
     override func didReceiveMemoryWarning() {
