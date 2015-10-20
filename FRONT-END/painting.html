@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Home</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <section class="front-painting">
+      <div class="front-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 col-sm-12">
+              <div class="painting-content">
+                  <div class="g-vsap2"></div>
+                  <div class="bar">
+                    <a href="javascript:;" class="pull-right mt"><i class="fa fa-bars"></i></a>
+                    <ul class="list-unstyled">
+                      <li><a href="javascript:;">Inventory</a></li>
+                      <li><a href="javascript:;">Upload Single Item</a></li>
+                      <li><a href="javascript:;">Upload Multiple Items</a></li>
+                      <li><a href="javascript:;">Account Settings</a></li>
+                    </ul>
+                  </div>
+                  <div class="g-vsap5"></div>
+                  <div class="g-vsap5"></div>
+                  <div class="g-vsap"></div>
+                  <div class="painting-setting">
+                    <h3>PAINTING TITLE</h3>
+                    <div class="g-vsap"></div>
+                    <div class="col-md-5 col-sm-5">
+                      
+					  <div class="panel panel-bg">
+						<div class="panel-body" id='demo-files2'>
+						  <span class="demo-note">No Files have been selected/droped yet...</span>
+						</div>
+					  </div>
+						
+                      <div class="g-vsap2"></div>
+                      <div class="file-progress">
+                        
+                        <div class="photographic-instruction">
+                          <h5>Photographic Instructions</h5>
+                          <p>Please, not your image must be of at least 1000 X 1000 pixels. The image must show the painting from a straigh angle where you are located in the <span style="color:#ff0000;">RED DOT</span> and the painting is placed on the <span style="color:#0bdf00;">GREEN SQUARE.</span></p>
+                          <img src="images/eclipse.png" class="img-responsive" alt="Image not found">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-7 col-sm-7">
+                      <div class="update-form">
+                        <form class="form-horizontal">
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Title</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Artist</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Date</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Dimenssions (cm)</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Dimenssions (in)</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Edition</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Provenance</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Label</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Characterstic</label>
+                            <div class="col-md-8">
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label">Upload Image</label>
+                            <div class="col-md-8">
+                              <div id="drag-and-drop-zone" class="dragdrop">
+								<b>Drag & Drop Files Here<br>-or-</b>
+								<div class="browser">
+								  <label>
+									<span>Simply click within this box to upload single file</span>
+									<input type="file" name="files[]"  accept="image/*" multiple="multiple" title='Click to add Images'>
+								  </label>
+								</div>
+								<p class="text-red">Your images must be greater than 1000x1000 px</p>
+							  </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="" class="col-md-4 control-label sr-only">Confirm Password</label>
+                            <div class="col-md-8">
+                              <div class="g-vsap"></div>
+                              <button type="submit" class="btn btn-default btn-core btn-block">UPDATE</button>
+                              <div class="g-vsap3"></div>
+                              <small class="delete-airwork pull-right">Delete atrwork</small>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="g-vsap9"></div>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section>
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+			<div class="g-vsap1-2"></div>
+            <div class="col-md-12 col-sm-12">
+              <div class="front-footer">
+                <div class="social-wrapper">
+                  <div class="col-md-12 col-sm-12">
+                    <div class="special-link">
+                      <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="site-map">
+                          <ul class="list-unstyled">
+                            <li><a href="javascript:;">About</a></li>
+                            <li><a href="javascript:;"><i class="fa fa-envelope"></i> Contact</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="social-share pull-right">
+                          <ul class="list-inline">
+                            <li><a href="javascript:;"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="javascript:;"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="javascript:;"><i class="fa fa-google-plus"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+		</div>
+	</footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+	<!-- Drag And Drop -->
+	<script type="text/javascript" src="js/drag-drop/demo-preview.min.js"></script>
+	<script type="text/javascript" src="js/drag-drop/dmuploader.min.js"></script>
+	<!-- custom -->
+    <script src="js/custom.js"></script>
+	<!-- Drag And Drop -->
+	<script type="text/javascript">
+	$('#drag-and-drop-zone').dmUploader({
+        url: 'upload.php',
+        dataType: 'json',
+        allowedTypes: 'image/*',
+        onInit: function(){
+          $.danidemo.addLog('#demo-debug', 'default', 'Plugin initialized correctly');
+        },
+        onBeforeUpload: function(id){
+          $.danidemo.addLog('#demo-debug', 'default', 'Starting the upload of #' + id);
+
+          $.danidemo.updateFileStatus(id, 'default', 'Uploading...');
+        },
+        onNewFile: function(id, file){
+          $.danidemo.addFile('#demo-files2', id, file);
+
+          /*** Begins Image preview loader ***/
+          if (typeof FileReader !== "undefined"){
+            
+            var reader = new FileReader();
+
+            // Last image added
+            var img = $('#demo-files2').find('.demo-image-preview').eq(0);
+
+            reader.onload = function (e) {
+              img.attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(file);
+
+          } else {
+            // Hide/Remove all Images if FileReader isn't supported
+            $('#demo-files2').find('.demo-image-preview').remove();
+          }
+          /*** Ends Image preview loader ***/
+
+        },
+        onComplete: function(){
+          $.danidemo.addLog('#demo-debug', 'default', 'All pending tranfers completed');
+        },
+        onUploadProgress: function(id, percent){
+          var percentStr = percent + '%';
+          $.danidemo.updateFileProgress(id, percentStr);
+        },
+        onUploadSuccess: function(id, data){
+          $.danidemo.addLog('#demo-debug', 'success', 'Upload of file #' + id + ' completed');
+
+          $.danidemo.addLog('#demo-debug', 'info', 'Server Response for file #' + id + ': ' + JSON.stringify(data));
+
+          $.danidemo.updateFileStatus(id, 'success', 'Upload Complete');
+
+          $.danidemo.updateFileProgress(id, '100%');
+        },
+        onUploadError: function(id, message){
+          $.danidemo.updateFileStatus(id, 'error', message);
+
+          $.danidemo.addLog('#demo-debug', 'error', 'Failed to Upload file #' + id + ': ' + message);
+        },
+        onFileTypeError: function(file){
+          $.danidemo.addLog('#demo-debug', 'error', 'File \'' + file.name + '\' cannot be added: must be an image');
+        },
+        onFileSizeError: function(file){
+          $.danidemo.addLog('#demo-debug', 'error', 'File \'' + file.name + '\' cannot be added: size excess limit');
+        },
+        onFallbackMode: function(message){
+          $.danidemo.addLog('#demo-debug', 'info', 'Browser not supported(do something else here!): ' + message);
+        }
+      });
+	  </script>
+  </body>
+</html>
