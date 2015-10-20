@@ -18,6 +18,7 @@
 		4787ED5A1B9A611700C144B4 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4787ED581B9A611700C144B4 /* GooglePlus.bundle */; };
 		8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C00DD211B890222009450BD /* SendingPictureViewController.swift */; };
 		8C0C7BBC1BC4742100F37623 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0C7BBB1BC4742100F37623 /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8C0CFAD01BCD4F0E00512114 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */; };
 		8C260A991BAB64A800BAACC5 /* FocusSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */; };
 		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
@@ -73,6 +74,7 @@
 		8AD0F9C24310683E04E3BFD9 /* Pods-PopsArt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopsArt.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopsArt/Pods-PopsArt.release.xcconfig"; sourceTree = "<group>"; };
 		8C00DD211B890222009450BD /* SendingPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendingPictureViewController.swift; sourceTree = "<group>"; };
 		8C0C7BBB1BC4742100F37623 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = ../ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
 		8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareView.swift; sourceTree = "<group>"; };
 		8C2655741B7ED08100648FC5 /* PopsArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopsArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
 				8CFA9BBF1BC4051A00E8A116 /* SignInViewController.swift */,
 				8C0C7BBB1BC4742100F37623 /* SignUpViewController.swift */,
+				8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */,
 				8C00DD211B890222009450BD /* SendingPictureViewController.swift */,
 				8CFEA6861B8D344E00826DB1 /* ResultViewController.swift */,
 				8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */,
@@ -421,6 +424,7 @@
 				8CFA9BC21BC4078B00E8A116 /* Button.swift in Sources */,
 				8CF30E4B1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift in Sources */,
 				8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */,
+				8C0CFAD01BCD4F0E00512114 /* ResetPasswordViewController.swift in Sources */,
 				8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */,
 				8CF30E451B97D47F00F97DA3 /* MenuViewController.swift in Sources */,
 				8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */,

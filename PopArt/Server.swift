@@ -14,6 +14,7 @@ import Locksmith
 
 let SERVER_ADDRESS = "popart-app.com"
 let SERVER_PORT = 5200
+//let API_ADDRESS = "popart-app.com"
 let API_ADDRESS = "192.168.0.175"
 let API_PORT = 3000
 
@@ -42,43 +43,73 @@ class Server {
         do {
             let opt = try HTTP.POST(signInUrl, parameters: ["email": email, "password": password])
             
-            opt.start { response in
-                dispatch_async(dispatch_get_main_queue(), {
-                    loading.stopAnimating()
-                })
-                
-                if let err = response.error {
-                    print("error: \(err.localizedDescription)")
-                    self.displayAlert("Error", message: err.localizedDescription, sender: sender)
-                    return
-                }
-                
-                let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
-                
-                let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
-                let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
-                
-                do {
-                    if let data = json!["data"] as? NSDictionary {
-                        let email = data["email"] as! String
-                        let first_name = data["first_name"] as! String
-                        let last_name = data["last_name"] as! String
-                        let image = data["image"] as! String
-                        let token: String = response.headers!["Access-Token"]!
-                        
-                        try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token)
-                        
-                        self.authenticateUser("SignInViewController")
-                    } else {
-                        print("Error: Invalid JSON")
-                    }
-                } catch let error {
-                    print("Error: \(error)")
-                }
-            }
+            self.doSignRequest(opt, sender: sender, loading: loading)
         } catch let error {
             loading.stopAnimating()
             print("Error: \(error)")
+        }
+    }
+    
+    func doSignUp(sender: UIViewController, email: String, password: String, first_name: String, last_name: String) {
+        let loading = self.displayLoading(sender.view)
+        
+        doSignOut()
+        
+        do {
+            let opt = try HTTP.POST(signUpUrl, parameters: ["email": email, "password": password, "first_name": first_name, "last_name": last_name])
+            
+            self.doSignRequest(opt, sender: sender, loading: loading)
+        } catch let error {
+            loading.stopAnimating()
+            print("Error: \(error)")
+        }
+    }
+    
+    func doSignRequest(opt: HTTP, sender: UIViewController, loading: UIActivityIndicatorView) {
+        opt.start { response in
+            dispatch_async(dispatch_get_main_queue(), {
+                loading.stopAnimating()
+            })
+            
+            let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+            let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+            let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+            
+            if let err = response.error {
+                print("error: \(err.localizedDescription)")
+                print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
+                
+                var alertMessage = err.localizedDescription
+                if let errors = json!["errors"] as? NSDictionary {
+                    if let fullMessages = errors["full_messages"] as? NSArray {
+                        alertMessage = fullMessages.componentsJoinedByString("\n")
+                    }
+                } else if let singleError = json!["errors"] as? NSArray {
+                    alertMessage = singleError.componentsJoinedByString("\n")
+                }
+                
+                self.displayAlert("Error", message: alertMessage, sender: sender)
+                
+                return
+            }
+            
+            do {
+                if let data = json!["data"] as? NSDictionary {
+                    let email = data["email"] as! String
+                    let first_name = data["first_name"] as! String
+                    let last_name = data["last_name"] as! String
+                    let image = data["image"] as! String
+                    let token: String = response.headers!["Access-Token"]!
+                    
+                    try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token)
+                    
+                    self.authenticateUser("SignInViewController")
+                } else {
+                    print("Error: Invalid JSON")
+                }
+            } catch let error {
+                print("Error: \(error)")
+            }
         }
     }
     
@@ -90,9 +121,9 @@ class Server {
         }
     }
     
-    func saveAccount(email: String, first_name: String, last_name: String, image: String, token: String) throws -> Account {
+    func saveAccount(uid: String, first_name: String, last_name: String, image: String, token: String) throws -> Account {
         let account = Account(
-            email: email,
+            uid: uid,
             first_name: first_name,
             last_name: last_name,
             image: image,
@@ -106,18 +137,20 @@ class Server {
     func authenticateUser(caller: String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var rootControllerIdentifier: String?
+        
+        var rootControllerIdentifier = "SignInViewController"
         
         if userSignedIn() {
-            rootControllerIdentifier = "ViewController"
-        } else {
-            rootControllerIdentifier = "SignInViewController"
+            if let account = Account.load() {
+                print(account.token)
+                rootControllerIdentifier = "ViewController"
+            }
         }
         
         if caller != rootControllerIdentifier {
             if let window = appDelegate.window {
                 NSOperationQueue.mainQueue().addOperationWithBlock {
-                    let rootController = storyboard.instantiateViewControllerWithIdentifier(rootControllerIdentifier!)
+                    let rootController = storyboard.instantiateViewControllerWithIdentifier(rootControllerIdentifier)
                     window.rootViewController = rootController
                 }
             }
@@ -125,8 +158,7 @@ class Server {
     }
     
     func userSignedIn() -> Bool {
-        if let account = Account.load() {
-            print(account)
+        if let _ = Account.load() {
             return true
         } else {
             return false
