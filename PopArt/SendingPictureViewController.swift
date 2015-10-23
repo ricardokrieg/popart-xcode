@@ -33,14 +33,6 @@ class SendingPictureViewController: UIViewController {
         if pickedImage != nil {
             imageContainer.contentMode = .ScaleAspectFit
             imageContainer.image = compressImage(pickedImage!)
-//            imageContainer.image = pickedImage
-        } else {
-//            if let url = NSURL(string: "http://www.vangoghbikes.com/wp-content/uploads/2014/12/Johannes_Vermeer_1632-1675_-_The_Girl_With_The_Pearl_Earring_1665-2.jpg") {
-//                if let data = NSData(contentsOfURL: url){
-//                    imageContainer.contentMode = .ScaleAspectFit
-//                    imageContainer.image = compressImage(UIImage(data: data)!)
-//                }
-//            }
         }
         
         // Get location
@@ -56,11 +48,6 @@ class SendingPictureViewController: UIViewController {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             if self.imageContainer.image != nil {
                 let imageData = UIImageJPEGRepresentation(self.imageContainer.image!, 0.5)
-//                let imageDataBase64 = imageData!.base64EncodedStringWithOptions([])
-//                let imageDataString = NSString(data: imageData, encoding: NSUTF8StringEncoding)
-                
-//                let message_code = "IDENTIFY64"
-//                let message_code = "IDENTIFY"
                 
                 var message_lat = ""
                 var message_lng = ""
@@ -70,10 +57,6 @@ class SendingPictureViewController: UIViewController {
                 if server.location != nil {
                     message_lat = String(stringInterpolationSegment: server.location!.coordinate.latitude)
                     message_lng = String(stringInterpolationSegment: server.location!.coordinate.longitude)
-//                    if let coordinate = server.location!.coordinate {
-//                        message_lat = String(stringInterpolationSegment: coordinate.latitude)
-//                        message_lng = String(stringInterpolationSegment: coordinate.longitude)
-//                    }
                 }
                 
                 if server.placemark != nil {
@@ -85,19 +68,6 @@ class SendingPictureViewController: UIViewController {
                         message_location_country = String(msg_location_country)
                     }
                 }
-                
-//                let message_size = imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
-//                let message_data = imageDataBase64
-//                let message_size = imageDataString!.length
-//                let message_data = imageDataString
-            
-//                let message = "\(message_code):\(message_lat):\(message_lng):\(message_location_area):\(message_location_country):\(message_size):\(message_data)"
-                
-//                server.connect()
-//                server.send(message)
-                
-//                let params: Dictionary<String, AnyObject> = ["image64": message_data, "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
-                
                 
                 let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
                 
@@ -128,62 +98,7 @@ class SendingPictureViewController: UIViewController {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.statusLabel.text = "Searching"
                 }
-//                if let response = server.read() {
-//                    server.disconnect()
-//                    
-//                    self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
-//                    self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
-//                }
-                
-                /*
-                if false {
-                server.send("identify")
-            
-                if let response = server.read() {
-                    if response == "ok" {
-//                        if currentLocation != nil {
-//                            server.send("geolocation")
-//            
-//                            if let response = server.read() {
-//                                if response == "ok" {
-//                                    server.send(JSON([currentLocation?.coordinate.latitude, currentLocation?.coordinate.longitude].description).stringValue)
-//                                
-//                                    server.read()
-//                                }
-//                            }
-//                        }
-                    
-                        server.send("image-data")
-                    
-                        if let response = server.read() {
-                            if response == "ok" {
-                                server.send("\(imageDataBase64.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)):\(imageDataBase64)")
-                            
-                                if let response = server.read() {
-                                    if response == "acknowledge" {
-                                        server.send("done")
-                                        
-                                        dispatch_async(dispatch_get_main_queue()) {
-                                            self.statusLabel.text = "Searching"
-                                        }
-                                    
-                                        if let response = server.read() {
-                                            server.disconnect()
-                                            
-                                            self.result = response.dataUsingEncoding(NSUTF8StringEncoding)
-                                            self.performSegueWithIdentifier("fromSendingPictureToResult", sender: nil)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    }
-                }
-                */
             }
-            
-//            dispatch_async(dispatch_get_main_queue()) {}
         }
         
         server.shouldSend = false
@@ -191,7 +106,6 @@ class SendingPictureViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -242,15 +156,5 @@ class SendingPictureViewController: UIViewController {
         
         return UIImage(data: imageData!)!
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

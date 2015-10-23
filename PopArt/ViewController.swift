@@ -52,10 +52,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         let screenBounds = view.bounds
                         let autoFocusPoint = CGPointMake(point.x/screenBounds.size.width, point.y/screenBounds.size.height)
                 
-//                        println("Tap: \(point)")
-//                        println("Bounds: \(screenBounds)")
-//                        println("FocusPoint: \(autoFocusPoint)")
-                
                         focusSquare.center.x = point.x
                         focusSquare.center.y = point.y
                 
@@ -130,7 +126,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print("Camera")
         
         if captureDevice == nil {
-//            performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
             print("fallback to library")
             
             pickedImage = nil
@@ -253,7 +248,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func sliderValueChanged(sender: AnyObject) {
         print(slider.value)
         
-        var hardwareZoom = false
+//        var hardwareZoom = false
         
         if let device = captureDevice {
             if device.respondsToSelector("videoZoomFactor") {
@@ -263,7 +258,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     device.videoZoomFactor = CGFloat(slider.value)
 
                     device.unlockForConfiguration()
-                    hardwareZoom = true
+//                    hardwareZoom = true
                 } catch _ {
                     print("could not lock")
                 }
@@ -274,7 +269,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("No device")
         }
         
-        if !hardwareZoom {
+//        if !hardwareZoom {
 //            let frame = captureDevice.frame
 //            let width = frame.size.width * slider.value
 //            let height = frame.size.height * slider.value
@@ -282,26 +277,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            let y = (frame.size.height - height)/2
 //            
 //            captureDevice.bounds = CGRectMake(x, y, width, height)
-        }
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        server.authenticateUser("ViewController")
+        server.authenticateUser("ViewController", checkToken: true)
         
         server.ping(self)
-//        // Ask for Authorization from the User.
-//        self.locationManager.requestAlwaysAuthorization()
-        
-        // For use in foreground
+
         self.locationManager.requestWhenInUseAuthorization()
         
-//        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-//        }
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
         
         imagePicker.delegate = self
         
@@ -337,7 +327,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidLayoutSubviews() {
@@ -393,13 +382,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let device = captureDevice {
             do {
                 try device.lockForConfiguration()
-//                if device.isFocusModeSupported(AVCaptureFocusMode.ContinuousAutoFocus) {
-//                    println("focus: ContinuousAutoFocus")
-//                    device.focusMode = AVCaptureFocusMode.ContinuousAutoFocus
-//                } else if device.isFocusModeSupported(AVCaptureFocusMode.AutoFocus) {
-//                    println("focus: AutoFocus")
-//                    device.focusMode = AVCaptureFocusMode.AutoFocus
-//                }
                 
                 if device.respondsToSelector("setVideoZoomFactor:") {
                     slider.maximumValue = min(Float(device.activeFormat.videoMaxZoomFactor), 10.0)
@@ -502,7 +484,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: UIPopoverPresentationControllerDelegate
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        // Return no adaptive presentation style, use default presentation behaviour
         return .None
     }
     
@@ -520,19 +501,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 self.locationManager.stopUpdatingLocation()
                 
-//                println(placemark.locality)
-//                println(placemark.postalCode)
-//                println(placemark.administrativeArea)
-//                println(placemark.country)
-                
                 server.location = manager.location
                 server.placemark = placemark
             } else {
                 print("Problem with the data received from geocoder")
             }
         })
-        
-//        println("location (\(manager.location.coordinate.latitude), \(manager.location.coordinate.longitude))")
     }
     
 }

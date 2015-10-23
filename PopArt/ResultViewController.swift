@@ -81,9 +81,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             // Create a bitmap graphics context
             let newImage = self.resultImage.image!.imageWithNewSize(CGSizeMake(640, 640))
-
-            
-//            library.writeImageToSavedPhotosAlbum:scaledImage.CGImage orientation:(ALAssetOrientation)image.imageOrientation completionBlock:^(NSURL assetURL, NSError error) {
             
             library.writeImageToSavedPhotosAlbum(newImage.CGImage, metadata:nil , completionBlock: { ( asseturl: NSURL! , error: NSError!) -> Void in
                 
@@ -100,25 +97,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             alertCont.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alertCont, animated: true, completion: nil);
         }
-        
-//        if result != nil {
-//            let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(result!, options: nil, error: nil)
-//            
-//            var result_image_url = json?["image_url"] as? String?
-//            
-//            
-//            var shareBuilder =        GPPShare.sharedInstance().shareDialog();
-//            shareBuilder.setURLToShare(NSURL(string: "\(result_image_url)" ));
-//            
-//            shareBuilder.open();
-//
-//        }
-        
-//        if let title = resultTitle {
-//            twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
-//        }
-//        
-//        twitterSheet.addImage(resultImage?.image)
     }
     
     @IBAction func mailButtonClicked(sender: AnyObject) {
@@ -129,7 +107,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             UIImageJPEGRepresentation((resultImage?.image)!, 1)
             
             mc.addAttachmentData(UIImageJPEGRepresentation((resultImage?.image)!, 1)!, mimeType: "image/jpeg", fileName: "image.jpeg")
-            //        self.showViewController(mc, sender: self)
             self.presentViewController(mc, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Email account to share.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -144,8 +121,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -182,8 +157,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                         }
                     }
                 }
-                
-//                dispatch_async(dispatch_get_main_queue()) {}
             }
             
             if result_title != nil {
@@ -267,7 +240,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Navigation
@@ -288,7 +260,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     // MARK: UIPopoverPresentationControllerDelegate
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        // Return no adaptive presentation style, use default presentation behaviour
         return .None
     }
 }

@@ -38,7 +38,6 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }    
 
     // MARK: - Navigation
@@ -78,7 +77,6 @@ class PageViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // MARK: UIPopoverPresentationControllerDelegate
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        // Return no adaptive presentation style, use default presentation behaviour
         return .None
     }
 }
