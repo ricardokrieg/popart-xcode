@@ -9,8 +9,6 @@ $(function(){
 	});
 });
 
-
-
 // When the document is ready
 $(document).ready(function () {
 	
