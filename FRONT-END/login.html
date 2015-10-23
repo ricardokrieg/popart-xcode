@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href="css/component.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -21,7 +22,8 @@
     <![endif]-->
   </head>
   <body>
-    <section class="front-login">
+  <div class="wrap">
+    <section id="wrap" class="front-login">
       <div class="front-wrapper">
         <div class="container">
           <div class="row">
@@ -34,9 +36,9 @@
                     <center><img src="images/port_art.png" class="img-responsive" alt="Logo not found"></center>
                   </div>
                   <div class="front-desc">
-                    <div class="g-vsap2"></div>
+                    <div class="g-vsap3"></div>
                     <h4>Art in the palm of your hand</h4>
-                    <div class="g-vsap2"></div>
+                    <div class="g-vsap3"></div>
                     <p>Mobile app that enables you to identify an artwork by photographing it.<br>Discover, share, and engage with the world of art around you.</p>
                   </div>
               </div>
@@ -50,7 +52,7 @@
 			<div class="row">
 				<div class="col-md-12 col-sm-12">
 				  <div class="front-footer">
-					<div class="g-vsap"></div>
+					<div class="g-vsap2"></div>
 					<div class="row log-in">
 					  <div class="col-md-12 col-sm-12">
 						<div class="login-form">
@@ -58,55 +60,49 @@
 						  <form class="form-horizontal">
 							<div class="col-md-4 col-sm-4 col-md-offset-5 col-sm-offset-5">
 								<h3>Login</h3>
-								
-								<div class="g-vsap"></div>
+								<div class="g-vsap2"></div>
 								<div class="input-group">
-								  <label class="input-group-addon">Username: <span>EMAIL |</span></label>
-								  
-								  <input type="text" class="form-control">
+								  <label class="input-group-addon">Username: </label>
+							      <input type="text" class="form-control input-color">
 								  <span class="input-group-addon"><i class="fa fa-at"></i></span>
 								</div>
-								<div class="g-vsap3"></div>
+								<div class="g-vsap"></div>
 								<div class="input-group">
 								  <span class="input-group-addon">Password:</span>
-								  <input type="text" class="form-control">
+								  <input type="text" class="form-control input-color">
 								  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 								</div>
-								<div class="g-vsap3"></div>
+								<div class="g-vsap"></div>
 								<div class="checkbox remember-me">
 								  <label><input type="checkbox"> Remember me</label>
 								  <label class="forgot-password"><a href="javascript:;">Forgot password?</a></label>
 								</div>
 							</div>
 							
-							<div class="g-vsap"></div>
+							<div class="g-vsap2"></div>
 							<div class="row user-action-login">
 							  <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 								<div class="action-wrapper">
-								  <div class="col-md-6 col-sm-6">
-									<button type="button" class="btn btn-default btn-responsive btn-white">Sign up</button>
-									<div class="g-vsap1"></div>
-									<small class="no-account">Don't have an account?</small>
+								  <div class="col-md-6 col-sm-6 hi-icon-effect-8">
+									<a href="signup.html" class="btn btn-default btn-responsive btn-white hi-icon">Sign up</a>
+									<div class="g-vsap"></div>
+									<small class="no-account"><a href="#">Don't have an account?</a></small>
 								  </div>
 
-								  <div class="col-md-6 col-sm-6">
-									<button type="button" class="btn btn-default pull-right btn-responsive btn-black">Login</button>
-									<div class="g-vsap3"></div>
+								  <div class="col-md-6 col-sm-6 hi-icon-effect-8">
+									<button type="button" class="btn btn-default pull-right btn-responsive btn-white hi-icon">Login</button>
+									<div class="g-vsap1"></div>
 								  </div>
 								</div>
 							  </div>
 							</div>
-							
-							
-							
-							
-							
+
 						  </form>
 						</div>
 					  </div>
 					</div>
 					
-					<div class="g-vsap2"></div>
+					<div class="g-vsap"></div>
 					<div class="g-vsap3"></div>
 					<div class="social-wrapper">
 					  <div class="col-md-12 col-sm-12">
@@ -114,7 +110,7 @@
 						  <div class="col-md-6 col-sm-6 col-xs-6">
 							<div class="site-map">
 							  <ul class="list-unstyled">
-								<li><a href="javascript:;">About</a></li>
+								<li><a href="about.html">About</a></li>
 								<li><a href="javascript:;"><i class="fa fa-envelope"></i> Contact</a></li>
 							  </ul>
 							</div>
@@ -131,12 +127,13 @@
 						</div>
 					  </div>
 					</div>
-					<div class="g-vsap3"></div>
+					<div class="g-vsap"></div>
 				  </div>
 				</div>
 			  </div>
 		</div>
 	</footer>
+	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

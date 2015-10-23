@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Home</title>
@@ -11,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href="css/component.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -21,7 +21,8 @@
     <![endif]-->
   </head>
   <body>
-    <section class="front-signup">
+  <div class="wrap">
+    <section id="wrap" class="front-signup">
       <div class="front-wrapper">
         <div class="container">
           <div class="row">
@@ -34,9 +35,9 @@
                     <center><img src="images/port_art.png" class="img-responsive" alt="Logo not found"></center>
                   </div>
                   <div class="front-desc">
-                    <div class="g-vsap2"></div>
+                    <div class="g-vsap3"></div>
                     <h4>Art in the palm of your hand</h4>
-                    <div class="g-vsap2"></div>
+                    <div class="g-vsap3"></div>
                     <p>Mobile app that enables you to identify an artwork by photographing it.<br>Discover, share, and engage with the world of art around you.</p>
                   </div>
               </div>
@@ -50,8 +51,7 @@
 			<div class="row">
             <div class="col-md-12 col-sm-12">
               <div class="front-footer">
-                <div class="g-vsap1"></div>
-				<div class="g-vsap5"></div>
+                <div class="g-vsap6"></div>
                 <div class="row sign-up">
                   <div class="col-md-12 col-sm-12">
                     <div class="signup-form">
@@ -61,47 +61,45 @@
 								<div class="g-vsap1"></div>
 							<div class="input-group">
 							  <span class="input-group-addon">First Name:</span>
-							  <input type="text" class="form-control">
+							  <input type="text" class="form-control input-color">
 							  <span class="input-group-addon"><i class="fa fa-user"></i></span>
 							</div>
-							<div class="g-vsap3"></div>
+							<div class="g-vsap"></div>
 							<div class="input-group">
 							  <span class="input-group-addon">Last Name:</span>
-							  <input type="text" class="form-control">
+							  <input type="text" class="form-control input-color">
 							  <span class="input-group-addon"><i class="fa fa-user"></i></span>
 							</div>
-							<div class="g-vsap3"></div>
+							<div class="g-vsap"></div>
 							<div class="input-group">
-							  <label class="input-group-addon">Username: <span>EMAIL|</span></label>
-							  <input type="text" class="form-control">
+							  <label class="input-group-addon">Username: </label>
+							  <input type="text" class="form-control input-color">
 							  <span class="input-group-addon"><i class="fa fa-at"></i></span>
 							</div>
-							<div class="g-vsap3"></div>
+							<div class="g-vsap"></div>
 							<div class="input-group">
 							  <span class="input-group-addon">Password:</span>
-							  <input type="text" class="form-control">
+							  <input type="text" class="form-control input-color">
 							  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 							</div>
-							<div class="g-vsap3"></div>
+							<div class="g-vsap"></div>
 							<p class="service-terms">By signing up, I agree to PopsArt's <a href="javascript:;">Terms of Service</a> and <a href="javascript:;">Privacy Policy</a></p>
 						</div>
 						
-						<div class="g-vsap3"></div>
+						<div class="g-vsap"></div>
 						<div class="row user-action-signup">
 						  <div class="col-md-6 col-md-offset-3 col-sm-6">
 							<div class="action-wrapper">
-								<div class="col-md-6 col-sm-6 padding-0">
-									<button type="button" class="btn btn-default btn-white btn-responsive">Sign up</button>
+								<div class="col-md-6 col-sm-6 padding-0 hi-icon-effect-8">
+									<button type="button" class="btn btn-default btn-white btn-responsive hi-icon">Sign up</button>
+									<div class="g-vsap2"></div>
+								</div>
+
+								<div class="col-md-6 col-sm-6 text-right hi-icon-effect-8">
+									<a href="login.html" class="btn btn-default btn-white btn-responsive hi-icon">Login</a>
 									<div class="g-vsap"></div>
+									<small class="popart-memner pull-right"><a href="#">Already a PopsArt member?</a></small>
 								</div>
-							  
-								<div class="col-md-6 col-sm-6 text-right">
-									<button type="button" class="btn btn-default btn-black btn-responsive">Login</button>
-									<div class="g-vsap3"></div>
-									<small class="popart-memner pull-right">Already a PopsArt member?</small>
-								</div>
-							  
-							  
 							</div>
 						  </div>
 						</div>
@@ -111,7 +109,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="g-vsap2"></div>
+                <div class="g-vsap"></div>
                 <div class="g-vsap3"></div>
                 <div class="social-wrapper">
                   <div class="col-md-12 col-sm-12">
@@ -119,7 +117,7 @@
                       <div class="col-md-6 col-sm-6 col-xs-6">
                         <div class="site-map">
                           <ul class="list-unstyled">
-                            <li><a href="javascript:;">About</a></li>
+                            <li><a href="about.html">About</a></li>
                             <li><a href="javascript:;"><i class="fa fa-envelope"></i> Contact</a></li>
                           </ul>
                         </div>
@@ -136,13 +134,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="g-vsap3"></div>
+                <div class="g-vsap"></div>
               </div>
             </div>
           </div>
 
 		</div>
 	</footer>
+</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
