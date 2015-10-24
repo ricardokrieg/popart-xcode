@@ -699,6 +699,7 @@ span.glyphicon-triangle-top{margin-left:5px;top:3px}
 @media only screen and (max-width: 767px){
 	.hi-icon{margin:0 !important;}
 	.action-wrapper small{padding-bottom:15px}
+	.our-team ul > li{height:180px;}
 }
 @media only screen and (max-width: 640px){
 	.painting-setting>h3{overflow:hidden;}
@@ -712,10 +713,10 @@ span.glyphicon-triangle-top{margin-left:5px;top:3px}
 	ul.top-search li{float:none}
 	ul.top-search{top:0}
 	.painting-setting ul li span{position:relative;top:-11px;}
-}
-@media only screen and (max-width: 480px){
 	.our-team ul>li{width:50%}
+	.hi-heddin{display:none !important}
 }
+
 @media only screen and (max-width: 410px){
 	.datepicker{left:25px !important}
 }
