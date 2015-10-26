@@ -26,6 +26,7 @@ class Server {
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
     let signInUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/sign_in"
     let signUpUrl = "http://\(API_ADDRESS):\(API_PORT)/auth"
+    let resetPasswordUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/password"
     let validateTokenUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/validate_token"
     
     var location: CLLocation?
@@ -44,7 +45,7 @@ class Server {
         do {
             let opt = try HTTP.POST(signInUrl, parameters: ["email": email, "password": password])
             
-            self.doSignRequest(opt, sender: sender, loading: loading)
+            self.doSignRequest(opt, sender: sender, loading: loading, skipSaveAccount: false)
         } catch let error {
             loading.stopAnimating()
             print("Error: \(error)")
@@ -59,14 +60,27 @@ class Server {
         do {
             let opt = try HTTP.POST(signUpUrl, parameters: ["email": email, "password": password, "first_name": first_name, "last_name": last_name])
             
-            self.doSignRequest(opt, sender: sender, loading: loading)
+            self.doSignRequest(opt, sender: sender, loading: loading, skipSaveAccount: false)
         } catch let error {
             loading.stopAnimating()
             print("Error: \(error)")
         }
     }
     
-    func doSignRequest(opt: HTTP, sender: UIViewController, loading: UIActivityIndicatorView) {
+    func doResetPassword(sender: UIViewController, email: String) {
+        let loading = self.displayLoading(sender.view)
+        
+        do {
+            let opt = try HTTP.POST(resetPasswordUrl, parameters: ["email": email, "redirect_url": http_url])
+            
+            self.doSignRequest(opt, sender: sender, loading: loading, skipSaveAccount: true)
+        } catch let error {
+            loading.stopAnimating()
+            print("Error: \(error)")
+        }
+    }
+    
+    func doSignRequest(opt: HTTP, sender: UIViewController, loading: UIActivityIndicatorView, skipSaveAccount: Bool) {
         opt.start { response in
             dispatch_async(dispatch_get_main_queue(), {
                 loading.stopAnimating()
@@ -94,23 +108,25 @@ class Server {
                 return
             }
             
-            do {
-                if let data = json!["data"] as? NSDictionary {
-                    let email = data["email"] as! String
-                    let first_name = data["first_name"] as! String
-                    let last_name = data["last_name"] as! String
-                    let image = data["image"] as! String
-                    let token: String = response.headers!["Access-Token"]!
-                    let client: String = response.headers!["Client"]!
+            if skipSaveAccount {
+                do {
+                    if let data = json!["data"] as? NSDictionary {
+                        let email = data["email"] as! String
+                        let first_name = data["first_name"] as! String
+                        let last_name = data["last_name"] as! String
+                        let image = data["image"] as! String
+                        let token: String = response.headers!["Access-Token"]!
+                        let client: String = response.headers!["Client"]!
                     
-                    try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token, client: client)
+                        try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token, client: client)
                     
-                    self.authenticateUser("SignInViewController", checkToken: false)
-                } else {
-                    print("Error: Invalid JSON")
+                        self.authenticateUser("SignInViewController", checkToken: false)
+                    } else {
+                        print("Error: Invalid JSON")
+                    }
+                } catch let error {
+                    print("Error: \(error)")
                 }
-            } catch let error {
-                print("Error: \(error)")
             }
         }
     }

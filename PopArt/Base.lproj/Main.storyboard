@@ -935,7 +935,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="dQ9-hu-bss" kind="unwind" unwindAction="goToSignIn:" id="YA7-Lv-1cw"/>
+                                    <segue destination="dQ9-hu-bss" kind="unwind" unwindAction="goToSignIn:" id="mfp-yV-jEG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cI-9g-wfj" customClass="Button" customModule="PopsArt" customModuleProvider="target">
@@ -951,6 +951,9 @@
                                         <exclude reference="Vbc-AP-J4M"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="resetButtonClicked:" destination="WuT-ce-iYX" eventType="touchUpInside" id="Zs3-vf-ydl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1005,6 +1008,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="emailField" destination="ID8-NQ-2i6" id="yR0-n9-K8c"/>
                         <outlet property="iAgreeLabel" destination="t4y-2R-t4H" id="f4P-Cu-uo6"/>
                     </connections>
                 </viewController>

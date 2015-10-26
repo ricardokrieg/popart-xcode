@@ -10,8 +10,12 @@ import UIKit
 import TTTAttributedLabel
 
 class ResetPasswordViewController: UIViewController {
-
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var iAgreeLabel: TTTAttributedLabel!
+    
+    @IBAction func resetButtonClicked(sender: AnyObject) {
+        server.doResetPassword(self, email: emailField.text!)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
