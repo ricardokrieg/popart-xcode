@@ -14,9 +14,10 @@ import Locksmith
 
 let SERVER_ADDRESS = "popart-app.com"
 let SERVER_PORT = 5200
-//let API_ADDRESS = "popart-app.com"
-let API_ADDRESS = "192.168.0.175"
-let API_PORT = 3000
+let API_ADDRESS = "popart-app.com"
+//let API_ADDRESS = "192.168.0.175"
+let API_PORT = 80
+//let API_PORT = 3000
 
 class Server {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -24,9 +25,10 @@ class Server {
     var shouldSend = false
     
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
-    let signInUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/sign_in"
-    let signUpUrl = "http://\(API_ADDRESS):\(API_PORT)/auth"
-    let validateTokenUrl = "http://\(API_ADDRESS):\(API_PORT)/auth/validate_token"
+    let signInUrl = "http://popart-app.com/auth/sign_in"
+    let signUpUrl = "http://popart-app.com/auth"
+    let resetPasswordUrl = "http://popart-app.com/auth/password"
+    let validateTokenUrl = "http://popart-app.com/auth/validate_token"
     
     var location: CLLocation?
     var placemark: CLPlacemark?
@@ -66,6 +68,51 @@ class Server {
         }
     }
     
+    func doResetPassword(sender: UIViewController, email: String) {
+        let loading = self.displayLoading(sender.view)
+        
+        do {
+            let opt = try HTTP.POST(resetPasswordUrl, parameters: ["email": email, "redirect_url": "http://\(API_ADDRESS):\(API_PORT)"])
+            
+            opt.start { response in
+                dispatch_async(dispatch_get_main_queue(), {
+                    loading.stopAnimating()
+                })
+                
+                let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+                
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
+                    
+                    var alertMessage = err.localizedDescription
+                    if let errors = json!["errors"] as? NSDictionary {
+                        if let fullMessages = errors["full_messages"] as? NSArray {
+                            alertMessage = fullMessages.componentsJoinedByString("\n")
+                        }
+                    } else if let singleError = json!["errors"] as? NSArray {
+                        alertMessage = singleError.componentsJoinedByString("\n")
+                    }
+                    
+                    self.displayAlert("Error", message: alertMessage, sender: sender)
+                    
+                    return
+                }
+                
+                if let message = json!["message"] as? String {
+                    self.displayAlert("Info", message: message, sender: sender)
+                } else {
+                    print("Error: Invalid JSON")
+                }
+            }
+        } catch let error {
+            loading.stopAnimating()
+            print("Error: \(error)")
+        }
+    }
+    
     func doSignRequest(opt: HTTP, sender: UIViewController, loading: UIActivityIndicatorView) {
         opt.start { response in
             dispatch_async(dispatch_get_main_queue(), {
@@ -99,11 +146,14 @@ class Server {
                     let email = data["email"] as! String
                     let first_name = data["first_name"] as! String
                     let last_name = data["last_name"] as! String
-                    let image = data["image"] as! String
+                    var image_url = ""
+                    if let image = data["image"] as? NSDictionary {
+                        image_url = image["url"] as! String
+                    }
                     let token: String = response.headers!["Access-Token"]!
                     let client: String = response.headers!["Client"]!
                     
-                    try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token, client: client)
+                    try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image_url, token: token, client: client)
                     
                     self.authenticateUser("SignInViewController", checkToken: false)
                 } else {
@@ -189,11 +239,14 @@ class Server {
                         let email = data["email"] as! String
                         let first_name = data["first_name"] as! String
                         let last_name = data["last_name"] as! String
-                        let image = data["image"] as! String
+                        var image_url = ""
+                        if let image = data["image"] as? NSDictionary {
+                            image_url = image["url"] as! String
+                        }
                         let token: String = account.token
                         let client: String = account.client
                                 
-                        try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image, token: token, client: client)
+                        try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image_url, token: token, client: client)
                     } else {
                         print("Error: Invalid JSON")
                         success = false
