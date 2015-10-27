@@ -9,11 +9,12 @@
         <attribute name="result_description_l1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="result_description_l2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="result_description_l3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result_detailed_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="result_image_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="result_title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumb_image_url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Painting" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Painting" positionX="-63" positionY="-18" width="128" height="225"/>
     </elements>
 </model>

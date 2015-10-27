@@ -28,7 +28,14 @@ class Server {
     let signInUrl = "http://popart-app.com/auth/sign_in"
     let signUpUrl = "http://popart-app.com/auth"
     let resetPasswordUrl = "http://popart-app.com/auth/password"
+    let resetPasswordRedirectUrl = "http://popart-app.com/auth/password"
+    let updateProfileUrl = "http://popart-app.com/auth/"
     let validateTokenUrl = "http://popart-app.com/auth/validate_token"
+    let createTicketUrl = "http://popart-app.com/tickets.json"
+    
+    let termsOfServiceUrl = "http://\(API_ADDRESS)/pages/terms-of-service"
+    let privacyPolicyUrl = "http://\(API_ADDRESS)/pages/privacy-policy"
+    let aboutUsUrl = "http://\(API_ADDRESS)/pages/about-us"
     
     var location: CLLocation?
     var placemark: CLPlacemark?
@@ -72,7 +79,7 @@ class Server {
         let loading = self.displayLoading(sender.view)
         
         do {
-            let opt = try HTTP.POST(resetPasswordUrl, parameters: ["email": email, "redirect_url": "http://\(API_ADDRESS):\(API_PORT)"])
+            let opt = try HTTP.POST(resetPasswordUrl, parameters: ["email": email, "redirect_url": resetPasswordRedirectUrl])
             
             opt.start { response in
                 dispatch_async(dispatch_get_main_queue(), {
@@ -106,6 +113,141 @@ class Server {
                 } else {
                     print("Error: Invalid JSON")
                 }
+            }
+        } catch let error {
+            loading.stopAnimating()
+            print("Error: \(error)")
+        }
+    }
+    
+    func doUpdateProfile(sender: UIViewController, first_name: String, last_name: String, email: String, password: String, image: UIImage?) {
+        let loading = self.displayLoading(sender.view)
+        
+        do {
+            if let account = Account.load() {
+                let uid = account.uid
+                let token = account.token
+                let client = account.client
+                
+                var parameters: Dictionary<String, AnyObject> = ["uid": uid, "access-token": token, "client": client, "first_name": first_name, "last_name": last_name, "email": email]
+                
+                if password != "" {
+                    parameters["password"] = password
+                }
+                
+                if image != nil {
+                    parameters["image"] = Upload(data: UIImagePNGRepresentation(image!)!, fileName: "upload.png", mimeType: "image/png")
+                }
+            
+                let opt = try HTTP.PUT(updateProfileUrl, parameters: parameters)
+            
+                opt.start { response in
+                    dispatch_async(dispatch_get_main_queue(), {
+                        loading.stopAnimating()
+                    })
+                
+                    let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                    let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                    let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+                
+                    print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
+                    if let err = response.error {
+                        print("error: \(err.localizedDescription)")
+                        print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
+                    
+                        var alertMessage = err.localizedDescription
+                        if let errors = json!["errors"] as? NSDictionary {
+                            if let fullMessages = errors["full_messages"] as? NSArray {
+                                alertMessage = fullMessages.componentsJoinedByString("\n")
+                            }
+                        } else if let singleError = json!["errors"] as? NSArray {
+                            alertMessage = singleError.componentsJoinedByString("\n")
+                        }
+                    
+                        self.displayAlert("Error", message: alertMessage, sender: sender)
+                    
+                        return
+                    }
+                
+                    do {
+                        if let data = json!["data"] as? NSDictionary {
+                            let email = data["email"] as! String
+                            let first_name = data["first_name"] as! String
+                            let last_name = data["last_name"] as! String
+                            var image_url = ""
+                            if let image = data["image"] as? NSDictionary {
+                                image_url = image["url"] as! String
+                            }
+                            let token: String = response.headers!["Access-Token"]!
+                            let client: String = response.headers!["Client"]!
+                        
+                            try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image_url, token: token, client: client)
+                        
+                            self.displayAlert("Info", message: "Profile updated", sender: sender)
+                        } else {
+                            print("Error: Invalid JSON")
+                        }
+                    } catch let error {
+                        print("Error: \(error)")
+                    }
+                }
+            } else {
+                print("Error: Error loading Account")
+                self.displayAlert("Error", message: "Error loading Account", sender: sender)
+            }
+        } catch let error {
+            loading.stopAnimating()
+            print("Error: \(error)")
+        }
+    }
+    
+    func doCreateTicket(sender: UIViewController, subject: String, content: String) {
+        let loading = self.displayLoading(sender.view)
+        
+        do {
+            if let account = Account.load() {
+                let uid = account.uid
+                let token = account.token
+                let client = account.client
+        
+                let opt = try HTTP.POST(createTicketUrl, parameters: ["uid": uid, "access-token": token, "client": client, "ticket[subject]": subject, "ticket[content]": content])
+            
+                opt.start { response in
+                    dispatch_async(dispatch_get_main_queue(), {
+                        loading.stopAnimating()
+                    })
+                
+                    let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                    let result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                    let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+                
+                    if let err = response.error {
+                        print("error: \(err.localizedDescription)")
+                        print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
+                    
+                        var alertMessage = err.localizedDescription
+                        if let errors = json!["errors"] as? NSDictionary {
+                            if let fullMessages = errors["full_messages"] as? NSArray {
+                                alertMessage = fullMessages.componentsJoinedByString("\n")
+                            }
+                        } else if let singleError = json!["errors"] as? NSArray {
+                            alertMessage = singleError.componentsJoinedByString("\n")
+                        }
+                    
+                        self.displayAlert("Error", message: alertMessage, sender: sender)
+                    
+                        return
+                    }
+                
+                    if let message = json!["message"] as? String {
+                        self.displayAlert("Info", message: message, sender: sender)
+                    } else {
+                        print("Error: Invalid JSON")
+                    }
+                }
+            } else {
+                print("Error: Error loading Account")
+                self.displayAlert("Error", message: "Error loading Account", sender: sender)
             }
         } catch let error {
             loading.stopAnimating()
@@ -178,7 +320,7 @@ class Server {
             uid: uid,
             first_name: first_name,
             last_name: last_name,
-            image: image,
+            image: "http://\(API_ADDRESS)/\(image)",
             token: token,
             client: client)
         

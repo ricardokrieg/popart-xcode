@@ -35,29 +35,83 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
         switch indexPath.section {
         case 0:
             switch indexPath.row {
-            case 1:
-                server.doSignOut()
-                server.authenticateUser("SettingsTableViewController", checkToken: false)
+            case 0:
+                performSegueWithIdentifier("fromSettingsToEditProfile", sender: nil)
             default:
                 print("Unhandled row: \(indexPath.row)")
             }
         case 1:
             switch indexPath.row {
             case 0:
-                page_url = "http://popart-app.com/static/help-center.html"
-                performSegueWithIdentifier("fromSettingsToPage", sender: nil)
+                performSegueWithIdentifier("fromSettingsToContact", sender: nil)
             case 1:
-                page_url = "http://popart-app.com/static/privacy-policy.html"
+                page_url = server.privacyPolicyUrl
                 performSegueWithIdentifier("fromSettingsToPage", sender: nil)
             case 2:
-                page_url = "http://popart-app.com/static/terms-of-use.html"
+                page_url = server.termsOfServiceUrl
                 performSegueWithIdentifier("fromSettingsToPage", sender: nil)
+            default:
+                print("Unhandled row: \(indexPath.row)")
+            }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                server.doSignOut()
+                server.authenticateUser("SettingsTableViewController", checkToken: false)
             default:
                 print("Unhandled row: \(indexPath.row)")
             }
         default:
             print("Unhandled section: \(indexPath.section)")
         }
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 2 {
+            let view = UIView()
+            
+            let label = UILabel()
+            label.text = "Version 1.1.0"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textAlignment = .Center
+            
+            label.addConstraint(NSLayoutConstraint(item: label, attribute: .Width, relatedBy: .Equal,
+                toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 250))
+            
+            let image = UIImageView()
+            image.image = UIImage(named: "logo")
+            image.translatesAutoresizingMaskIntoConstraints = false
+            
+            image.addConstraint(NSLayoutConstraint(item: image, attribute: .Width, relatedBy: .Equal,
+                toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 50))
+            image.addConstraint(NSLayoutConstraint(item: image, attribute: .Height, relatedBy: .Equal,
+                toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 43))
+            
+            view.addSubview(label)
+            view.addSubview(image)
+            
+            let labelXConstraint = NSLayoutConstraint(item: label, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0)
+            let labelYConstraint = NSLayoutConstraint(item: label, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0)
+            let imageXConstraint = NSLayoutConstraint(item: image, attribute: .CenterX, relatedBy: .Equal, toItem: view, attribute: .CenterX, multiplier: 1, constant: 0)
+            let imageYConstraint = NSLayoutConstraint(item: image, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0)
+            
+            view.addConstraint(labelXConstraint)
+            view.addConstraint(labelYConstraint)
+            view.addConstraint(imageXConstraint)
+            view.addConstraint(imageYConstraint)
+            
+            return view
+        }
+        
+        return super.tableView(tableView, viewForHeaderInSection: section)
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 80
+        }
+        
+        return super.tableView(tableView, heightForHeaderInSection: section)
     }
 
     // MARK: - Navigation

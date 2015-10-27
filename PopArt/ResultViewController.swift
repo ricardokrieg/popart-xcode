@@ -135,6 +135,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let result_description_l1 = json?["description_l1"] as? String?
             let result_description_l2 = json?["description_l2"] as? String?
             let result_description_l3 = json?["description_l3"] as? String?
+            let result_detailed_description = json?["detailed_description"] as? String?
             let result_location_area = json?["location_area"] as? String?
             let result_location_country = json?["location_country"] as? String?
             
@@ -212,6 +213,10 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                         
                         if result_description_l3 != nil {
                             painting.setValue(result_description_l3!, forKey: "result_description_l3")
+                        }
+                        
+                        if result_detailed_description != nil {
+                            painting.setValue(result_detailed_description!, forKey: "result_detailed_description")
                         }
                         
                         if result_location_area != nil {

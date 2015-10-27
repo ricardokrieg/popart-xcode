@@ -27,8 +27,8 @@ class SignUpViewController: UIViewController, TTTAttributedLabelDelegate {
         
         iAgreeLabel.delegate = self
         
-        iAgreeLabel.linkAttributes = [NSForegroundColorAttributeName : UIColor.redColor()]
-        iAgreeLabel.activeLinkAttributes = [NSForegroundColorAttributeName : UIColor.redColor()]
+        iAgreeLabel.linkAttributes = [kCTForegroundColorAttributeName : UIColor(red: 199.0/255, green: 42.0/255, blue: 47.0/255, alpha: 1.0)]
+        iAgreeLabel.activeLinkAttributes = [NSForegroundColorAttributeName : UIColor(red: 199.0/255, green: 42.0/255, blue: 47.0/255, alpha: 1.0)]
         iAgreeLabel.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
         
         let iAgreeLabelText:NSString = iAgreeLabel.text!
@@ -42,6 +42,11 @@ class SignUpViewController: UIViewController, TTTAttributedLabelDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
+        print(url)
+        UIApplication.sharedApplication().openURL(url)
     }
 
 }

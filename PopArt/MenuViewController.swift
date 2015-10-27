@@ -72,7 +72,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 0:
             performSegueWithIdentifier("fromMenuToSettings", sender: nil)
         case 2:
-            page_url = "http://popart-app.com/static/about-us.html"
+            page_url = server.aboutUsUrl
             performSegueWithIdentifier("fromMenuToPage", sender: nil)
         default:
             print("actionSheet without action \(indexPath.row)")
