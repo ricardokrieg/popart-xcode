@@ -9,10 +9,12 @@
 import UIKit
 import TTTAttributedLabel
 
-class ResetPasswordViewController: UIViewController, TTTAttributedLabelDelegate {
+class ResetPasswordViewController: UIViewController, TTTAttributedLabelDelegate, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     
     @IBOutlet weak var iAgreeLabel: TTTAttributedLabel!
+    
+    var tapGesture: UITapGestureRecognizer?
     
     @IBAction func resetButtonClicked(sender: AnyObject) {
         server.doResetPassword(self, email: emailField.text!)
@@ -32,8 +34,14 @@ class ResetPasswordViewController: UIViewController, TTTAttributedLabelDelegate 
         let termsOfServiceRange = iAgreeLabelText.rangeOfString("Terms of Service")
         let privacyPolicyRange = iAgreeLabelText.rangeOfString("Privacy Policy")
         
-        iAgreeLabel.addLinkToURL(NSURL(string: "http://popart-app.com/terms-of-service"), withRange: termsOfServiceRange)
-        iAgreeLabel.addLinkToURL(NSURL(string: "http://popart-app.com/privacy-policy"), withRange: privacyPolicyRange)
+        iAgreeLabel.addLinkToURL(NSURL(string: server.termsOfServiceUrl), withRange: termsOfServiceRange)
+        iAgreeLabel.addLinkToURL(NSURL(string: server.privacyPolicyUrl), withRange: privacyPolicyRange)
+        
+        emailField.delegate = self
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        tapGesture!.enabled = false
+        view.addGestureRecognizer(tapGesture!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +51,28 @@ class ResetPasswordViewController: UIViewController, TTTAttributedLabelDelegate 
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         print(url)
         UIApplication.sharedApplication().openURL(url)
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        tapGesture?.enabled = true
+        
+        return true
+    }
+    
+    // MARK: - UITapGestureRecognizer
+    
+    func hideKeyboard() {
+        emailField.resignFirstResponder()
+        
+        tapGesture?.enabled = false
     }
     
 }

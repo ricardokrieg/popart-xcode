@@ -22,6 +22,49 @@
             <string>MinionPro-Regular</string>
             <string>MinionPro-Regular</string>
             <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
+            <string>MinionPro-Regular</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Regular.otf">
             <string>MyriadPro-Regular</string>
@@ -399,16 +442,16 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0i-zw-Me9">
-                                <rect key="frame" x="16" y="241" width="46" height="21"/>
+                                <rect key="frame" x="16" y="245" width="44" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Qj-Rg-TPg">
-                                <rect key="frame" x="70" y="241" width="234" height="21"/>
+                                <rect key="frame" x="68" y="245" width="236" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDj-AT-X4t">
@@ -420,16 +463,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-h9-O3Q">
-                                <rect key="frame" x="16" y="297" width="79" height="21"/>
+                                <rect key="frame" x="16" y="301" width="68" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-ru-aaK">
-                                <rect key="frame" x="103" y="297" width="201" height="21"/>
+                                <rect key="frame" x="92" y="301" width="212" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08r-lT-IDG">
@@ -447,7 +490,7 @@
                                     <constraint firstAttribute="height" constant="40" id="f2F-xy-XXr"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ssB-A7-tAl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="21"/>
                                 <state key="normal" title="LOGIN"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -459,11 +502,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Td5-rO-A3r">
-                                <rect key="frame" x="158" y="384" width="146" height="30"/>
+                                <rect key="frame" x="158" y="384" width="146" height="27"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="146" id="4I1-nj-l2U"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="15"/>
                                 <state key="normal" title="I forgot my password">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -472,21 +516,22 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJK-D5-iBp">
-                                <rect key="frame" x="158" y="405" width="146" height="1"/>
+                                <rect key="frame" x="168" y="402" width="126" height="1"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="94k-BW-2Bg"/>
                                     <constraint firstAttribute="height" constant="1" id="owl-76-Z8M"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2S-b1-8Ck" customClass="Button" customModule="PopsArt" customModuleProvider="target">
-                                <rect key="frame" x="95" y="530" width="130" height="30"/>
+                                <rect key="frame" x="92" y="530" width="137" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="cqr-Nj-w1b"/>
                                     <constraint firstAttribute="height" constant="30" id="ybx-Og-HOA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="21"/>
                                 <state key="normal" title="SIGN UP"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -506,9 +551,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dont have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltj-Fu-fjg">
-                                <rect key="frame" x="95" y="507" width="130" height="15"/>
+                                <rect key="frame" x="92" y="507" width="137" height="15"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -615,6 +660,7 @@
                                 <exclude reference="ECa-WF-dxV"/>
                                 <exclude reference="IV2-oR-lfc"/>
                                 <exclude reference="UPT-74-3gu"/>
+                                <exclude reference="ar2-8S-oG8"/>
                                 <exclude reference="wUH-G1-fmR"/>
                                 <exclude reference="2au-M8-JyB"/>
                                 <exclude reference="Orm-Kt-ipW"/>
@@ -670,16 +716,16 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDP-IG-ZdO">
-                                <rect key="frame" x="16" y="232" width="88" height="21"/>
+                                <rect key="frame" x="16" y="236" width="80" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-fc-yGq">
-                                <rect key="frame" x="112" y="232" width="192" height="21"/>
+                                <rect key="frame" x="104" y="236" width="200" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KzB-tU-kJ0">
@@ -691,16 +737,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKX-PB-Bva">
-                                <rect key="frame" x="16" y="270" width="87" height="21"/>
+                                <rect key="frame" x="16" y="274" width="77" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ysk-bi-2CH">
-                                <rect key="frame" x="111" y="270" width="193" height="21"/>
+                                <rect key="frame" x="101" y="274" width="203" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6I-xx-Uuw">
@@ -712,16 +758,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPB-WI-Np7">
-                                <rect key="frame" x="16" y="308" width="46" height="21"/>
+                                <rect key="frame" x="16" y="312" width="44" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p7q-Xr-ua4">
-                                <rect key="frame" x="70" y="308" width="234" height="21"/>
+                                <rect key="frame" x="68" y="312" width="236" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPI-lo-h7O">
@@ -733,16 +779,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akx-ef-oxf">
-                                <rect key="frame" x="16" y="346" width="79" height="21"/>
+                                <rect key="frame" x="16" y="350" width="68" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZX9-jz-Chf">
-                                <rect key="frame" x="103" y="346" width="201" height="21"/>
+                                <rect key="frame" x="92" y="350" width="212" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2o-qY-1bI">
@@ -753,8 +799,8 @@
                                     <constraint firstAttribute="height" constant="1" id="dku-KN-Wjy"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxm-CQ-5ke" customClass="Button" customModule="PopsArt" customModuleProvider="target">
-                                <rect key="frame" x="16" y="433" width="288" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxm-CQ-5ke" customClass="Button" customModule="PopsArt" customModuleProvider="target">
+                                <rect key="frame" x="16" y="430" width="288" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="sw6-lz-SG5"/>
@@ -772,7 +818,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za3-15-UMd" customClass="Button" customModule="PopsArt" customModuleProvider="target">
-                                <rect key="frame" x="88" y="530" width="145" height="30"/>
+                                <rect key="frame" x="84" y="530" width="153" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8NA-23-04f"/>
@@ -790,16 +836,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2e-Ip-U2a">
-                                <rect key="frame" x="88" y="507" width="145" height="15"/>
+                                <rect key="frame" x="84" y="507" width="153" height="15"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, I agree to PopsArt's Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwe-FQ-6Nu" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="16" y="384" width="288" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By signing up, I agree to PopsArt's Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwe-FQ-6Nu" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="16" y="384" width="288" height="26"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -926,21 +972,21 @@
                                 <rect key="frame" x="16" y="226" width="288" height="36"/>
                                 <animations/>
                                 <string key="text">If the email address you entered is registered at PopsArt. You'll receive an email with instructions on how to set a new password.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSj-m7-a2Q">
-                                <rect key="frame" x="16" y="311" width="46" height="21"/>
+                                <rect key="frame" x="16" y="315" width="44" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ID8-NQ-2i6">
-                                <rect key="frame" x="70" y="311" width="234" height="21"/>
+                                <rect key="frame" x="68" y="315" width="236" height="17"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gG-5f-YnO">
@@ -951,28 +997,28 @@
                                     <constraint firstAttribute="height" constant="1" id="wJm-m8-5Qh"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, I agree to PopsArt's Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4y-2R-t4H" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="16" y="349" width="288" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By signing up, I agree to PopsArt's Terms of Service and Privacy Policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4y-2R-t4H" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="16" y="349" width="288" height="26"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgV-ln-IUF">
-                                <rect key="frame" x="88" y="507" width="145" height="15"/>
+                                <rect key="frame" x="84" y="507" width="153" height="15"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsk-N3-xGZ" customClass="Button" customModule="PopsArt" customModuleProvider="target">
-                                <rect key="frame" x="88" y="530" width="145" height="30"/>
+                                <rect key="frame" x="84" y="530" width="153" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="4Wj-J8-tbR"/>
                                     <constraint firstAttribute="height" constant="30" id="unl-Jo-c7I"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="21"/>
                                 <state key="normal" title="LOGIN"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -983,14 +1029,14 @@
                                     <segue destination="dQ9-hu-bss" kind="unwind" unwindAction="goToSignIn:" id="mfp-yV-jEG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cI-9g-wfj" customClass="Button" customModule="PopsArt" customModuleProvider="target">
-                                <rect key="frame" x="16" y="390" width="288" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cI-9g-wfj" customClass="Button" customModule="PopsArt" customModuleProvider="target">
+                                <rect key="frame" x="16" y="387" width="288" height="40"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Vbc-AP-J4M"/>
                                     <constraint firstAttribute="height" constant="40" id="oUs-vD-vvC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="21"/>
                                 <state key="normal" title="Reset Password"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1455,7 +1501,7 @@
                                 </items>
                                 <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-Zb-0Wj">
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2v-Zb-0Wj">
                                 <rect key="frame" x="0.0" y="20" width="320" height="488"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1589,9 +1635,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-Nc-AHd">
-                                                    <rect key="frame" x="15" y="8" width="83" height="27"/>
+                                                    <rect key="frame" x="15" y="8" width="77" height="27"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1617,9 +1663,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-NU-mdl">
-                                                    <rect key="frame" x="15" y="11" width="62" height="21"/>
+                                                    <rect key="frame" x="15" y="13" width="55" height="17"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1646,9 +1692,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyd-A9-E1M">
-                                                    <rect key="frame" x="15" y="11" width="106" height="21"/>
+                                                    <rect key="frame" x="15" y="13" width="97" height="17"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1675,9 +1721,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOv-JH-kft">
-                                                    <rect key="frame" x="15" y="11" width="102" height="21"/>
+                                                    <rect key="frame" x="15" y="13" width="89" height="17"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1708,8 +1754,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LS-lS-SgX">
-                                                    <rect key="frame" x="15" y="11" width="67" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="15" y="13" width="61" height="17"/>
+                                                    <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1734,13 +1780,189 @@
                     <connections>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromSettingsToPage" id="evL-ah-ioV"/>
                         <segue destination="Xwu-HW-UFf" kind="show" identifier="fromSettingsToEditProfile" id="kcZ-8t-2rh"/>
-                        <segue destination="Eih-QK-blR" kind="show" identifier="fromSettingsToContact" id="8uL-na-NvR"/>
+                        <segue destination="p1l-LE-cyD" kind="show" identifier="fromSettingsToContact" id="Tel-Og-8iK"/>
                     </connections>
                 </tableViewController>
                 <exit id="E3k-tU-lOf" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSP-rd-ZX8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="658" y="888"/>
+        </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="GU3-dB-nb5">
+            <objects>
+                <viewController id="p1l-LE-cyD" customClass="ContactViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aUC-re-3tV"/>
+                        <viewControllerLayoutGuide type="bottom" id="bVS-e9-kcw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4f2-zr-49N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaJ-cH-507">
+                                <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="f4o-mW-KIg"/>
+                                    <constraint firstAttribute="height" constant="60" id="f6t-w8-ogb"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="history" style="plain" id="6cR-sB-C8V">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Kow-jb-spm" kind="show" id="pjG-VM-fcg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lbr-Jv-MFi"/>
+                                    <barButtonItem image="logo" style="plain" id="yd0-cV-f0r">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="StL-sW-tgd" kind="unwind" unwindAction="backToMain:" id="5ot-9t-uOS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3Z2-0s-O1L"/>
+                                    <barButtonItem image="more" style="plain" id="kV1-AA-LUf">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromContactToMenu" popoverAnchorView="IaJ-cH-507" id="MFd-aG-CSA">
+                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="f4o-mW-KIg"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX6-eh-gwO">
+                                <rect key="frame" x="20" y="53" width="280" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="0R9-lx-tFN"/>
+                                    <constraint firstAttribute="width" constant="280" id="uFU-MK-I3G"/>
+                                </constraints>
+                                <string key="text">Please, fill up the form below. Give our support team as many details as possible and we will be able to help you within 24 hours.</string>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dd3-pA-IIr">
+                                <rect key="frame" x="16" y="169" width="292" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHT-LA-41R">
+                                <rect key="frame" x="12" y="194" width="296" height="1"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="AhX-cX-UXs"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CXi-04-Ajt">
+                                <rect key="frame" x="8" y="409" width="304" height="1"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ug8-g8-zgZ"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MWT-I1-HCR">
+                                <rect key="frame" x="12" y="203" width="296" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="aNp-om-8tA"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c32-nI-Qm1" customClass="Button" customModule="PopsArt" customModuleProvider="target">
+                                <rect key="frame" x="16" y="431" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QZq-os-XHf"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="gUL-up-Cay"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="21"/>
+                                <state key="normal" title="Send"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gUL-up-Cay"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="resetButtonClicked:" destination="WuT-ce-iYX" eventType="touchUpInside" id="zDI-4h-hcz"/>
+                                    <action selector="sendButtonClicked:" destination="p1l-LE-cyD" eventType="touchUpInside" id="5Bg-h2-AG6"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNW-61-Zfo">
+                                <rect key="frame" x="12" y="164" width="4" height="17"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="VnS-Ti-3e4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NHT-LA-41R" secondAttribute="trailing" constant="-4" id="0yM-Qn-XkV"/>
+                            <constraint firstItem="c32-nI-Qm1" firstAttribute="centerX" secondItem="CXi-04-Ajt" secondAttribute="centerX" id="1el-be-ouY"/>
+                            <constraint firstAttribute="bottom" secondItem="c32-nI-Qm1" secondAttribute="bottom" constant="97" id="2Bh-bt-NKn"/>
+                            <constraint firstItem="iX6-eh-gwO" firstAttribute="centerX" secondItem="4f2-zr-49N" secondAttribute="centerX" id="69C-Oa-1zv"/>
+                            <constraint firstItem="c32-nI-Qm1" firstAttribute="leading" secondItem="4f2-zr-49N" secondAttribute="leadingMargin" id="8hc-Yh-nWM"/>
+                            <constraint firstItem="rNW-61-Zfo" firstAttribute="height" secondItem="dd3-pA-IIr" secondAttribute="height" id="Bwt-cx-Szp"/>
+                            <constraint firstItem="dd3-pA-IIr" firstAttribute="top" secondItem="iX6-eh-gwO" secondAttribute="bottom" constant="45" id="DhB-Hg-i57"/>
+                            <constraint firstItem="CXi-04-Ajt" firstAttribute="top" secondItem="MWT-I1-HCR" secondAttribute="bottom" constant="8" symbolic="YES" id="EmP-Ah-oI0"/>
+                            <constraint firstItem="dd3-pA-IIr" firstAttribute="leading" secondItem="4f2-zr-49N" secondAttribute="leadingMargin" constant="-4" id="FRJ-ZE-ga0"/>
+                            <constraint firstItem="NHT-LA-41R" firstAttribute="top" secondItem="dd3-pA-IIr" secondAttribute="bottom" constant="8" id="FV8-A1-8si"/>
+                            <constraint firstItem="dd3-pA-IIr" firstAttribute="leading" secondItem="rNW-61-Zfo" secondAttribute="leading" id="Hwy-Hf-Dy9"/>
+                            <constraint firstItem="MWT-I1-HCR" firstAttribute="trailing" secondItem="NHT-LA-41R" secondAttribute="trailing" id="KBF-Wz-L11"/>
+                            <constraint firstItem="IaJ-cH-507" firstAttribute="top" secondItem="aUC-re-3tV" secondAttribute="bottom" constant="488" id="KV1-6c-xUQ"/>
+                            <constraint firstItem="CXi-04-Ajt" firstAttribute="leading" secondItem="4f2-zr-49N" secondAttribute="leadingMargin" constant="-8" id="MJY-BV-Cwv"/>
+                            <constraint firstItem="dd3-pA-IIr" firstAttribute="width" secondItem="NHT-LA-41R" secondAttribute="width" id="Pb9-a6-dHi"/>
+                            <constraint firstItem="IaJ-cH-507" firstAttribute="bottom" secondItem="bVS-e9-kcw" secondAttribute="top" id="QMU-pi-9mN"/>
+                            <constraint firstItem="NHT-LA-41R" firstAttribute="leading" secondItem="4f2-zr-49N" secondAttribute="leadingMargin" constant="-4" id="VFZ-1j-qYZ"/>
+                            <constraint firstItem="rNW-61-Zfo" firstAttribute="baseline" secondItem="dd3-pA-IIr" secondAttribute="baseline" id="YLD-7v-ICi"/>
+                            <constraint firstItem="iX6-eh-gwO" firstAttribute="centerX" secondItem="NHT-LA-41R" secondAttribute="centerX" id="Yhi-wN-Xvn"/>
+                            <constraint firstItem="IaJ-cH-507" firstAttribute="leading" secondItem="4f2-zr-49N" secondAttribute="leading" id="ZAQ-az-DzK"/>
+                            <constraint firstAttribute="trailing" secondItem="IaJ-cH-507" secondAttribute="trailing" id="ZXg-f3-dx4"/>
+                            <constraint firstItem="dd3-pA-IIr" firstAttribute="trailing" secondItem="NHT-LA-41R" secondAttribute="trailing" id="Za3-J7-buP"/>
+                            <constraint firstItem="dd3-pA-IIr" firstAttribute="centerX" secondItem="4f2-zr-49N" secondAttribute="centerX" id="aDo-7L-BlG"/>
+                            <constraint firstItem="dd3-pA-IIr" firstAttribute="leading" secondItem="rNW-61-Zfo" secondAttribute="trailing" id="aFw-5f-ge9"/>
+                            <constraint firstItem="rNW-61-Zfo" firstAttribute="leading" secondItem="NHT-LA-41R" secondAttribute="leading" id="dsq-ej-yzx"/>
+                            <constraint firstItem="iX6-eh-gwO" firstAttribute="centerX" secondItem="IaJ-cH-507" secondAttribute="centerX" id="eHd-Vh-kCq"/>
+                            <constraint firstItem="CXi-04-Ajt" firstAttribute="centerX" secondItem="4f2-zr-49N" secondAttribute="centerX" id="fvp-fl-v9t"/>
+                            <constraint firstItem="iX6-eh-gwO" firstAttribute="top" secondItem="aUC-re-3tV" secondAttribute="bottom" constant="33" id="gds-2J-Qrz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dd3-pA-IIr" secondAttribute="trailing" constant="-4" id="iQA-5p-C4o"/>
+                            <constraint firstItem="MWT-I1-HCR" firstAttribute="leading" secondItem="NHT-LA-41R" secondAttribute="leading" id="jAr-8F-wwk"/>
+                            <constraint firstItem="IaJ-cH-507" firstAttribute="top" secondItem="c32-nI-Qm1" secondAttribute="bottom" constant="37" id="phb-0x-xlk"/>
+                            <constraint firstItem="NHT-LA-41R" firstAttribute="centerX" secondItem="4f2-zr-49N" secondAttribute="centerX" id="q72-eV-bmV"/>
+                            <constraint firstItem="MWT-I1-HCR" firstAttribute="top" secondItem="NHT-LA-41R" secondAttribute="bottom" constant="8" symbolic="YES" id="q9B-t5-2eY"/>
+                            <constraint firstItem="c32-nI-Qm1" firstAttribute="top" secondItem="CXi-04-Ajt" secondAttribute="bottom" constant="21" id="wHJ-yb-aP0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CXi-04-Ajt" secondAttribute="trailing" constant="-8" id="x1S-9g-bFW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FRJ-ZE-ga0"/>
+                                <exclude reference="Hwy-Hf-Dy9"/>
+                                <exclude reference="Pb9-a6-dHi"/>
+                                <exclude reference="aDo-7L-BlG"/>
+                                <exclude reference="2Bh-bt-NKn"/>
+                                <exclude reference="KV1-6c-xUQ"/>
+                                <exclude reference="phb-0x-xlk"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="contentTextView" destination="MWT-I1-HCR" id="SuJ-5D-02b"/>
+                        <outlet property="subjectTextField" destination="dd3-pA-IIr" id="Gz5-XB-gaU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qkl-01-oVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fTm-MR-lx7"/>
+                <exit id="StL-sW-tgd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1040" y="888"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="Gqn-VE-sAd">
@@ -1992,160 +2214,6 @@
             </objects>
             <point key="canvasLocation" x="1040" y="192"/>
         </scene>
-        <!--Contact View Controller-->
-        <scene sceneID="Rhn-6b-Iao">
-            <objects>
-                <viewController id="Eih-QK-blR" customClass="ContactViewController" customModule="PopsArt" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Km2-ce-bJl"/>
-                        <viewControllerLayoutGuide type="bottom" id="c0M-GB-Nq1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Xo2-DX-yiI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4VG-6m-hu1">
-                                <rect key="frame" x="16" y="117" width="288" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7C-hJ-Pfx">
-                                <rect key="frame" x="16" y="146" width="288" height="1"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="ifr-Qt-0gB"/>
-                                </constraints>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KGT-hT-bsm">
-                                <rect key="frame" x="16" y="174" width="288" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="Xpi-Xi-axh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTC-2h-98X">
-                                <rect key="frame" x="16" y="314" width="288" height="1"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="DB7-36-5Oc"/>
-                                </constraints>
-                            </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ni0-OW-jr2">
-                                <rect key="frame" x="0.0" y="508" width="320" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="IE2-at-dhl"/>
-                                    <constraint firstAttribute="height" constant="60" id="s09-kD-NDW"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem image="history" style="plain" id="TOR-Sd-ZYg">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="Kow-jb-spm" kind="show" id="lGz-fY-ZHz"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="40j-w4-3sQ"/>
-                                    <barButtonItem image="logo" style="plain" id="Ue3-iR-MaT">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="OZH-mk-dj2" kind="unwind" unwindAction="backToMain:" id="xuO-KL-ITR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MzD-zb-l4z"/>
-                                    <barButtonItem image="more" style="plain" id="7AX-sl-I2V">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <segue destination="SpB-eF-Vyb" kind="popoverPresentation" identifier="fromContactToMenu" popoverAnchorView="ni0-OW-jr2" id="IUC-Nu-2XB">
-                                                <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
-                                            </segue>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="s09-kD-NDW"/>
-                                    </mask>
-                                </variation>
-                            </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, fill up the form below. Give our support team as many details as possible and will be able to help you within 24 hours." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S22-QO-tas">
-                                <rect key="frame" x="16" y="20" width="288" height="89"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="Gxa-Ls-uiX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATf-PR-GNc" customClass="Button" customModule="PopsArt" customModuleProvider="target">
-                                <rect key="frame" x="16" y="351" width="288" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="qn0-HX-gm5"/>
-                                    <constraint firstAttribute="height" constant="40" id="qyQ-mk-WFE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="SEND"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="qn0-HX-gm5"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="sendButtonClicked:" destination="Eih-QK-blR" eventType="touchUpInside" id="tjI-AP-ahI"/>
-                                    <action selector="updateButtonClicked:" destination="Xwu-HW-UFf" eventType="touchUpInside" id="KL8-Uj-pZ9"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ni0-OW-jr2" firstAttribute="centerX" secondItem="Xo2-DX-yiI" secondAttribute="centerX" id="2Cb-2w-ljh"/>
-                            <constraint firstItem="S22-QO-tas" firstAttribute="top" secondItem="Km2-ce-bJl" secondAttribute="bottom" id="6OG-Y6-y0i"/>
-                            <constraint firstItem="ATf-PR-GNc" firstAttribute="width" secondItem="sTC-2h-98X" secondAttribute="width" id="CbW-R0-3O7"/>
-                            <constraint firstItem="4VG-6m-hu1" firstAttribute="trailing" secondItem="s7C-hJ-Pfx" secondAttribute="trailing" id="FfH-5P-U5E"/>
-                            <constraint firstItem="ATf-PR-GNc" firstAttribute="centerX" secondItem="Xo2-DX-yiI" secondAttribute="centerX" id="GVK-7H-7Si"/>
-                            <constraint firstItem="S22-QO-tas" firstAttribute="leading" secondItem="Xo2-DX-yiI" secondAttribute="leadingMargin" id="IYP-xg-yOX"/>
-                            <constraint firstAttribute="trailing" secondItem="ni0-OW-jr2" secondAttribute="trailing" id="Mnz-XO-GKd"/>
-                            <constraint firstItem="sTC-2h-98X" firstAttribute="centerX" secondItem="Xo2-DX-yiI" secondAttribute="centerX" id="Naa-Ft-fNn"/>
-                            <constraint firstItem="ni0-OW-jr2" firstAttribute="centerX" secondItem="sTC-2h-98X" secondAttribute="centerX" id="Pl6-AA-OfV"/>
-                            <constraint firstItem="sTC-2h-98X" firstAttribute="top" secondItem="KGT-hT-bsm" secondAttribute="bottom" constant="12" id="QhB-Rl-DdR"/>
-                            <constraint firstItem="ATf-PR-GNc" firstAttribute="width" secondItem="s7C-hJ-Pfx" secondAttribute="width" id="RsQ-GO-o1r"/>
-                            <constraint firstItem="KGT-hT-bsm" firstAttribute="trailing" secondItem="sTC-2h-98X" secondAttribute="trailing" id="TKq-yR-rzy"/>
-                            <constraint firstItem="ni0-OW-jr2" firstAttribute="bottom" secondItem="c0M-GB-Nq1" secondAttribute="top" id="Tfb-kT-O8W"/>
-                            <constraint firstItem="4VG-6m-hu1" firstAttribute="leading" secondItem="s7C-hJ-Pfx" secondAttribute="leading" id="Vpy-OF-c3m"/>
-                            <constraint firstItem="4VG-6m-hu1" firstAttribute="top" secondItem="Km2-ce-bJl" secondAttribute="bottom" constant="42" id="Wnd-Db-igT"/>
-                            <constraint firstItem="s7C-hJ-Pfx" firstAttribute="top" secondItem="4VG-6m-hu1" secondAttribute="bottom" constant="12" id="Xnz-WU-aZT"/>
-                            <constraint firstItem="S22-QO-tas" firstAttribute="leading" secondItem="s7C-hJ-Pfx" secondAttribute="leading" id="apS-xI-AMI"/>
-                            <constraint firstItem="KGT-hT-bsm" firstAttribute="top" secondItem="s7C-hJ-Pfx" secondAttribute="bottom" constant="27" id="axE-VM-k8U"/>
-                            <constraint firstItem="s7C-hJ-Pfx" firstAttribute="centerX" secondItem="Xo2-DX-yiI" secondAttribute="centerX" id="bLS-lu-QiO"/>
-                            <constraint firstItem="KGT-hT-bsm" firstAttribute="width" secondItem="sTC-2h-98X" secondAttribute="width" id="eMk-LP-0rx"/>
-                            <constraint firstItem="ATf-PR-GNc" firstAttribute="top" secondItem="sTC-2h-98X" secondAttribute="bottom" constant="36" id="mxN-ui-yMO"/>
-                            <constraint firstItem="ni0-OW-jr2" firstAttribute="leading" secondItem="Xo2-DX-yiI" secondAttribute="leading" id="p7e-Ra-91f"/>
-                            <constraint firstItem="KGT-hT-bsm" firstAttribute="leading" secondItem="sTC-2h-98X" secondAttribute="leading" id="t5E-in-Ccj"/>
-                            <constraint firstItem="4VG-6m-hu1" firstAttribute="width" secondItem="s7C-hJ-Pfx" secondAttribute="width" id="xAS-jf-bWW"/>
-                            <constraint firstItem="S22-QO-tas" firstAttribute="trailing" secondItem="s7C-hJ-Pfx" secondAttribute="trailing" id="yGQ-g7-u49"/>
-                            <constraint firstItem="4VG-6m-hu1" firstAttribute="top" secondItem="S22-QO-tas" secondAttribute="bottom" constant="8" symbolic="YES" id="z88-48-A9f"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Wnd-Db-igT"/>
-                                <exclude reference="Pl6-AA-OfV"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="contentTextView" destination="KGT-hT-bsm" id="TWf-KG-6au"/>
-                        <outlet property="subjectTextField" destination="4VG-6m-hu1" id="L7N-LN-qge"/>
-                        <segue destination="TTA-04-dta" kind="show" identifier="fromContactToPage" id="av8-L7-U2E"/>
-                        <segue destination="mGA-4a-zWH" kind="show" identifier="fromContactToSendingPicture" id="w4n-QL-WLb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iOq-ou-phI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="OZH-mk-dj2" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1040" y="888"/>
-        </scene>
         <!--Result Modal View Controller-->
         <scene sceneID="duF-dP-dHc">
             <objects>
@@ -2314,14 +2382,14 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNC-yz-CIL">
-                                <rect key="frame" x="16" y="232" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="236" width="80" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yW4-Fn-lEq">
-                                <rect key="frame" x="112" y="232" width="192" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="104" y="236" width="200" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-s8-kqV">
@@ -2332,14 +2400,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cra-tO-TU0">
-                                <rect key="frame" x="16" y="270" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="274" width="77" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R9P-1y-vlS">
-                                <rect key="frame" x="111" y="270" width="193" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="101" y="274" width="203" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFM-Xp-yD1">
@@ -2350,14 +2418,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="An7-IO-8cf">
-                                <rect key="frame" x="16" y="308" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="312" width="44" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-V2-Qz0">
-                                <rect key="frame" x="70" y="308" width="234" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="68" y="312" width="236" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSG-Rk-mVF">
@@ -2368,14 +2436,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vca-b3-IOY">
-                                <rect key="frame" x="16" y="346" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="350" width="68" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h19-ru-dWA">
-                                <rect key="frame" x="103" y="346" width="201" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="92" y="350" width="212" height="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4l-Vs-rjj">
@@ -2391,7 +2459,7 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="Da9-4K-WXb"/>
                                     <constraint firstAttribute="height" constant="40" id="pSR-cg-eTZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="21"/>
                                 <state key="normal" title="UPDATE"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2549,11 +2617,11 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IUC-Nu-2XB"/>
-        <segue reference="kBO-0a-pVg"/>
-        <segue reference="w4n-QL-WLb"/>
-        <segue reference="av8-L7-U2E"/>
-        <segue reference="lGz-fY-ZHz"/>
         <segue reference="ooM-xI-8Z0"/>
+        <segue reference="pjG-VM-fcg"/>
+        <segue reference="kBO-0a-pVg"/>
+        <segue reference="fhn-Em-7be"/>
+        <segue reference="q8a-nB-ePq"/>
+        <segue reference="MFd-aG-CSA"/>
     </inferredMetricsTieBreakers>
 </document>

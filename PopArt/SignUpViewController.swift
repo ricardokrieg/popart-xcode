@@ -9,7 +9,7 @@
 import UIKit
 import TTTAttributedLabel
 
-class SignUpViewController: UIViewController, TTTAttributedLabelDelegate {
+class SignUpViewController: UIViewController, TTTAttributedLabelDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -17,6 +17,8 @@ class SignUpViewController: UIViewController, TTTAttributedLabelDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var iAgreeLabel: TTTAttributedLabel!
+    
+    var tapGesture: UITapGestureRecognizer?
     
     @IBAction func signUpButtonClicked(sender: AnyObject) {
         server.doSignUp(self, email: emailTextField.text!, password: passwordTextField.text!, first_name: firstNameTextField.text!, last_name: lastNameTextField.text!)
@@ -36,8 +38,17 @@ class SignUpViewController: UIViewController, TTTAttributedLabelDelegate {
         let termsOfServiceRange = iAgreeLabelText.rangeOfString("Terms of Service")
         let privacyPolicyRange = iAgreeLabelText.rangeOfString("Privacy Policy")
         
-        iAgreeLabel.addLinkToURL(NSURL(string: "http://popart-app.com/terms-of-service"), withRange: termsOfServiceRange)
-        iAgreeLabel.addLinkToURL(NSURL(string: "http://popart-app.com/privacy-policy"), withRange: privacyPolicyRange)
+        iAgreeLabel.addLinkToURL(NSURL(string: server.termsOfServiceUrl), withRange: termsOfServiceRange)
+        iAgreeLabel.addLinkToURL(NSURL(string: server.privacyPolicyUrl), withRange: privacyPolicyRange)
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        tapGesture!.enabled = false
+        view.addGestureRecognizer(tapGesture!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +58,31 @@ class SignUpViewController: UIViewController, TTTAttributedLabelDelegate {
     func attributedLabel(label: TTTAttributedLabel!, didSelectLinkWithURL url: NSURL!) {
         print(url)
         UIApplication.sharedApplication().openURL(url)
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        tapGesture?.enabled = true
+        
+        return true
+    }
+    
+    // MARK: - UITapGestureRecognizer
+    
+    func hideKeyboard() {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        tapGesture?.enabled = false
     }
 
 }

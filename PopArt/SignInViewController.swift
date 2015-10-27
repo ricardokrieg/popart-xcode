@@ -8,10 +8,12 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    var tapGesture: UITapGestureRecognizer?
     
     @IBAction func goToSignIn(segue: UIStoryboardSegue) {}
     
@@ -22,11 +24,41 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        tapGesture!.enabled = false
+        view.addGestureRecognizer(tapGesture!)
+        
         server.authenticateUser("SignInViewController", checkToken: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        tapGesture?.enabled = true
+        
+        return true
+    }
+    
+    // MARK: - UITapGestureRecognizer
+    
+    func hideKeyboard() {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        tapGesture?.enabled = false
     }
 
 }

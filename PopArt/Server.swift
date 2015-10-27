@@ -23,6 +23,7 @@ class Server {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var shouldSend = false
+    var shouldCheckToken = true
     
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
     let signInUrl = "http://popart-app.com/auth/sign_in"
@@ -243,6 +244,7 @@ class Server {
                         self.displayAlert("Info", message: message, sender: sender)
                     } else {
                         print("Error: Invalid JSON")
+                        print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
                     }
                 }
             } else {
@@ -284,6 +286,7 @@ class Server {
             }
             
             do {
+                print("Body: \(NSString(data: response.data, encoding: NSUTF8StringEncoding))")
                 if let data = json!["data"] as? NSDictionary {
                     let email = data["email"] as! String
                     let first_name = data["first_name"] as! String
@@ -295,8 +298,10 @@ class Server {
                     let token: String = response.headers!["Access-Token"]!
                     let client: String = response.headers!["Client"]!
                     
+                    print("doSignRequest")
                     try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image_url, token: token, client: client)
                     
+                    server.shouldCheckToken = false
                     self.authenticateUser("SignInViewController", checkToken: false)
                 } else {
                     print("Error: Invalid JSON")
@@ -387,7 +392,8 @@ class Server {
                         }
                         let token: String = account.token
                         let client: String = account.client
-                                
+                        
+                        print("tokenIsValid")
                         try self.saveAccount(email, first_name: first_name, last_name: last_name, image: image_url, token: token, client: client)
                     } else {
                         print("Error: Invalid JSON")

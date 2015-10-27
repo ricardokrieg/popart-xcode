@@ -54,12 +54,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 0:
             cell.icon.image = UIImage(named: "settings")
             cell.label.text = "Settings"
+            cell.label.font = UIFont(name: "MinionPro", size: 17)
         case 1:
             cell.icon.image = UIImage(named: "profile")
             cell.label.text = "Profile"
+            cell.label.font = UIFont(name: "MinionPro", size: 17)
         case 2:
             cell.icon.image = UIImage(named: "about")
             cell.label.text = "About"
+            cell.label.font = UIFont(name: "MinionPro", size: 17)
         default:
             print("Invalid menu cell")
         }

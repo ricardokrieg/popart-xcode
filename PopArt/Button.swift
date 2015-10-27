@@ -17,6 +17,7 @@ class Button: UIButton {
         self.layer.borderWidth = 2
         self.backgroundColor = UIColor.clearColor()
         self.tintColor = UIColor.blackColor()
+        self.contentEdgeInsets = UIEdgeInsetsMake(3.0, 0.0, 0.0, 0.0)
     }
 
 }

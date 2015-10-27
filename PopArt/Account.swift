@@ -54,6 +54,13 @@ class Account {
             "client": client
         ]
         
+        print("Saving Account")
+        print(data)
+        
+        do {
+            try Account.delete()
+        } catch _ {}
+        
         try Locksmith.updateData(data, forUserAccount: "PopArtAccount")
     }
 }

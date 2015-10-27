@@ -72,6 +72,7 @@ class SettingsTableViewController: UITableViewController, UIImagePickerControlle
             
             let label = UILabel()
             label.text = "Version 1.1.0"
+            label.font = UIFont(name: "MinionPro", size: 17)
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textAlignment = .Center
             

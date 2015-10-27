@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -18,6 +18,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
+    
+    var tapGesture: UITapGestureRecognizer?
     
     var imageChanged = false
     
@@ -48,6 +50,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        tapGesture!.enabled = false
+        view.addGestureRecognizer(tapGesture!)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -124,6 +134,31 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        tapGesture?.enabled = true
+        
+        return true
+    }
+    
+    // MARK: - UITapGestureRecognizer
+    
+    func hideKeyboard() {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        tapGesture?.enabled = false
     }
 
 }

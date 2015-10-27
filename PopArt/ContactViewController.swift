@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate{//, UITextViewDelegate {
+class ContactViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverPresentationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var contentTextView: UITextView!
@@ -16,7 +16,13 @@ class ContactViewController: UIViewController, UIImagePickerControllerDelegate, 
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
     
+    var tapGesture: UITapGestureRecognizer?
+    
     @IBAction func sendButtonClicked(sender: AnyObject) {
+        let subject = subjectTextField!.text
+        let content = contentTextView!.text
+        
+        server.doCreateTicket(self, subject: subject!, content: content!)
     }
     
     override func viewDidLoad() {
@@ -24,9 +30,15 @@ class ContactViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         imagePicker.delegate = self
         
-//        contentTextView.text = "Message"
-//        contentTextView.textColor = UIColor.lightGrayColor()
-//        contentTextView.delegate = self
+        subjectTextField.delegate = self
+        
+        contentTextView.text = "Message"
+        contentTextView.textColor = UIColor.lightGrayColor()
+        contentTextView.delegate = self
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        tapGesture!.enabled = false
+        view.addGestureRecognizer(tapGesture!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,18 +88,47 @@ class ContactViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // MARK: UITextViewDelegate
     
-//    func textViewDidBeginEditing(textView: UITextView) {
-//        if textView.textColor == UIColor.lightGrayColor() {
-//            textView.text = nil
-//            textView.textColor = UIColor.blackColor()
-//        }
-//    }
-//    
-//    func textViewDidEndEditing(textView: UITextView) {
-//        if textView.text.isEmpty {
-//            textView.text = "Message"
-//            textView.textColor = UIColor.lightGrayColor()
-//        }
-//    }
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Message"
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        tapGesture?.enabled = true
+        
+        return true
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        tapGesture?.enabled = true
+        
+        return true
+    }
+    
+    // MARK: - UITapGestureRecognizer
+    
+    func hideKeyboard() {
+        subjectTextField.resignFirstResponder()
+        contentTextView.resignFirstResponder()
+        
+        tapGesture?.enabled = false
+    }
 
 }
