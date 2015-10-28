@@ -137,7 +137,7 @@ class Server {
                 }
                 
                 if image != nil {
-                    parameters["image"] = Upload(data: UIImagePNGRepresentation(image!)!, fileName: "upload.png", mimeType: "image/png")
+                    parameters["image"] = Upload(data: UIImageJPEGRepresentation(image!, 0.5)!, fileName: "upload.jpg", mimeType: "image/jpeg")
                 }
             
                 let opt = try HTTP.PUT(updateProfileUrl, parameters: parameters)
@@ -325,7 +325,7 @@ class Server {
             uid: uid,
             first_name: first_name,
             last_name: last_name,
-            image: "http://\(API_ADDRESS)/\(image)",
+            image: "http://\(API_ADDRESS)\(image)",
             token: token,
             client: client)
         

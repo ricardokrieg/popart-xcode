@@ -25,15 +25,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var imageChanged = false
     var comingFromImagePicker = false
     
-//    @IBAction func imageButtonClicked(sender: AnyObject) {
-//        pickedImage = nil
-//        
-//        imagePicker.allowsEditing = false
-//        imagePicker.sourceType = .PhotoLibrary
-//        
-//        presentViewController(imagePicker, animated: true, completion: nil)
-//    }
-    
     @IBAction func updateButtonClicked(sender: AnyObject) {
         let first_name = firstNameTextField!.text
         let last_name = lastNameTextField!.text
@@ -64,10 +55,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         imageView.userInteractionEnabled = true
         imageView.layer.borderColor = UIColor.blackColor().CGColor
         imageView.layer.borderWidth = 2
-        imageView.layer.shadowColor = UIColor.blackColor().CGColor
-        imageView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        imageView.layer.shadowOpacity = 0.4
-        imageView.layer.shadowRadius = 5
+//        imageView.layer.shadowColor = UIColor.blackColor().CGColor
+//        imageView.layer.shadowOffset = CGSize(width: 0, height: 10)
+//        imageView.layer.shadowOpacity = 0.4
+//        imageView.layer.shadowRadius = 5
         
         imageTapGesture = UITapGestureRecognizer(target: self, action: "openImageChooser")
         imageView.addGestureRecognizer(imageTapGesture!)
@@ -89,13 +80,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 passwordTextField!.text = ""
                 
                 if account.image != "" {
-//                    imageButton.setTitle("", forState: .Normal)
-                    
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                         if let url = NSURL(string: account.image) {
                             if let data = NSData(contentsOfURL: url){
                                 dispatch_async(dispatch_get_main_queue()) {
-//                                    self.imageButton.setImage(UIImage(data: data)!.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
                                     self.imageView.image = UIImage(data: data)
                                 }
                             }
@@ -103,7 +91,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                     }
                 } else {
                     imageView.image = UIImage(named: "logo")
-//                    imageButton.setTitle("Upload image", forState: .Normal)
                 }
             }
         }
@@ -142,8 +129,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         dismissViewControllerAnimated(true, completion: {
 //            self.performSegueWithIdentifier("fromEditProfileToSendingPicture", sender: nil)
             self.imageChanged = true
-//            self.imageButton.setImage(image.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
-            self.imageView.contentMode = .ScaleAspectFit
+            self.imageView.contentMode = .ScaleAspectFill
             self.imageView.image = image
         })
     }
