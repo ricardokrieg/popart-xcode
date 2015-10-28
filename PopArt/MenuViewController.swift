@@ -43,7 +43,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 3
     }
     
@@ -74,6 +73,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         switch indexPath.row {
         case 0:
             performSegueWithIdentifier("fromMenuToSettings", sender: nil)
+        case 1:
+            performSegueWithIdentifier("fromMenuToProfile", sender: nil)
         case 2:
             page_url = server.aboutUsUrl
             performSegueWithIdentifier("fromMenuToPage", sender: nil)
