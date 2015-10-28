@@ -2,7 +2,7 @@
 //  ResetPasswordViewController.swift
 //  PopsArt
 //
-//  Created by Ricardo Franco on 13/10/15.
+//  Created by Netronian Inc. on 13/10/15.
 //  Copyright © 2015 Netronian Inc. All rights reserved.
 //
 

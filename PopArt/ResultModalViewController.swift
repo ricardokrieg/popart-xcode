@@ -2,7 +2,7 @@
 //  ResultModalViewController.swift
 //  PopsArt
 //
-//  Created by Ricardo Franco on 17/09/15.
+//  Created by Netronian Inc. on 17/09/15.
 //  Copyright (c) 2015 Netronian Inc. All rights reserved.
 //
 
