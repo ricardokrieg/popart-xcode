@@ -23,6 +23,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var imageTapGesture: UITapGestureRecognizer?
     
     var imageChanged = false
+    var comingFromImagePicker = false
     
 //    @IBAction func imageButtonClicked(sender: AnyObject) {
 //        pickedImage = nil
@@ -61,12 +62,23 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         view.addGestureRecognizer(tapGesture!)
         
         imageView.userInteractionEnabled = true
+        imageView.layer.borderColor = UIColor.blackColor().CGColor
+        imageView.layer.borderWidth = 2
+        imageView.layer.shadowColor = UIColor.blackColor().CGColor
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        imageView.layer.shadowOpacity = 0.4
+        imageView.layer.shadowRadius = 5
         
         imageTapGesture = UITapGestureRecognizer(target: self, action: "openImageChooser")
         imageView.addGestureRecognizer(imageTapGesture!)
     }
     
     override func viewWillAppear(animated: Bool) {
+        if comingFromImagePicker {
+            comingFromImagePicker = false
+            return
+        }
+        
         imageChanged = false
         
         if let account = Account.load() {
@@ -173,6 +185,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func openImageChooser() {
         pickedImage = nil
+        comingFromImagePicker = true
         
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
