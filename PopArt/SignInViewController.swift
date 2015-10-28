@@ -31,7 +31,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         tapGesture!.enabled = false
         view.addGestureRecognizer(tapGesture!)
         
-        server.authenticateUser("SignInViewController", checkToken: true)
+//        server.authenticateUser("SignInViewController", checkToken: true)
     }
 
     override func didReceiveMemoryWarning() {

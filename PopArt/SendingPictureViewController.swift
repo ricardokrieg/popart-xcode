@@ -69,7 +69,17 @@ class SendingPictureViewController: UIViewController {
                     }
                 }
                 
-                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country]
+                var uid = ""
+                var token = ""
+                var client = ""
+                
+                if let account = Account.load() {
+                    uid = account.uid
+                    token = account.token
+                    client = account.client
+                }
+                
+                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "uid": uid, "token": token, "client": client]
                 
                 server.ping(self)
                 

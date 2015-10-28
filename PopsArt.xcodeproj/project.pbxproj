@@ -19,6 +19,7 @@
 		8C0C7BBC1BC4742100F37623 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0C7BBB1BC4742100F37623 /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8C0CFAD01BCD4F0E00512114 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8C0E32FF1BDE7C430015B404 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0E32FE1BDE7C420015B404 /* ContactViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8C1209941BE040F900DF583C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1209931BE040F800DF583C /* SplashViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */; };
 		8C260A991BAB64A800BAACC5 /* FocusSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */; };
 		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		8C0C7BBB1BC4742100F37623 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = ../ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		8C0E32FE1BDE7C420015B404 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		8C1209931BE040F800DF583C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
 		8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareView.swift; sourceTree = "<group>"; };
 		8C2655741B7ED08100648FC5 /* PopsArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopsArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 			children = (
 				8C2655791B7ED08100648FC5 /* AppDelegate.swift */,
 				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
+				8C1209931BE040F800DF583C /* SplashViewController.swift */,
 				8CFA9BBF1BC4051A00E8A116 /* SignInViewController.swift */,
 				8C0C7BBB1BC4742100F37623 /* SignUpViewController.swift */,
 				8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */,
@@ -422,6 +425,7 @@
 				8C34DAA31B912CC100D9EB8D /* HistoryTableViewCell.swift in Sources */,
 				8CF994F41B82D05600BC4E44 /* Server.swift in Sources */,
 				8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */,
+				8C1209941BE040F900DF583C /* SplashViewController.swift in Sources */,
 				8CFA9BC21BC4078B00E8A116 /* Button.swift in Sources */,
 				8CF30E4B1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift in Sources */,
 				8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */,

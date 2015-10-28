@@ -14,23 +14,24 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
     
     var tapGesture: UITapGestureRecognizer?
+    var imageTapGesture: UITapGestureRecognizer?
     
     var imageChanged = false
     
-    @IBAction func imageButtonClicked(sender: AnyObject) {
-        pickedImage = nil
-        
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
+//    @IBAction func imageButtonClicked(sender: AnyObject) {
+//        pickedImage = nil
+//        
+//        imagePicker.allowsEditing = false
+//        imagePicker.sourceType = .PhotoLibrary
+//        
+//        presentViewController(imagePicker, animated: true, completion: nil)
+//    }
     
     @IBAction func updateButtonClicked(sender: AnyObject) {
         let first_name = firstNameTextField!.text
@@ -40,7 +41,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         var image: UIImage? = nil
         if imageChanged {
-            image = imageButton.imageForState(.Normal)
+            image = imageView.image
         }
         
         server.doUpdateProfile(self, first_name: first_name!, last_name: last_name!, email: email!, password: password!, image: image)
@@ -58,6 +59,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         tapGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard")
         tapGesture!.enabled = false
         view.addGestureRecognizer(tapGesture!)
+        
+        imageView.userInteractionEnabled = true
+        
+        imageTapGesture = UITapGestureRecognizer(target: self, action: "openImageChooser")
+        imageView.addGestureRecognizer(imageTapGesture!)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -71,19 +77,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                 passwordTextField!.text = ""
                 
                 if account.image != "" {
-                    imageButton.setTitle("", forState: .Normal)
+//                    imageButton.setTitle("", forState: .Normal)
                     
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                         if let url = NSURL(string: account.image) {
                             if let data = NSData(contentsOfURL: url){
                                 dispatch_async(dispatch_get_main_queue()) {
-                                    self.imageButton.setImage(UIImage(data: data)!.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+//                                    self.imageButton.setImage(UIImage(data: data)!.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+                                    self.imageView.image = UIImage(data: data)
                                 }
                             }
                         }
                     }
                 } else {
-                    imageButton.setTitle("Upload image", forState: .Normal)
+                    imageView.image = UIImage(named: "logo")
+//                    imageButton.setTitle("Upload image", forState: .Normal)
                 }
             }
         }
@@ -122,7 +130,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         dismissViewControllerAnimated(true, completion: {
 //            self.performSegueWithIdentifier("fromEditProfileToSendingPicture", sender: nil)
             self.imageChanged = true
-            self.imageButton.setImage(image.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+//            self.imageButton.setImage(image.imageWithRenderingMode(.AlwaysOriginal), forState: .Normal)
+            self.imageView.contentMode = .ScaleAspectFit
+            self.imageView.image = image
         })
     }
     
@@ -159,6 +169,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         passwordTextField.resignFirstResponder()
         
         tapGesture?.enabled = false
+    }
+    
+    func openImageChooser() {
+        pickedImage = nil
+        
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
 }
