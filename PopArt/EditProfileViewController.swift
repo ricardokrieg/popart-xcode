@@ -90,7 +90,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
                         }
                     }
                 } else {
-                    imageView.image = UIImage(named: "logo")
+                    imageView.image = UIImage(named: "splash")
                 }
             }
         }

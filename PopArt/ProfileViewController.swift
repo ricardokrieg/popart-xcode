@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                         }
                     }
                 } else {
-                    imageView.image = UIImage(named: "logo")
+                    imageView.image = UIImage(named: "splash")
                 }
             }
         }

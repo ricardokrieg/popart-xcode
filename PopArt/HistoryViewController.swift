@@ -127,9 +127,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let location_area_text = painting.valueForKey("location_area") as? String {
             cell.locationAreaLabel!.text = "\(location_area_text.uppercaseString),"
         }
-        if let location_country_text = painting.valueForKey("location_country") as? String {
-            cell.locationCountryLabel!.text = location_country_text.uppercaseString
-        }
+//        if let location_country_text = painting.valueForKey("location_country") as? String {
+//            cell.locationCountryLabel!.text = location_country_text.uppercaseString
+//        }
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"

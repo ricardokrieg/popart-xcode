@@ -53,6 +53,7 @@ class SendingPictureViewController: UIViewController {
                 var message_lng = ""
                 var message_location_area = ""
                 var message_location_country = ""
+                var message_full_address = ""
                 
                 if server.location != nil {
                     message_lat = String(stringInterpolationSegment: server.location!.coordinate.latitude)
@@ -60,6 +61,8 @@ class SendingPictureViewController: UIViewController {
                 }
                 
                 if server.placemark != nil {
+                    message_full_address = "\(server.placemark!.thoroughfare), \(server.placemark!.locality) \(server.placemark!.administrativeArea) \(server.placemark!.postalCode) \(server.placemark!.country)"
+                    
                     if let msg_location_area = server.placemark!.locality {
                         message_location_area = String(msg_location_area)
                     }
@@ -68,6 +71,8 @@ class SendingPictureViewController: UIViewController {
                         message_location_country = String(msg_location_country)
                     }
                 }
+                
+                message_location_area = message_full_address
                 
                 var uid = ""
                 var token = ""
