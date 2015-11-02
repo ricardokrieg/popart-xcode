@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UXZ-oB-hnT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15C27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UXZ-oB-hnT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1935,7 +1935,7 @@
                                     </mask>
                                 </variation>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, fill up the form below. Our support team will reach you  within 24 hours." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX6-eh-gwO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, fill up the form below and a team member will contact you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX6-eh-gwO">
                                 <rect key="frame" x="20" y="53" width="280" height="71"/>
                                 <animations/>
                                 <constraints>
@@ -2735,6 +2735,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoTextIcon" translatesAutoresizingMaskIntoConstraints="NO" id="DbN-qD-wBw">
                                 <rect key="frame" x="94" y="20" width="132" height="23"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="5os-ZS-nCb"/>
                                     <constraint firstAttribute="width" constant="132" id="CMZ-bL-DfB"/>
@@ -2742,6 +2743,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmW-t1-GF1">
                                 <rect key="frame" x="16" y="234" width="80" height="17"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="ZQO-Ko-EHg"/>
                                 </constraints>
@@ -2751,12 +2753,14 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chc-2J-HKr">
                                 <rect key="frame" x="104" y="234" width="200" height="17"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="end-A8-UYB">
                                 <rect key="frame" x="16" y="259" width="288" height="1"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="F0e-Ru-SpC"/>
@@ -2764,6 +2768,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT8-oE-oKp">
                                 <rect key="frame" x="16" y="272" width="77" height="17"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="77" id="8nD-kr-EBs"/>
                                 </constraints>
@@ -2773,12 +2778,14 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiD-o9-s7O">
                                 <rect key="frame" x="104" y="272" width="200" height="17"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sa-Qd-9gw">
                                 <rect key="frame" x="16" y="297" width="288" height="1"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="1FO-pu-PQ1"/>
@@ -2786,6 +2793,7 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9G-AJ-mzS">
                                 <rect key="frame" x="16" y="310" width="44" height="17"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="PPa-AV-mzV"/>
                                 </constraints>
@@ -2795,6 +2803,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEZ-MC-7Hy">
                                 <rect key="frame" x="16" y="335" width="288" height="1"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="YoI-vP-VMP"/>
@@ -2802,6 +2811,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pq-f6-h3M" customClass="Button" customModule="PopsArt" customModuleProvider="target">
                                 <rect key="frame" x="16" y="399" width="288" height="40"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FX6-5z-oUk"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="YNv-9d-aom"/>
@@ -2819,6 +2829,7 @@
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwg-iF-pvq">
                                 <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Qc4-2G-Ih9"/>
                                     <constraint firstAttribute="height" constant="60" id="joy-vq-pGU"/>
@@ -2856,6 +2867,7 @@
                             </toolbar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxY-u2-Quy">
                                 <rect key="frame" x="85" y="64" width="150" height="150"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="ZH7-Q0-oy8"/>
                                     <constraint firstAttribute="height" constant="150" id="fdW-Gd-PD4"/>
@@ -2863,11 +2875,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDk-5C-mRk">
                                 <rect key="frame" x="68" y="310" width="236" height="17"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" name="MinionPro-Regular" family="Minion Pro" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PmW-t1-GF1" firstAttribute="top" secondItem="dxY-u2-Quy" secondAttribute="bottom" constant="20" id="0hq-w0-3xe"/>
@@ -2959,12 +2973,12 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="q8a-nB-ePq"/>
-        <segue reference="uIN-dJ-NoI"/>
-        <segue reference="yd5-8l-fho"/>
-        <segue reference="awN-z0-JgR"/>
-        <segue reference="ooM-xI-8Z0"/>
         <segue reference="fhn-Em-7be"/>
+        <segue reference="pjG-VM-fcg"/>
         <segue reference="kBO-0a-pVg"/>
+        <segue reference="MFd-aG-CSA"/>
+        <segue reference="uIN-dJ-NoI"/>
+        <segue reference="q8a-nB-ePq"/>
+        <segue reference="ooM-xI-8Z0"/>
     </inferredMetricsTieBreakers>
 </document>
