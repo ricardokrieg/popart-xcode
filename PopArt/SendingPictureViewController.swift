@@ -53,7 +53,7 @@ class SendingPictureViewController: UIViewController {
                 var message_lng = ""
                 var message_location_area = ""
                 var message_location_country = ""
-                var message_full_address = ""
+                var message_location_full_address = ""
                 
                 if server.location != nil {
                     message_lat = String(stringInterpolationSegment: server.location!.coordinate.latitude)
@@ -61,7 +61,21 @@ class SendingPictureViewController: UIViewController {
                 }
                 
                 if server.placemark != nil {
-                    message_full_address = "\(server.placemark!.thoroughfare), \(server.placemark!.locality) \(server.placemark!.administrativeArea) \(server.placemark!.postalCode) \(server.placemark!.country)"
+                    if let thoroughfare = server.placemark!.thoroughfare {
+                        message_location_full_address += "\(thoroughfare), "
+                    }
+                    if let locality = server.placemark!.locality {
+                        message_location_full_address += "\(locality) "
+                    }
+                    if let administrativeArea = server.placemark!.administrativeArea {
+                        message_location_full_address += "\(administrativeArea) "
+                    }
+                    if let postalCode = server.placemark!.postalCode {
+                        message_location_full_address += "\(postalCode) "
+                    }
+                    if let country = server.placemark!.country {
+                        message_location_full_address += "\(country) "
+                    }
                     
                     if let msg_location_area = server.placemark!.locality {
                         message_location_area = String(msg_location_area)
@@ -71,8 +85,6 @@ class SendingPictureViewController: UIViewController {
                         message_location_country = String(msg_location_country)
                     }
                 }
-                
-                message_location_area = message_full_address
                 
                 var uid = ""
                 var token = ""
@@ -84,7 +96,7 @@ class SendingPictureViewController: UIViewController {
                     client = account.client
                 }
                 
-                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "uid": uid, "token": token, "client": client]
+                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "location_full_address": message_location_full_address, "uid": uid, "token": token, "client": client]
                 
                 server.ping(self)
                 

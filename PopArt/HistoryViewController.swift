@@ -123,10 +123,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.titleLabel!.text = painting.valueForKey("result_title") as? String
         cell.descriptionLabel!.text = painting.valueForKey("result_detailed_description") as? String
-
+        
         if let location_area_text = painting.valueForKey("location_area") as? String {
-            cell.locationAreaLabel!.text = "\(location_area_text.uppercaseString),"
+            cell.locationAreaLabel!.text = location_area_text.uppercaseString
         }
+
+//        if let location_area_text = painting.valueForKey("location_area") as? String {
+//            cell.locationAreaLabel!.text = "\(location_area_text.uppercaseString),"
+//        }
 //        if let location_country_text = painting.valueForKey("location_country") as? String {
 //            cell.locationCountryLabel!.text = location_country_text.uppercaseString
 //        }

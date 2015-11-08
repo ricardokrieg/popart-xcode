@@ -138,6 +138,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let result_detailed_description = json?["detailed_description"] as? String?
             let result_location_area = json?["location_area"] as? String?
             let result_location_country = json?["location_country"] as? String?
+            let result_location_full_address = json?["location_full_address"] as? String?
             
             if (result_success == true) {
                 shareButton.enabled = true
@@ -219,8 +220,11 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                             painting.setValue(result_detailed_description!, forKey: "result_detailed_description")
                         }
                         
-                        if result_location_area != nil {
-                            painting.setValue(result_location_area!, forKey: "location_area")
+//                        if result_location_area != nil {
+                        if result_location_full_address != nil {
+//                            painting.setValue(result_location_area!, forKey: "location_area")
+                            painting.setValue(result_location_full_address!, forKey: "location_area")
+                            
                         }
                         
                         if result_location_country != nil {
