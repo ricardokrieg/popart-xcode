@@ -8,4 +8,5 @@ target 'PopsArt' do
     pod 'SwiftHTTP', '~> 1.0.0'
     pod 'TTTAttributedLabel'
     pod 'Locksmith'
+    pod 'GPUImage'
 end
