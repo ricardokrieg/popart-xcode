@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIPopoverPresentationControllerDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIPopoverPresentationControllerDelegate, CLLocationManagerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     @IBOutlet weak var cameraView: UIView!
 //    @IBOutlet weak var cameraButton: UIButton!
@@ -22,13 +22,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
+    var croppedImage: UIImage?
     
     var page_url: String?
     
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
     var captureDevice: AVCaptureDevice?
-    var videoInput:AVCaptureInput?
+    var videoInput: AVCaptureInput?
+    var videoOutput: AVCaptureVideoDataOutput?
     var isFront:Bool = false
     var maxZoomFactor:CGFloat = 10.0
     
@@ -362,7 +364,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if pickedImage != nil {
                 let destination = segue.destinationViewController as! SendingPictureViewController
                 destination.pickedImage = pickedImage
+                destination.croppedImage = croppedImage
                 pickedImage = nil
+                croppedImage = nil
             }
             
             server.shouldSend = true
@@ -437,6 +441,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("camera: couldn't add output")
         }
         
+        videoOutput = AVCaptureVideoDataOutput()
+        if videoOutput != nil {
+            let sessionQueue = dispatch_queue_create("Camera Session", DISPATCH_QUEUE_SERIAL)
+            
+            dispatch_async(sessionQueue, {
+                //        videoOutput.videoSettings = NSDictionary(object: Int(kCVPixelFormatType_32BGRA), forKey:kCVPixelBufferPixelFormatTypeKey)
+                self.videoOutput!.alwaysDiscardsLateVideoFrames = true
+                self.videoOutput!.setSampleBufferDelegate(self, queue: sessionQueue)
+                
+                if self.captureSession.canAddOutput(self.videoOutput) {
+                    self.captureSession.addOutput(self.videoOutput)
+                }
+            })
+        }
+        
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.cameraView.layer.addSublayer(previewLayer!)
         
@@ -456,6 +475,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         pickedImage = image
+        
+        let (detectedImage, croppedImage, detectMessage) = FrameDetector.detectUsingCIDetector(pickedImage!)
+        
+        if detectedImage == nil {
+            print("fallback to GPUImage's HarrisCorner method")
+        } else {
+            pickedImage = detectedImage
+            self.croppedImage = croppedImage
+            
+            if detectMessage != nil {
+            }
+        }
         
         dismissViewControllerAnimated(true, completion: {
             self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
@@ -508,6 +539,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print("Problem with the data received from geocoder")
             }
         })
+    }
+    
+    // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate Methods
+    
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+        
+        print("Camera - captureOutput")
     }
     
 }

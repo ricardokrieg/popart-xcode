@@ -1420,11 +1420,6 @@
                                 </items>
                                 <color key="barTintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2W8-uL-QKG" customClass="GPUImageView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1438,9 +1433,6 @@
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="leading" secondItem="JNk-ie-kWE" secondAttribute="leading" id="Guc-j9-PLl"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="KKZ-vn-KhL" secondAttribute="top" id="JEj-WL-D0P"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="centerX" secondItem="fx2-Bo-5N4" secondAttribute="centerX" id="LSa-60-kMG"/>
-                            <constraint firstItem="2W8-uL-QKG" firstAttribute="width" secondItem="dbz-rh-1gR" secondAttribute="width" id="MoR-YV-fL1"/>
-                            <constraint firstItem="2W8-uL-QKG" firstAttribute="height" secondItem="dbz-rh-1gR" secondAttribute="height" id="QnA-7n-x0T"/>
-                            <constraint firstItem="2W8-uL-QKG" firstAttribute="centerY" secondItem="dbz-rh-1gR" secondAttribute="centerY" id="Tem-C4-XBV"/>
                             <constraint firstItem="dbz-rh-1gR" firstAttribute="top" secondItem="fx2-Bo-5N4" secondAttribute="top" constant="-502" id="VdB-JF-UvI"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" constant="11" id="YP4-lj-vzK"/>
                             <constraint firstItem="J3C-b1-u3n" firstAttribute="centerY" secondItem="fx2-Bo-5N4" secondAttribute="centerY" constant="-0.5" id="Zag-Sp-keA"/>
@@ -1449,7 +1441,6 @@
                             <constraint firstItem="fx2-Bo-5N4" firstAttribute="trailing" secondItem="dbz-rh-1gR" secondAttribute="trailing" id="paR-q8-SRc"/>
                             <constraint firstItem="fx2-Bo-5N4" firstAttribute="leading" secondItem="dbz-rh-1gR" secondAttribute="leading" id="rsj-HM-Xy3"/>
                             <constraint firstItem="fx2-Bo-5N4" firstAttribute="top" secondItem="dbz-rh-1gR" secondAttribute="bottom" id="ryt-hG-I5y"/>
-                            <constraint firstItem="2W8-uL-QKG" firstAttribute="centerX" secondItem="dbz-rh-1gR" secondAttribute="centerX" id="ucd-El-69C"/>
                             <constraint firstAttribute="trailing" secondItem="dbz-rh-1gR" secondAttribute="trailing" id="vup-YP-RQi"/>
                         </constraints>
                         <variation key="default">
@@ -1463,7 +1454,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="gpuImageContainer" destination="2W8-uL-QKG" id="1C3-S1-9di"/>
                         <outlet property="imageContainer" destination="dbz-rh-1gR" id="Cuz-28-nPB"/>
                         <outlet property="statusLabel" destination="J3C-b1-u3n" id="98C-IE-IQM"/>
                         <segue destination="FzV-1f-g1n" kind="show" identifier="fromSendingPictureToResult" id="do7-Cx-Cef"/>
