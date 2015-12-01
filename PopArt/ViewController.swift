@@ -561,6 +561,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
         let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
         
+        print("Camera View Size")
+        print(cameraView.frame.size)
+        print("Resized Buffer Image Size")
+        print(resizedBufferImage.size)
+        
         self.pickedImage = resizedBufferImage
         self.croppedImage = resizedBufferImage
 
