@@ -566,27 +566,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print(bufferImage.size)
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         
-//        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(bufferImage)
+        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(bufferImage)
         
-//        if detectedImage == nil {
-////            print("fallback to GPUImage's HarrisCorner method")
-//            
-//            server.frameDetector?.topLeft = nil
-//            server.frameDetector?.topRight = nil
-//            server.frameDetector?.bottomLeft = nil
-//            server.frameDetector?.bottomRight = nil
-//        } else {
-////            pickedImage = detectedImage
-//            self.croppedImage = croppedImage
-//            
-//            server.frameDetector?.topLeft = top_left
-//            server.frameDetector?.topRight = top_right
-//            server.frameDetector?.bottomLeft = bottom_left
-//            server.frameDetector?.bottomRight = bottom_right
-//            
-//            if detectMessage != nil {
-//            }
-//        }
+        if detectedImage == nil {
+//            print("fallback to GPUImage's HarrisCorner method")
+            
+            server.frameDetector?.topLeft = nil
+            server.frameDetector?.topRight = nil
+            server.frameDetector?.bottomLeft = nil
+            server.frameDetector?.bottomRight = nil
+        } else {
+//            pickedImage = detectedImage
+            self.croppedImage = croppedImage
+            
+            server.frameDetector?.topLeft = top_left
+            server.frameDetector?.topRight = top_right
+            server.frameDetector?.bottomLeft = bottom_left
+            server.frameDetector?.bottomRight = bottom_right
+            
+            if detectMessage != nil {
+            }
+        }
     }
     
     func imageFromSampleBuffer(sampleBuffer :CMSampleBufferRef) -> UIImage {
