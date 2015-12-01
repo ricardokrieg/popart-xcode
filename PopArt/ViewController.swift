@@ -557,6 +557,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
+        print("BufferImage Size")
+        print(bufferImage.size)
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         
         let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(bufferImage)
@@ -594,10 +596,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
         
         let bitsPerComponent: Int = 8
-        let newContext = CGBitmapContextCreate(nil, width, height, bitsPerComponent, bytesPerRow, colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue)
+        let newContext = CGBitmapContextCreate(nil, width, height, bitsPerComponent, 0, colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue)
         
         let imageRef: CGImageRef = CGBitmapContextCreateImage(newContext)!
         let resultImage = UIImage(CGImage: imageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+        
         return resultImage
     }
     
