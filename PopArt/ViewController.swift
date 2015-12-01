@@ -559,12 +559,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
-        self.pickedImage = bufferImage
-        self.croppedImage = bufferImage
+        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
+        
+        self.pickedImage = resizedBufferImage
+        self.croppedImage = resizedBufferImage
 
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         
-        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(bufferImage)
+        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(resizedBufferImage)
         
         if detectedImage == nil {
 //            print("fallback to GPUImage's HarrisCorner method")
