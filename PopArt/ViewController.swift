@@ -298,6 +298,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imagePicker.delegate = self
         
+        // Create Frame Detector View
+        
+        server.frameDetector = FrameDetectorView(frame: self.view.bounds)
+        server.frameDetector!.backgroundColor = UIColor.clearColor()
+        self.cameraView.addSubview(server.frameDetector!)
+        
+//        server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
+//        server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
+//        server.frameDetector?.bottomLeft = CGPoint(x: 105, y: 260)
+//        server.frameDetector?.bottomRight = CGPoint(x: 210, y: 275)
+        
         // Create Focus Square
         
         server.squareSize = Int(self.view.bounds.width / 5)
@@ -476,7 +487,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         pickedImage = image
         
-        let (detectedImage, croppedImage, detectMessage) = FrameDetector.detectUsingCIDetector(pickedImage!)
+        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(pickedImage!)
         
         if detectedImage == nil {
             print("fallback to GPUImage's HarrisCorner method")
@@ -545,7 +556,49 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         
-        print("Camera - captureOutput")
+        let bufferImage = imageFromSampleBuffer(sampleBuffer)
+//        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
+        
+        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(bufferImage)
+        
+        if detectedImage == nil {
+            print("fallback to GPUImage's HarrisCorner method")
+            
+            server.frameDetector?.topLeft = nil
+            server.frameDetector?.topRight = nil
+            server.frameDetector?.bottomLeft = nil
+            server.frameDetector?.bottomRight = nil
+        } else {
+//            pickedImage = detectedImage
+            self.croppedImage = croppedImage
+            
+            server.frameDetector?.topLeft = top_left
+            server.frameDetector?.topRight = top_right
+            server.frameDetector?.bottomLeft = bottom_left
+            server.frameDetector?.bottomRight = bottom_right
+            
+            if detectMessage != nil {
+            }
+        }
+    }
+    
+    func imageFromSampleBuffer(sampleBuffer :CMSampleBufferRef) -> UIImage {
+        let imageBuffer: CVImageBufferRef = CMSampleBufferGetImageBuffer(sampleBuffer)!
+        CVPixelBufferLockBaseAddress(imageBuffer, 0)
+        let baseAddress: UnsafeMutablePointer<Void> = CVPixelBufferGetBaseAddressOfPlane(imageBuffer, Int(0))
+        
+        let bytesPerRow: Int = CVPixelBufferGetBytesPerRow(imageBuffer)
+        let width: Int = CVPixelBufferGetWidth(imageBuffer)
+        let height: Int = CVPixelBufferGetHeight(imageBuffer)
+        
+        let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
+        
+        let bitsPerCompornent: Int = 8
+        let newContext = CGBitmapContextCreate(baseAddress, width, height, bitsPerCompornent, bytesPerRow, colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue)
+        
+        let imageRef: CGImageRef = CGBitmapContextCreateImage(newContext)!
+        let resultImage = UIImage(CGImage: imageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+        return resultImage
     }
     
 }

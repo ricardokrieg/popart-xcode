@@ -6,12 +6,52 @@
 //  Copyright © 2015 Netronian Inc. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import GPUImage
 import CoreImage
 
-class FrameDetector {
-    class func detectUsingCIDetector(image: UIImage) -> (UIImage?, UIImage?, String?) {
+class FrameDetectorView: UIView {
+    var topLeft: CGPoint?
+    var topRight: CGPoint?
+    var bottomLeft: CGPoint?
+    var bottomRight: CGPoint?
+    
+    override func drawRect(rect: CGRect) {
+        if topLeft != nil {
+            let context = UIGraphicsGetCurrentContext()
+            
+//            CGContextSetLineWidth(context, 2.0)
+//            
+//            let colorSpace = CGColorSpaceCreateDeviceRGB()
+//            let components: [CGFloat] = [0.0, 0.0, 1.0, 1.0]
+//            let color = CGColorCreate(colorSpace, components)
+//            
+//            CGContextSetStrokeColorWithColor(context, color)
+            
+            
+            CGContextMoveToPoint(context, topLeft!.x, bounds.height-topLeft!.y)
+            CGContextAddLineToPoint(context, topRight!.x, bounds.height-topRight!.y)
+            
+            CGContextMoveToPoint(context, topRight!.x, bounds.height-topRight!.y)
+            CGContextAddLineToPoint(context, bottomRight!.x, bounds.height-bottomRight!.y)
+            
+            CGContextMoveToPoint(context, bottomRight!.x, bounds.height-bottomRight!.y)
+            CGContextAddLineToPoint(context, bottomLeft!.x, bounds.height-bottomLeft!.y)
+            
+            CGContextMoveToPoint(context, bottomLeft!.x, bounds.height-bottomLeft!.y)
+            CGContextAddLineToPoint(context, topLeft!.x, bounds.height-topLeft!.y)
+            
+            CGContextSetLineCap(context, .Round)
+            CGContextSetLineWidth(context, 2.0)
+            CGContextSetRGBStrokeColor(context, 0.0, 1.0, 0.0, 1.0)
+            CGContextSetBlendMode(context, .Normal)
+            
+            CGContextStrokePath(context)
+        }
+    }
+    
+    class func detectUsingCIDetector(image: UIImage) -> (UIImage?, UIImage?, String?, CGPoint?, CGPoint?, CGPoint?, CGPoint?) {
         let detector:CIDetector = CIDetector(ofType: CIDetectorTypeRectangle, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
         let features = detector.featuresInImage(CIImage(image: image)!)
         
@@ -75,12 +115,12 @@ class FrameDetector {
                     
                     let croppedImage = UIImage(CGImage: cg_image)
                     
-                    return (detectedImage, croppedImage, detectMessage)
+                    return (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right)
                 }
             }
         }
         
-        return (nil, nil, detectMessage)
+        return (nil, nil, detectMessage, nil, nil, nil, nil)
     }
 }
 

@@ -44,6 +44,8 @@ class Server {
     var squareSize = 200
     var focusSquare: FocusSquareView?
     
+    var frameDetector: FrameDetectorView?
+    
     init() {}
     
     func doSignIn(sender: UIViewController, email: String, password: String) {
