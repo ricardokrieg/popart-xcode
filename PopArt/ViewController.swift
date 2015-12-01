@@ -457,7 +457,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let sessionQueue = dispatch_queue_create("Camera Session", DISPATCH_QUEUE_SERIAL)
             
             dispatch_async(sessionQueue, {
-                //        videoOutput.videoSettings = NSDictionary(object: Int(kCVPixelFormatType_32BGRA), forKey:kCVPixelBufferPixelFormatTypeKey)
+//                kCVPixelFormatType_32ARGB
+//                self.videoOutput!.videoSettings = NSDictionary(object: Int(kCVPixelFormatType_32BGRA), forKey:kCVPixelBufferPixelFormatTypeKey)
+                self.videoOutput!.videoSettings = [Int(kCVPixelFormatType_32BGRA):kCVPixelBufferPixelFormatTypeKey]
                 self.videoOutput!.alwaysDiscardsLateVideoFrames = true
                 self.videoOutput!.setSampleBufferDelegate(self, queue: sessionQueue)
                 
@@ -599,7 +601,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
         
         let bitsPerComponent: Int = 8
-        let newContext = CGBitmapContextCreate(nil, width, height, bitsPerComponent, 0, colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue)
+        let newContext = CGBitmapContextCreate(baseAddress, width, height, bitsPerComponent, bytesPerRow, colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue)
         
         let imageRef: CGImageRef = CGBitmapContextCreateImage(newContext)!
         let resultImage = UIImage(CGImage: imageRef, scale: 1.0, orientation: UIImageOrientation.Right)
