@@ -459,7 +459,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             dispatch_async(sessionQueue, {
 //                kCVPixelFormatType_32ARGB
 //                self.videoOutput!.videoSettings = NSDictionary(object: Int(kCVPixelFormatType_32BGRA), forKey:kCVPixelBufferPixelFormatTypeKey)
-                self.videoOutput!.videoSettings = [Int(kCVPixelFormatType_32BGRA):kCVPixelBufferPixelFormatTypeKey]
+                self.videoOutput!.videoSettings = [kCVPixelBufferPixelFormatTypeKey: Int(kCVPixelFormatType_32BGRA)]
                 self.videoOutput!.alwaysDiscardsLateVideoFrames = true
                 self.videoOutput!.setSampleBufferDelegate(self, queue: sessionQueue)
                 
