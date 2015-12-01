@@ -562,8 +562,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.pickedImage = bufferImage
         self.croppedImage = bufferImage
 
-        print("BufferImage Size")
-        print(bufferImage.size)
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         
         let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(bufferImage)
@@ -583,6 +581,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             server.frameDetector?.topRight = top_right
             server.frameDetector?.bottomLeft = bottom_left
             server.frameDetector?.bottomRight = bottom_right
+            
+            print("Detected Frame")
+            print(top_left)
+            print(bottom_right)
             
             if detectMessage != nil {
             }
