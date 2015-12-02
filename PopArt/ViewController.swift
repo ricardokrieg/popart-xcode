@@ -305,10 +305,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.addSubview(server.frameDetector!)
         server.frameDetector!.setNeedsDisplay()
         
-        server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
-        server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
-        server.frameDetector?.bottomLeft = CGPoint(x: 105, y: 260)
-        server.frameDetector?.bottomRight = CGPoint(x: 210, y: 275)
+//        server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
+//        server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
+//        server.frameDetector?.bottomLeft = CGPoint(x: 105, y: 260)
+//        server.frameDetector?.bottomRight = CGPoint(x: 210, y: 275)
         
         // Create Focus Square
         
@@ -572,23 +572,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if detectedImage == nil {
 //            print("fallback to GPUImage's HarrisCorner method")
+            NSLog("Not Detected")
             
-//            server.frameDetector?.topLeft = nil
-//            server.frameDetector?.topRight = nil
-//            server.frameDetector?.bottomLeft = nil
-//            server.frameDetector?.bottomRight = nil
+            server.frameDetector?.topLeft = nil
+            server.frameDetector?.topRight = nil
+            server.frameDetector?.bottomLeft = nil
+            server.frameDetector?.bottomRight = nil
         } else {
 //            pickedImage = detectedImage
             self.croppedImage = croppedImage
             
-//            server.frameDetector?.topLeft = CGPoint(x: top_left!.x/2, y: top_left!.y/2)
-//            server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
-//            server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
-//            server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
+            server.frameDetector?.topLeft = CGPoint(x: top_left!.x/2, y: top_left!.y/2)
+            server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
+            server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
+            server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
             
-            print("Detected Frame")
-            print(top_left)
-            print(bottom_right)
+            NSLog("Detected")
+//            print(top_left)
+//            print(bottom_right)
             
             if detectMessage != nil {
             }
