@@ -44,7 +44,7 @@ class FrameDetectorView: UIView {
             
             CGContextSetLineCap(context, .Round)
             CGContextSetLineWidth(context, 2.0)
-            CGContextSetRGBStrokeColor(context, 0.0, 1.0, 0.0, 1.0)
+            CGContextSetRGBStrokeColor(context, 0.0, 0.0, 1.0, 1.0)
             CGContextSetBlendMode(context, .Normal)
             
             CGContextStrokePath(context)
