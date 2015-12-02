@@ -56,6 +56,7 @@ class FrameDetectorView: UIView {
         let features = detector.featuresInImage(CIImage(image: image)!)
         
         var detectMessage: String? = nil
+        print(features.count)
         
         if features.count > 0 {
             for feature in features {
@@ -71,6 +72,14 @@ class FrameDetectorView: UIView {
                     if frame_width / image.size.width < 0.8 && frame_height / image.size.height < 0.8 {
                         detectMessage = "Please, get near to the painting"
                     }
+                    
+//                    let newRect = CALayer()
+////                    newRect.frame = CGRectMake(50, 50, 100, 100)
+//                    newRect.frame = CGRectMake(top_left.x, previewLayer.bounds.size.height-top_left.y, frame_width, frame_height)
+//                    newRect.borderColor = UIColor.redColor().CGColor
+//                    newRect.borderWidth = 1;
+//                    previewLayer.addSublayer(newRect)
+                    
                     
                     UIGraphicsBeginImageContext(image.size)
                     let context = UIGraphicsGetCurrentContext()
@@ -118,6 +127,9 @@ class FrameDetectorView: UIView {
                     return (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right)
                 }
             }
+        }else
+        {
+          //  previewLayer.sublayers = nil;
         }
         
         return (nil, nil, detectMessage, nil, nil, nil, nil)
