@@ -103,11 +103,11 @@ class FrameDetectorView: UIView {
                     let ci_image = CIImage(image: image)
                     
                     let image_rect = ci_image!.imageByApplyingFilter("CIPerspectiveTransformWithExtent", withInputParameters: [
-                        "inputExtent": CIVector(CGRect: ci_image!.extent),
-                        "inputTopLeft": CIVector(CGPoint: top_left),
-                        "inputTopRight": CIVector(CGPoint: top_right),
-                        "inputBottomLeft": CIVector(CGPoint: bottom_left),
-                        "inputBottomRight": CIVector(CGPoint: bottom_right)
+                            "inputExtent": CIVector(CGRect: ci_image!.extent),
+                            "inputTopLeft": CIVector(CGPoint: top_left),
+                            "inputTopRight": CIVector(CGPoint: top_right),
+                            "inputBottomLeft": CIVector(CGPoint: bottom_left),
+                            "inputBottomRight": CIVector(CGPoint: bottom_right)
                         ])
                     
                     let cropped_ci_image = ci_image?.imageByCroppingToRect(image_rect.extent)

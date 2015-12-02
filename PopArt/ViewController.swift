@@ -561,11 +561,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
         let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
         
-        print("Camera View Size")
-        print(cameraView.frame.size)
-        print("Resized Buffer Image Size")
-        print(resizedBufferImage.size)
-        
         self.pickedImage = resizedBufferImage
         self.croppedImage = resizedBufferImage
 
@@ -584,10 +579,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            pickedImage = detectedImage
             self.croppedImage = croppedImage
             
-            server.frameDetector?.topLeft = top_left
-            server.frameDetector?.topRight = top_right
-            server.frameDetector?.bottomLeft = bottom_left
-            server.frameDetector?.bottomRight = bottom_right
+            server.frameDetector?.topLeft = CGPoint(x: top_left.x/2, y: top_left.y/2)
+            server.frameDetector?.topRight = CGPoint(x: top_right.x/2, y: top_right.y/2)
+            server.frameDetector?.bottomLeft = CGPoint(x: bottom_left.x/2, y: bottom_left.y/2)
+            server.frameDetector?.bottomRight = CGPoint(x: bottom_right.x/2, y: bottom_right.y/2)
             
             print("Detected Frame")
             print(top_left)
