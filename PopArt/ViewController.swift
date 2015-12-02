@@ -303,6 +303,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         server.frameDetector = FrameDetectorView(frame: self.view.bounds)
         server.frameDetector!.backgroundColor = UIColor.clearColor()
         self.cameraView.addSubview(server.frameDetector!)
+        server.frameDetector!.setNeedsDisplay()
         
         server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
         server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
