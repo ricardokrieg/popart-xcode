@@ -578,6 +578,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             server.frameDetector?.topRight = nil
             server.frameDetector?.bottomLeft = nil
             server.frameDetector?.bottomRight = nil
+            
+            server.frameDetector!.setNeedsDisplay()
         } else {
 //            pickedImage = detectedImage
             self.croppedImage = croppedImage
@@ -586,6 +588,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
             server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
             server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
+            
+            server.frameDetector!.setNeedsDisplay()
             
             NSLog("Detected")
 //            print(top_left)
