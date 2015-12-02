@@ -579,10 +579,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            pickedImage = detectedImage
             self.croppedImage = croppedImage
             
-            server.frameDetector?.topLeft = CGPoint(x: top_left.x/2, y: top_left.y/2)
-            server.frameDetector?.topRight = CGPoint(x: top_right.x/2, y: top_right.y/2)
-            server.frameDetector?.bottomLeft = CGPoint(x: bottom_left.x/2, y: bottom_left.y/2)
-            server.frameDetector?.bottomRight = CGPoint(x: bottom_right.x/2, y: bottom_right.y/2)
+            server.frameDetector?.topLeft = CGPoint(x: top_left!.x/2, y: top_left!.y/2)
+            server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
+            server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
+            server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
             
             print("Detected Frame")
             print(top_left)
