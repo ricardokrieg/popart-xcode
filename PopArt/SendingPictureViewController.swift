@@ -36,6 +36,10 @@ class SendingPictureViewController: UIViewController {
             imageContainer.image = compressImage(pickedImage!)
         }
         
+        if self.croppedImage != nil {
+            self.croppedImage = compressImage(self.croppedImage!)
+        }
+        
         // Get location
         
         if server.location != nil {
