@@ -625,9 +625,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let height: Int = CVPixelBufferGetHeight(imageBuffer)
         
         let colorSpace: CGColorSpaceRef = CGColorSpaceCreateDeviceRGB()!
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue)
         
         let bitsPerComponent: Int = 8
-        let newContext = CGBitmapContextCreate(baseAddress, width, height, bitsPerComponent, bytesPerRow, colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue)
+        let newContext = CGBitmapContextCreate(baseAddress, width, height, bitsPerComponent, bytesPerRow, colorSpace, bitmapInfo.rawValue)
+//        CGImageAlphaInfo.NoneSkipFirst.rawValue
         
         let imageRef: CGImageRef = CGBitmapContextCreateImage(newContext)!
         let resultImage = UIImage(CGImage: imageRef, scale: 1.0, orientation: UIImageOrientation.Right)
