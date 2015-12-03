@@ -472,11 +472,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.cameraView.layer.addSublayer(previewLayer!)
-        
+
         self.cameraView.bringSubviewToFront(slider)
         self.cameraView.bringSubviewToFront(server.frameDetector!)
         self.cameraView.bringSubviewToFront(server.focusSquare!)
         self.cameraView.bringSubviewToFront(grid)
+        
+        
         
         print("CameraView (bounds): \(cameraView!.bounds)")
         print("CameraViewr (frame): \(cameraView!.frame)")
@@ -491,7 +493,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         pickedImage = image
         
-        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(pickedImage!)
+        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(pickedImage!)
         
         if detectedImage == nil {
             print("fallback to GPUImage's HarrisCorner method")
@@ -560,6 +562,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         
+//        let rectlayers = previewLayer?.sublayers
+//        if rectlayers?.count > 0{
+//            previewLayer?.sublayers = nil
+//        }
+//        
+        
+        
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
         let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
         
@@ -568,36 +577,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         
-        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(resizedBufferImage)
-        
-        if detectedImage == nil {
-//            print("fallback to GPUImage's HarrisCorner method")
-            NSLog("Not Detected")
+        dispatch_async(dispatch_get_main_queue()) {
             
-            server.frameDetector?.topLeft = nil
-            server.frameDetector?.topRight = nil
-            server.frameDetector?.bottomLeft = nil
-            server.frameDetector?.bottomRight = nil
             
-            server.frameDetector!.setNeedsDisplay()
-        } else {
-//            pickedImage = detectedImage
-            self.croppedImage = croppedImage
-            
-            server.frameDetector?.topLeft = CGPoint(x: top_left!.x/2, y: top_left!.y/2)
-            server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
-            server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
-            server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
-            
-            server.frameDetector!.setNeedsDisplay()
-            
-            NSLog("Detected")
-//            print(top_left)
-//            print(bottom_right)
-            
-            if detectMessage != nil {
+            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(resizedBufferImage)
+            self.previewLayer?.setNeedsDisplay()
+            if detectedImage == nil {
+                //            print("fallback to GPUImage's HarrisCorner method")
+                NSLog("Not Detected")
+                
+                server.frameDetector?.topLeft = nil
+                server.frameDetector?.topRight = nil
+                server.frameDetector?.bottomLeft = nil
+                server.frameDetector?.bottomRight = nil
+                
+                server.frameDetector!.setNeedsDisplay()
+            } else {
+                //            pickedImage = detectedImage
+                self.croppedImage = croppedImage
+                
+                server.frameDetector?.topLeft = CGPoint(x: top_left!.x/2, y: top_left!.y/2)
+                server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
+                server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
+                server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
+                server.frameDetector?.imagesize = detectedImage?.size
+                server.frameDetector!.setNeedsDisplay()
+                
+                NSLog("Detected")
+                //            print(top_left)
+                //            print(bottom_right)
+                
+                if detectMessage != nil {
+                }
             }
+            
         }
+        
     }
     
     func imageFromSampleBuffer(sampleBuffer :CMSampleBufferRef) -> UIImage {
