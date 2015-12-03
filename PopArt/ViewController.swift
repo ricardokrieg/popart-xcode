@@ -472,6 +472,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.cameraView.layer.addSublayer(previewLayer!)
+
         self.cameraView.bringSubviewToFront(slider)
         self.cameraView.bringSubviewToFront(server.frameDetector!)
         self.cameraView.bringSubviewToFront(server.focusSquare!)
@@ -492,7 +493,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         pickedImage = image
         
-        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(pickedImage!)
+        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(pickedImage!)
         
         if detectedImage == nil {
             print("fallback to GPUImage's HarrisCorner method")
@@ -579,7 +580,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dispatch_async(dispatch_get_main_queue()) {
             
             
-            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = FrameDetectorView.detectUsingCIDetector(resizedBufferImage)
+            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(resizedBufferImage)
             self.previewLayer?.setNeedsDisplay()
             if detectedImage == nil {
                 //            print("fallback to GPUImage's HarrisCorner method")
@@ -599,7 +600,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
                 server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
                 server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
-                
+                server.frameDetector?.imagesize = detectedImage?.size
                 server.frameDetector!.setNeedsDisplay()
                 
                 NSLog("Detected")

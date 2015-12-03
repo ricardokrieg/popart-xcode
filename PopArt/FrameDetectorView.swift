@@ -16,7 +16,7 @@ class FrameDetectorView: UIView {
     var topRight: CGPoint?
     var bottomLeft: CGPoint?
     var bottomRight: CGPoint?
-    
+    var imagesize: CGSize?
     override func drawRect(rect: CGRect) {
         if topLeft != nil {
             let context = UIGraphicsGetCurrentContext()
@@ -28,19 +28,19 @@ class FrameDetectorView: UIView {
 //            let color = CGColorCreate(colorSpace, components)
 //            
 //            CGContextSetStrokeColorWithColor(context, color)
+            let dif = ((imagesize?.height)! - self.frame.size.height)
             
+            CGContextMoveToPoint(context, topLeft!.x, bounds.height-topLeft!.y+dif)
+            CGContextAddLineToPoint(context, topRight!.x, bounds.height-topRight!.y+dif)
             
-            CGContextMoveToPoint(context, topLeft!.x, bounds.height-topLeft!.y)
-            CGContextAddLineToPoint(context, topRight!.x, bounds.height-topRight!.y)
+            CGContextMoveToPoint(context, topRight!.x, bounds.height-topRight!.y+dif)
+            CGContextAddLineToPoint(context, bottomRight!.x, bounds.height-bottomRight!.y+dif)
             
-            CGContextMoveToPoint(context, topRight!.x, bounds.height-topRight!.y)
-            CGContextAddLineToPoint(context, bottomRight!.x, bounds.height-bottomRight!.y)
+            CGContextMoveToPoint(context, bottomRight!.x, bounds.height-bottomRight!.y+dif)
+            CGContextAddLineToPoint(context, bottomLeft!.x, bounds.height-bottomLeft!.y+dif)
             
-            CGContextMoveToPoint(context, bottomRight!.x, bounds.height-bottomRight!.y)
-            CGContextAddLineToPoint(context, bottomLeft!.x, bounds.height-bottomLeft!.y)
-            
-            CGContextMoveToPoint(context, bottomLeft!.x, bounds.height-bottomLeft!.y)
-            CGContextAddLineToPoint(context, topLeft!.x, bounds.height-topLeft!.y)
+            CGContextMoveToPoint(context, bottomLeft!.x, bounds.height-bottomLeft!.y+dif)
+            CGContextAddLineToPoint(context, topLeft!.x, bounds.height-topLeft!.y+dif)
             
             CGContextSetLineCap(context, .Round)
             CGContextSetLineWidth(context, 2.0)
@@ -51,7 +51,7 @@ class FrameDetectorView: UIView {
         }
     }
     
-    class func detectUsingCIDetector(image: UIImage) -> (UIImage?, UIImage?, String?, CGPoint?, CGPoint?, CGPoint?, CGPoint?) {
+    func detectUsingCIDetector(image: UIImage) -> (UIImage?, UIImage?, String?, CGPoint?, CGPoint?, CGPoint?, CGPoint?) {
         let detector:CIDetector = CIDetector(ofType: CIDetectorTypeRectangle, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
         let features = detector.featuresInImage(CIImage(image: image)!)
         
@@ -72,7 +72,8 @@ class FrameDetectorView: UIView {
                     if frame_width / image.size.width < 0.8 && frame_height / image.size.height < 0.8 {
                         detectMessage = "Please, get near to the painting"
                     }
-                    
+                    print(image.size)
+                    print(self.frame)
 //                    let newRect = CALayer()
 ////                    newRect.frame = CGRectMake(50, 50, 100, 100)
 //                    newRect.frame = CGRectMake(top_left.x, previewLayer.bounds.size.height-top_left.y, frame_width, frame_height)
