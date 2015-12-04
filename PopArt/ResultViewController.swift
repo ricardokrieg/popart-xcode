@@ -12,7 +12,7 @@ import Social
 import MessageUI
 import AssetsLibrary
 
-class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIPopoverPresentationControllerDelegate {
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var resultImage: UIImageView!
@@ -20,6 +20,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBOutlet weak var resultDescriptionL1: UILabel!
     @IBOutlet weak var resultDescriptionL2: UILabel!
     @IBOutlet weak var resultDescriptionL3: UILabel!
+    @IBOutlet weak var similarPaintingsScrollView: UIScrollView!
     
     var result: NSData?
     var saveToHistory:Bool = false
@@ -121,6 +122,8 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        similarPaintingsScrollView.contentSize = CGSize(width: 600.0, height: 80.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -138,6 +141,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let result_detailed_description = json?["detailed_description"] as? String?
             let result_location_area = json?["location_area"] as? String?
             let result_location_country = json?["location_country"] as? String?
+            let result_similar_paintings = json?["similar"] as? NSDictionary?
             
             if (result_success == true) {
                 shareButton.enabled = true
@@ -174,6 +178,44 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             if result_description_l3 != nil {
                 resultDescriptionL3.text = result_description_l3!
+            }
+            
+//            if result_similar_paintings != nil {
+            if true {
+                var scrollViewWidth: CGFloat = 0
+                let scrollViewHeight = similarPaintingsScrollView.contentSize.height
+                
+                for var i = 0; i < 10; i++ {
+                    let similarPaintingView = UIView()
+                    let similarPaintingImageView = UIImageView()
+                    let similarPaintingLabel = UILabel()
+                    similarPaintingLabel.text = result_title!
+                    
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                        if let url = NSURL(string: result_thumb_image_url!!) {
+                            if let data = NSData(contentsOfURL: url){
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    let image = UIImage(data: data)
+                                    
+                                    similarPaintingImageView.image = image
+                                    similarPaintingImageView.contentMode = .ScaleAspectFit
+                                    similarPaintingImageView.frame.size = image!.size
+    //                                similarPaintingImageView.center = self.view.center
+                                    similarPaintingImageView.frame.origin = CGPoint(x: scrollViewWidth, y: CGFloat(0))
+                                    
+                                    scrollViewWidth += image!.size.width + 4
+                                }
+                            }
+                        }
+                    }
+                    
+                    similarPaintingView.addSubview(similarPaintingImageView)
+                    similarPaintingView.addSubview(similarPaintingLabel)
+                    
+                    similarPaintingsScrollView.addSubview(similarPaintingView)
+                }
+            
+                similarPaintingsScrollView.contentSize = CGSize(width: scrollViewWidth, height: scrollViewHeight)
             }
             
             if saveToHistory {
