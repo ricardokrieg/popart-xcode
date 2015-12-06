@@ -580,10 +580,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
-        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
+//        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
         
-        self.pickedImage = resizedBufferImage
-        self.croppedImage = resizedBufferImage
+//        self.pickedImage = resizedBufferImage
+//        self.croppedImage = resizedBufferImage
+        
+        self.pickedImage = bufferImage
+        self.croppedImage = bufferImage
 
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         
