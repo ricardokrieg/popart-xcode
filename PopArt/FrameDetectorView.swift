@@ -17,6 +17,9 @@ class FrameDetectorView: UIView {
     var bottomLeft: CGPoint?
     var bottomRight: CGPoint?
     var imagesize: CGSize?
+    
+    let detector:CIDetector = CIDetector(ofType: CIDetectorTypeRectangle, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyLow])
+    
     override func drawRect(rect: CGRect) {
         if topLeft != nil {
             let context = UIGraphicsGetCurrentContext()
@@ -52,8 +55,10 @@ class FrameDetectorView: UIView {
     }
     
     func detectUsingCIDetector(image: UIImage) -> (UIImage?, UIImage?, String?, CGPoint?, CGPoint?, CGPoint?, CGPoint?) {
-        let detector:CIDetector = CIDetector(ofType: CIDetectorTypeRectangle, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+        
         let features = detector.featuresInImage(CIImage(image: image)!)
+        
+        return (nil, nil, nil, nil, nil, nil, nil)
         
         var detectMessage: String? = nil
         print(features.count)

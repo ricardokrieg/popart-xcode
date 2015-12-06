@@ -20,6 +20,10 @@
 		8C0CFAD01BCD4F0E00512114 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */; };
 		8C0E32FF1BDE7C430015B404 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0E32FE1BDE7C420015B404 /* ContactViewController.swift */; };
 		8C1209941BE040F900DF583C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1209931BE040F800DF583C /* SplashViewController.swift */; };
+		8C1628851C13D0FB00501E25 /* CVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C1628841C13D0FB00501E25 /* CVWrapper.mm */; settings = {ASSET_TAGS = (); }; };
+		8C1628891C13D24C00501E25 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C1628881C13D24C00501E25 /* UIImage+OpenCV.mm */; settings = {ASSET_TAGS = (); }; };
+		8C16288C1C13D47600501E25 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C16288B1C13D47600501E25 /* UIImage+Rotate.m */; settings = {ASSET_TAGS = (); }; };
+		8C16288F1C13D4FC00501E25 /* stitching.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C16288E1C13D4FC00501E25 /* stitching.cpp */; settings = {ASSET_TAGS = (); }; };
 		8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */; };
 		8C260A991BAB64A800BAACC5 /* FocusSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */; };
 		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
@@ -79,6 +83,14 @@
 		8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResetPasswordViewController.swift; path = ../ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		8C0E32FE1BDE7C420015B404 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		8C1209931BE040F800DF583C /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		8C1628831C13D0A700501E25 /* CVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CVWrapper.h; sourceTree = "<group>"; };
+		8C1628841C13D0FB00501E25 /* CVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CVWrapper.mm; sourceTree = "<group>"; };
+		8C1628871C13D20B00501E25 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		8C1628881C13D24C00501E25 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		8C16288A1C13D45100501E25 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		8C16288B1C13D47600501E25 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		8C16288D1C13D4D300501E25 /* stitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stitching.h; sourceTree = "<group>"; };
+		8C16288E1C13D4FC00501E25 /* stitching.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stitching.cpp; sourceTree = "<group>"; };
 		8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
 		8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquareView.swift; sourceTree = "<group>"; };
 		8C2655741B7ED08100648FC5 /* PopsArt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopsArt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +239,14 @@
 				8C2655821B7ED08100648FC5 /* LaunchScreen.xib */,
 				8C2655801B7ED08100648FC5 /* Images.xcassets */,
 				8CFEA6911B8F575F00826DB1 /* PopArtDataModel.xcdatamodeld */,
+				8C1628831C13D0A700501E25 /* CVWrapper.h */,
+				8C1628841C13D0FB00501E25 /* CVWrapper.mm */,
+				8C1628871C13D20B00501E25 /* UIImage+OpenCV.h */,
+				8C1628881C13D24C00501E25 /* UIImage+OpenCV.mm */,
+				8C16288A1C13D45100501E25 /* UIImage+Rotate.h */,
+				8C16288B1C13D47600501E25 /* UIImage+Rotate.m */,
+				8C16288D1C13D4D300501E25 /* stitching.h */,
+				8C16288E1C13D4FC00501E25 /* stitching.cpp */,
 				C71D2FAD1BA687DC0044FD0D /* Custom Fonts */,
 				8C2655771B7ED08100648FC5 /* Supporting Files */,
 			);
@@ -446,11 +466,15 @@
 				8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */,
 				8C9F79E81BC69E4D001174EC /* Account.swift in Sources */,
 				8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */,
+				8C1628891C13D24C00501E25 /* UIImage+OpenCV.mm in Sources */,
 				8C0C7BBC1BC4742100F37623 /* SignUpViewController.swift in Sources */,
+				8C1628851C13D0FB00501E25 /* CVWrapper.mm in Sources */,
 				8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */,
+				8C16288F1C13D4FC00501E25 /* stitching.cpp in Sources */,
 				8CFA9BC01BC4051A00E8A116 /* SignInViewController.swift in Sources */,
 				8C260A991BAB64A800BAACC5 /* FocusSquareView.swift in Sources */,
 				8C26557C1B7ED08100648FC5 /* ViewController.swift in Sources */,
+				8C16288C1C13D47600501E25 /* UIImage+Rotate.m in Sources */,
 				8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

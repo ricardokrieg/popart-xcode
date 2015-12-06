@@ -9,4 +9,5 @@ target 'PopsArt' do
     pod 'TTTAttributedLabel'
     pod 'Locksmith'
     pod 'GPUImage'
+    pod 'OpenCV'
 end

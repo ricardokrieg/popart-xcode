@@ -493,17 +493,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         pickedImage = image
         
-        let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(pickedImage!)
-        
-        if detectedImage == nil {
-            print("fallback to GPUImage's HarrisCorner method")
-        } else {
-            pickedImage = detectedImage
-            self.croppedImage = croppedImage
+//        for var i = 0; i < 100; i++ {
+            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(pickedImage) as UIImage
+            NSLog("ViewController: %@", stitchedImage)
             
-            if detectMessage != nil {
-            }
-        }
+            pickedImage = stitchedImage
+            croppedImage = pickedImage
+//        }
+        
+//        for var i = 0; i < 100; i++ {
+//            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(pickedImage!)
+//            
+//            if detectedImage == nil {
+//                print("fallback to GPUImage's HarrisCorner method")
+//            } else {
+//                pickedImage = detectedImage
+//                self.croppedImage = croppedImage
+//                
+//                if detectMessage != nil {
+//                }
+//            }
+//        }
         
         dismissViewControllerAnimated(true, completion: {
             self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
@@ -579,37 +589,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dispatch_async(dispatch_get_main_queue()) {
             
+            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
+//            NSLog("ViewController: %@", stitchedImage)
             
-            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(resizedBufferImage)
-            self.previewLayer?.setNeedsDisplay()
-            if detectedImage == nil {
-                //            print("fallback to GPUImage's HarrisCorner method")
-                NSLog("Not Detected")
-                
-                server.frameDetector?.topLeft = nil
-                server.frameDetector?.topRight = nil
-                server.frameDetector?.bottomLeft = nil
-                server.frameDetector?.bottomRight = nil
-                
-                server.frameDetector!.setNeedsDisplay()
-            } else {
-                //            pickedImage = detectedImage
-                self.croppedImage = croppedImage
-                
-                server.frameDetector?.topLeft = CGPoint(x: top_left!.x/2, y: top_left!.y/2)
-                server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
-                server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
-                server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
-                server.frameDetector?.imagesize = detectedImage?.size
-                server.frameDetector!.setNeedsDisplay()
-                
-                NSLog("Detected")
-                //            print(top_left)
-                //            print(bottom_right)
-                
-                if detectMessage != nil {
-                }
-            }
+            self.pickedImage = stitchedImage
+            self.croppedImage = self.pickedImage
+            
+            
+//            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(resizedBufferImage)
+//            self.previewLayer?.setNeedsDisplay()
+//            if detectedImage == nil {
+//                //            print("fallback to GPUImage's HarrisCorner method")
+//                NSLog("Not Detected")
+//                
+//                server.frameDetector?.topLeft = nil
+//                server.frameDetector?.topRight = nil
+//                server.frameDetector?.bottomLeft = nil
+//                server.frameDetector?.bottomRight = nil
+//                
+//                server.frameDetector!.setNeedsDisplay()
+//            } else {
+//                //            pickedImage = detectedImage
+//                self.croppedImage = croppedImage
+//                
+//                server.frameDetector?.topLeft = CGPoint(x: top_left!.x/2, y: top_left!.y/2)
+//                server.frameDetector?.topRight = CGPoint(x: top_right!.x/2, y: top_right!.y/2)
+//                server.frameDetector?.bottomLeft = CGPoint(x: bottom_left!.x/2, y: bottom_left!.y/2)
+//                server.frameDetector?.bottomRight = CGPoint(x: bottom_right!.x/2, y: bottom_right!.y/2)
+//                server.frameDetector?.imagesize = detectedImage?.size
+//                server.frameDetector!.setNeedsDisplay()
+//                
+//                NSLog("Detected")
+//                //            print(top_left)
+//                //            print(bottom_right)
+//                
+//                if detectMessage != nil {
+//                }
+//            }
             
         }
         
