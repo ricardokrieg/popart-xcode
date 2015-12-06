@@ -36,7 +36,7 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     cv::Mat image = [rotatedImage CVMat3];
 //    NSLog (@"matImage: %@",inputImage);
     
-    int thresh = 100, N = 11;
+    int thresh = 100, N = 1;
     
     std::vector<std::vector<cv::Point> > squares;
     cv::Mat pyr, timg, gray0(image.size(), CV_8U), gray;
