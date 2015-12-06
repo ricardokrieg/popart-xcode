@@ -34,7 +34,7 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     
     UIImage* rotatedImage = [inputImage rotateToImageOrientation];
     cv::Mat image = [rotatedImage CVMat3];
-    NSLog (@"matImage: %@",inputImage);
+//    NSLog (@"matImage: %@",inputImage);
     
     int thresh = 100, N = 11;
     
