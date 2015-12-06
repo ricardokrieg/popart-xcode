@@ -589,11 +589,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         dispatch_async(dispatch_get_main_queue()) {
             
-            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
+//            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
 //            NSLog("ViewController: %@", stitchedImage)
             
-            self.pickedImage = stitchedImage
-            self.croppedImage = self.pickedImage
+//            self.pickedImage = stitchedImage
+//            self.croppedImage = self.pickedImage
             
             
 //            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(resizedBufferImage)
