@@ -494,7 +494,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print("PreviewLayer (bounds): \(previewLayer!.bounds)")
         print("PreviewLayer (frame): \(previewLayer!.frame)")
         
-        //captureSession.startRunning()
+        captureSession.startRunning()
     }
     
     // MARK: - UIImagePickerControllerDelegate Methods
