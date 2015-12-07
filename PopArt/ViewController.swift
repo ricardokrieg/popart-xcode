@@ -292,7 +292,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
         
         server.authenticateUser("ViewController", checkToken: server.shouldCheckToken)
         server.shouldCheckToken = true
@@ -494,7 +494,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print("PreviewLayer (bounds): \(previewLayer!.bounds)")
         print("PreviewLayer (frame): \(previewLayer!.frame)")
         
-        captureSession.startRunning()
+        //captureSession.startRunning()
     }
     
     // MARK: - UIImagePickerControllerDelegate Methods
