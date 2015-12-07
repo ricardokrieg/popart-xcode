@@ -292,7 +292,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerAction", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
         
         server.authenticateUser("ViewController", checkToken: server.shouldCheckToken)
         server.shouldCheckToken = true
