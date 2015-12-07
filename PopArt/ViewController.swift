@@ -38,6 +38,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var videoConnection : AVCaptureConnection?
     
+    var shouldProcessImage : Bool = false
+    var timer : NSTimer = NSTimer()
+    
+    func changeProcessImage() {
+        shouldProcessImage = !shouldProcessImage
+    }
+    
     @IBAction func handleTouch(sender: UITapGestureRecognizer) {
         if sender.state == .Ended {
             if let view = sender.view {
@@ -284,6 +291,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "timerAction", userInfo: nil, repeats: true)
         
         server.authenticateUser("ViewController", checkToken: server.shouldCheckToken)
         server.shouldCheckToken = true
@@ -578,8 +587,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        if rectlayers?.count > 0{
 //            previewLayer?.sublayers = nil
 //        }
-//        
+//
         
+        if (!shouldProcessImage) {
+            return;
+        }
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
         let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
