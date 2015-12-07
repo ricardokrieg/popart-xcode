@@ -493,6 +493,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         pickedImage = image
         
+//        let (keypoints, descriptors) = CVWrapper.detectKeypointsAndDescriptors(pickedImage)
+        
 //        for var i = 0; i < 100; i++ {
             let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(pickedImage) as UIImage
             NSLog("ViewController: %@", stitchedImage)
@@ -580,13 +582,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
-//        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
+        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
         
-//        self.pickedImage = resizedBufferImage
-//        self.croppedImage = resizedBufferImage
+        self.pickedImage = resizedBufferImage
+        self.croppedImage = resizedBufferImage
         
-        self.pickedImage = bufferImage
-        self.croppedImage = bufferImage
+//        self.pickedImage = bufferImage
+//        self.croppedImage = bufferImage
 
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         
