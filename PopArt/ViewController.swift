@@ -328,7 +328,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Setup Camera Preview
         
-        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        //captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        captureSession.sessionPreset = AVCaptureSessionPresetLow
         
         let devices = AVCaptureDevice.devices()
         print("AVCaptureDevice list")
