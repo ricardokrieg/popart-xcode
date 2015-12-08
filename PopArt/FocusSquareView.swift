@@ -18,7 +18,7 @@ class FocusSquareView: UIView {
         layer.borderWidth = 2.0
         layer.cornerRadius = 4.0
         layer.borderColor = UIColor.greenColor().CGColor
-        alpha = 1.0
+        alpha = 0.0
     }
 
     required init?(coder aDecoder: NSCoder) {
