@@ -390,7 +390,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
-            self.captureSession.stopRunning();
+            //self.captureSession.stopRunning();
             
             if pickedImage != nil {
                 let destination = segue.destinationViewController as! SendingPictureViewController
