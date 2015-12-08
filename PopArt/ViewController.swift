@@ -153,7 +153,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             
             // we do this on another thread so we don't hang the UI
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let myQueue = dispatch_queue_create("My Queue", nil);
+            
+            dispatch_async(myQueue/*dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)*/) {
+                
+                sleep(3)
+                
                 // find video connection
                 for connection in stillOutput.connections {
                     // find a matching input port
@@ -168,6 +173,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         break // for connection
                     }
                 }
+                
+                
                 
                 switch (UIApplication.sharedApplication().statusBarOrientation)
                 {
@@ -188,10 +195,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     stillOutput.captureStillImageAsynchronouslyFromConnection(self.videoConnection) {
                         (imageSampleBuffer:CMSampleBuffer!, _) in
                         
-                        let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
-                        let image = UIImage(data: imageData)
+                        //let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
+                        //let image = UIImage(data: imageData)
                         
-//                        self.pickedImage = image
+                        //self.pickedImage = image
                         
                         self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
                     }
@@ -257,7 +264,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func sliderValueChanged(sender: AnyObject) {
         print(slider.value)
         
-//        var hardwareZoom = false
+        //var hardwareZoom = false
         
         if let device = captureDevice {
             if device.respondsToSelector("videoZoomFactor") {
@@ -265,7 +272,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     try device.lockForConfiguration()
                     print("Setting zoom")
                     device.videoZoomFactor = CGFloat(slider.value)
-
+                    
                     device.unlockForConfiguration()
 //                    hardwareZoom = true
                 } catch _ {
@@ -278,21 +285,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("No device")
         }
         
-//        if !hardwareZoom {
-//            let frame = captureDevice.frame
-//            let width = frame.size.width * slider.value
-//            let height = frame.size.height * slider.value
-//            let x = (frame.size.width - width)/2
-//            let y = (frame.size.height - height)/2
-//            
-//            captureDevice.bounds = CGRectMake(x, y, width, height)
-//        }
+        /*if !hardwareZoom {
+            let frame = self.view.frame//captureDevice.frame
+            let width = frame.size.width * slider.value
+            let height = frame.size.height * slider.value
+            let x = (frame.size.width - width)/2
+            let y = (frame.size.height - height)/2
+            
+            captureDevice.bounds = CGRectMake(x, y, width, height)
+        }*/
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(6.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
         
         server.authenticateUser("ViewController", checkToken: server.shouldCheckToken)
         server.shouldCheckToken = true
@@ -314,10 +321,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.addSubview(server.frameDetector!)
         server.frameDetector!.setNeedsDisplay()
         
-//        server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
-//        server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
-//        server.frameDetector?.bottomLeft = CGPoint(x: 105, y: 260)
-//        server.frameDetector?.bottomRight = CGPoint(x: 210, y: 275)
+        //server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
+        //server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
+        //server.frameDetector?.bottomLeft = CGPoint(x: 105, y: 260)
+        //server.frameDetector?.bottomRight = CGPoint(x: 210, y: 275)
         
         // Create Focus Square
         
@@ -383,6 +390,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
+            self.captureSession.stopRunning();
+            
             if pickedImage != nil {
                 let destination = segue.destinationViewController as! SendingPictureViewController
                 destination.pickedImage = pickedImage
@@ -465,12 +474,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         videoOutput = AVCaptureVideoDataOutput()
         if videoOutput != nil {
-            let sessionQueue = dispatch_queue_create("Camera Session", DISPATCH_QUEUE_SERIAL)
+            let sessionQueue = dispatch_queue_create("Camera Session", /*DISPATCH_QUEUE_SERIAL*/DISPATCH_QUEUE_CONCURRENT)
             
             dispatch_async(sessionQueue, {
 //                kCVPixelFormatType_32ARGB
 //                self.videoOutput!.videoSettings = NSDictionary(object: Int(kCVPixelFormatType_32BGRA), forKey:kCVPixelBufferPixelFormatTypeKey)
-                self.videoOutput!.videoSettings = [kCVPixelBufferPixelFormatTypeKey: Int(/*kCVPixelFormatType_32BGRA*/kCVPixelFormatType_32BGRA)]
+                self.videoOutput!.videoSettings = [kCVPixelBufferPixelFormatTypeKey: Int(kCVPixelFormatType_32BGRA)]
                 self.videoOutput!.alwaysDiscardsLateVideoFrames = true
                 self.videoOutput!.setSampleBufferDelegate(self, queue: sessionQueue)
                 
@@ -592,6 +601,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if (!shouldProcessImage) {
             return;
+        }else {
+            shouldProcessImage = false;
         }
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
@@ -604,10 +615,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        self.croppedImage = bufferImage
 
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
-        
-        dispatch_async(dispatch_get_main_queue()) {
+        let my_queue = dispatch_queue_create("myq", nil)
+        dispatch_async(/*dispatch_get_main_queue()*/my_queue) {
             
             let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
+            sleep(2)
 //            NSLog("ViewController: %@", stitchedImage)
             
             self.pickedImage = stitchedImage
