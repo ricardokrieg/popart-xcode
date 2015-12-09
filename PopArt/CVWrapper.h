@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "stringedImage.h"
 
 @interface CVWrapper : NSObject
 
-+ (UIImage*) processImageWithOpenCV: (UIImage*) inputImage;
++ (/*UIImage*/stringedImage*) processImageWithOpenCV: (UIImage*) inputImage;
 
 + (UIImage*) processWithOpenCVImage1:(UIImage*)inputImage1 image2:(UIImage*)inputImage2;
 

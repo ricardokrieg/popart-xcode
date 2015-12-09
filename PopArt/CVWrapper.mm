@@ -26,7 +26,7 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     return (dx1*dx2 + dy1*dy2)/sqrt((dx1*dx1 + dy1*dy1)*(dx2*dx2 + dy2*dy2) + 1e-10);
 }
 
-+ (UIImage*) processImageWithOpenCV: (UIImage*) inputImage
++ (stringedImage*) processImageWithOpenCV: (UIImage*) inputImage
 {
 //    NSArray* imageArray = [NSArray arrayWithObject:inputImage];
 //    UIImage* result = [[self class] processWithArray:imageArray];
@@ -125,7 +125,9 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
 //    cv::blur(gray, gray, cv::Size(3, 3));
 //    cv::Canny(gray, gray, 100, 100, 3);
     
-    UIImage* result =  [UIImage imageWithCVMat:image];
+    stringedImage* result =  [[stringedImage alloc] init];
+    result.image = [UIImage imageWithCVMat:image];
+    result.str = squares.size()>0 ?@"size": @"";
     return result;
 }
 

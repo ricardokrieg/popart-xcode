@@ -32,17 +32,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var videoInput: AVCaptureInput?
     var videoOutput: AVCaptureVideoDataOutput?
     var isFront:Bool = false
+    var waitingChange:Bool = false
     var maxZoomFactor:CGFloat = 10.0
     
     var stillImageOutput : AVCaptureStillImageOutput?
     
     var videoConnection : AVCaptureConnection?
     
+    @IBOutlet weak var processImage: UIImageView!
     var shouldProcessImage : Bool = false
     var timer : NSTimer = NSTimer()
     
     func changeProcessImage() {
         shouldProcessImage = !shouldProcessImage
+        
+    }
+    
+    func resetProcessImage() {
+        self.waitingChange = false
+        self.processImage.image = nil
+        self.processImage.setNeedsDisplay()
     }
     
     @IBAction func handleTouch(sender: UITapGestureRecognizer) {
@@ -153,11 +162,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             
             // we do this on another thread so we don't hang the UI
-            let myQueue = dispatch_queue_create("My Queue", nil);
+            //let myQueue = dispatch_queue_create("My Queue", nil);
             
-            dispatch_async(myQueue/*dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)*/) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 
-                sleep(3)
+                //sleep(3)
                 
                 // find video connection
                 for connection in stillOutput.connections {
@@ -299,7 +308,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
         
         server.authenticateUser("ViewController", checkToken: server.shouldCheckToken)
         server.shouldCheckToken = true
@@ -394,8 +403,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             if pickedImage != nil {
                 let destination = segue.destinationViewController as! SendingPictureViewController
-                destination.pickedImage = pickedImage
-                destination.croppedImage = croppedImage
+                destination.pickedImage = (self.processImage.image != nil) ? self.processImage.image : pickedImage
+                destination.croppedImage = (self.processImage.image != nil) ? self.processImage.image : croppedImage
                 pickedImage = nil
                 croppedImage = nil
             }
@@ -515,10 +524,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        let (keypoints, descriptors) = CVWrapper.detectKeypointsAndDescriptors(pickedImage)
         
 //        for var i = 0; i < 100; i++ {
-            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(pickedImage) as UIImage
+        
+        let stitchedImage:stringedImage = CVWrapper.processImageWithOpenCV(pickedImage) as stringedImage
             NSLog("ViewController: %@", stitchedImage)
             
-            pickedImage = stitchedImage
+            pickedImage = stitchedImage.image
             croppedImage = pickedImage
 //        }
         
@@ -598,7 +608,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            previewLayer?.sublayers = nil
 //        }
 //
-        
         if (!shouldProcessImage) {
             return;
         }else {
@@ -611,20 +620,48 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.pickedImage = resizedBufferImage
         self.croppedImage = resizedBufferImage
         
+        
+        //self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 2.0)
 //        self.pickedImage = bufferImage
 //        self.croppedImage = bufferImage
-
+//return
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
         let my_queue = dispatch_queue_create("myq", nil)
-        dispatch_async(/*dispatch_get_main_queue()*/my_queue) {
+        dispatch_async(my_queue) {
             
-            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
-            sleep(2)
+            let pros:stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
+            
+            //self.processImage.image = self.pickedImage
+            //self.processImage.setNeedsDisplay()
+            
+            if (pros.str.isEmpty){
+                //if (!self.waitingChange){
+                    self.waitingChange = true;
+                    
+                    self.resetProcessImage()
+                //}
+            }else {
+                //if (!self.waitingChange){
+                    self.waitingChange = true;
+                    
+                    self.processImage.image = pros.image;
+                    self.processImage.setNeedsDisplay()
+                    
+                    self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
+                //}
+            }
+            //self.resetProcessImage()
+            //let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
+            //sleep(2)
 //            NSLog("ViewController: %@", stitchedImage)
             
-            self.pickedImage = stitchedImage
-            self.croppedImage = self.pickedImage
+            //self.pickedImage = stitchedImage
+            //self.croppedImage = self.pickedImage
+            //self.processImage.image = self.pickedImage
+            //self.processImage.setNeedsDisplay()
+            //self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 0.5)
             
+            //self.resetProcessImage()
             
 //            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(resizedBufferImage)
 //            self.previewLayer?.setNeedsDisplay()
