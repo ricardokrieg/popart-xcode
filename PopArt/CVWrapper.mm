@@ -26,7 +26,7 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     return (dx1*dx2 + dy1*dy2)/sqrt((dx1*dx1 + dy1*dy1)*(dx2*dx2 + dy2*dy2) + 1e-10);
 }
 
-+ (UIImage*) processImageWithOpenCV: (UIImage*) inputImage
++ (UIImage*, float, float, float, float, float, float, float, float) processImageWithOpenCV: (UIImage*) inputImage
 {
 //    NSArray* imageArray = [NSArray arrayWithObject:inputImage];
 //    UIImage* result = [[self class] processWithArray:imageArray];
@@ -114,19 +114,69 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
         }
     }
     
+    int imageArea = image.cols * image.rows;
+    int maxArea = -1;
+    int maxIndex = -1;
+    
     for( size_t i = 0; i < squares.size(); i++ ) {
         const cv::Point* p = &squares[i][0];
         int n = (int)squares[i].size();
-        polylines(image, &p, &n, 1, true, cv::Scalar(0,255,0), 3, cv::LINE_AA);
+//        polylines(image, &p, &n, 1, true, cv::Scalar(0,255,0), 3, cv::LINE_AA);
+        
+        if (n == 4) {
+            int area = (int)contourArea(squares[i]);
+            
+            if ((area / float(imageArea)) < 0.90 && (area / float(imageArea)) > 0.15) {
+                if (area > maxArea) {
+                    maxArea = area;
+                    maxIndex = i;
+                    break;
+                }
+            }
+        }
     }
-    
+
+    cv::Mat cropped;
+
+    if (maxIndex != -1 && maxArea != -1) {
+        const Point* p = &squares[maxIndex][0];
+        int n = (int)squares[maxIndex].size();
+        polylines(image, &p, &n, 1, true, Scalar(0,0,255), 3, LINE_AA);
+        
+        cv::Rect boundRect = boundingRect(Mat(squares[maxIndex]));
+        rectangle(image, boundRect.tl(), boundRect.br(), Scalar(0,255,255), 2, 8, 0 );
+        
+        std::vector<Point2f> quad_pts;
+        quad_pts.push_back(Point2f(squares[maxIndex][0].x,squares[maxIndex][0].y));
+        quad_pts.push_back(Point2f(squares[maxIndex][1].x,squares[maxIndex][1].y));
+        quad_pts.push_back(Point2f(squares[maxIndex][3].x,squares[maxIndex][3].y));
+        quad_pts.push_back(Point2f(squares[maxIndex][2].x,squares[maxIndex][2].y));
+        
+        cout << quad_pts << endl;
+        
+        std::vector<Point2f> rect_pts;
+        rect_pts.push_back(Point2f(boundRect.x,boundRect.y));
+        rect_pts.push_back(Point2f(boundRect.x,boundRect.y+boundRect.height));
+        rect_pts.push_back(Point2f(boundRect.x+boundRect.width,boundRect.y));
+        rect_pts.push_back(Point2f(boundRect.x+boundRect.width,boundRect.y+boundRect.height));
+        
+        Mat transmtx = getPerspectiveTransform(quad_pts, rect_pts);
+        Mat transformed = Mat::zeros(image.rows, image.cols, CV_8UC3);
+        warpPerspective(image, transformed, transmtx, image.size());
+        
+        cropped = transformed(boundRect).clone();
+        
+        UIImage* result = [UIImage imageWithCVMat:cropped];
+        return result;
+    } else {
+        UIImage* result =  [UIImage imageWithCVMat:image];
+        return result;
+    }
+
 //    cv::Mat gray;
 //    cv::cvtColor(matImage, gray, CV_BGR2GRAY);
 //    cv::blur(gray, gray, cv::Size(3, 3));
 //    cv::Canny(gray, gray, 100, 100, 3);
-    
-    UIImage* result =  [UIImage imageWithCVMat:image];
-    return result;
 }
 
 + (UIImage*) processWithOpenCVImage1:(UIImage*)inputImage1 image2:(UIImage*)inputImage2;
