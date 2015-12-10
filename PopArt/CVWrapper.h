@@ -18,5 +18,7 @@
 
 + (UIImage*) processWithArray:(NSArray*)imageArray;
 
++ (NSArray*)detectKeypointWithUIImage:(UIImage*)image;
+
 
 @end

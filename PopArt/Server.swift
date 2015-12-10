@@ -13,7 +13,7 @@ import CoreData
 import Locksmith
 
 let SERVER_ADDRESS = "popart-app.com"
-let SERVER_PORT = 5200
+let SERVER_PORT = 5210
 let API_ADDRESS = "popart-app.com"
 //let API_ADDRESS = "192.168.0.175"
 let API_PORT = 80

@@ -20,10 +20,10 @@
 		8C0CFAD01BCD4F0E00512114 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0CFACF1BCD4F0D00512114 /* ResetPasswordViewController.swift */; };
 		8C0E32FF1BDE7C430015B404 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0E32FE1BDE7C420015B404 /* ContactViewController.swift */; };
 		8C1209941BE040F900DF583C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1209931BE040F800DF583C /* SplashViewController.swift */; };
-		8C1628851C13D0FB00501E25 /* CVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C1628841C13D0FB00501E25 /* CVWrapper.mm */; settings = {ASSET_TAGS = (); }; };
-		8C1628891C13D24C00501E25 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C1628881C13D24C00501E25 /* UIImage+OpenCV.mm */; settings = {ASSET_TAGS = (); }; };
-		8C16288C1C13D47600501E25 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C16288B1C13D47600501E25 /* UIImage+Rotate.m */; settings = {ASSET_TAGS = (); }; };
-		8C16288F1C13D4FC00501E25 /* stitching.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C16288E1C13D4FC00501E25 /* stitching.cpp */; settings = {ASSET_TAGS = (); }; };
+		8C1628851C13D0FB00501E25 /* CVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C1628841C13D0FB00501E25 /* CVWrapper.mm */; };
+		8C1628891C13D24C00501E25 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8C1628881C13D24C00501E25 /* UIImage+OpenCV.mm */; };
+		8C16288C1C13D47600501E25 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C16288B1C13D47600501E25 /* UIImage+Rotate.m */; };
+		8C16288F1C13D4FC00501E25 /* stitching.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8C16288E1C13D4FC00501E25 /* stitching.cpp */; };
 		8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A941BAA765500BAACC5 /* ResultModalViewController.swift */; };
 		8C260A991BAB64A800BAACC5 /* FocusSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */; };
 		8C26557A1B7ED08100648FC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2655791B7ED08100648FC5 /* AppDelegate.swift */; };
@@ -53,7 +53,10 @@
 		C71D2FB61BA6890D0044FD0D /* MinionPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C71D2FB21BA6890D0044FD0D /* MinionPro-Regular.otf */; };
 		C71D2FB71BA6890D0044FD0D /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C71D2FB31BA6890D0044FD0D /* MyriadPro-Regular.otf */; };
 		C71D2FB91BA68D160044FD0D /* helvetica-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C71D2FB81BA68CE40044FD0D /* helvetica-regular.otf */; };
+		C782AAA71C17EBF400D6342C /* stringedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C782AAA61C17EBF400D6342C /* stringedImage.m */; };
 		CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE652D5C1B995F07006687BA /* MessageUI.framework */; };
+		CEB97D551C19689500B7A48B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB97D541C19689500B7A48B /* OpenGLES.framework */; };
+		CEB97D5A1C197BDE00B7A48B /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB97D591C197BDE00B7A48B /* OverlayView.m */; };
 		FADB4AB7F3C731FA8F259985 /* Pods_PopsArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07D4B2451CF38F0C291EF6F /* Pods_PopsArt.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -126,7 +129,13 @@
 		C71D2FB21BA6890D0044FD0D /* MinionPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MinionPro-Regular.otf"; sourceTree = "<group>"; };
 		C71D2FB31BA6890D0044FD0D /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		C71D2FB81BA68CE40044FD0D /* helvetica-regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helvetica-regular.otf"; sourceTree = "<group>"; };
+		C782AAA51C17EBF400D6342C /* stringedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringedImage.h; sourceTree = "<group>"; };
+		C782AAA61C17EBF400D6342C /* stringedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stringedImage.m; sourceTree = "<group>"; };
 		CE652D5C1B995F07006687BA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CEB97D531C194D1D00B7A48B /* PopsArt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PopsArt.entitlements; sourceTree = "<group>"; };
+		CEB97D541C19689500B7A48B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CEB97D581C197BDE00B7A48B /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		CEB97D591C197BDE00B7A48B /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 		E07DAD5A9A46DF55177CFEC9 /* Pods-PopsArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopsArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopsArt/Pods-PopsArt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB97D551C19689500B7A48B /* OpenGLES.framework in Frameworks */,
 				4787ED561B9A60D600C144B4 /* SystemConfiguration.framework in Frameworks */,
 				4787ED541B9A60CB00C144B4 /* Security.framework in Frameworks */,
 				4787ED521B9A60C300C144B4 /* MediaPlayer.framework in Frameworks */,
@@ -162,6 +172,7 @@
 		000FD3744874D4D1B4054683 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEB97D541C19689500B7A48B /* OpenGLES.framework */,
 				4787ED551B9A60D600C144B4 /* SystemConfiguration.framework */,
 				4787ED531B9A60CB00C144B4 /* Security.framework */,
 				4787ED511B9A60C300C144B4 /* MediaPlayer.framework */,
@@ -187,6 +198,7 @@
 		8C26556B1B7ED08100648FC5 = {
 			isa = PBXGroup;
 			children = (
+				CEB97D531C194D1D00B7A48B /* PopsArt.entitlements */,
 				8C54E7721BB38F0700A1F1C0 /* PopArt-Bridging-Header.h */,
 				4787ED571B9A611700C144B4 /* GoogleOpenSource.framework */,
 				CE652D5C1B995F07006687BA /* MessageUI.framework */,
@@ -249,6 +261,8 @@
 				8C16288E1C13D4FC00501E25 /* stitching.cpp */,
 				C71D2FAD1BA687DC0044FD0D /* Custom Fonts */,
 				8C2655771B7ED08100648FC5 /* Supporting Files */,
+				CEB97D581C197BDE00B7A48B /* OverlayView.h */,
+				CEB97D591C197BDE00B7A48B /* OverlayView.m */,
 			);
 			path = PopArt;
 			sourceTree = "<group>";
@@ -256,6 +270,8 @@
 		8C2655771B7ED08100648FC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C782AAA51C17EBF400D6342C /* stringedImage.h */,
+				C782AAA61C17EBF400D6342C /* stringedImage.m */,
 				8C2655781B7ED08100648FC5 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -344,6 +360,11 @@
 					8C2655731B7ED08100648FC5 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 63P726UZMA;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					8C2655881B7ED08100648FC5 = {
 						CreatedOnToolsVersion = 6.4;
@@ -465,11 +486,13 @@
 				8C00DD221B890222009450BD /* SendingPictureViewController.swift in Sources */,
 				8CFEA6871B8D344E00826DB1 /* ResultViewController.swift in Sources */,
 				8C9F79E81BC69E4D001174EC /* Account.swift in Sources */,
+				CEB97D5A1C197BDE00B7A48B /* OverlayView.m in Sources */,
 				8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */,
 				8C1628891C13D24C00501E25 /* UIImage+OpenCV.mm in Sources */,
 				8C0C7BBC1BC4742100F37623 /* SignUpViewController.swift in Sources */,
 				8C1628851C13D0FB00501E25 /* CVWrapper.mm in Sources */,
 				8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */,
+				C782AAA71C17EBF400D6342C /* stringedImage.m in Sources */,
 				8C16288F1C13D4FC00501E25 /* stitching.cpp in Sources */,
 				8CFA9BC01BC4051A00E8A116 /* SignInViewController.swift in Sources */,
 				8C260A991BAB64A800BAACC5 /* FocusSquareView.swift in Sources */,
@@ -534,6 +557,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -557,6 +581,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -581,6 +606,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -596,6 +622,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -609,8 +636,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -635,8 +664,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

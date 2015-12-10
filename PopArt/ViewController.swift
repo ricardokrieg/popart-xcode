@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIPopoverPresentationControllerDelegate, CLLocationManagerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     @IBOutlet weak var cameraView: UIView!
@@ -17,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var grid: UIImageView!
+    @IBOutlet var overlayView: OverlayView!
     
     let locationManager = CLLocationManager()
     
@@ -25,6 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var croppedImage: UIImage?
     
     var page_url: String?
+    
+    var rects: [AnyObject] = []
+    
     
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
@@ -146,7 +151,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if captureDevice == nil {
             print("fallback to library")
             
-            pickedImage = nil
+            //pickedImage = nil
             
             imagePicker.allowsEditing = false
             imagePicker.sourceType = .PhotoLibrary
@@ -327,8 +332,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         server.frameDetector = FrameDetectorView(frame: self.view.bounds)
         server.frameDetector!.backgroundColor = UIColor.clearColor()
-        self.cameraView.addSubview(server.frameDetector!)
-        server.frameDetector!.setNeedsDisplay()
+//        self.cameraView.addSubview(server.frameDetector!)
+//        server.frameDetector!.setNeedsDisplay()
         
         //server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
         //server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
@@ -629,27 +634,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let my_queue = dispatch_queue_create("myq", nil)
         dispatch_async(my_queue) {
             
-            let pros:stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
+            let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
+            self.croppedImage = pros.cropedImage;
+            self.pickedImage = pros.cropedImage;
             
             //self.processImage.image = self.pickedImage
             //self.processImage.setNeedsDisplay()
             
+            
+            
             if (pros.str.isEmpty){
                 //if (!self.waitingChange){
                     self.waitingChange = true;
-                    
+                
                     self.resetProcessImage()
                 //}
             }else {
                 //if (!self.waitingChange){
                     self.waitingChange = true;
-                    
-                    self.processImage.image = pros.image;
+                self.processImage.image = nil;//pros.image;
                     self.processImage.setNeedsDisplay()
-                    
+                
                     self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
                 //}
             }
+            dispatch_async(dispatch_get_main_queue(),{
+                self.reloadOverVew(pros.rects)
+            })
+            
             //self.resetProcessImage()
             //let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
             //sleep(2)
@@ -718,6 +730,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let resultImage = UIImage(CGImage: imageRef, scale: 1.0, orientation: UIImageOrientation.Right)
         
         return resultImage
+    }
+
+    func reloadOverVew(rects: [AnyObject]) {
+        self.overlayView.rects = rects
+        self.overlayView.setNeedsDisplay()
     }
     
 }
