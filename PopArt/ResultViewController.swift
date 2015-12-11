@@ -3,7 +3,7 @@
 //  PopsArt
 //
 //  Created by Netronian Inc. on 25/08/15.
-//  Copyright © 2015 PopsArt. All rights reserved.
+//  Copyright © 2015 Art Catch. All rights reserved.
 //
 
 import UIKit
@@ -28,7 +28,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBAction func shareButtonClicked(sender: AnyObject) {
         var textToShare = ""
         if let title = resultTitle {
-            textToShare = "User A, found \(title.text!) with PopArt App <linked to App Store>"
+            textToShare = "User A, found \(title.text!) with Art Catch App <linked to App Store>"
         }
         var imageToShare:UIImage? = nil
         if let image = resultImage?.image {
@@ -46,7 +46,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             
             if let title = resultTitle {
-                facebookSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
+                facebookSheet.setInitialText("User A, found \(title.text!) with Art Catch App <linked to App Store>")
             }
             
             facebookSheet.addImage(resultImage?.image)
@@ -63,7 +63,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             
             if let title = resultTitle {
-                twitterSheet.setInitialText("User A, found \(title.text!) with PopArt App <linked to App Store>")
+                twitterSheet.setInitialText("User A, found \(title.text!) with Art Catch App <linked to App Store>")
             }
             
             twitterSheet.addImage(resultImage?.image)

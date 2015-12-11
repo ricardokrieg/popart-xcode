@@ -3,7 +3,7 @@
 //  PopsArt
 //
 //  Created by Netronian Inc. on 05/12/15.
-//  Copyright © 2015 Netronian Inc. All rights reserved.
+//  Copyright © 2015 Art Catch. All rights reserved.
 //
 
 #import "UIImage+Rotate.h"

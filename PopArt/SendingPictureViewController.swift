@@ -3,7 +3,7 @@
 //  PopsArt
 //
 //  Created by Netronian Inc. on 22/08/15.
-//  Copyright © 2015 PopsArt. All rights reserved.
+//  Copyright © 2015 Art Catch. All rights reserved.
 //
 
 import UIKit

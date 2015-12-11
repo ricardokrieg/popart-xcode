@@ -2,8 +2,8 @@
 //  stringedImage.h
 //  PopsArt
 //
-//  Created by Bruno Garelli on 9/12/15.
-//  Copyright © 2015 Netronian Inc. All rights reserved.
+//  Created by Netronian Inc on 9/12/15.
+//  Copyright © 2015 Art Catch. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

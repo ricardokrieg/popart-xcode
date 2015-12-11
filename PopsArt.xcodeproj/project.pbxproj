@@ -650,7 +650,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joaalldevelopment.PopArt;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = PopsArt;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PopArt-Bridging-Header.h";
@@ -678,7 +678,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joaalldevelopment.PopArt;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = PopsArt;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PopArt-Bridging-Header.h";

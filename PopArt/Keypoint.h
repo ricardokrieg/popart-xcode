@@ -2,8 +2,8 @@
 //  Keypoint.h
 //  PopsArt
 //
-//  Created by User on 11.12.15.
-//  Copyright © 2015 Netronian Inc. All rights reserved.
+//  Created by Netronian Inc on 11.12.15.
+//  Copyright © 2015 Art Catch. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
