@@ -332,8 +332,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         server.frameDetector = FrameDetectorView(frame: self.view.bounds)
         server.frameDetector!.backgroundColor = UIColor.clearColor()
-//        self.cameraView.addSubview(server.frameDetector!)
-//        server.frameDetector!.setNeedsDisplay()
+        self.cameraView.addSubview(server.frameDetector!)
+        server.frameDetector!.setNeedsDisplay()
         
         //server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
         //server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
@@ -620,11 +620,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
-        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
+        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: overlayView.frame.size)
         
-        self.pickedImage = resizedBufferImage
+        self.pickedImage = bufferImage
         self.croppedImage = resizedBufferImage
-        
+        print("camera view: \(cameraView.frame)")
+        print("overlay view: \(overlayView.frame)")
         
         //self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 2.0)
 //        self.pickedImage = bufferImage
@@ -635,6 +636,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dispatch_async(my_queue) {
             
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
+            
             self.croppedImage = pros.cropedImage;
             self.pickedImage = pros.cropedImage;
             
@@ -659,7 +661,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 //}
             }
             dispatch_async(dispatch_get_main_queue(),{
-                self.reloadOverVew(pros.rects)
+                self.reloadOverVew(pros.overlayImage)
             })
             
             //self.resetProcessImage()
@@ -732,8 +734,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return resultImage
     }
 
-    func reloadOverVew(rects: [AnyObject]) {
-        self.overlayView.rects = rects
+    func reloadOverVew(image:UIImage?) {
+//        self.overlayView.rects = rects
+//        self.overlayView.keypoints = keys
+        self.overlayView.overlayImage = image;
         self.overlayView.setNeedsDisplay()
     }
     

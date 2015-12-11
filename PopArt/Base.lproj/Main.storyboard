@@ -1267,7 +1267,7 @@
                                     <outletCollection property="gestureRecognizers" destination="0f3-38-FSv" appends="YES" id="N0C-8b-Ki5"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-he-MVy" customClass="OverlayView">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfy-he-MVy" customClass="OverlayView">
                                 <rect key="frame" x="0.0" y="20" width="320" height="488"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1332,7 +1332,7 @@
                                     </mask>
                                 </variation>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TA9-tG-HpA">
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TA9-tG-HpA">
                                 <rect key="frame" x="0.0" y="20" width="320" height="488"/>
                                 <animations/>
                             </imageView>

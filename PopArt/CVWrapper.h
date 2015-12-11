@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "stringedImage.h"
+#import "Keypoint.h"
 
 @interface CVWrapper : NSObject
 

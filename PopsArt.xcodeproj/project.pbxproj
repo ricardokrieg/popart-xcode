@@ -57,6 +57,7 @@
 		CE652D5D1B995F07006687BA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE652D5C1B995F07006687BA /* MessageUI.framework */; };
 		CEB97D551C19689500B7A48B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB97D541C19689500B7A48B /* OpenGLES.framework */; };
 		CEB97D5A1C197BDE00B7A48B /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB97D591C197BDE00B7A48B /* OverlayView.m */; };
+		CEB97D5D1C1ABD1400B7A48B /* Keypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB97D5C1C1ABD1400B7A48B /* Keypoint.m */; };
 		FADB4AB7F3C731FA8F259985 /* Pods_PopsArt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07D4B2451CF38F0C291EF6F /* Pods_PopsArt.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,8 @@
 		CEB97D541C19689500B7A48B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		CEB97D581C197BDE00B7A48B /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
 		CEB97D591C197BDE00B7A48B /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
+		CEB97D5B1C1ABD1400B7A48B /* Keypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keypoint.h; sourceTree = "<group>"; };
+		CEB97D5C1C1ABD1400B7A48B /* Keypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Keypoint.m; sourceTree = "<group>"; };
 		E07DAD5A9A46DF55177CFEC9 /* Pods-PopsArt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopsArt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopsArt/Pods-PopsArt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,6 +266,8 @@
 				8C2655771B7ED08100648FC5 /* Supporting Files */,
 				CEB97D581C197BDE00B7A48B /* OverlayView.h */,
 				CEB97D591C197BDE00B7A48B /* OverlayView.m */,
+				CEB97D5B1C1ABD1400B7A48B /* Keypoint.h */,
+				CEB97D5C1C1ABD1400B7A48B /* Keypoint.m */,
 			);
 			path = PopArt;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				8C0C7BBC1BC4742100F37623 /* SignUpViewController.swift in Sources */,
 				8C1628851C13D0FB00501E25 /* CVWrapper.mm in Sources */,
 				8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */,
+				CEB97D5D1C1ABD1400B7A48B /* Keypoint.m in Sources */,
 				C782AAA71C17EBF400D6342C /* stringedImage.m in Sources */,
 				8C16288F1C13D4FC00501E25 /* stitching.cpp in Sources */,
 				8CFA9BC01BC4051A00E8A116 /* SignInViewController.swift in Sources */,
@@ -557,7 +563,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -581,7 +586,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,7 +610,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -622,7 +625,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

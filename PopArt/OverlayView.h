@@ -11,5 +11,6 @@
 @interface OverlayView : UIView
 
 @property (strong) NSArray* rects;
-
+@property (strong,nonatomic) NSArray* keypoints;
+@property (strong,nonatomic) UIImage* overlayImage;
 @end

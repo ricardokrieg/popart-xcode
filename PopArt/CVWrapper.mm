@@ -42,7 +42,7 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     find_squares(image, squares);
     find_largest_square(squares, largest_square);
     
-    
+
     for (int i = 0; i < squares.size(); i++) {
         std::vector<cv::Point> squre = squares[i];
         if (squre.size() == 4) {
@@ -144,15 +144,51 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
 //    cv::blur(gray, gray, cv::Size(3, 3));
 //    cv::Canny(gray, gray, 100, 100, 3);
     
+    
+    
     stringedImage* result =  [[stringedImage alloc] init];
     result.image = [UIImage imageWithCVMat:image];
     result.str = squares.size()>0 ?@"size": @"";
     if (largest_square.size() == 4) {
         cv::Mat croped = cropImage(image, largest_square);
-
-
-        NSLog(@"keys: %@",[CVWrapper detectKeypointWithUIImage:inputImage]);
         
+
+        NSArray* keys = [CVWrapper detectKeypointWithUIImage:rotatedImage];
+        NSMutableArray* keypoints = [NSMutableArray array];
+        cv::Mat origin = rotatedImage.CVMat;
+        cv::Mat overlay(origin.rows,origin.cols,CV_8UC4);
+        overlay = cv::Scalar(255,255,255,0);
+        if (largest_square.size() == 4) {
+            for (int i = 0; i < 4; i++) {
+                cv::Point2f p0 = largest_square[i];
+                cv::Point2f p1;
+                cv::Point2f p2;
+                if (i == 0) {
+                    p1 = largest_square[i+1];
+                    p2 = largest_square[3];
+                } else if (i == 3) {
+                    p1 = largest_square[0];
+                    p2 = largest_square[i-1];
+                } else {
+                    p1 = largest_square[i+1];
+                    p2 = largest_square[i-1];
+                }
+                cv::line(overlay, p0, cv::Point2f(p0.x + 0.2*(p1.x - p0.x),p0.y + 0.2*(p1.y - p0.y)), cv::Scalar(0,255,0,255),6);
+                cv::line(overlay, p0, cv::Point2f(p0.x + 0.2*(p2.x - p0.x),p0.y + 0.2*(p2.y - p0.y)), cv::Scalar(0,255,0,255),6);
+            }
+        }
+        
+        for (Keypoint* k in keys) {
+            cv::Point2f p(k.pt.x,k.pt.y);
+            if (containPointInRect(largest_square, p)) {
+                [keypoints addObject:[NSValue valueWithCGPoint:k.pt]];
+                cv::circle(overlay, p, 2, cv::Scalar(0,255,0,255),2);
+            }
+        }
+        
+        
+        result.overlayImage = [UIImage imageWithCVMat:overlay];
+        result.keypoints = keypoints;
         result.cropedImage = [UIImage imageWithCVMat:croped];
     }
     
@@ -172,6 +208,7 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     for (int j = 0; j < largest_square.size(); j++) {
         NSLog(@"x: %i y: %i",largest_square[j].x, largest_square[j].y);
         [rect addObject:[NSValue valueWithCGPoint:CGPointMake(largest_square[j].x, largest_square[j].y)]];
+        
     }
     result.rects = @[rect];
     return result;
@@ -187,12 +224,14 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     NSMutableArray* keyPointsArray = [NSMutableArray array];
     for (int i = 0; i < keypoints.size(); i++) {
         cv::KeyPoint key = keypoints[i];
-        [keyPointsArray addObject:@{@"angle":@(key.angle),
-                                    @"class_id":@(key.class_id),
-                                    @"octave":@(key.octave),
-                                    @"pt":[NSValue valueWithCGPoint:CGPointMake(key.pt.x, key.pt.y)],
-                                    @"response":@(key.response),
-                                    @"size":@(key.size)}];
+        Keypoint* k = [Keypoint new];
+        k.angle = key.angle;
+        k.class_id = key.class_id;
+        k.octave = key.octave;
+        k.pt = CGPointMake(key.pt.x, key.pt.y);
+        k.response = key.response;
+        k.size = key.size;
+        [keyPointsArray addObject:k];
     }
     
     return keyPointsArray;
@@ -374,7 +413,32 @@ cv::Mat cropImage(cv::Mat &original,std::vector<cv::Point> &square) {
     return undistorted;
 }
 
+bool containPointInRect(std::vector<cv::Point> rect, cv::Point2f point) {
+    double S1 = areaTriangle(rect[0], rect[1], rect[2]);
+    double S2 = areaTriangle(rect[2], rect[3], rect[0]);
+    
+    double pS1 = areaTriangle(rect[0], rect[1], point);
+    double pS2 = areaTriangle(rect[1], rect[2], point);
+    double pS3 = areaTriangle(rect[2], rect[0], point);
+    
+    double pS4 = areaTriangle(rect[2], rect[3], point);
+    double pS5 = areaTriangle(rect[3], rect[0], point);
+    double pS6 = areaTriangle(rect[0], rect[2], point);
+    if (fabs((S1 - (pS1 + pS2 + pS3))) < 0.1 || fabs((S2 - (pS4 + pS5 + pS6))) < 0.1) {
+        return true;
+    }
+    
+    return false;
+}
 
+double areaTriangle(cv::Point2f a, cv::Point2f b,cv::Point2f c) {
+    double sideA = sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2));
+    double sideB = sqrt(pow((b.x - c.x), 2) + pow((b.y - c.y), 2));
+    double sideC = sqrt(pow((c.x - a.x), 2) + pow((c.y - a.y), 2));
+    double p = (sideA + sideB + sideC) / 2;
+    double s = sqrt(p*(p - sideA)*(p - sideB)*(p - sideC));
+    return s;
+}
 
 
 @end
