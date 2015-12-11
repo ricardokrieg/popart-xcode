@@ -85,13 +85,15 @@
     CGDataProviderRef provider = CGDataProviderCreateWithCFData((__bridge CFDataRef)data);
     
     // Creating CGImage from cv::Mat
+    bool alpha = cvMat.channels() == 4;
+    CGBitmapInfo bitMapInfo = (alpha ? kCGImageAlphaLast : kCGImageAlphaNone) | kCGBitmapByteOrderDefault;
     CGImageRef imageRef = CGImageCreate(cvMat.cols,                                 //width
                                         cvMat.rows,                                 //height
                                         8,                                          //bits per component
                                         8 * cvMat.elemSize(),                       //bits per pixel
                                         cvMat.step[0],                              //bytesPerRow
                                         colorSpace,                                 //colorspace
-                                        kCGImageAlphaNone|kCGBitmapByteOrderDefault,// bitmap info
+                                        bitMapInfo,// bitmap info
                                         provider,                                   //CGDataProviderRef
                                         NULL,                                       //decode
                                         false,                                      //should interpolate

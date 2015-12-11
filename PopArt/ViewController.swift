@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
+
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIPopoverPresentationControllerDelegate, CLLocationManagerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     @IBOutlet weak var cameraView: UIView!
@@ -17,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var grid: UIImageView!
+    @IBOutlet var overlayView: OverlayView!
     
     let locationManager = CLLocationManager()
     
@@ -26,17 +28,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var page_url: String?
     
+    var rects: [AnyObject] = []
+    
+    
     let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer?
     var captureDevice: AVCaptureDevice?
     var videoInput: AVCaptureInput?
     var videoOutput: AVCaptureVideoDataOutput?
     var isFront:Bool = false
+    var waitingChange:Bool = false
     var maxZoomFactor:CGFloat = 10.0
     
     var stillImageOutput : AVCaptureStillImageOutput?
     
     var videoConnection : AVCaptureConnection?
+    
+    @IBOutlet weak var processImage: UIImageView!
+    var shouldProcessImage : Bool = false
+    var timer : NSTimer = NSTimer()
+    
+    func changeProcessImage() {
+        shouldProcessImage = !shouldProcessImage
+        
+    }
+    
+    func resetProcessImage() {
+        self.waitingChange = false
+        self.processImage.image = nil
+        self.processImage.setNeedsDisplay()
+    }
     
     @IBAction func handleTouch(sender: UITapGestureRecognizer) {
         if sender.state == .Ended {
@@ -130,7 +151,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if captureDevice == nil {
             print("fallback to library")
             
-            pickedImage = nil
+            //pickedImage = nil
             
             imagePicker.allowsEditing = false
             imagePicker.sourceType = .PhotoLibrary
@@ -146,7 +167,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             
             // we do this on another thread so we don't hang the UI
+            //let myQueue = dispatch_queue_create("My Queue", nil);
+            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                
+                //sleep(3)
+                
                 // find video connection
                 for connection in stillOutput.connections {
                     // find a matching input port
@@ -161,6 +187,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         break // for connection
                     }
                 }
+                
+                
                 
                 switch (UIApplication.sharedApplication().statusBarOrientation)
                 {
@@ -181,10 +209,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     stillOutput.captureStillImageAsynchronouslyFromConnection(self.videoConnection) {
                         (imageSampleBuffer:CMSampleBuffer!, _) in
                         
-                        let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
-                        let image = UIImage(data: imageData)
+                        //let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
+                        //let image = UIImage(data: imageData)
                         
-//                        self.pickedImage = image
+                        //self.pickedImage = image
                         
                         self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
                     }
@@ -250,7 +278,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func sliderValueChanged(sender: AnyObject) {
         print(slider.value)
         
-//        var hardwareZoom = false
+        //var hardwareZoom = false
         
         if let device = captureDevice {
             if device.respondsToSelector("videoZoomFactor") {
@@ -258,7 +286,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     try device.lockForConfiguration()
                     print("Setting zoom")
                     device.videoZoomFactor = CGFloat(slider.value)
-
+                    
                     device.unlockForConfiguration()
 //                    hardwareZoom = true
                 } catch _ {
@@ -271,19 +299,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("No device")
         }
         
-//        if !hardwareZoom {
-//            let frame = captureDevice.frame
-//            let width = frame.size.width * slider.value
-//            let height = frame.size.height * slider.value
-//            let x = (frame.size.width - width)/2
-//            let y = (frame.size.height - height)/2
-//            
-//            captureDevice.bounds = CGRectMake(x, y, width, height)
-//        }
+        /*if !hardwareZoom {
+            let frame = self.view.frame//captureDevice.frame
+            let width = frame.size.width * slider.value
+            let height = frame.size.height * slider.value
+            let x = (frame.size.width - width)/2
+            let y = (frame.size.height - height)/2
+            
+            captureDevice.bounds = CGRectMake(x, y, width, height)
+        }*/
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
         
         server.authenticateUser("ViewController", checkToken: server.shouldCheckToken)
         server.shouldCheckToken = true
@@ -305,10 +335,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.addSubview(server.frameDetector!)
         server.frameDetector!.setNeedsDisplay()
         
-//        server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
-//        server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
-//        server.frameDetector?.bottomLeft = CGPoint(x: 105, y: 260)
-//        server.frameDetector?.bottomRight = CGPoint(x: 210, y: 275)
+        //server.frameDetector?.topLeft = CGPoint(x: 100, y: 100)
+        //server.frameDetector?.topRight = CGPoint(x: 200, y: 80)
+        //server.frameDetector?.bottomLeft = CGPoint(x: 105, y: 260)
+        //server.frameDetector?.bottomRight = CGPoint(x: 210, y: 275)
         
         // Create Focus Square
         
@@ -319,7 +349,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Setup Camera Preview
         
-        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        //captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         
         let devices = AVCaptureDevice.devices()
         print("AVCaptureDevice list")
@@ -373,10 +404,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "fromMainToSendingPicture" {
+            //self.captureSession.stopRunning();
+            
             if pickedImage != nil {
                 let destination = segue.destinationViewController as! SendingPictureViewController
-                destination.pickedImage = pickedImage
-                destination.croppedImage = croppedImage
+                destination.pickedImage = (self.processImage.image != nil) ? self.processImage.image : pickedImage
+                destination.croppedImage = (self.processImage.image != nil) ? self.processImage.image : croppedImage
                 pickedImage = nil
                 croppedImage = nil
             }
@@ -455,7 +488,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         videoOutput = AVCaptureVideoDataOutput()
         if videoOutput != nil {
-            let sessionQueue = dispatch_queue_create("Camera Session", DISPATCH_QUEUE_SERIAL)
+            let sessionQueue = dispatch_queue_create("Camera Session", /*DISPATCH_QUEUE_SERIAL*/DISPATCH_QUEUE_CONCURRENT)
             
             dispatch_async(sessionQueue, {
 //                kCVPixelFormatType_32ARGB
@@ -496,10 +529,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        let (keypoints, descriptors) = CVWrapper.detectKeypointsAndDescriptors(pickedImage)
         
 //        for var i = 0; i < 100; i++ {
-            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(pickedImage) as UIImage
+        
+        let stitchedImage:stringedImage = CVWrapper.processImageWithOpenCV(pickedImage) as stringedImage
             NSLog("ViewController: %@", stitchedImage)
             
-            pickedImage = stitchedImage
+            pickedImage = stitchedImage.image
             croppedImage = pickedImage
 //        }
         
@@ -578,28 +612,70 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        if rectlayers?.count > 0{
 //            previewLayer?.sublayers = nil
 //        }
-//        
-        
+//
+        if (!shouldProcessImage) {
+            return;
+        }else {
+            shouldProcessImage = false;
+        }
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
-        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: cameraView.frame.size)
+        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: overlayView.frame.size)
         
-        self.pickedImage = resizedBufferImage
+        self.pickedImage = bufferImage
         self.croppedImage = resizedBufferImage
+        print("camera view: \(cameraView.frame)")
+        print("overlay view: \(overlayView.frame)")
         
+        //self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 2.0)
 //        self.pickedImage = bufferImage
 //        self.croppedImage = bufferImage
-
+//return
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
-        
-        dispatch_async(dispatch_get_main_queue()) {
+        let my_queue = dispatch_queue_create("myq", nil)
+        dispatch_async(my_queue) {
             
-            let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
+            let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
+            
+            self.croppedImage = pros.cropedImage;
+            self.pickedImage = pros.cropedImage;
+            
+            //self.processImage.image = self.pickedImage
+            //self.processImage.setNeedsDisplay()
+            
+            
+            
+            if (pros.str.isEmpty){
+                //if (!self.waitingChange){
+                    self.waitingChange = true;
+                
+                    self.resetProcessImage()
+                //}
+            }else {
+                //if (!self.waitingChange){
+                    self.waitingChange = true;
+                self.processImage.image = nil;//pros.image;
+                    self.processImage.setNeedsDisplay()
+                
+                    self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
+                //}
+            }
+            dispatch_async(dispatch_get_main_queue(),{
+                self.reloadOverVew(pros.overlayImage)
+            })
+            
+            //self.resetProcessImage()
+            //let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
+            //sleep(2)
 //            NSLog("ViewController: %@", stitchedImage)
             
-            self.pickedImage = stitchedImage
-            self.croppedImage = self.pickedImage
+            //self.pickedImage = stitchedImage
+            //self.croppedImage = self.pickedImage
+            //self.processImage.image = self.pickedImage
+            //self.processImage.setNeedsDisplay()
+            //self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 0.5)
             
+            //self.resetProcessImage()
             
 //            let (detectedImage, croppedImage, detectMessage, top_left, top_right, bottom_left, bottom_right) = server.frameDetector!.detectUsingCIDetector(resizedBufferImage)
 //            self.previewLayer?.setNeedsDisplay()
@@ -656,6 +732,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let resultImage = UIImage(CGImage: imageRef, scale: 1.0, orientation: UIImageOrientation.Right)
         
         return resultImage
+    }
+
+    func reloadOverVew(image:UIImage?) {
+//        self.overlayView.rects = rects
+//        self.overlayView.keypoints = keys
+        self.overlayView.overlayImage = image;
+        self.overlayView.setNeedsDisplay()
     }
     
 }

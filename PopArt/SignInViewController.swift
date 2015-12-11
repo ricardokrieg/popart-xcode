@@ -30,7 +30,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         tapGesture = UITapGestureRecognizer(target: self, action: "hideKeyboard")
         tapGesture!.enabled = false
         view.addGestureRecognizer(tapGesture!)
-        
+        //server.doSignIn(self, email: "info@netronian.com", password: "admin123")
 //        server.authenticateUser("SignInViewController", checkToken: true)
     }
 
