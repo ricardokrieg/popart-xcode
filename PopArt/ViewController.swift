@@ -625,10 +625,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
-        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: overlayView.frame.size)
+//        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: overlayView.frame.size)
         
         self.pickedImage = bufferImage
-        self.croppedImage = resizedBufferImage
+//        self.croppedImage = resizedBufferImage
         
         NSLog("ViewController#captureOutput.cameraView.frame: \(cameraView.frame)")
         NSLog("ViewController#captureOutput.cameraView.bounds: \(cameraView.bounds)")
@@ -651,8 +651,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             //self.processImage.image = self.pickedImage
             //self.processImage.setNeedsDisplay()
             
-            
-            
             if (pros.str.isEmpty){
                 //if (!self.waitingChange){
                     self.waitingChange = true;
@@ -669,8 +667,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 //}
             }
             dispatch_async(dispatch_get_main_queue(),{
-                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
-//                self.reloadOverVew(pros.overlayImage)
+//                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
+                self.reloadOverVew(pros.overlayImage)
             })
             
             //self.resetProcessImage()
