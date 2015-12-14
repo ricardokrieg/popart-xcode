@@ -25,6 +25,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
     var croppedImage: UIImage?
+    var keypoints: NSArray?
     
     var page_url: String?
     
@@ -115,7 +116,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func handlePinch(sender: UIPinchGestureRecognizer) {
-        print(sender.scale)
+//        print(sender.scale)
         if let _ = sender.view {
             if let device = captureDevice {
                 if device.respondsToSelector("videoZoomFactor") {
@@ -130,26 +131,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         device.videoZoomFactor = tempZoomFactor
                         sender.scale = 1
                         
-                        print("Zoom: \(device.videoZoomFactor)")
+//                        print("Zoom: \(device.videoZoomFactor)")
                         
                         device.unlockForConfiguration()
                     } catch _ {
-                        print("could not lock")
+                        NSLog("could not lock")
                     }
                 } else {
-                    print("No videoZoom feature")
+                    NSLog("No videoZoom feature")
                 }
             } else {
-                print("No device")
+                NSLog("No device")
             }
         }
     }
     
     @IBAction func cameraButtonClicked(sender: AnyObject) {
-        print("Camera")
+//        print("Camera")
         
         if captureDevice == nil {
-            print("fallback to library")
+            NSLog("fallback to library")
             
             //pickedImage = nil
             
@@ -163,7 +164,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let stillOutput = self.stillImageOutput {
             if stillOutput.capturingStillImage {
-                print("camera: capturing in progress")
+                NSLog("camera: capturing in progress")
             }
             
             // we do this on another thread so we don't hang the UI
@@ -276,7 +277,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func backToMain(segue: UIStoryboardSegue) {}
 
     @IBAction func sliderValueChanged(sender: AnyObject) {
-        print(slider.value)
+//        print(slider.value)
         
         //var hardwareZoom = false
         
@@ -284,7 +285,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if device.respondsToSelector("videoZoomFactor") {
                 do {
                     try device.lockForConfiguration()
-                    print("Setting zoom")
+//                    print("Setting zoom")
                     device.videoZoomFactor = CGFloat(slider.value)
                     
                     device.unlockForConfiguration()
@@ -353,7 +354,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         
         let devices = AVCaptureDevice.devices()
-        print("AVCaptureDevice list")
+        NSLog("AVCaptureDevice list")
         print(devices)
         
         for device in devices {
@@ -362,7 +363,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     captureDevice = device as? AVCaptureDevice
                     
                     if captureDevice != nil {
-                        print("Capture device found")
+                        NSLog("Capture device found")
                         beginSession()
                     }
                     isFront = false
@@ -410,6 +411,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let destination = segue.destinationViewController as! SendingPictureViewController
                 destination.pickedImage = (self.processImage.image != nil) ? self.processImage.image : pickedImage
                 destination.croppedImage = (self.processImage.image != nil) ? self.processImage.image : croppedImage
+                destination.keypoints = self.keypoints
                 pickedImage = nil
                 croppedImage = nil
             }
@@ -471,7 +473,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         captureSession.addInput(videoInput)
         
         if err != nil {
-            print("error: \(err?.localizedDescription)")
+            NSLog("error: \(err?.localizedDescription)")
         }
         
         stillImageOutput = AVCaptureStillImageOutput()
@@ -479,11 +481,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         stillImageOutput!.outputSettings = outputSettings
         
         if captureSession.canAddOutput(stillImageOutput) {
-            print("camera:addOutput")
+            NSLog("camera:addOutput")
             
             captureSession.addOutput(stillImageOutput)
         } else {
-            print("camera: couldn't add output")
+            NSLog("camera: couldn't add output")
         }
         
         videoOutput = AVCaptureVideoDataOutput()
@@ -513,10 +515,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         
         
-        print("CameraView (bounds): \(cameraView!.bounds)")
-        print("CameraViewr (frame): \(cameraView!.frame)")
-        print("PreviewLayer (bounds): \(previewLayer!.bounds)")
-        print("PreviewLayer (frame): \(previewLayer!.frame)")
+        NSLog("ViewController#beginSession.cameraView.bounds: \(cameraView!.bounds)")
+        NSLog("ViewController#beginSession.cameraView.frame: \(cameraView!.frame)")
+        NSLog("ViewController#beginSession.previewLayer.bounds: \(previewLayer!.bounds)")
+        NSLog("ViewController#beginSession.previewLayer.frame: \(previewLayer!.frame)")
         
         captureSession.startRunning()
     }
@@ -530,11 +532,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
 //        for var i = 0; i < 100; i++ {
         
-        let stitchedImage:stringedImage = CVWrapper.processImageWithOpenCV(pickedImage) as stringedImage
-            NSLog("ViewController: %@", stitchedImage)
+        let stitchedImage:stringedImage? = CVWrapper.processImageWithOpenCV(pickedImage) as stringedImage
+        
+        if let result = stitchedImage {
+            NSLog("ViewController#imagePickerController.result: %@", result)
             
-            pickedImage = stitchedImage.image
+            pickedImage = result.overlayImageWithImage
             croppedImage = pickedImage
+            
+            keypoints = result.keypoints
+        }
 //        }
         
 //        for var i = 0; i < 100; i++ {
@@ -624,8 +631,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.pickedImage = bufferImage
         self.croppedImage = resizedBufferImage
-        print("camera view: \(cameraView.frame)")
-        print("overlay view: \(overlayView.frame)")
+        NSLog("ViewController#captureOutput.cameraView.frame: \(cameraView.frame)")
+        NSLog("ViewController#captureOutput.cameraView.bounds: \(cameraView.bounds)")
+        NSLog("ViewController#captureOutput.overlayView.frame: \(overlayView.frame)")
+        NSLog("ViewController#captureOutput.overlayView.bounds: \(overlayView.bounds)")
         
         //self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 2.0)
 //        self.pickedImage = bufferImage
@@ -739,6 +748,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        self.overlayView.keypoints = keys
         self.overlayView.overlayImage = image;
         self.overlayView.setNeedsDisplay()
+        
+        NSLog("ViewController#reloadOverVew.overlayView.overlayImage.size: \(self.overlayView.overlayImage.size)")
+        if image != nil {
+            NSLog("ViewController#reloadOverVew.image.size: \(image!.size)")
+        }
     }
     
 }

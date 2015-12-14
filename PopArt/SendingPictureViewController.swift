@@ -16,6 +16,7 @@ class SendingPictureViewController: UIViewController {
     
     var pickedImage: UIImage?
     var croppedImage: UIImage?
+    var keypoints: NSArray?
     var result: NSData?
 
     override func viewDidLoad() {
@@ -55,6 +56,11 @@ class SendingPictureViewController: UIViewController {
             if self.croppedImage != nil {
 //                let imageData = UIImageJPEGRepresentation(self.imageContainer.image!, 0.5)
                 let imageData = UIImageJPEGRepresentation(self.croppedImage!, 1.0)
+                
+                var messageKeypoints:NSArray = []
+                if self.keypoints != nil {
+                    messageKeypoints = self.keypoints!
+                }
                 
                 var message_lat = ""
                 var message_lng = ""
@@ -98,7 +104,7 @@ class SendingPictureViewController: UIViewController {
                     client = account.client
                 }
                 
-                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "uid": uid, "token": token, "client": client]
+                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "uid": uid, "token": token, "client": client, "keypoints": messageKeypoints]
                 
                 server.ping(self)
                 

@@ -16,4 +16,5 @@
 @property (nonatomic, strong) NSArray* keypoints;
 @property (nonatomic, strong) UIImage* cropedImage;
 @property (nonatomic, strong) UIImage* overlayImage;
+@property (nonatomic, strong) UIImage* overlayImageWithImage;
 @end

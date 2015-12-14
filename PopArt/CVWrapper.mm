@@ -149,6 +149,9 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     stringedImage* result =  [[stringedImage alloc] init];
     result.image = [UIImage imageWithCVMat:image];
     result.str = squares.size()>0 ?@"size": @"";
+    
+    cv::Mat overlayImageWithImage = image.clone();
+    
     if (largest_square.size() == 4) {
         cv::Mat croped = cropImage(image, largest_square);
         
@@ -175,6 +178,9 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
                 }
                 cv::line(overlay, p0, cv::Point2f(p0.x + 0.2*(p1.x - p0.x),p0.y + 0.2*(p1.y - p0.y)), cv::Scalar(0,255,0,255),6);
                 cv::line(overlay, p0, cv::Point2f(p0.x + 0.2*(p2.x - p0.x),p0.y + 0.2*(p2.y - p0.y)), cv::Scalar(0,255,0,255),6);
+                
+                cv::line(overlayImageWithImage, p0, cv::Point2f(p0.x + 0.2*(p1.x - p0.x),p0.y + 0.2*(p1.y - p0.y)), cv::Scalar(0,255,0,255),6);
+                cv::line(overlayImageWithImage, p0, cv::Point2f(p0.x + 0.2*(p2.x - p0.x),p0.y + 0.2*(p2.y - p0.y)), cv::Scalar(0,255,0,255),6);
             }
         }
         
@@ -183,6 +189,8 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
             if (containPointInRect(largest_square, p)) {
                 [keypoints addObject:[NSValue valueWithCGPoint:k.pt]];
                 cv::circle(overlay, p, 2, cv::Scalar(0,255,0,255),2);
+                
+                cv::circle(overlayImageWithImage, p, 2, cv::Scalar(0,255,0,255),2);
             }
         }
         
@@ -190,6 +198,8 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
         result.overlayImage = [UIImage imageWithCVMat:overlay];
         result.keypoints = keypoints;
         result.cropedImage = [UIImage imageWithCVMat:croped];
+        
+        result.overlayImageWithImage = [UIImage imageWithCVMat:overlayImageWithImage];
     }
     
     
