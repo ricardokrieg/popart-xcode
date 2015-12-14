@@ -513,8 +513,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.bringSubviewToFront(server.focusSquare!)
         self.cameraView.bringSubviewToFront(grid)
         
-        
-        
         NSLog("ViewController#beginSession.cameraView.bounds: \(cameraView!.bounds)")
         NSLog("ViewController#beginSession.cameraView.frame: \(cameraView!.frame)")
         NSLog("ViewController#beginSession.previewLayer.bounds: \(previewLayer!.bounds)")
@@ -631,6 +629,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.pickedImage = bufferImage
         self.croppedImage = resizedBufferImage
+        
         NSLog("ViewController#captureOutput.cameraView.frame: \(cameraView.frame)")
         NSLog("ViewController#captureOutput.cameraView.bounds: \(cameraView.bounds)")
         NSLog("ViewController#captureOutput.overlayView.frame: \(overlayView.frame)")
@@ -670,7 +669,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 //}
             }
             dispatch_async(dispatch_get_main_queue(),{
-                self.reloadOverVew(pros.overlayImage)
+                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
+//                self.reloadOverVew(pros.overlayImage)
             })
             
             //self.resetProcessImage()
