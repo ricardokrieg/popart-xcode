@@ -22,6 +22,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var overlayView: UIImageView!
     
     var rectLayer: UIImageView!
+    var rectArea: Float = 0.0
+    var rectDetectedAt: Double = -1
     
     let locationManager = CLLocationManager()
     
@@ -711,6 +713,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.keypoints = []
             
             if let keys = pros.keypoints {
+                let tmpRectArea = pros.rectArea.floatValue
+                let currentTime = NSDate().timeIntervalSince1970*1000
+                
+                NSLog("TmpRectArea: \(tmpRectArea)")
+                NSLog("RectArea: \(self.rectArea)")
+                
+                if self.rectArea - tmpRectArea > 10 {
+                    self.rectDetectedAt = currentTime
+                    NSLog("RectDetectedAt: \(self.rectDetectedAt)")
+                }
+                self.rectArea = tmpRectArea
+                
                 for k in keys {
                     let keypoint = Keypoint()
                     keypoint.angle = k.angle
@@ -722,12 +736,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     keypoint.descriptor = k.descriptor
                     self.keypoints.append(keypoint)
                 }
-                
-//                self.reloadOverVew(pros.overlayImageWithImage)
-                
-//                server.shouldSend = true
-//                self.sendPictureToServer(self.pickedImage)
-//                return
+
+                if currentTime - self.rectDetectedAt >= 2000 {
+                    NSLog("Upload!")
+                    
+                    self.reloadOverVew(pros.overlayImageWithImage)
+                    
+                    server.shouldSend = true
+                    self.sendPictureToServer(self.pickedImage)
+                    return
+                }
             }
             
 //            self.croppedImage = pros.cropedImage;

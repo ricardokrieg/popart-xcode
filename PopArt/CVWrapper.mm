@@ -40,7 +40,7 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     std::vector<std::vector<cv::Point>>squares;
     std::vector<cv::Point> largest_square;
     find_squares(image, squares);
-    find_largest_square(squares, largest_square);
+    float square_area = find_largest_square(squares, largest_square);
     
 
     for (int i = 0; i < squares.size(); i++) {
@@ -155,13 +155,15 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     if (largest_square.size() == 4) {
         cv::Mat croped = cropImage(image, largest_square);
         
-
         NSArray* keys = [CVWrapper detectKeypointWithUIImage:rotatedImage];
         NSMutableArray* keypoints = [NSMutableArray array];
         cv::Mat origin = rotatedImage.CVMat;
         cv::Mat overlay(origin.rows,origin.cols,CV_8UC4);
         overlay = cv::Scalar(255,255,255,0);
+        
         if (largest_square.size() == 4) {
+            result.rectArea = [NSNumber numberWithFloat:square_area];
+            
             for (int i = 0; i < 4; i++) {
                 cv::Point2f p0 = largest_square[i];
                 cv::Point2f p1;
@@ -362,12 +364,12 @@ void find_squares(cv::Mat& image, std::vector<std::vector<cv::Point>>&squares) {
     }
 }
 
-void find_largest_square(const std::vector<std::vector<cv::Point> >& squares, std::vector<cv::Point>& biggest_square)
+float find_largest_square(const std::vector<std::vector<cv::Point> >& squares, std::vector<cv::Point>& biggest_square)
 {
     if (!squares.size())
     {
         // no squares detected
-        return;
+        return 0;
     }
     
     int max_width = 0;
@@ -391,6 +393,8 @@ void find_largest_square(const std::vector<std::vector<cv::Point> >& squares, st
     }
     
     biggest_square = squares[max_square_idx];
+    
+    return (max_width * max_height);
 }
 
 cv::Mat cropImage(cv::Mat &original,std::vector<cv::Point> &square) {

@@ -17,4 +17,6 @@
 @property (nonatomic, strong) UIImage* cropedImage;
 @property (nonatomic, strong) UIImage* overlayImage;
 @property (nonatomic, strong) UIImage* overlayImageWithImage;
+//@property (nonatomic, strong) CGPoint* rectCenter;
+@property (nonatomic, strong) NSNumber* rectArea;
 @end
