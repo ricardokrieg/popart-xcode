@@ -1387,6 +1387,7 @@
                         <segue destination="TTA-04-dta" kind="show" identifier="fromMainToPage" id="Bfq-3Z-hPx"/>
                         <segue destination="IOH-bG-bS2" kind="show" identifier="fromMainToSettings" id="kBO-0a-pVg"/>
                         <segue destination="H02-4V-nJO" kind="unwind" identifier="goToSignIn" unwindAction="goToSignIn:" id="lwq-Zd-kaJ"/>
+                        <segue destination="FzV-1f-g1n" kind="show" identifier="fromMainToResult" id="a9v-qD-oxE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVX-N0-Ocg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3031,10 +3032,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="7OK-sO-FDr"/>
         <segue reference="W2i-LE-0ss"/>
+        <segue reference="lgg-H9-mAH"/>
+        <segue reference="a9v-qD-oxE"/>
         <segue reference="Bfq-3Z-hPx"/>
         <segue reference="kBO-0a-pVg"/>
-        <segue reference="lgg-H9-mAH"/>
         <segue reference="uIN-dJ-NoI"/>
-        <segue reference="aRS-Ce-dOV"/>
     </inferredMetricsTieBreakers>
 </document>

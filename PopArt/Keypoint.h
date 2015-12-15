@@ -17,5 +17,6 @@
 @property CGPoint pt;
 @property float response;
 @property float size;
+@property NSMutableArray* descriptor;
 
 @end

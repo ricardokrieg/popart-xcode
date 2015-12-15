@@ -16,7 +16,7 @@ class SendingPictureViewController: UIViewController {
     
     var pickedImage: UIImage?
     var croppedImage: UIImage?
-    var keypoints: NSArray?
+    var keypoints: Array<Keypoint> = []
     var result: NSData?
 
     override func viewDidLoad() {
@@ -54,13 +54,29 @@ class SendingPictureViewController: UIViewController {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
 //            if self.imageContainer.image != nil {
             if self.croppedImage != nil {
-//                let imageData = UIImageJPEGRepresentation(self.imageContainer.image!, 0.5)
-                let imageData = UIImageJPEGRepresentation(self.croppedImage!, 1.0)
+                let imageData = UIImageJPEGRepresentation(self.imageContainer.image!, 0.2)
+//                let imageData = UIImageJPEGRepresentation(self.croppedImage!, 1.0)
                 
-                var messageKeypoints:NSArray = []
-                if self.keypoints != nil {
-                    messageKeypoints = self.keypoints!
+                var messageKeypoints:Array<Dictionary<String, AnyObject>> = []
+                for k in self.keypoints {
+                    let json_keypoint: Dictionary<String, AnyObject> = [
+                        "a": k.angle,
+                        "c": NSNumber(int: k.class_id),
+                        "o": NSNumber(int: k.octave),
+                        "px": k.pt.x,
+                        "py": k.pt.y,
+                        "r": k.response,
+                        "s": k.size,
+                        "d": k.descriptor
+                    ]
+
+                    messageKeypoints.append(json_keypoint);
                 }
+                
+                var messageKeypointsJson: AnyObject = ""
+                do {
+                    messageKeypointsJson = try NSJSONSerialization.dataWithJSONObject(messageKeypoints, options: NSJSONWritingOptions.init(rawValue: 0))
+                } catch _ {}
                 
                 var message_lat = ""
                 var message_lng = ""
@@ -104,7 +120,7 @@ class SendingPictureViewController: UIViewController {
                     client = account.client
                 }
                 
-                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "uid": uid, "token": token, "client": client, "keypoints": messageKeypoints]
+                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "uid": uid, "token": token, "client": client, "keypoints": NSString(data: messageKeypointsJson as! NSData, encoding: NSUTF8StringEncoding)!]
                 
                 server.ping(self)
                 

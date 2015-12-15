@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreLocation
-
+import SwiftHTTP
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UIPopoverPresentationControllerDelegate, CLLocationManagerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     
@@ -24,8 +24,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     let imagePicker = UIImagePickerController()
     var pickedImage: UIImage?
-    var croppedImage: UIImage?
-    var keypoints: NSArray?
+//    var croppedImage: UIImage?
+    var keypoints: Array<Keypoint> = []
+    var result: NSData?
     
     var page_url: String?
     
@@ -48,6 +49,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var processImage: UIImageView!
     var shouldProcessImage : Bool = false
     var timer : NSTimer = NSTimer()
+    
+    var displayScanLine = false
     
     func changeProcessImage() {
         shouldProcessImage = !shouldProcessImage
@@ -159,6 +162,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             presentViewController(imagePicker, animated: true, completion: nil)
             
+            return
+        } else {
             return
         }
         
@@ -348,6 +353,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.addSubview(server.focusSquare!)
         server.focusSquare!.setNeedsDisplay()
         
+        // Create Scan Line
+        
+        server.scanLine = ScanLineView(frame: CGRect(x: 0, y: 0, width: 2, height: self.view.bounds.height))
+        self.cameraView.addSubview(server.scanLine!)
+        server.scanLine!.setNeedsDisplay()
+        
+//        server.scanLine!.startAnimation(self.view.bounds.width)
+        
+//        server.scanLine!.alpha = 0.0
+//        
+//        server.scanLine!.frame.origin.x = 0.0
+//        UIView.animateWithDuration(3.0, delay: 0.0, options: [UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse], animations: {
+//                server.scanLine!.frame.origin.x = self.view.bounds.width
+//            }, completion: nil)
+        
         // Setup Camera Preview
         
         //captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -410,10 +430,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if pickedImage != nil {
                 let destination = segue.destinationViewController as! SendingPictureViewController
                 destination.pickedImage = (self.processImage.image != nil) ? self.processImage.image : pickedImage
-                destination.croppedImage = (self.processImage.image != nil) ? self.processImage.image : croppedImage
+//                destination.croppedImage = (self.processImage.image != nil) ? self.processImage.image : croppedImage
                 destination.keypoints = self.keypoints
                 pickedImage = nil
-                croppedImage = nil
+//                croppedImage = nil
             }
             
             server.shouldSend = true
@@ -426,6 +446,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 controller.popoverPresentationController!.popoverBackgroundViewClass = MenuPopoverBackgroundView.self
                 let width = min(self.view.frame.width-20, 320)
                 controller.preferredContentSize = CGSize(width: width, height: 140)
+            }
+        } else if segue.identifier == "fromMainToResult" {
+            if result != nil {
+                let destination = segue.destinationViewController as! ResultViewController
+                destination.result = result
+                destination.saveToHistory = true
+                result = nil
             }
         }
     }
@@ -510,6 +537,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         self.cameraView.bringSubviewToFront(slider)
         self.cameraView.bringSubviewToFront(server.frameDetector!)
+        self.cameraView.bringSubviewToFront(server.scanLine!)
         self.cameraView.bringSubviewToFront(server.focusSquare!)
         self.cameraView.bringSubviewToFront(grid)
         
@@ -526,19 +554,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         pickedImage = image
         
-//        let (keypoints, descriptors) = CVWrapper.detectKeypointsAndDescriptors(pickedImage)
-        
-//        for var i = 0; i < 100; i++ {
-        
         let stitchedImage:stringedImage? = CVWrapper.processImageWithOpenCV(pickedImage) as stringedImage
+        self.keypoints = []
+        
+        var gotKeypoints = false
         
         if let result = stitchedImage {
-            NSLog("ViewController#imagePickerController.result: %@", result)
+//            pickedImage = result.overlayImageWithImage
+//            croppedImage = pickedImage
             
-            pickedImage = result.overlayImageWithImage
-            croppedImage = pickedImage
-            
-            keypoints = result.keypoints
+            if let keys = result.keypoints {
+                for k in keys {
+                    let keypoint = Keypoint()
+                    keypoint.angle = k.angle
+                    keypoint.class_id = k.class_id
+                    keypoint.octave = k.octave
+                    keypoint.pt = k.pt
+                    keypoint.response = k.response
+                    keypoint.size = k.size
+                    keypoint.descriptor = k.descriptor
+                    keypoints.append(keypoint)
+                }
+                
+                gotKeypoints = true
+                
+                dismissViewControllerAnimated(true, completion: {
+//                    self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+                    server.shouldSend = true
+                    self.sendPictureToServer(self.pickedImage)
+                })
+                UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+            }
+        }
+        
+        if !gotKeypoints {
+            dismissViewControllerAnimated(true, completion: nil)
+            UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         }
 //        }
         
@@ -555,11 +606,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //                }
 //            }
 //        }
-        
-        dismissViewControllerAnimated(true, completion: {
-            self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
-        })
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -645,7 +691,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
-            self.croppedImage = pros.cropedImage;
+//            self.croppedImage = pros.cropedImage;
             self.pickedImage = pros.cropedImage;
             
             //self.processImage.image = self.pickedImage
@@ -668,7 +714,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             dispatch_async(dispatch_get_main_queue(),{
 //                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
-                self.reloadOverVew(pros.overlayImage)
+                let resizedImage = FrameDetectorView.scaleUIImageToSize(pros.overlayImageWithImage, size: self.overlayView.frame.size)
+                self.reloadOverVew(resizedImage)
             })
             
             //self.resetProcessImage()
@@ -751,6 +798,158 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if image != nil {
             NSLog("ViewController#reloadOverVew.image.size: \(image!.size)")
         }
+    }
+    
+    func sendPictureToServer(imageToSend: UIImage?) {
+        if !server.shouldSend { return }
+        
+        server.scanLine!.startAnimation(self.view.bounds.width)
+        
+        // Get location
+        
+        if server.location != nil {
+            print("User location: (\(server.location!.coordinate.latitude), \(server.location!.coordinate.longitude))")
+        } else {
+            print("User didnt allow location")
+        }
+        
+        // Send to server
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            if imageToSend != nil {
+                let imageData = UIImageJPEGRepresentation(imageToSend!, 0.2)
+                
+                var messageKeypoints:Array<Dictionary<String, AnyObject>> = []
+                for k in self.keypoints {
+                    let json_keypoint: Dictionary<String, AnyObject> = [
+                        "a": k.angle,
+                        "c": NSNumber(int: k.class_id),
+                        "o": NSNumber(int: k.octave),
+                        "px": k.pt.x,
+                        "py": k.pt.y,
+                        "r": k.response,
+                        "s": k.size,
+                        "d": k.descriptor
+                    ]
+                    
+                    messageKeypoints.append(json_keypoint);
+                }
+                
+                var messageKeypointsJson: AnyObject = ""
+                do {
+                    messageKeypointsJson = try NSJSONSerialization.dataWithJSONObject(messageKeypoints, options: NSJSONWritingOptions.init(rawValue: 0))
+                } catch _ {}
+                
+                var message_lat = ""
+                var message_lng = ""
+                var message_location_area = ""
+                var message_location_country = ""
+                
+                if server.location != nil {
+                    message_lat = String(stringInterpolationSegment: server.location!.coordinate.latitude)
+                    message_lng = String(stringInterpolationSegment: server.location!.coordinate.longitude)
+                }
+                
+                if server.placemark != nil {
+                    if let thoroughfare = server.placemark!.thoroughfare {
+                        message_location_area += "\(thoroughfare), "
+                    }
+                    if let subThoroughfare = server.placemark!.subThoroughfare {
+                        message_location_area += "\(subThoroughfare), "
+                    }
+                    if let postalCode = server.placemark!.postalCode {
+                        message_location_area += "\(postalCode)"
+                    }
+                    
+                    if let locality = server.placemark!.locality {
+                        message_location_country += "\(locality), "
+                    }
+                    if let administrativeArea = server.placemark!.administrativeArea {
+                        message_location_country += "\(administrativeArea), "
+                    }
+                    if let country = server.placemark!.country {
+                        message_location_country += "\(country)"
+                    }
+                }
+                
+                var uid = ""
+                var token = ""
+                var client = ""
+                
+                if let account = Account.load() {
+                    uid = account.uid
+                    token = account.token
+                    client = account.client
+                }
+                
+                let params: Dictionary<String, AnyObject> = ["image": Upload(data: imageData!, fileName: "upload.jpg", mimeType: "image/jpeg"), "lat": message_lat, "lng": message_lng, "location_area": message_location_area, "location_country": message_location_country, "uid": uid, "token": token, "client": client, "keypoints": NSString(data: messageKeypointsJson as! NSData, encoding: NSUTF8StringEncoding)!]
+                
+                server.ping(self)
+                
+                do {
+                    let opt = try HTTP.POST(server.http_url, parameters: params)
+                    
+                    opt.start { response in
+                        if let err = response.error {
+                            print("error: \(err.localizedDescription)")
+                            return //also notify app of failure as needed
+                        }
+                        
+                        let str = NSString(data: response.data, encoding: NSUTF8StringEncoding)
+                        print("response: \(str)") //prints the HTML of the page
+                        
+                        self.result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            server.scanLine!.stopAnimation()
+                            self.performSegueWithIdentifier("fromMainToResult", sender: nil)
+                        }
+                    }
+                } catch let error {
+                    print("got an error creating the request: \(error)")
+                }
+            }
+        }
+        
+        server.shouldSend = false
+    }
+    
+    func compressImage(image: UIImage) -> UIImage {
+        var actualHeight = Double(image.size.height)
+        var actualWidth = Double(image.size.width)
+        let maxHeight = 600.0
+        let maxWidth = 800.0
+        var imgRatio = actualWidth/actualHeight
+        let maxRatio = maxWidth/maxHeight
+        let compressionQuality = 0.5
+        
+        if actualHeight > maxHeight || actualWidth > maxWidth {
+            if imgRatio < maxRatio {
+                //adjust width according to maxHeight
+                imgRatio = maxHeight / actualHeight
+                actualWidth = imgRatio * actualWidth
+                actualHeight = maxHeight
+            } else if imgRatio > maxRatio {
+                //adjust height according to maxWidth
+                imgRatio = maxWidth / actualWidth
+                actualHeight = imgRatio * actualHeight
+                actualWidth = maxWidth
+            } else {
+                actualHeight = maxHeight
+                actualWidth = maxWidth
+            }
+        }
+        
+        let rect = CGRectMake(CGFloat(0.0), CGFloat(0.0), CGFloat(Int(actualWidth)), CGFloat(Int(actualHeight)))
+        UIGraphicsBeginImageContext(rect.size)
+        
+        image.drawInRect(rect)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        let imageData = UIImageJPEGRepresentation(img, CGFloat(compressionQuality))
+        UIGraphicsEndImageContext()
+        
+        return UIImage(data: imageData!)!
     }
     
 }

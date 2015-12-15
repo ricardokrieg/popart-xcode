@@ -187,7 +187,9 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
         for (Keypoint* k in keys) {
             cv::Point2f p(k.pt.x,k.pt.y);
             if (containPointInRect(largest_square, p)) {
-                [keypoints addObject:[NSValue valueWithCGPoint:k.pt]];
+//                [keypoints addObject:[NSValue valueWithCGPoint:k.pt]];
+                [keypoints addObject:k];
+                
                 cv::circle(overlay, p, 2, cv::Scalar(0,255,0,255),2);
                 
                 cv::circle(overlayImageWithImage, p, 2, cv::Scalar(0,255,0,255),2);
@@ -226,21 +228,32 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
 
 + (NSArray*)detectKeypointWithUIImage:(UIImage*)image {
     cv::Mat cvImage = image.CVMat;
-    cv::Ptr<cv::ORB> orb = cv::ORB::create();
+    cv::Ptr<cv::ORB> orb = cv::ORB::create(1000);
     
     std::vector<cv::KeyPoint> keypoints;
     cv::Mat desc;
     orb->detectAndCompute(cvImage, cv::noArray(), keypoints, desc);
+    
+//    NSLog(@"ORB Descriptors: [%i, %i, %i, %i]", desc.at<int32_t>(0, 0), desc.at<unsigned int>(3, 0), desc.at<char>(2, 0), desc.at<char16_t>(1, 0));
+    
     NSMutableArray* keyPointsArray = [NSMutableArray array];
     for (int i = 0; i < keypoints.size(); i++) {
         cv::KeyPoint key = keypoints[i];
         Keypoint* k = [Keypoint new];
+        
         k.angle = key.angle;
         k.class_id = key.class_id;
         k.octave = key.octave;
         k.pt = CGPointMake(key.pt.x, key.pt.y);
         k.response = key.response;
         k.size = key.size;
+
+        k.descriptor = [[NSMutableArray alloc] init];
+        for (int j = 0; j < 32; j++) {
+            NSNumber *num = [NSNumber numberWithUnsignedChar:desc.at<UInt8>(i, j)];
+            [k.descriptor addObject:num];
+        }
+        
         [keyPointsArray addObject:k];
     }
     

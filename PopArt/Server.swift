@@ -43,8 +43,8 @@ class Server {
     
     var squareSize = 200
     var focusSquare: FocusSquareView?
-    
     var frameDetector: FrameDetectorView?
+    var scanLine: ScanLineView?
     
     init() {}
     
