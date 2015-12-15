@@ -21,6 +21,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //    @IBOutlet var overlayView: OverlayView!
     @IBOutlet weak var overlayView: UIImageView!
     
+    var rectLayer: UIImageView!
+    
     let locationManager = CLLocationManager()
     
     let imagePicker = UIImagePickerController()
@@ -364,6 +366,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.overlayView.alpha = 0.0
         
+        // Setup Rectangle Layer
+        
+        rectLayer = UIImageView(frame: self.cameraView.frame)
+        self.cameraView.addSubview(rectLayer)
+        
         // Setup Camera Preview
         
         //captureSession.sessionPreset = AVCaptureSessionPresetHigh
@@ -532,6 +539,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.layer.addSublayer(previewLayer!)
 
         self.cameraView.bringSubviewToFront(slider)
+        self.cameraView.bringSubviewToFront(rectLayer)
         self.cameraView.bringSubviewToFront(server.frameDetector!)
         self.cameraView.bringSubviewToFront(server.scanLine!)
         self.cameraView.bringSubviewToFront(server.focusSquare!)
@@ -715,11 +723,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.keypoints.append(keypoint)
                 }
                 
-                self.reloadOverVew(pros.overlayImageWithImage)
+//                self.reloadOverVew(pros.overlayImageWithImage)
                 
-                server.shouldSend = true
-                self.sendPictureToServer(self.pickedImage)
-                return
+//                server.shouldSend = true
+//                self.sendPictureToServer(self.pickedImage)
+//                return
             }
             
 //            self.croppedImage = pros.cropedImage;
@@ -743,11 +751,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
                 //}
             }
-//            dispatch_async(dispatch_get_main_queue(),{
+            dispatch_async(dispatch_get_main_queue(),{
 ////                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
 //                let resizedImage = FrameDetectorView.scaleUIImageToSize(pros.overlayImageWithImage, size: self.overlayView.frame.size)
 //                self.reloadOverVew(resizedImage)
-//            })
+                self.rectLayer.image = pros.overlayImageWithImage
+                self.rectLayer.contentMode = .ScaleAspectFill
+            })
             
             //self.resetProcessImage()
             //let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
