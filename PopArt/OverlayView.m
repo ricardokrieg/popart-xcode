@@ -10,7 +10,7 @@
 
 @implementation OverlayView
 
-- (void)drawRect:(CGRect)rect {
+//- (void)drawRect:(CGRect)rect {
     //[super drawRect:rect];
 //    [[UIColor greenColor] set];
 //    for (NSArray* r in self.rects) {
@@ -54,10 +54,10 @@
 //            [point fill];
 //        }
 //    }
-    if (self.overlayImage) {
-        [self.overlayImage drawInRect:rect];
-    }
-    
-}
+//    if (self.overlayImage) {
+//        [self.overlayImage drawInRect:rect];
+//    }
+//    
+//}
 
 @end

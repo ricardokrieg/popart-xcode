@@ -18,7 +18,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //    @IBOutlet weak var selectImageButton: UIBarButtonItem!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var grid: UIImageView!
-    @IBOutlet var overlayView: OverlayView!
+//    @IBOutlet var overlayView: OverlayView!
+    @IBOutlet weak var overlayView: UIImageView!
     
     let locationManager = CLLocationManager()
     
@@ -359,14 +360,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.addSubview(server.scanLine!)
         server.scanLine!.setNeedsDisplay()
         
-//        server.scanLine!.startAnimation(self.view.bounds.width)
+        // Setup Overlay
         
-//        server.scanLine!.alpha = 0.0
-//        
-//        server.scanLine!.frame.origin.x = 0.0
-//        UIView.animateWithDuration(3.0, delay: 0.0, options: [UIViewAnimationOptions.Repeat, UIViewAnimationOptions.Autoreverse], animations: {
-//                server.scanLine!.frame.origin.x = self.view.bounds.width
-//            }, completion: nil)
+        self.overlayView.alpha = 0.0
         
         // Setup Camera Preview
         
@@ -552,6 +548,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: - UIImagePickerControllerDelegate Methods
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        if server.sendingPicture {
+            dismissViewControllerAnimated(true, completion: nil)
+            UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+            return
+        }
+        
         pickedImage = image
         
         let stitchedImage:stringedImage? = CVWrapper.processImageWithOpenCV(pickedImage) as stringedImage
@@ -580,6 +582,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 dismissViewControllerAnimated(true, completion: {
 //                    self.performSegueWithIdentifier("fromMainToSendingPicture", sender: nil)
+                    
+                    self.reloadOverVew(result.overlayImageWithImage)
+                    
                     server.shouldSend = true
                     self.sendPictureToServer(self.pickedImage)
                 })
@@ -664,6 +669,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //            previewLayer?.sublayers = nil
 //        }
 //
+        if server.sendingPicture {
+            return
+        }
+        
         if (!shouldProcessImage) {
             return;
         }else {
@@ -691,8 +700,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
+            self.keypoints = []
+            
+            if let keys = pros.keypoints {
+                for k in keys {
+                    let keypoint = Keypoint()
+                    keypoint.angle = k.angle
+                    keypoint.class_id = k.class_id
+                    keypoint.octave = k.octave
+                    keypoint.pt = k.pt
+                    keypoint.response = k.response
+                    keypoint.size = k.size
+                    keypoint.descriptor = k.descriptor
+                    self.keypoints.append(keypoint)
+                }
+                
+                self.reloadOverVew(pros.overlayImageWithImage)
+                
+                server.shouldSend = true
+                self.sendPictureToServer(self.pickedImage)
+                return
+            }
+            
 //            self.croppedImage = pros.cropedImage;
-            self.pickedImage = pros.cropedImage;
+//            self.pickedImage = pros.cropedImage;
             
             //self.processImage.image = self.pickedImage
             //self.processImage.setNeedsDisplay()
@@ -712,11 +743,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
                 //}
             }
-            dispatch_async(dispatch_get_main_queue(),{
-//                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
-                let resizedImage = FrameDetectorView.scaleUIImageToSize(pros.overlayImageWithImage, size: self.overlayView.frame.size)
-                self.reloadOverVew(resizedImage)
-            })
+//            dispatch_async(dispatch_get_main_queue(),{
+////                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
+//                let resizedImage = FrameDetectorView.scaleUIImageToSize(pros.overlayImageWithImage, size: self.overlayView.frame.size)
+//                self.reloadOverVew(resizedImage)
+//            })
             
             //self.resetProcessImage()
             //let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
@@ -791,10 +822,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func reloadOverVew(image:UIImage?) {
 //        self.overlayView.rects = rects
 //        self.overlayView.keypoints = keys
-        self.overlayView.overlayImage = image;
-        self.overlayView.setNeedsDisplay()
+        self.overlayView.image = image
+        self.overlayView.contentMode = .ScaleAspectFit
+        self.overlayView.alpha = 1.0
+//        self.overlayView.setNeedsDisplay()
         
-        NSLog("ViewController#reloadOverVew.overlayView.overlayImage.size: \(self.overlayView.overlayImage.size)")
+        NSLog("ViewController#reloadOverVew.overlayView.overlayImage.frame: \(self.overlayView.frame)")
         if image != nil {
             NSLog("ViewController#reloadOverVew.image.size: \(image!.size)")
         }
@@ -802,6 +835,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func sendPictureToServer(imageToSend: UIImage?) {
         if !server.shouldSend { return }
+        if server.sendingPicture { return }
+        
+        server.shouldSend = false
+        server.sendingPicture = true
         
         server.scanLine!.startAnimation(self.view.bounds.width)
         
@@ -902,16 +939,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             server.scanLine!.stopAnimation()
+                            server.sendingPicture = false
+                            self.overlayView.alpha = 0.0
                             self.performSegueWithIdentifier("fromMainToResult", sender: nil)
                         }
                     }
                 } catch let error {
+                    server.scanLine!.stopAnimation()
+                    server.sendingPicture = false
+                    self.overlayView.alpha = 0.0
                     print("got an error creating the request: \(error)")
                 }
+            } else {
+                server.scanLine!.stopAnimation()
+                server.sendingPicture = false
+                self.overlayView.alpha = 0.0
             }
         }
-        
-        server.shouldSend = false
     }
     
     func compressImage(image: UIImage) -> UIImage {

@@ -24,6 +24,7 @@ class Server {
     
     var shouldSend = false
     var shouldCheckToken = true
+    var sendingPicture = false
     
     let http_url = "http://\(SERVER_ADDRESS):\(SERVER_PORT)/"
     let signInUrl = "http://popart-app.com/auth/sign_in"
