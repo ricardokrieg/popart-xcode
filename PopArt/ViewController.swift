@@ -544,7 +544,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.layer.addSublayer(previewLayer!)
 
         self.cameraView.bringSubviewToFront(slider)
-//        self.cameraView.bringSubviewToFront(rectLayer)
+        self.cameraView.bringSubviewToFront(overlayView)
+        self.cameraView.bringSubviewToFront(rectView)
         self.cameraView.bringSubviewToFront(server.frameDetector!)
         self.cameraView.bringSubviewToFront(server.scanLine!)
         self.cameraView.bringSubviewToFront(server.focusSquare!)
