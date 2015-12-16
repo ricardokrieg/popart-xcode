@@ -23,7 +23,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var rectView: UIImageView!
     
 //    var rectLayer: UIImageView!
-    var rectArea: Float = 0.0
+    var rectArea: Float = -9990.0
     var rectDetectedAt: Double = -1
     
     let locationManager = CLLocationManager()
@@ -727,7 +727,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 NSLog("TmpRectArea: \(tmpRectArea)")
                 NSLog("RectArea: \(self.rectArea)")
                 
-                if abs(self.rectArea - tmpRectArea) > 10 {
+                if abs(self.rectArea - tmpRectArea) > 10000 {
                     self.rectDetectedAt = currentTime
                     NSLog("RectDetectedAt: \(self.rectDetectedAt)")
                 }
@@ -862,7 +862,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        self.overlayView.keypoints = keys
         self.overlayView.image = image
         self.overlayView.contentMode = .ScaleAspectFill
-        self.overlayView.backgroundColor = UIColor.redColor()
+//        self.overlayView.backgroundColor = UIColor.redColor()
         self.overlayView.alpha = 1.0
 //        self.overlayView.setNeedsDisplay()
         
