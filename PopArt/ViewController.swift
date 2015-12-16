@@ -685,11 +685,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         
-        if (!shouldProcessImage) {
-            return;
-        }else {
-            shouldProcessImage = false;
-        }
+//        if (!shouldProcessImage) {
+//            return;
+//        }else {
+//            shouldProcessImage = false;
+//        }
         
         let bufferImage = imageFromSampleBuffer(sampleBuffer)
 //        let resizedBufferImage = FrameDetectorView.scaleUIImageToSize(bufferImage, size: overlayView.frame.size)
@@ -697,10 +697,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.pickedImage = bufferImage
 //        self.croppedImage = resizedBufferImage
         
-        NSLog("ViewController#captureOutput.cameraView.frame: \(cameraView.frame)")
-        NSLog("ViewController#captureOutput.cameraView.bounds: \(cameraView.bounds)")
-        NSLog("ViewController#captureOutput.overlayView.frame: \(overlayView.frame)")
-        NSLog("ViewController#captureOutput.overlayView.bounds: \(overlayView.bounds)")
+//        NSLog("ViewController#captureOutput.cameraView.frame: \(cameraView.frame)")
+//        NSLog("ViewController#captureOutput.cameraView.bounds: \(cameraView.bounds)")
+//        NSLog("ViewController#captureOutput.overlayView.frame: \(overlayView.frame)")
+//        NSLog("ViewController#captureOutput.overlayView.bounds: \(overlayView.bounds)")
         
         //self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 2.0)
 //        self.pickedImage = bufferImage
@@ -753,6 +753,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     server.shouldSend = true
                     self.sendPictureToServer(self.pickedImage)
                     return
+                } else {
+                    NSLog("Wait: \(currentTime - self.rectDetectedAt)")
                 }
             }
             
@@ -762,21 +764,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             //self.processImage.image = self.pickedImage
             //self.processImage.setNeedsDisplay()
             
-            if (pros.str.isEmpty){
-                //if (!self.waitingChange){
-                    self.waitingChange = true;
-                
-                    self.resetProcessImage()
-                //}
-            }else {
-                //if (!self.waitingChange){
-                    self.waitingChange = true;
-                self.processImage.image = nil;//pros.image;
-                    self.processImage.setNeedsDisplay()
-                
-                    self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
-                //}
-            }
+//            if (pros.str.isEmpty){
+//                //if (!self.waitingChange){
+//                    self.waitingChange = true;
+//                
+//                    self.resetProcessImage()
+//                //}
+//            }else {
+//                //if (!self.waitingChange){
+//                    self.waitingChange = true;
+//                self.processImage.image = nil;//pros.image;
+//                    self.processImage.setNeedsDisplay()
+//                
+//                    self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
+//                //}
+//            }
 //            dispatch_async(dispatch_get_main_queue(),{
 //////                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
 ////                let resizedImage = FrameDetectorView.scaleUIImageToSize(pros.overlayImageWithImage, size: self.overlayView.frame.size)
