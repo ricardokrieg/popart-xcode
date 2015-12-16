@@ -368,7 +368,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Setup Overlay and Rect views
         
         self.overlayView.alpha = 0.0
-        self.rectView.alpha = 0.0
+        self.rectView.alpha = 1.0
+        self.rectView.backgroundColor = UIColor.redColor()
         
         // Setup Rectangle Layer
         
@@ -712,11 +713,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
-            dispatch_async(dispatch_get_main_queue(),{
-                self.rectView.image = pros.overlayImageWithImage
-                self.rectView.contentMode = .ScaleAspectFill
-                self.rectView.alpha = 1.0
-            })
+//            dispatch_async(dispatch_get_main_queue(),{
+//                self.rectView.image = pros.overlayImageWithImage
+//                self.rectView.contentMode = .ScaleAspectFill
+//                self.rectView.alpha = 1.0
+//            })
             
             self.keypoints = []
             
