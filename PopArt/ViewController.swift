@@ -751,7 +751,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     NSLog("DetectedAt: \(self.rectDetectedAt)")
                     NSLog("Upload!")
                     
-                    self.reloadOverVew(pros.overlayImageWithImage)
+//                    self.reloadOverVew(pros.overlayImageWithImage)
                     
                     server.shouldSend = true
                     self.sendPictureToServer(self.pickedImage)
