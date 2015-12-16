@@ -23,7 +23,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var rectView: UIImageView!
     
 //    var rectLayer: UIImageView!
-    var rectArea: Float = -9990.0
+    var rectArea: Float = 0.0
     var rectDetectedAt: Double = -1
     
     let locationManager = CLLocationManager()
@@ -600,7 +600,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.reloadOverVew(result.overlayImageWithImage)
                     
                     server.shouldSend = true
-                    self.sendPictureToServer(self.pickedImage)
+                    self.sendPictureToServer(result.overlayImageWithImage)
                 })
                 UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
             }
@@ -714,11 +714,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
-            dispatch_async(dispatch_get_main_queue(),{
+//            dispatch_async(dispatch_get_main_queue(),{
                 self.rectView.image = pros.overlayImageWithImage
                 self.rectView.contentMode = .ScaleAspectFill
                 self.rectView.alpha = 1.0
-            })
+//            })
             
             self.keypoints = []
             
@@ -729,7 +729,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 NSLog("TmpRectArea: \(tmpRectArea)")
                 NSLog("RectArea: \(self.rectArea)")
                 
-                if abs(self.rectArea - tmpRectArea) > 1000 {
+                if abs(self.rectArea - tmpRectArea) > self.rectArea*0.25 {
                     self.rectDetectedAt = currentTime
                     NSLog("RectDetectedAt: \(self.rectDetectedAt)")
                 }
@@ -755,7 +755,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.reloadOverVew(pros.overlayImageWithImage)
                     
                     server.shouldSend = true
-                    self.sendPictureToServer(self.pickedImage)
+                    self.sendPictureToServer(pros.overlayImageWithImage)
                     return
                 } else {
                     NSLog("Wait: \(currentTime - self.rectDetectedAt)")
