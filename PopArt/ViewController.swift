@@ -729,7 +729,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 NSLog("TmpRectArea: \(tmpRectArea)")
                 NSLog("RectArea: \(self.rectArea)")
                 
-                if abs(self.rectArea - tmpRectArea) > 10000 {
+                if abs(self.rectArea - tmpRectArea) > 1000 {
                     self.rectDetectedAt = currentTime
                     NSLog("RectDetectedAt: \(self.rectDetectedAt)")
                 }
