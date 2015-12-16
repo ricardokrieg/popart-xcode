@@ -746,6 +746,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
 
                 if currentTime - self.rectDetectedAt >= 2000 {
+                    NSLog("CurrentTime: \(currentTime)")
+                    NSLog("DetectedAt: \(self.rectDetectedAt)")
                     NSLog("Upload!")
                     
                     self.reloadOverVew(pros.overlayImageWithImage)

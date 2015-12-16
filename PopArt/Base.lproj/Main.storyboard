@@ -2260,6 +2260,7 @@
                                     <constraint firstItem="X84-DW-vie" firstAttribute="leading" secondItem="Sf8-qz-mXQ" secondAttribute="leading" constant="40" id="qIK-tH-Nx6"/>
                                     <constraint firstItem="eMV-4D-ooA" firstAttribute="centerX" secondItem="Sf8-qz-mXQ" secondAttribute="centerX" id="rWT-jK-TaF"/>
                                     <constraint firstAttribute="trailing" secondItem="eMV-4D-ooA" secondAttribute="trailing" constant="36" id="us3-as-5eK"/>
+                                    <constraint firstItem="rwJ-eM-bNR" firstAttribute="width" secondItem="Sf8-qz-mXQ" secondAttribute="width" id="w6c-1O-h8d"/>
                                     <constraint firstItem="04l-cN-SeU" firstAttribute="trailing" secondItem="ag3-zd-Uh7" secondAttribute="trailing" id="w7N-Hy-O3I"/>
                                     <constraint firstAttribute="trailing" secondItem="PQt-gq-DoH" secondAttribute="trailing" constant="36" id="wPg-uK-Z5D"/>
                                     <constraint firstItem="jm0-DT-iQ6" firstAttribute="top" secondItem="X84-DW-vie" secondAttribute="bottom" id="x98-27-i6a"/>
@@ -2279,6 +2280,7 @@
                                         <exclude reference="x98-27-i6a"/>
                                         <exclude reference="NbQ-TA-hcQ"/>
                                         <exclude reference="0gq-Df-MhJ"/>
+                                        <exclude reference="4e7-qB-iii"/>
                                         <exclude reference="5PG-nH-7gL"/>
                                         <exclude reference="5Co-fc-tw4"/>
                                         <exclude reference="HiP-NJ-YON"/>
@@ -3039,12 +3041,12 @@
         <image name="switchcamera" width="50" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7OK-sO-FDr"/>
-        <segue reference="W2i-LE-0ss"/>
-        <segue reference="lgg-H9-mAH"/>
+        <segue reference="aHv-um-iYM"/>
         <segue reference="a9v-qD-oxE"/>
+        <segue reference="W2i-LE-0ss"/>
         <segue reference="Bfq-3Z-hPx"/>
         <segue reference="kBO-0a-pVg"/>
+        <segue reference="e5l-YI-WXC"/>
         <segue reference="uIN-dJ-NoI"/>
     </inferredMetricsTieBreakers>
 </document>

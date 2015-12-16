@@ -204,6 +204,8 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                                     similarPaintingImageView.frame.origin = CGPoint(x: scrollViewWidth, y: CGFloat(0))
                                     
                                     scrollViewWidth += image!.size.width + 4
+                                    
+                                    self.similarPaintingsScrollView.contentSize = CGSize(width: scrollViewWidth, height: scrollViewHeight)
                                 }
                             }
                         }
@@ -214,8 +216,6 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                     
                     similarPaintingsScrollView.addSubview(similarPaintingView)
                 }
-            
-                similarPaintingsScrollView.contentSize = CGSize(width: scrollViewWidth, height: scrollViewHeight)
             }
             
             if saveToHistory {
