@@ -20,8 +20,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var grid: UIImageView!
 //    @IBOutlet var overlayView: OverlayView!
     @IBOutlet weak var overlayView: UIImageView!
+    @IBOutlet weak var rectView: UIImageView!
     
-    var rectLayer: UIImageView!
+//    var rectLayer: UIImageView!
     var rectArea: Float = 0.0
     var rectDetectedAt: Double = -1
     
@@ -364,14 +365,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.addSubview(server.scanLine!)
         server.scanLine!.setNeedsDisplay()
         
-        // Setup Overlay
+        // Setup Overlay and Rect views
         
         self.overlayView.alpha = 0.0
+        self.rectView.alpha = 0.0
         
         // Setup Rectangle Layer
         
-        rectLayer = UIImageView(frame: self.cameraView.frame)
-        self.cameraView.addSubview(rectLayer)
+//        rectLayer = UIImageView(frame: self.cameraView.frame)
+//        self.cameraView.addSubview(rectLayer)
         
         // Setup Camera Preview
         
@@ -541,7 +543,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.layer.addSublayer(previewLayer!)
 
         self.cameraView.bringSubviewToFront(slider)
-        self.cameraView.bringSubviewToFront(rectLayer)
+//        self.cameraView.bringSubviewToFront(rectLayer)
         self.cameraView.bringSubviewToFront(server.frameDetector!)
         self.cameraView.bringSubviewToFront(server.scanLine!)
         self.cameraView.bringSubviewToFront(server.focusSquare!)
@@ -710,6 +712,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
+            dispatch_async(dispatch_get_main_queue(),{
+                self.rectView.image = pros.overlayImageWithImage
+                self.rectView.contentMode = .ScaleAspectFill
+                self.rectView.alpha = 1.0
+            })
+            
             self.keypoints = []
             
             if let keys = pros.keypoints {
@@ -769,13 +777,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     self.performSelector(Selector("resetProcessImage"), withObject: nil, afterDelay: 1.0)
                 //}
             }
-            dispatch_async(dispatch_get_main_queue(),{
-////                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
-//                let resizedImage = FrameDetectorView.scaleUIImageToSize(pros.overlayImageWithImage, size: self.overlayView.frame.size)
-//                self.reloadOverVew(resizedImage)
-                self.rectLayer.image = pros.overlayImageWithImage
-                self.rectLayer.contentMode = .ScaleAspectFill
-            })
+//            dispatch_async(dispatch_get_main_queue(),{
+//////                self.reloadOverVew(FrameDetectorView.scaleUIImageToSize(pros.overlayImage, size: self.overlayView.frame.size))
+////                let resizedImage = FrameDetectorView.scaleUIImageToSize(pros.overlayImageWithImage, size: self.overlayView.frame.size)
+////                self.reloadOverVew(resizedImage)
+//            })
             
             //self.resetProcessImage()
             //let stitchedImage:UIImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as UIImage
@@ -851,7 +857,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        self.overlayView.rects = rects
 //        self.overlayView.keypoints = keys
         self.overlayView.image = image
-        self.overlayView.contentMode = .ScaleAspectFit
+        self.overlayView.contentMode = .ScaleAspectFill
+        self.overlayView.backgroundColor = UIColor.redColor()
         self.overlayView.alpha = 1.0
 //        self.overlayView.setNeedsDisplay()
         
@@ -864,6 +871,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func sendPictureToServer(imageToSend: UIImage?) {
         if !server.shouldSend { return }
         if server.sendingPicture { return }
+        
+        let currentTime = NSDate().timeIntervalSince1970*1000
+        NSLog("Start Upload At: \(currentTime)")
         
         server.shouldSend = false
         server.sendingPicture = true
@@ -957,6 +967,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     opt.start { response in
                         if let err = response.error {
                             print("error: \(err.localizedDescription)")
+                            
+                            let finishTime = NSDate().timeIntervalSince1970*1000
+                            NSLog("Finish Upload At: \(finishTime)")
+                            NSLog("Time Difference: \(finishTime - currentTime)")
+                            
+                            server.scanLine!.stopAnimation()
+                            server.sendingPicture = false
+                            self.overlayView.alpha = 0.0
                             return //also notify app of failure as needed
                         }
                         
@@ -964,6 +982,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         print("response: \(str)") //prints the HTML of the page
                         
                         self.result = str!.dataUsingEncoding(NSUTF8StringEncoding)
+                        
+                        let finishTime = NSDate().timeIntervalSince1970*1000
+                        NSLog("Finish Upload At: \(finishTime)")
+                        NSLog("Time Difference: \(finishTime - currentTime)")
                         
                         dispatch_async(dispatch_get_main_queue()) {
                             server.scanLine!.stopAnimation()

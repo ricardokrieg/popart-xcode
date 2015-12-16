@@ -1230,6 +1230,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7w-Rk-k0N">
                                 <rect key="frame" x="0.0" y="20" width="320" height="488"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AcA-OZ-dqY">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="488"/>
+                                        <animations/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hj-Nk-C0e">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="488"/>
                                         <animations/>
@@ -1261,14 +1265,18 @@
                                     <constraint firstItem="gxx-hR-pL8" firstAttribute="leading" secondItem="v7w-Rk-k0N" secondAttribute="leading" id="7BL-Xr-SKR"/>
                                     <constraint firstItem="Jib-Jh-lYD" firstAttribute="leading" secondItem="v7w-Rk-k0N" secondAttribute="leading" constant="44" id="8jV-7c-BMS"/>
                                     <constraint firstItem="Jib-Jh-lYD" firstAttribute="centerX" secondItem="gxx-hR-pL8" secondAttribute="centerX" id="9Mh-HF-Uf4"/>
+                                    <constraint firstItem="AcA-OZ-dqY" firstAttribute="height" secondItem="v7w-Rk-k0N" secondAttribute="height" id="L69-oY-Sxb"/>
                                     <constraint firstAttribute="trailing" secondItem="gxx-hR-pL8" secondAttribute="trailing" id="LZg-LG-7dw"/>
                                     <constraint firstItem="gxx-hR-pL8" firstAttribute="top" secondItem="v7w-Rk-k0N" secondAttribute="top" id="PB5-Ep-bKj"/>
                                     <constraint firstItem="2hj-Nk-C0e" firstAttribute="width" secondItem="v7w-Rk-k0N" secondAttribute="width" id="RGN-kL-jta"/>
                                     <constraint firstItem="Jib-Jh-lYD" firstAttribute="top" secondItem="v7w-Rk-k0N" secondAttribute="top" constant="466" id="VLj-yV-s20"/>
                                     <constraint firstItem="2hj-Nk-C0e" firstAttribute="centerX" secondItem="v7w-Rk-k0N" secondAttribute="centerX" id="WLP-NM-oSH"/>
+                                    <constraint firstItem="AcA-OZ-dqY" firstAttribute="centerY" secondItem="v7w-Rk-k0N" secondAttribute="centerY" id="a4N-e9-DEm"/>
                                     <constraint firstItem="2hj-Nk-C0e" firstAttribute="height" secondItem="v7w-Rk-k0N" secondAttribute="height" id="aCL-0i-Oiz"/>
                                     <constraint firstItem="Jib-Jh-lYD" firstAttribute="bottom" secondItem="v7w-Rk-k0N" secondAttribute="bottomMargin" id="b08-6j-Y7T"/>
                                     <constraint firstItem="2hj-Nk-C0e" firstAttribute="centerY" secondItem="v7w-Rk-k0N" secondAttribute="centerY" id="gub-uJ-sdq"/>
+                                    <constraint firstItem="AcA-OZ-dqY" firstAttribute="centerX" secondItem="v7w-Rk-k0N" secondAttribute="centerX" id="gxc-U1-pen"/>
+                                    <constraint firstItem="AcA-OZ-dqY" firstAttribute="width" secondItem="v7w-Rk-k0N" secondAttribute="width" id="hfg-OF-jVm"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="TRa-HM-vJ8" appends="YES" id="0BN-6t-5XV"/>
@@ -1382,6 +1390,7 @@
                         <outlet property="grid" destination="gxx-hR-pL8" id="kNQ-oZ-fqs"/>
                         <outlet property="overlayView" destination="2hj-Nk-C0e" id="p4k-QT-ecY"/>
                         <outlet property="processImage" destination="TA9-tG-HpA" id="gMT-BR-aP9"/>
+                        <outlet property="rectView" destination="AcA-OZ-dqY" id="day-Mb-SIZ"/>
                         <outlet property="slider" destination="Jib-Jh-lYD" id="tQK-OV-zaA"/>
                         <segue destination="mGA-4a-zWH" kind="show" identifier="fromMainToSendingPicture" id="W2i-LE-0ss"/>
                         <segue destination="TTA-04-dta" kind="show" identifier="fromMainToPage" id="Bfq-3Z-hPx"/>
