@@ -43,16 +43,16 @@ static double angle( cv::Point pt1, cv::Point pt2, cv::Point pt0 )
     float square_area = find_largest_square(squares, largest_square);
     
 
-    for (int i = 0; i < squares.size(); i++) {
-        std::vector<cv::Point> squre = squares[i];
-        if (squre.size() == 4) {
-            line(image, squre[0], squre[1], cv::Scalar(0,255,0));
-            line(image, squre[1], squre[2], cv::Scalar(0,255,0));
-            line(image, squre[2], squre[3], cv::Scalar(0,255,0));
-            line(image, squre[3], squre[0], cv::Scalar(0,255,0));
-        }
-    }
-        
+//    for (int i = 0; i < squares.size(); i++) {
+//        std::vector<cv::Point> squre = squares[i];
+//        if (squre.size() == 4) {
+//            line(image, squre[0], squre[1], cv::Scalar(0,255,0));
+//            line(image, squre[1], squre[2], cv::Scalar(0,255,0));
+//            line(image, squre[2], squre[3], cv::Scalar(0,255,0));
+//            line(image, squre[3], squre[0], cv::Scalar(0,255,0));
+//        }
+//    }
+    
 //    NSLog (@"matImage: %@",inputImage);
     
 //    int thresh = 100, N = 11;
