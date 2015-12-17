@@ -334,10 +334,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.performSegueWithIdentifier("fromMainToTutorial", sender: nil)
             }
         }
+        
+        if captureDevice != nil {
+            if !captureSession.running {
+                captureSession.startRunning()
+            }
+        }
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        
+        if captureDevice != nil {
+            if captureSession.running {
+                captureSession.stopRunning()
+            }
+        }
     }
     
     override func viewDidLoad() {
