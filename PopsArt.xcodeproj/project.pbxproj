@@ -38,6 +38,8 @@
 		8C8230951BE1470400A5E2EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8230941BE1470300A5E2EF /* ProfileViewController.swift */; };
 		8C9F79E81BC69E4D001174EC /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F79E71BC69E4D001174EC /* Account.swift */; };
 		8CC488771C0CEF92008FBCFC /* FrameDetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC488761C0CEF91008FBCFC /* FrameDetectorView.swift */; };
+		8CE7756E1C22A54F009B2FBA /* SimilarPaintingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7756D1C22A54E009B2FBA /* SimilarPaintingView.swift */; settings = {ASSET_TAGS = (); }; };
+		8CE775701C22DE9D009B2FBA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7756F1C22DE9C009B2FBA /* TutorialViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8CEA196E1C1FFCD100B58624 /* ScanLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEA196D1C1FFCCF00B58624 /* ScanLineView.swift */; settings = {ASSET_TAGS = (); }; };
 		8CF30E3D1B9528C800F97DA3 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */; };
 		8CF30E431B9535D900F97DA3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */; };
@@ -115,6 +117,8 @@
 		8C8230941BE1470300A5E2EF /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8C9F79E71BC69E4D001174EC /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8CC488761C0CEF91008FBCFC /* FrameDetectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameDetectorView.swift; sourceTree = "<group>"; };
+		8CE7756D1C22A54E009B2FBA /* SimilarPaintingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarPaintingView.swift; sourceTree = "<group>"; };
+		8CE7756F1C22DE9C009B2FBA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		8CEA196D1C1FFCCF00B58624 /* ScanLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanLineView.swift; sourceTree = "<group>"; };
 		8CF30E3C1B9528C800F97DA3 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8CF30E421B9535D900F97DA3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 			children = (
 				8C2655791B7ED08100648FC5 /* AppDelegate.swift */,
 				8C26557B1B7ED08100648FC5 /* ViewController.swift */,
+				8CE7756F1C22DE9C009B2FBA /* TutorialViewController.swift */,
 				8C1209931BE040F800DF583C /* SplashViewController.swift */,
 				8CFA9BBF1BC4051A00E8A116 /* SignInViewController.swift */,
 				8C0C7BBB1BC4742100F37623 /* SignUpViewController.swift */,
@@ -250,6 +255,7 @@
 				8CC488761C0CEF91008FBCFC /* FrameDetectorView.swift */,
 				8C260A981BAB64A800BAACC5 /* FocusSquareView.swift */,
 				8CEA196D1C1FFCCF00B58624 /* ScanLineView.swift */,
+				8CE7756D1C22A54E009B2FBA /* SimilarPaintingView.swift */,
 				8CFA9BC11BC4078B00E8A116 /* Button.swift */,
 				8C9F79E71BC69E4D001174EC /* Account.swift */,
 				8CF994F31B82D05600BC4E44 /* Server.swift */,
@@ -484,6 +490,7 @@
 				8C34DAA71B924DB500D9EB8D /* HistoryViewController.swift in Sources */,
 				8C1209941BE040F900DF583C /* SplashViewController.swift in Sources */,
 				8C8230951BE1470400A5E2EF /* ProfileViewController.swift in Sources */,
+				8CE7756E1C22A54F009B2FBA /* SimilarPaintingView.swift in Sources */,
 				8CFA9BC21BC4078B00E8A116 /* Button.swift in Sources */,
 				8CF30E4B1B98F63500F97DA3 /* MenuPopoverBackgroundView.swift in Sources */,
 				8CF30E471B98C99700F97DA3 /* MenuTableViewCell.swift in Sources */,
@@ -497,6 +504,7 @@
 				8C9F79E81BC69E4D001174EC /* Account.swift in Sources */,
 				CEB97D5A1C197BDE00B7A48B /* OverlayView.m in Sources */,
 				8C260A951BAA765500BAACC5 /* ResultModalViewController.swift in Sources */,
+				8CE775701C22DE9D009B2FBA /* TutorialViewController.swift in Sources */,
 				8C1628891C13D24C00501E25 /* UIImage+OpenCV.mm in Sources */,
 				8C0C7BBC1BC4742100F37623 /* SignUpViewController.swift in Sources */,
 				8C1628851C13D0FB00501E25 /* CVWrapper.mm in Sources */,

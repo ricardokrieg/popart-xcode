@@ -23,6 +23,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBOutlet weak var similarPaintingsScrollView: UIScrollView!
     
     var result: NSData?
+    var paintingToModal: NSDictionary?
     var saveToHistory:Bool = false
     
     @IBAction func shareButtonClicked(sender: AnyObject) {
@@ -127,6 +128,8 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     }
     
     override func viewWillAppear(animated: Bool) {
+        paintingToModal = nil
+        
         if result != nil {
             let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
             
@@ -141,7 +144,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             let result_detailed_description = json?["detailed_description"] as? String?
             let result_location_area = json?["location_area"] as? String?
             let result_location_country = json?["location_country"] as? String?
-            let result_similar_paintings = json?["similar"] as? NSDictionary?
+            let result_similar_paintings = json?["similar"] as? NSArray?
             
             if (result_success == true) {
                 shareButton.enabled = true
@@ -180,41 +183,49 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                 resultDescriptionL3.text = result_description_l3!
             }
             
-//            if result_similar_paintings != nil {
-            if true {
-                var scrollViewWidth: CGFloat = 0
-                let scrollViewHeight = similarPaintingsScrollView.contentSize.height
-                
-                for var i = 0; i < 10; i++ {
-                    let similarPaintingView = UIView()
-                    let similarPaintingImageView = UIImageView()
-                    let similarPaintingLabel = UILabel()
-                    similarPaintingLabel.text = result_title!
+            if let similar_paintings = result_similar_paintings {
+                if similar_paintings!.count > 0 {
+                    var scrollViewWidth: CGFloat = 4
+                    let scrollViewHeight = similarPaintingsScrollView.contentSize.height
                     
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                        if let url = NSURL(string: result_thumb_image_url!!) {
-                            if let data = NSData(contentsOfURL: url){
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    let image = UIImage(data: data)
-                                    
-                                    similarPaintingImageView.image = image
-                                    similarPaintingImageView.contentMode = .ScaleAspectFit
-                                    similarPaintingImageView.frame.size = image!.size
-    //                                similarPaintingImageView.center = self.view.center
-                                    similarPaintingImageView.frame.origin = CGPoint(x: scrollViewWidth, y: CGFloat(0))
-                                    
-                                    scrollViewWidth += image!.size.width + 4
-                                    
-                                    self.similarPaintingsScrollView.contentSize = CGSize(width: scrollViewWidth, height: scrollViewHeight)
+                    for painting in similar_paintings! {
+                        let similarPaintingView = SimilarPaintingView()
+                        similarPaintingView.host = self
+                        similarPaintingView.painting = painting as? NSDictionary
+                        
+                        let similarPaintingImageView = UIImageView()
+                        similarPaintingImageView.userInteractionEnabled = true
+                        
+//                        let similarPaintingLabel = UILabel()
+//                        similarPaintingLabel.text = painting["title"] as? String
+                        
+//                        similarPaintingLabel.frame.origin = CGPoint(x: scrollViewWidth, y: scrollViewHeight-20)
+                        
+                        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                            if let url = NSURL(string: painting["thumb_image_url"] as! String) {
+                                if let data = NSData(contentsOfURL: url){
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                        let image = UIImage(data: data)
+                                        
+                                        similarPaintingImageView.image = image
+                                        similarPaintingImageView.contentMode = .ScaleAspectFit
+                                        similarPaintingImageView.frame.size = image!.size
+                                        similarPaintingImageView.frame.origin = CGPoint(x: scrollViewWidth, y: CGFloat(0))
+                                        
+                                        scrollViewWidth += image!.size.width + 4
+                                        
+                                        self.similarPaintingsScrollView.contentSize = CGSize(width: scrollViewWidth, height: scrollViewHeight)
+                                        
+                                        similarPaintingView.addSubview(similarPaintingImageView)
+                                        //  similarPaintingView.addSubview(similarPaintingLabel)
+                                        
+                                        self.similarPaintingsScrollView.addSubview(similarPaintingView)
+                                        similarPaintingView.setupTap()
+                                    }
                                 }
                             }
                         }
                     }
-                    
-                    similarPaintingView.addSubview(similarPaintingImageView)
-                    similarPaintingView.addSubview(similarPaintingLabel)
-                    
-                    similarPaintingsScrollView.addSubview(similarPaintingView)
                 }
             }
             
@@ -301,6 +312,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
         } else if segue.identifier == "fromResultToResultModal" {
             let destination = segue.destinationViewController as! ResultModalViewController
             destination.result = self.result
+            destination.similarPainting = self.paintingToModal
         }
     }
     

@@ -17,6 +17,7 @@ class ResultModalViewController: UIViewController {
     @IBOutlet weak var resultDescriptionL3: UILabel!
     
     var result: NSData?
+    var similarPainting: NSDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,15 @@ class ResultModalViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        if result != nil {
-            let json: AnyObject? = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
-            
+        var json: AnyObject?
+        
+        if similarPainting != nil {
+            json = similarPainting
+        } else {
+            json = try? NSJSONSerialization.JSONObjectWithData(result!, options: [])
+        }
+        
+        if json != nil {
             let result_image_url = json?["image_url"] as? String?
             let result_title = json?["title"] as? String?
             let result_description_l1 = json?["description_l1"] as? String?

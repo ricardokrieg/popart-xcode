@@ -323,6 +323,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }*/
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !NSUserDefaults.standardUserDefaults().boolForKey("tutorial1.2") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "tutorial1.2")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("fromMainToTutorial", sender: nil)
+            }
+        }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
