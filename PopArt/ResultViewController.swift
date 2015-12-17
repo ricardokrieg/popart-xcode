@@ -12,7 +12,7 @@ import Social
 import MessageUI
 import AssetsLibrary
 
-class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate {
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate, UIDocumentInteractionControllerDelegate, UIPopoverPresentationControllerDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var resultImage: UIImageView!
@@ -25,6 +25,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     var result: NSData?
     var paintingToModal: NSDictionary?
     var saveToHistory:Bool = false
+    var similarPaintingViews: Array<SimilarPaintingView> = []
     
     @IBAction func shareButtonClicked(sender: AnyObject) {
         var textToShare = ""
@@ -185,6 +186,11 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             if let similar_paintings = result_similar_paintings {
                 if similar_paintings!.count > 0 {
+                    let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+//                    tap.cancelsTouchesInView = false
+                    tap.delegate = self
+                    view.addGestureRecognizer(tap)
+                    
                     var scrollViewWidth: CGFloat = 4
                     let scrollViewHeight = similarPaintingsScrollView.contentSize.height
                     
@@ -220,7 +226,9 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
                                         //  similarPaintingView.addSubview(similarPaintingLabel)
                                         
                                         self.similarPaintingsScrollView.addSubview(similarPaintingView)
-                                        similarPaintingView.setupTap()
+//                                        similarPaintingView.setupTap()
+                                        
+                                        self.similarPaintingViews.append(similarPaintingView)
                                     }
                                 }
                             }
@@ -320,6 +328,26 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
+    }
+    
+    // MARK: UIGestureRecognizerDelegate
+    
+    func handleTap(gesture: UIGestureRecognizer?) {
+        NSLog("Tap: \(gesture)")
+        
+        if gesture != nil {
+//            for similarPaintingView in similarPaintingViews {
+            for similarPaintingView in similarPaintingsScrollView.subviews {
+                let point = gesture!.locationInView(view)
+                NSLog("Point (\(similarPaintingView)): \(point)")
+                NSLog("Inside: \(similarPaintingView.pointInside(point, withEvent: nil))")
+                NSLog("Real Frame: \(similarPaintingView.frame)")
+                NSLog("Real Bounds: \(similarPaintingView.bounds)")
+            }
+        }
+        
+//        host?.paintingToModal = painting
+//        host?.performSegueWithIdentifier("fromResultToResultModal", sender: nil)
     }
 }
 

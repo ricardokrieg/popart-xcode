@@ -326,8 +326,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !NSUserDefaults.standardUserDefaults().boolForKey("tutorial1.2") {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "tutorial1.2")
+        if !NSUserDefaults.standardUserDefaults().boolForKey("tutorial1.3") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "tutorial1.3")
             NSUserDefaults.standardUserDefaults().synchronize()
             
             dispatch_async(dispatch_get_main_queue()) {
