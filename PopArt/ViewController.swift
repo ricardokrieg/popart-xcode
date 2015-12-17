@@ -25,6 +25,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //    var rectLayer: UIImageView!
     var rectArea: Float = 0.0
     var rectDetectedAt: Double = -1
+    var runningCaptureOutput = false
     
     let locationManager = CLLocationManager()
     
@@ -324,6 +325,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.runningCaptureOutput = false
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "changeProcessImage", userInfo: nil, repeats: true)
         
@@ -687,6 +690,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             return
         }
         
+        if self.runningCaptureOutput {
+            NSLog("Dropping frame")
+            return
+        }
+        
 //        if (!shouldProcessImage) {
 //            return;
 //        }else {
@@ -712,7 +720,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        let my_queue = dispatch_queue_create("myq", nil)
 //        dispatch_async(my_queue) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-        
+            self.runningCaptureOutput = true
+            NSLog("Capturing frame - start")
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
 //            self.reloadOverVew(pros.overlayImageWithImage)
@@ -751,6 +760,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     keypoint.descriptor = k.descriptor
                     self.keypoints.append(keypoint)
                 }
+                
+                self.runningCaptureOutput = false
+                NSLog("Capturing frame - end")
 
                 if currentTime - self.rectDetectedAt >= 2000 {
                     NSLog("CurrentTime: \(currentTime)")
@@ -761,10 +773,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     
                     server.shouldSend = true
                     self.sendPictureToServer(pros.overlayImageWithImage)
+
                     return
                 } else {
                     NSLog("Wait: \(currentTime - self.rectDetectedAt)")
                 }
+            } else {
+                self.runningCaptureOutput = false
+                NSLog("Capturing frame - end")
             }
             
 //            self.croppedImage = pros.cropedImage;
@@ -983,7 +999,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             NSLog("Finish Upload At: \(finishTime)")
                             NSLog("Time Difference: \(finishTime - currentTime)")
                             
-                            server.scanLine!.stopAnimation()
+                            dispatch_async(dispatch_get_main_queue()) {
+                                server.scanLine!.stopAnimation()
+                            }
                             server.sendingPicture = false
                             self.overlayView.alpha = 0.0
                             return //also notify app of failure as needed
