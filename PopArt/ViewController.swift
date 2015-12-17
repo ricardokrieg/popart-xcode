@@ -544,7 +544,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.cameraView.layer.addSublayer(previewLayer!)
 
         self.cameraView.bringSubviewToFront(slider)
-        self.cameraView.bringSubviewToFront(rectView)
+//        self.cameraView.bringSubviewToFront(rectView)
         self.cameraView.bringSubviewToFront(overlayView)
         self.cameraView.bringSubviewToFront(server.frameDetector!)
         self.cameraView.bringSubviewToFront(server.scanLine!)
@@ -714,10 +714,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
+            self.reloadOverVew(pros.overlayImageWithImage)
+            
 //            dispatch_async(dispatch_get_main_queue(),{
-                self.rectView.image = pros.overlayImageWithImage
-                self.rectView.contentMode = .ScaleAspectFill
-                self.rectView.alpha = 1.0
+//                self.rectView.image = pros.overlayImageWithImage
+//                self.rectView.contentMode = .ScaleAspectFill
+//                self.rectView.alpha = 1.0
 //            })
             
             self.keypoints = []
@@ -728,6 +730,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 NSLog("TmpRectArea: \(tmpRectArea)")
                 NSLog("RectArea: \(self.rectArea)")
+                NSLog("Difference: \(abs(self.rectArea - tmpRectArea)) > \(self.rectArea*0.25)")
                 
                 if abs(self.rectArea - tmpRectArea) > self.rectArea*0.25 {
                     self.rectDetectedAt = currentTime
