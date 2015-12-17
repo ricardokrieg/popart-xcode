@@ -709,18 +709,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 //        self.croppedImage = bufferImage
 //return
 //        let dataImg:NSdata=UIImageJPEGRepresentation(imagen,1.0)
-        let my_queue = dispatch_queue_create("myq", nil)
-        dispatch_async(my_queue) {
-            
+//        let my_queue = dispatch_queue_create("myq", nil)
+//        dispatch_async(my_queue) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        
             let pros : stringedImage = CVWrapper.processImageWithOpenCV(self.pickedImage) as stringedImage
             
-            self.reloadOverVew(pros.overlayImageWithImage)
+//            self.reloadOverVew(pros.overlayImageWithImage)
             
-//            dispatch_async(dispatch_get_main_queue(),{
+            dispatch_async(dispatch_get_main_queue(),{
+                self.reloadOverVew(pros.overlayImageWithImage)
 //                self.rectView.image = pros.overlayImageWithImage
 //                self.rectView.contentMode = .ScaleAspectFill
 //                self.rectView.alpha = 1.0
-//            })
+            })
             
             self.keypoints = []
             
